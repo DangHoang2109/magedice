@@ -1,0 +1,8 @@
+*.csproj
+*.sln
+*.suo
+*.vsconfig
+MageDice/Library/
+MageDice/obj/
+MageDice/Logs/
+MageDice/Temp/
