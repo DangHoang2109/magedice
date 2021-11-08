@@ -41,22 +41,15 @@ public class BaseBullet : MonoBehaviour
         if(isFlying && this.Enemy != null)
         {
             transform.position = Vector3.SmoothDamp(transform.position, Enemy.transform.position, ref velocity, FlyTime);
-            Debug.Log($"Bullet {this.transform.position} fly to {Enemy.transform.position}");
             if (GameUtils.IsNear(transform.position, Enemy.transform.position, 20)) //pixel
             {
                 Hitted();
             }
-
-            //transform.position = Vector3.MoveTowards(transform.position, Enemy.transform.position,
-            //    step / moveTime * Time.deltaTime);
-
-            //this.transform.position = Vector3.Lerp(this.transform.position, Enemy.transform.position, t);
         }
     }
 
     public void Hitted()
     {
-        Debug.Log("Bullet hit enemy");
         isFlying = false;
     }
 }
