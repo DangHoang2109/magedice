@@ -24,20 +24,255 @@ MonoBehaviour:
     - {x: 0, y: 0, z: 0}
   - positions:
     - {x: 15, y: 15, z: 0}
-    - {x: -15, y: -15, z: 0}
+    - {x: -15, y: 15, z: 0}
     - {x: 15, y: -15, z: 0}
     - {x: -15, y: -15, z: 0}
   - positions:
     - {x: 18, y: 18, z: 0}
-    - {x: -18, y: -18, z: 0}
+    - {x: -18, y: 18, z: 0}
     - {x: 18, y: -18, z: 0}
     - {x: -18, y: -18, z: 0}
     - {x: 0, y: 0, z: 0}
   - positions:
     - {x: 18, y: 20, z: 0}
-    - {x: -18, y: -20, z: 0}
+    - {x: -18, y: 20, z: 0}
     - {x: 18, y: -20, z: 0}
     - {x: -18, y: -20, z: 0}
     - {x: -18, y: 0, z: 0}
     - {x: 18, y: 0, z: 0}
-  config: []
+  config:
+  - id: 1
+    Info:
+      id: 1
+      front: {fileID: 21300000, guid: 24db7e87d55e3374b98717d209d7714c, type: 3}
+      name: Fire
+      effectDescription: 
+      dotColor: {r: 0.7803922, g: 0.11764707, b: 0.18823531, a: 1}
+    Game:
+      id: 1
+      levels:
+      - dot: 1
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      - dot: 2
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      - dot: 3
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      - dot: 4
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      - dot: 5
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      - dot: 6
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      bullet:
+        normalBullet:
+          sprBullet: {fileID: 21300000, guid: 8514f98ff1b421e4e9e17ac13bd396e6, type: 3}
+          sprLight: {fileID: 21300000, guid: 6f7efd96664e75142b3198dc26624b45, type: 3}
+        rageBullet:
+          sprBullet: {fileID: 0}
+          sprLight: {fileID: 0}
+  - id: 2
+    Info:
+      id: 2
+      front: {fileID: 21300000, guid: 430c6973e7c6de74584dba3907a6fe91, type: 3}
+      name: Ice
+      effectDescription: 
+      dotColor: {r: 0, g: 0.63063097, b: 1, a: 1}
+    Game:
+      id: 2
+      levels:
+      - dot: 1
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      - dot: 2
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      - dot: 3
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      - dot: 4
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      - dot: 5
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      - dot: 6
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      bullet:
+        normalBullet:
+          sprBullet: {fileID: 21300000, guid: a4da5d534d50fc34a870202a30b9417d, type: 3}
+          sprLight: {fileID: 21300000, guid: ee58c2193bb9e724e8190eb0b9fb3902, type: 3}
+        rageBullet:
+          sprBullet: {fileID: 0}
+          sprLight: {fileID: 0}
+  - id: 3
+    Info:
+      id: 3
+      front: {fileID: 21300000, guid: 883f9548a94c4314591e7ed3762984b7, type: 3}
+      name: Wind
+      effectDescription: 
+      dotColor: {r: 0, g: 0.82745105, b: 0.6509804, a: 1}
+    Game:
+      id: 3
+      levels:
+      - dot: 1
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      - dot: 2
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      - dot: 3
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      - dot: 4
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      - dot: 5
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      - dot: 6
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      bullet:
+        normalBullet:
+          sprBullet: {fileID: 21300000, guid: 5f191663aee585f49b8a774e6c01b5ca, type: 3}
+          sprLight: {fileID: 21300000, guid: f7e43fb446e18f54fb2c89e649691f11, type: 3}
+        rageBullet:
+          sprBullet: {fileID: 0}
+          sprLight: {fileID: 0}
+  - id: 4
+    Info:
+      id: 4
+      front: {fileID: 21300000, guid: 0c670746475053443a2f27e99ae74875, type: 3}
+      name: Electric
+      effectDescription: 
+      dotColor: {r: 0.92549026, g: 0.69803923, b: 0.21176472, a: 1}
+    Game:
+      id: 4
+      levels:
+      - dot: 1
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      - dot: 2
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      - dot: 3
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      - dot: 4
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      - dot: 5
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      - dot: 6
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      bullet:
+        normalBullet:
+          sprBullet: {fileID: 21300000, guid: 7e690df535053544296960bc95d18bd8, type: 3}
+          sprLight: {fileID: 21300000, guid: 30f763beee3e9f849bc60df5799c461f, type: 3}
+        rageBullet:
+          sprBullet: {fileID: 0}
+          sprLight: {fileID: 0}
+  - id: 5
+    Info:
+      id: 5
+      front: {fileID: 21300000, guid: bc945afa125bea9498e59e00ca1647e6, type: 3}
+      name: Poision
+      effectDescription: 
+      dotColor: {r: 0.21568629, g: 0.6509804, b: 0.03529412, a: 1}
+    Game:
+      id: 5
+      levels:
+      - dot: 1
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      - dot: 2
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      - dot: 3
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      - dot: 4
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      - dot: 5
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      - dot: 6
+        damage: 5
+        speed: 10
+        range: 0
+        timeEffect: 0
+      bullet:
+        normalBullet:
+          sprBullet: {fileID: 21300000, guid: 4ebaa5db5c719974c86d444f956d2ce9, type: 3}
+          sprLight: {fileID: 21300000, guid: 24cd6d11f598df74b9f36be51e1d98be, type: 3}
+        rageBullet:
+          sprBullet: {fileID: 0}
+          sprLight: {fileID: 0}

@@ -11,10 +11,9 @@ public class BaseMonsterBehavior : MonoBehaviour
 
     private float TimeMove => Distance / _speed;
 
-    [ContextMenu("Run")]
-    public void Run()
+    public void Run(Transform tower)
     {
-        this.transform.DOMoveY(Tower.position.y, TimeMove)
+        this.transform.DOMoveY(tower.position.y, TimeMove)
             .SetEase(Ease.Linear)
             .OnComplete(AttackTower);
     }

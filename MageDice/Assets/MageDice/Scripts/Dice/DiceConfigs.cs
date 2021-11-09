@@ -25,6 +25,63 @@ public class DiceConfigs : ScriptableObject
         }
     }
 
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        //foreach (DiceConfig c in this.config)
+        //{
+        //    List<DiceGameLevelConfig> l = new List<DiceGameLevelConfig>();
+        //    for (int i = 0; i < 6; i++)
+        //    {
+        //        l.Add(new DiceGameLevelConfig
+        //        {
+        //            dot = i + 1,
+        //            damage = 0,
+        //            range = 0,
+        //            speed = 0,
+        //            timeEffect = 0
+        //        });
+        //    }
+        //    c.Game.levels = l.ToArray();
+        //}
+    }
+
+    [ContextMenu("Load Sprite")]
+    private void LoadBulletSprite()
+    {
+        string fontPath = string.Format("Assets/MageDice/Images/Bullet/Font/");
+        List<Sprite> fontSpr = GameUtils.LoadAllAssetsInFolder<Sprite>(fontPath, new List<string> { "*.png"});
+
+        string lightPath = string.Format("Assets/MageDice/Images/Bullet/Light/");
+        List<Sprite> lightSpr = GameUtils.LoadAllAssetsInFolder<Sprite>(lightPath, new List<string> { "*.png" });
+
+        foreach(DiceConfig config in this.config)
+        {
+            Sprite f = fontSpr.Find(x => x.name.Equals(config.id.ToString()));
+            if (f == null)
+                Debug.Log($"CAN NOT FIND {config.id}");
+            config.Game.bullet.normalBullet.sprBullet = f;
+
+            Sprite l = lightSpr.Find(x => x.name.Equals(config.id.ToString()));
+            if (l == null)
+                Debug.Log($"CAN NOT FIND {config.id}");
+            config.Game.bullet.normalBullet.sprLight = l;
+
+        }
+    }
+    [ContextMenu("Load Stat")]
+    private void LoadBulletStat()
+    {
+        foreach (DiceConfig config in this.config)
+        {
+            foreach(DiceGameLevelConfig level in config.Game.levels)
+            {
+                level.speed = 10;
+                level.damage = 5;
+            }
+        }
+    }
+#endif
     public DiceConfig GetConfig(DiceID id)
     {
         return this.config.Find(x => x.id == id);
@@ -39,14 +96,38 @@ public enum DiceID
 {
     NONE = 0,
 
+    [Type(typeof(FireDiceEffect))]
     FIRE,
+    [Type(typeof(IceDiceEffect))]
     ICE,
+    [Type(typeof(WindDiceEffect))]
     WIND,
+    [Type(typeof(ElectricDiceEffect))]
     ELECTRIC,
+    [Type(typeof(PoisionDiceEffect))]
     POISION
 }
 [System.Serializable]
 public class DiceConfig
+{
+    public DiceID id;
+    //public Sprite front;
+    //public string name;
+    //public string effectDescription;
+
+    //public Color dotColor;
+
+    public DiceInfoConfig Info;
+    public DiceGameConfig Game;
+
+}
+[System.Serializable]
+public class DiceDotConfig
+{
+    public List<Vector3> positions;
+}
+[System.Serializable]
+public class DiceInfoConfig
 {
     public DiceID id;
     public Sprite front;
@@ -57,7 +138,35 @@ public class DiceConfig
 
 }
 [System.Serializable]
-public class DiceDotConfig
+public class DiceGameConfig
 {
-    public List<Vector3> positions;
+    public DiceID id;
+    public DiceGameLevelConfig[] levels;
+    public DiceBulletConfig bullet;
+}
+[System.Serializable]
+public class DiceGameLevelConfig
+{
+    public int dot;
+
+    public float damage;
+    public float speed;
+    public float range;
+
+    public float timeEffect;
+}
+
+[System.Serializable]
+public class DiceBulletStateConfig
+{
+    public Sprite sprBullet;
+    public Sprite sprLight;
+}
+
+[System.Serializable]
+public class DiceBulletConfig
+{
+    public DiceBulletStateConfig normalBullet;
+
+    public DiceBulletStateConfig rageBullet;
 }

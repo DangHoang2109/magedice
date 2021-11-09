@@ -12,10 +12,10 @@ public class GameBoardSlot : MonoBehaviour
     {
         if (!IsPlacing)
         {
-            item.transform.SetParent(this.tfPlaceDice);
-            item.transform.localScale = Vector3.one;
-            item.transform.localPosition = Vector3.zero;
             this.item = item;
+            SetTransformDice();
+
+            item.Place(this);
         }
     }
 
@@ -31,5 +31,11 @@ public class GameBoardSlot : MonoBehaviour
     {
         if (this.IsPlacing)
             this.item.Active();
+    }
+    public void SetTransformDice()
+    {
+        item.transform.SetParent(this.tfPlaceDice);
+        item.transform.localScale = Vector3.one;
+        item.transform.localPosition = Vector3.zero;
     }
 }

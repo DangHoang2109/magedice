@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ public class GameDiceData : BaseDiceData
 {
     int dot;
     public int Dot => this.dot;
+
+    public BaseDiceEffect diceEffect;
     public override void ClearData()
     {
         base.ClearData();
@@ -13,6 +16,7 @@ public class GameDiceData : BaseDiceData
     public override T SetData<T>(DiceID id, DiceConfig config = null)
     {
         base.SetData<T>(id, config);
+
 
         return this as T;
     }
@@ -26,9 +30,16 @@ public class GameDiceData : BaseDiceData
 
         return this as T;
     }
+    public virtual T SetEffect<T>() where T : BaseDiceData
+    {
+        this.diceEffect = Activator.CreateInstance(EnumUtility.GetStringType(this.id)) as BaseDiceEffect;
+        this.diceEffect.GameConfig = this.Config.Game.levels[this.Dot-1];
+        this.diceEffect.UIConfig = this.Config.Game.bullet;
 
+        return this as T;
+    }
     public virtual void ActiveEffect()
     {
-        Debug.Log($"Dice {this.id} {this.Dot} activated ");
+        this.diceEffect.ActiveEffect();
     }
 }

@@ -1,11 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
+using System.Linq;
 public class GameDiceItem : BaseDiceItem
 {
     public GameDiceData Data => this.GetData<GameDiceData>();
+    private GameBoardManager _BoardManager;
+    private GameBoardManager BoardManager
+    {
+        get
+        {
+            if (this._BoardManager == null)
+                this._BoardManager = GameBoardManager.Instance;
+
+            return _BoardManager;
+        }
+    }
 
     [Header("Game UI")]
     public GameObject gDot;
@@ -48,9 +60,65 @@ public class GameDiceItem : BaseDiceItem
             this.gDot.SetActive(false);
     }
 
+    public virtual void Place(GameBoardSlot slot)
+    {
+        this.currentSlot = slot;
+    }
+    public virtual void UnPlace()
+    {
+        this.currentSlot.Clear();
+    }
     public void Active()
     {
         if (this.Data != null)
             this.Data.ActiveEffect();
     }
+    
+
+    #region Interact handler
+    public GameBoardSlot currentSlot;
+    protected override void OnCustomBeginDrag(PointerEventData eventData)
+    {
+        base.OnCustomBeginDrag(eventData);
+
+        this.transform.SetParent(BoardManager.transform);
+        this.transform.SetAsLastSibling();
+    }
+    protected override void OnCustomDrag(PointerEventData eventData)
+    {
+        base.OnCustomDrag(eventData);
+    }
+    protected override void OnCustomEndDrag(PointerEventData eventData)
+    {
+        base.OnCustomEndDrag(eventData);
+
+        //get nearest slot
+        List<GameBoardSlot> slots = BoardManager.Slots;
+        GameBoardSlot nearestSlot = slots.OrderBy(x => GameUtils.DistanceBetween(x.transform.position, this.transform.position)).FirstOrDefault();
+        if(nearestSlot != null)
+        {
+            //check if slot is not empty and contain same dot + id to this
+            if (nearestSlot.IsPlacing && nearestSlot != this.currentSlot)
+            {
+                GameDiceItem dice = nearestSlot.item;
+                if(dice.Data.id == this.Data.id && dice.Data.Dot == this.Data.Dot)
+                {
+                    //merge if true
+                    BoardManager.MergeDice(dice, this);
+                    return;
+                }
+            }
+        }
+        //return back if false
+        ReturnDiceBack();
+    }
+    protected void ReturnDiceBack()
+    {
+        this.currentSlot.SetTransformDice();
+    }
+    protected override void OnCustomPointerClick(PointerEventData eventData)
+    {
+        base.OnCustomPointerClick(eventData);
+    }
+    #endregion Interact handler
 }

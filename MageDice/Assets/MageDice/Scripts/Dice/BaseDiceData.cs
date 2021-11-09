@@ -22,8 +22,8 @@ public class BaseDiceData
         }
     }
 
-    public Sprite Front => this.Config.front;
-    public Color color => this.Config.dotColor;
+    public Sprite Front => this.Config.Info.front;
+    public Color color => this.Config.Info.dotColor;
 
 
     public virtual T SetData<T>(DiceID id, DiceConfig config = null) where T : BaseDiceData

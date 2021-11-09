@@ -283,6 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   imgFront: {fileID: 6776404748775853364}
+  interactState: 0
   gDot: {fileID: 6776404749156629672}
   dots:
   - {fileID: 6776404749271037155}
@@ -291,6 +292,7 @@ MonoBehaviour:
   - {fileID: 6776404749232206961}
   - {fileID: 6776404749473418258}
   - {fileID: 6776404747632772032}
+  currentSlot: {fileID: 0}
 --- !u!114 &608989826590258054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,7 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.003921569}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:

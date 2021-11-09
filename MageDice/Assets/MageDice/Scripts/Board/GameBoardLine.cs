@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class GameBoardLine : MonoBehaviour
 {
+    private GameBoardManager _BoardManager;
+    private GameBoardManager BoardManager
+    {
+        get
+        {
+            if (this._BoardManager == null)
+                this._BoardManager = GameBoardManager.Instance;
+
+            return _BoardManager;
+        }
+    }
+
     [SerializeField] private Vector3 _startPos;
     [SerializeField] private Vector3 _endPos;
     [SerializeField] private GameBoardCollumn[] collumn;
@@ -47,7 +59,7 @@ public class GameBoardLine : MonoBehaviour
     {
         if (isMoving)
         {
-            transform.position = Vector3.SmoothDamp(transform.position, this._endPos, ref velocity, FlyTime);
+            transform.position = Vector3.SmoothDamp(transform.position, new Vector3(this._endPos.x, this.transform.position.y), ref velocity, FlyTime);
 
             if (GameUtils.IsNear(transform.position.x, NextCollumn.gEntryLine.transform.position.x, 2.5f)) //pixel
             {
@@ -67,7 +79,7 @@ public class GameBoardLine : MonoBehaviour
         isMaxCollumn = false;
         indexCollumnNext = 0;
         this.transform.localPosition = this._startPos;
-        GameBoardManager.Instance.ResetData();
+        BoardManager.ResetData();
     }
 
     public void ActiveLine()

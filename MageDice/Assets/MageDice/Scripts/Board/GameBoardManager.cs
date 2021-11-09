@@ -4,6 +4,9 @@ using UnityEngine;
 using System.Linq;
 public class GameBoardManager : MonoSingleton<GameBoardManager>
 {
+    [SerializeField] private List<GameBoardSlot> slot;
+    public List<GameBoardSlot> Slots => this.slot;
+
     [SerializeField] private GameBoardCollumn[] collumns;
     public GameBoardCollumn[] Collumns => this.collumns;
 
@@ -36,6 +39,7 @@ public class GameBoardManager : MonoSingleton<GameBoardManager>
     private void OnValidate()
     {
         this.collumns = this.GetComponentsInChildren<GameBoardCollumn>();
+        this.slot = new List<GameBoardSlot>(this.GetComponentsInChildren<GameBoardSlot>());
     }
 
     [ContextMenu("StartPlay")]
@@ -58,12 +62,13 @@ public class GameBoardManager : MonoSingleton<GameBoardManager>
         }
 
         DiceID id = userDicesList.GetRandomSafe();
+        Debug.Log($"random dice {id} {nextDot}");
 
         GameDiceData result = new GameDiceData();
         result.SetData<GameDiceData>(id)
-            .SetDot<GameDiceData>(nextDot);
+            .SetDot<GameDiceData>(nextDot)
+            .SetEffect<GameDiceData>();
 
-        Debug.Log($"add dice {id} {result.id} {nextDot} {result.Dot}");
 
         return result;
     }
@@ -76,5 +81,19 @@ public class GameBoardManager : MonoSingleton<GameBoardManager>
         GameDiceItem item = Instantiate(prefabDice);//must get from pool
         item.SetData(dice);
         freeCollumn.PlaceDice(item);
+    }
+
+    /// <summary>
+    /// Merge 2 dice lại
+    /// </summary>
+    /// <param name="diceReplace">Viên dice nằm, bị thay thế bởi dice khác</param>
+    /// <param name="diceReturn">Viên dice drag, bị thu hồi về pool</param>
+    public void MergeDice(GameDiceItem diceReplace, GameDiceItem diceReturn)
+    {
+        GameDiceData newData = RandomDice(diceReplace.Data);
+        diceReplace.SetData(newData);
+
+        diceReturn.UnPlace();
+        Destroy(diceReturn.gameObject);
     }
 }

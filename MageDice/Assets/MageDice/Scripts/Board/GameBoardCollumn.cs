@@ -49,6 +49,7 @@ public class GameBoardCollumn : MonoBehaviour
 
         Debug.LogError("There is no free slot");
     }
+
     private void OnValidate()
     {
         this.slots = this.GetComponentsInChildren<GameBoardSlot>();

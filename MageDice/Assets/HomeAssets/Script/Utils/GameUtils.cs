@@ -569,6 +569,10 @@ public static class GameUtils
     {
         return (A.position - B.position).magnitude;
     }
+    public static float DistanceBetween(Vector3 A, Vector3 B)
+    {
+        return (A - B).magnitude;
+    }
     public static bool IsNear(float checkPosition, float currentPosition, float checkOffset = 0.1f)
     {
         return currentPosition >= checkPosition - checkOffset && currentPosition <= checkPosition + checkOffset;
