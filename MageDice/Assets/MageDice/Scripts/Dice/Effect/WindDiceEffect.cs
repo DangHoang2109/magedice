@@ -17,6 +17,6 @@ public class WindDiceEffect : BaseDiceEffect
     {
         base.BulletEffect(enemy);
 
-        enemy.Hitted();
+        enemy.Hitted(this.GameConfig.damage);
     }
 }

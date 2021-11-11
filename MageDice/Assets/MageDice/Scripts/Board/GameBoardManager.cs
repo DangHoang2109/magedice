@@ -96,4 +96,47 @@ public class GameBoardManager : MonoSingleton<GameBoardManager>
         diceReturn.UnPlace();
         Destroy(diceReturn.gameObject);
     }
+
+
+    #region Test
+    public GameDiceData GetDice(DiceID id, GameDiceData previous = null)
+    {
+        int nextDot = 1;
+        if (previous != null && previous.Dot < 6)
+        {
+            nextDot = previous.Dot + 1;
+        }
+
+        GameDiceData result = new GameDiceData();
+        result.SetData<GameDiceData>(id)
+            .SetDot<GameDiceData>(nextDot)
+            .SetEffect<GameDiceData>();
+
+        return result;
+    }
+    [ContextMenu("PlaceDice/Poision")]
+    private void PlaceDicePoision()
+    {
+        GameBoardCollumn freeCollumn = this.collumns.Where(x => !x.IsFull).ToList().First();
+        if (freeCollumn == null)
+            return;
+
+        GameDiceData dice = GetDice(DiceID.POISION);
+        GameDiceItem item = Instantiate(prefabDice);//must get from pool
+        item.SetData(dice);
+        freeCollumn.PlaceDice(item);
+    }
+    [ContextMenu("PlaceDice/Ice")]
+    private void PlaceDiceIce()
+    {
+        GameBoardCollumn freeCollumn = this.collumns.Where(x => !x.IsFull).ToList().First();
+        if (freeCollumn == null)
+            return;
+
+        GameDiceData dice = GetDice(DiceID.ICE);
+        GameDiceItem item = Instantiate(prefabDice);//must get from pool
+        item.SetData(dice);
+        freeCollumn.PlaceDice(item);
+    }
+    #endregion
 }

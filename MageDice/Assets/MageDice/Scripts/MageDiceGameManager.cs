@@ -13,4 +13,10 @@ public class MageDiceGameManager : MonoSingleton<MageDiceGameManager>
 
     [SerializeField] private Vector3 _tfMaxSafeLeft;
     public Vector3 TfMaxSafeLeft => this._tfMaxSafeLeft;
+
+
+    private void Start()
+    {
+        GameBoardManager.Instance.StartPlay();
+    }
 }

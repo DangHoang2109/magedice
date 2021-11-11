@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletPoolManager : MonoSingleton<BulletPoolManager>
 {
-    public const int AMOUNT_BULLET_PREPARE = 100;
+    public const int AMOUNT_BULLET_PREPARE = 25;
     public const int AMOUNT_BULLET_PREPARE_EACH_CALL = 5;
 
     [SerializeField] private BaseBullet bullet;

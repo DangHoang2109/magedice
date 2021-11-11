@@ -9,7 +9,6 @@ public class IceDiceEffect : BaseDiceEffect
     {
         base.ActiveEffect();
 
-
         Debug.Log("ice fire 1 bullet");
         this.ShootBullet(1);
     }
@@ -18,6 +17,7 @@ public class IceDiceEffect : BaseDiceEffect
     {
         base.BulletEffect(enemy);
 
-        enemy.Hitted();
+        enemy.Hitted(this.GameConfig.damage);
+        enemy.Freeze(this.GameConfig.timeEffect);
     }
 }

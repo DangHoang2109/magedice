@@ -52,7 +52,7 @@ MonoBehaviour:
       id: 1
       levels:
       - dot: 1
-        damage: 5
+        damage: 15
         speed: 10
         range: 0
         timeEffect: 0
@@ -99,10 +99,10 @@ MonoBehaviour:
       id: 2
       levels:
       - dot: 1
-        damage: 5
+        damage: 10
         speed: 10
         range: 0
-        timeEffect: 0
+        timeEffect: 3
       - dot: 2
         damage: 5
         speed: 10
@@ -147,7 +147,7 @@ MonoBehaviour:
       levels:
       - dot: 1
         damage: 5
-        speed: 10
+        speed: 20
         range: 0
         timeEffect: 0
       - dot: 2
@@ -193,7 +193,7 @@ MonoBehaviour:
       id: 4
       levels:
       - dot: 1
-        damage: 5
+        damage: 10
         speed: 10
         range: 0
         timeEffect: 0
@@ -240,10 +240,10 @@ MonoBehaviour:
       id: 5
       levels:
       - dot: 1
-        damage: 5
-        speed: 10
+        damage: 10
+        speed: 8
         range: 0
-        timeEffect: 0
+        timeEffect: 5
       - dot: 2
         damage: 5
         speed: 10

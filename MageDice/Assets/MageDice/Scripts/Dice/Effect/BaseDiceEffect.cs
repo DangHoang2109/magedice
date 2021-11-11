@@ -16,6 +16,7 @@ public class BaseDiceEffect
     {
         List<BaseBullet> bs = BulletPoolManager.Instance.GetBullets(amount);
         List< BaseMonsterBehavior> monsters = MonsterManager.Instance.GetNearestMonsters(amount);
+        
         if(bs != null && bs.Count > 0)
         {
             for (int i = 0; i < bs.Count; i++)

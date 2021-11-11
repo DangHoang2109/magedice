@@ -11,6 +11,9 @@ public class BaseBullet : MonoBehaviour
     [SerializeField] private Image imgFront;
     [SerializeField] private Image imgLight;
 
+    [Header("Explosion")]
+    public TMPro.TextMeshProUGUI tmpDamage;
+
     [Header("Config")]
     [SerializeField] private float _ConfigDistance = 5;
     [SerializeField] private float _speed;
@@ -39,6 +42,8 @@ public class BaseBullet : MonoBehaviour
     public BaseBullet SetEnemy(BaseMonsterBehavior enemy)
     {
         this.Enemy = enemy;
+
+        enemy.RegisterHitting(this._damage);
         return this;
     }
     public BaseBullet SetData(DiceGameLevelConfig config)
@@ -82,4 +87,5 @@ public class BaseBullet : MonoBehaviour
 
         BulletManager.Instance.UnregisterBullet(this);
     }
+
 }

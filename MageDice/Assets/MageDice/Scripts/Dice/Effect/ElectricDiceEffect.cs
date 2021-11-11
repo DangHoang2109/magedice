@@ -18,6 +18,15 @@ public class ElectricDiceEffect : BaseDiceEffect
     {
         base.BulletEffect(enemy);
 
-        enemy.Hitted();
+        enemy.Hitted(this.GameConfig.damage);
+
+        List<BaseMonsterBehavior> elecEfft = MonsterManager.Instance.GetNearestMonsters(2, enemy.transform, enemy.Id);
+        if(elecEfft.Count > 0)
+        {
+            foreach(BaseMonsterBehavior m in elecEfft)
+            {
+                m.Hitted(Mathf.Floor(this.GameConfig.damage / 3));
+            }
+        }
     }
 }
