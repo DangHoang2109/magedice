@@ -30,19 +30,10 @@ public class DiceConfigs : ScriptableObject
     {
         //foreach (DiceConfig c in this.config)
         //{
-        //    List<DiceGameLevelConfig> l = new List<DiceGameLevelConfig>();
-        //    for (int i = 0; i < 6; i++)
+        //    for (int i = 1; i < 6; i++)
         //    {
-        //        l.Add(new DiceGameLevelConfig
-        //        {
-        //            dot = i + 1,
-        //            damage = 0,
-        //            range = 0,
-        //            speed = 0,
-        //            timeEffect = 0
-        //        });
+        //        c.Game.levels[i].damage = c.Game.levels[0].damage * (i + 1);
         //    }
-        //    c.Game.levels = l.ToArray();
         //}
     }
 

@@ -8,13 +8,8 @@ public class BaseMonsterBehavior : BasePersonBehavior
     [Header("UI")]
     public Image imgFront;
 
-    public float Distance;
-
     private Transform Tower;
     private Vector3 TowerPoint;
-    private Vector3 velocity = Vector3.zero;
-
-    private float TimeMove => Distance / _speed;
 
     public float FutureHP { get => _futureHP;}
 
@@ -25,7 +20,7 @@ public class BaseMonsterBehavior : BasePersonBehavior
     Tween tweenMoving;
     private bool _isPause;
 
-    public override void Spawned(PersonConfig config)
+    public override void Spawned(PersonGameData config)
     {
         _isPause = true;
 
@@ -35,19 +30,21 @@ public class BaseMonsterBehavior : BasePersonBehavior
         TowerPoint = new Vector3(this.transform.position.x, Tower.transform.position.y, 0);
         _futureHP = this._currentHP;
 
-        _damage = config.damage.init_stat;
-        _speed = config.speed.init_stat;
+        _damage = config.CurrentDamage;
+        _speed = config.CurrentSpeed;
 
-        MonsterConfig monsterConfig = config as MonsterConfig;
-        imgFront.sprite = monsterConfig.UI.spr;
-        this.transform.localScale = new Vector3(monsterConfig.UI.scale, monsterConfig.UI.scale);
+        MonsterGameData monsterConfig = config as MonsterGameData;
+        imgFront.sprite = monsterConfig.config.UI.spr;
+        this.transform.localScale = new Vector3(monsterConfig.config.UI.scale, monsterConfig.config.UI.scale);
     }
 
     public void CustomUpdate()
     {
         if (!_isPause && this.Tower != null)
         {
-            transform.position = Vector3.SmoothDamp(transform.position, TowerPoint, ref velocity, TimeMove);
+            transform.position = Vector3.MoveTowards(transform.position, TowerPoint, _speed * Time.deltaTime);
+
+            //transform.position = Vector3.SmoothDamp(transform.position, TowerPoint, ref velocity, TimeMove);
             if (GameUtils.IsNear(transform.position.y, TowerPoint.y, 5)) //pixel
             {
                 AttackTower();

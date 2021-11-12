@@ -1161,11 +1161,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startPos: {x: -360, y: 100, z: 0}
-  _endPos: {x: 360, y: 100, z: 0}
+  _endPos: {x: 385, y: 100, z: 0}
   collumn: []
   indexCollumnNext: 0
-  _ConfigDistance: 20
-  _speed: 2
+  _speed: 40
 --- !u!1 &472364642
 GameObject:
   m_ObjectHideFlags: 0

@@ -208,7 +208,8 @@ public class GameMapConfigs : ScriptableObject
 
         foreach(MonsterConfig m in green.monsterConfig)
         {
-            m.hp.init_stat *= 10;
+            m.speed.init_stat *= 1.25f;
+            m.speed.percentUpEachWave = 0;
             //switch (m.ID)
             //{
             //    case MonsterType.NORMAL_CREEP:
@@ -230,7 +231,7 @@ public class GameMapConfigs : ScriptableObject
             //        m.UI.scale = 2f;
             //        break;
             //}
-           
+
         }
     }
 

@@ -14,11 +14,11 @@ public class BasePersonBehavior : MonoBehaviour
 
     public int Id { get => id; set => id = value; }
 
-    public virtual void Spawned(PersonConfig config)
+    public virtual void Spawned(PersonGameData config)
     {
         this.gameObject.SetActive(true);
-        _maxHP = config.hp.init_stat;
-        _currentHP = config.hp.init_stat;
+        _maxHP = config.CurrentHP;
+        _currentHP = config.CurrentHP;
 
         HPBar.ParseData(max: _maxHP, current: _currentHP);
     }

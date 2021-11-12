@@ -32,10 +32,7 @@ public class GameBoardLine : MonoBehaviour
 
     [SerializeField] private int indexCollumnNext;
 
-    [SerializeField] private float _ConfigDistance = 5;
     [SerializeField] private float _speed;
-    private float FlyTime => _ConfigDistance / _speed;
-    private Vector3 velocity = Vector3.zero;
 
     private bool isMoving;
     private bool isMaxCollumn;
@@ -59,7 +56,8 @@ public class GameBoardLine : MonoBehaviour
     {
         if (isMoving)
         {
-            transform.position = Vector3.SmoothDamp(transform.position, new Vector3(this._endPos.x, this.transform.position.y), ref velocity, FlyTime);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(this._endPos.x, this.transform.position.y), _speed * Time.deltaTime);
+            //transform.position = Vector3.SmoothDamp(transform.position, new Vector3(this._endPos.x, this.transform.position.y), ref velocity, FlyTime);
 
             if (GameUtils.IsNear(transform.position.x, NextCollumn.gEntryLine.transform.position.x, 2.5f)) //pixel
             {
@@ -67,7 +65,7 @@ public class GameBoardLine : MonoBehaviour
                 return;
             }
 
-            if(this.isMaxCollumn && GameUtils.IsNear(transform.localPosition.x, _endPos.x, 2.5f))
+            if(this.isMaxCollumn && GameUtils.IsNear(transform.localPosition.x, _endPos.x, 30f)) //30 is line image wisth
             {
                 ResetData();
             }

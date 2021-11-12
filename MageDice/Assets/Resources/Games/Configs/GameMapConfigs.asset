@@ -299,8 +299,8 @@ MonoBehaviour:
       intervalSpawn: 0.5
     monsterConfig:
     - speed:
-        init_stat: 5
-        percentUpEachWave: 0.025
+        init_stat: 14.0625
+        percentUpEachWave: 0
       damage:
         init_stat: 5
         percentUpEachWave: 0.025
@@ -314,8 +314,8 @@ MonoBehaviour:
         description: 
         scale: 1
     - speed:
-        init_stat: 10
-        percentUpEachWave: 0.025
+        init_stat: 28.125
+        percentUpEachWave: 0
       damage:
         init_stat: 3
         percentUpEachWave: 0.025
@@ -329,8 +329,8 @@ MonoBehaviour:
         description: 
         scale: 1.2
     - speed:
-        init_stat: 5
-        percentUpEachWave: 0.025
+        init_stat: 14.0625
+        percentUpEachWave: 0
       damage:
         init_stat: 10
         percentUpEachWave: 0.025
@@ -344,8 +344,8 @@ MonoBehaviour:
         description: 
         scale: 1.2
     - speed:
-        init_stat: 3
-        percentUpEachWave: 0.025
+        init_stat: 8.4375
+        percentUpEachWave: 0
       damage:
         init_stat: 15
         percentUpEachWave: 0.025
@@ -359,8 +359,8 @@ MonoBehaviour:
         description: 
         scale: 1.5
     - speed:
-        init_stat: 3
-        percentUpEachWave: 0.025
+        init_stat: 8.4375
+        percentUpEachWave: 0
       damage:
         init_stat: 25
         percentUpEachWave: 0.025
@@ -374,8 +374,8 @@ MonoBehaviour:
         description: 
         scale: 1.75
     - speed:
-        init_stat: 3
-        percentUpEachWave: 0.025
+        init_stat: 8.4375
+        percentUpEachWave: 0
       damage:
         init_stat: 50
         percentUpEachWave: 0.025

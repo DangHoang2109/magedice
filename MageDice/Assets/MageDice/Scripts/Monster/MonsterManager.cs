@@ -3,7 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+public class PersonGameData
+{
+    protected float currentSpeed;
+    protected float currentDamage;
+    protected float currentHP;
 
+    public float CurrentSpeed { get => currentSpeed; }
+    public float CurrentDamage { get => currentDamage; }
+    public float CurrentHP { get => currentHP; }
+
+    public PersonGameData(PersonConfig c)
+    {
+        this.currentSpeed = c.speed.init_stat;
+        this.currentDamage = c.damage.init_stat;
+        this.currentHP = c.hp.init_stat;
+    }
+}
+public class MonsterGameData : PersonGameData
+{
+    public MonsterType ID;
+
+
+    public MonsterConfig config;
+
+
+
+    public MonsterGameData(MonsterConfig c) : base(c)
+    {
+        this.config = c;
+        this.ID = c.ID;
+    }
+
+    public void Upgrade()
+    {
+        this.currentSpeed  *= (1f + config.speed.percentUpEachWave);
+        this.currentDamage *= (1f + config.damage.percentUpEachWave);
+        this.currentHP *= (1f + config.hp.percentUpEachWave);
+
+        Debug.Log($"Upgrade hp to {currentHP}");
+    }
+}
 public class MonsterManager : MonoSingleton<MonsterManager>
 {
     [SerializeField] private List<BaseMonsterBehavior> activeMonsters;
@@ -29,7 +69,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
         }
     }
 
-    private List<MonsterConfig> monsterConfig;
+    private List<MonsterGameData> monsterData;
 
     private Transform towerTop;
     public Transform TowerTop
@@ -43,7 +83,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
         }
     }
 
-    public Queue<GameWaveUnit> activeWave;
+    //public Queue<GameWaveUnit> activeWave;
 
     private void OnValidate()
     {
@@ -52,8 +92,12 @@ public class MonsterManager : MonoSingleton<MonsterManager>
     public void StartGame(MapConfig map)
     {
         this.activeMonsters = new List<BaseMonsterBehavior>();
-        this.activeWave = new Queue<GameWaveUnit>();
-        this.monsterConfig = new List<MonsterConfig>(map.monsterConfig);
+        //this.activeWave = new Queue<GameWaveUnit>();
+        this.monsterData = new List<MonsterGameData>();
+        foreach(MonsterConfig c in map.monsterConfig)
+        {
+            this.monsterData.Add(new MonsterGameData(c));
+        }
 
         StartWave();
     }
@@ -76,29 +120,51 @@ public class MonsterManager : MonoSingleton<MonsterManager>
             wave = wave,
             startTime = Time.timeSinceLevelLoad
         };
-        activeWave.Enqueue(waveUnit);
+        //activeWave.Enqueue(waveUnit);
 
         this.StartCoroutine(ieWaveProcess(waveUnit, test_Wave));
     }
+    public void EndWave(GameWaveUnit unit)
+    {
+        UpgradeMonster(unit.wave.monsterRate);
+        this.StartWave();
+    }
+    public void UpgradeMonster(List<WaveMonsterRateConfig> waveConfig)
+    {
+        foreach(WaveMonsterRateConfig c in waveConfig)
+        {
+            MonsterGameData m = this.monsterData.Find(x => x.ID == c.monsterID);
+            m.Upgrade();
+        }
+    }
     private IEnumerator ieWaveProcess(GameWaveUnit unit, int test_currentWave)
     {
-        YieldInstruction interval = new WaitForSeconds(unit.wave.intervalSpawn);
-        float lengthSpawn = unit.wave.lengthSpawn;
-        float length = unit.wave.length;
 
-        while(length > 0)
-        {
-            length -= unit.wave.intervalSpawn;
-            if (lengthSpawn > 0)
+            YieldInstruction interval = new WaitForSeconds(unit.wave.intervalSpawn);
+            float lengthSpawn = unit.wave.lengthSpawn;
+            float length = unit.wave.length;
+
+            while (length > 0)
             {
-                lengthSpawn -= unit.wave.intervalSpawn;
-                SpawnAMonster(unit.wave.monsterRate);
-            }
+                try
+                {
+                    length -= unit.wave.intervalSpawn;
+                    if (lengthSpawn > 0)
+                    {
+                        lengthSpawn -= unit.wave.intervalSpawn;
+                        SpawnAMonster(unit.wave.monsterRate);
+                    }
+                }
+                catch (System.Exception e)
+                {
+                    Debug.LogError(e.StackTrace);
+                }
             yield return interval;
-        }
+            }
 
-        //end wave
-        StartWave();
+            //end wave
+            EndWave(unit);
+
     }
 
     private WaveMonsterRateConfig RandomMonster(List<WaveMonsterRateConfig> listRand)
@@ -132,11 +198,11 @@ public class MonsterManager : MonoSingleton<MonsterManager>
     {
         //decise which to spawn 
         WaveMonsterRateConfig pick = RandomMonster(listRand);
-        MonsterConfig config;
+        MonsterGameData config;
         if (pick == null)
-            config = this.monsterConfig[0];
+            config = this.monsterData[0];
         else
-            config = this.monsterConfig.Find(x => x.ID == pick.monsterID);
+            config = this.monsterData.Find(x => x.ID == pick.monsterID);
 
         //take from pool
         BaseMonsterBehavior monsterObj = MonsterPoolManager.Instance.GetAMonster();
