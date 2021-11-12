@@ -8,9 +8,6 @@ public class ElectricDiceEffect : BaseDiceEffect
     public override void ActiveEffect()
     {
         base.ActiveEffect();
-
-
-        Debug.Log("electric fire 1 bullet");
         this.ShootBullet(1);
     }
 

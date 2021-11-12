@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5805131763713274925
 RectTransform:
   m_ObjectHideFlags: 0
@@ -88,13 +88,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9cd26f14b3f71642a76e4e8547ae8cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHP: 50
-  _maxHP: 50
+  id: 0
   HPBar: {fileID: 5805131764993434652}
+  imgFront: {fileID: 5805131763713274927}
   Distance: 40
-  Tower: {fileID: 0}
-  _damage: 0
-  _speed: 2
 --- !u!1 &5805131764357954150
 GameObject:
   m_ObjectHideFlags: 0

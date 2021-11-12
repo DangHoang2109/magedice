@@ -1,0 +1,390 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4b1da4a565368941b4cfa47bb53e65f, type: 3}
+  m_Name: GameMapConfigs
+  m_EditorClassIdentifier: 
+  maps:
+  - ID: 2
+    waves:
+    - monsterRate:
+      - monsterID: 10
+        rate: 1
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.5
+      - monsterID: 11
+        rate: 0.5
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 20
+        rate: 1
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 20
+        rate: 1
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    - monsterRate:
+      - monsterID: 23
+        rate: 1
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.5
+    monsterConfig:
+    - speed:
+        init_stat: 5
+        percentUpEachWave: 0.025
+      damage:
+        init_stat: 5
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 250
+        percentUpEachWave: 0.5
+      ID: 10
+      UI:
+        spr: {fileID: 21300000, guid: 260dc1bec3473f040b14244a036075ec, type: 3}
+        name: Normal Creep
+        description: 
+        scale: 1
+    - speed:
+        init_stat: 10
+        percentUpEachWave: 0.025
+      damage:
+        init_stat: 3
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 150
+        percentUpEachWave: 0.1
+      ID: 13
+      UI:
+        spr: {fileID: 21300000, guid: 85166ce4f77f75244858a975c152a0d2, type: 3}
+        name: Speeder
+        description: 
+        scale: 1.2
+    - speed:
+        init_stat: 5
+        percentUpEachWave: 0.025
+      damage:
+        init_stat: 10
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 300
+        percentUpEachWave: 0.1
+      ID: 11
+      UI:
+        spr: {fileID: 21300000, guid: 012d01c0d9d2ca64f9726ba7968c0026, type: 3}
+        name: Elite Creep
+        description: 
+        scale: 1.2
+    - speed:
+        init_stat: 3
+        percentUpEachWave: 0.025
+      damage:
+        init_stat: 15
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 400
+        percentUpEachWave: 0.1
+      ID: 12
+      UI:
+        spr: {fileID: 21300000, guid: 661d123e7c5c3b84b9416c82cf655d76, type: 3}
+        name: Super Creep
+        description: 
+        scale: 1.5
+    - speed:
+        init_stat: 3
+        percentUpEachWave: 0.025
+      damage:
+        init_stat: 25
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 1500
+        percentUpEachWave: 0.1
+      ID: 20
+      UI:
+        spr: {fileID: 21300000, guid: 40a67ac09607f2c4ca4939a2e010d716, type: 3}
+        name: Mini Boss
+        description: 
+        scale: 1.75
+    - speed:
+        init_stat: 3
+        percentUpEachWave: 0.025
+      damage:
+        init_stat: 50
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 2000
+        percentUpEachWave: 0.1
+      ID: 23
+      UI:
+        spr: {fileID: 21300000, guid: 39f3a1a99b068334ca49a76e39a2ce24, type: 3}
+        name: Skill Boss
+        description: 
+        scale: 2

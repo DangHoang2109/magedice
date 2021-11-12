@@ -8,8 +8,6 @@ public class PoisionDiceEffect : BaseDiceEffect
     public override void ActiveEffect()
     {
         base.ActiveEffect();
-
-        Debug.Log("poision fire 1 bullet");
         this.ShootBullet(1);
     }
 

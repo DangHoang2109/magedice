@@ -8,9 +8,6 @@ public class FireDiceEffect : BaseDiceEffect
     public override void ActiveEffect()
     {
         base.ActiveEffect();
-
-
-        Debug.Log("fire fire 1 bullet");
         this.ShootBullet(1);
     }
 

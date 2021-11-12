@@ -8,8 +8,6 @@ public class WindDiceEffect : BaseDiceEffect
     public override void ActiveEffect()
     {
         base.ActiveEffect();
-
-        Debug.Log("wind fire 3 bullet");
         this.ShootBullet(3);
     }
 

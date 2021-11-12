@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 public class BaseMonsterBehavior : BasePersonBehavior
 {
+    [Header("UI")]
+    public Image imgFront;
+
     public float Distance;
 
-    [SerializeField] private Transform Tower;
+    private Transform Tower;
     private Vector3 TowerPoint;
     private Vector3 velocity = Vector3.zero;
 
@@ -15,20 +19,28 @@ public class BaseMonsterBehavior : BasePersonBehavior
     public float FutureHP { get => _futureHP;}
 
     private float _futureHP; //HP sau khi đòn tấn công sắp tới sẽ được hoàn thành
-    [SerializeField] private float _damage;
-    [SerializeField] private float _speed;
+    private float _damage;
+    private float _speed;
 
     Tween tweenMoving;
-    [SerializeField] private bool _isPause;
-    public override void Spawned()
+    private bool _isPause;
+
+    public override void Spawned(PersonConfig config)
     {
-        base.Spawned();
+        _isPause = true;
+
+        base.Spawned(config);
 
         this.Tower = MageDiceGameManager.Instance.TfTower;
         TowerPoint = new Vector3(this.transform.position.x, Tower.transform.position.y, 0);
         _futureHP = this._currentHP;
-        _damage = 1;
-        _speed = 2;
+
+        _damage = config.damage.init_stat;
+        _speed = config.speed.init_stat;
+
+        MonsterConfig monsterConfig = config as MonsterConfig;
+        imgFront.sprite = monsterConfig.UI.spr;
+        this.transform.localScale = new Vector3(monsterConfig.UI.scale, monsterConfig.UI.scale);
     }
 
     public void CustomUpdate()
@@ -44,9 +56,7 @@ public class BaseMonsterBehavior : BasePersonBehavior
     }
     public void Run()
     {
-        tweenMoving = this.transform.DOMoveY(Tower.position.y, TimeMove)
-            .SetEase(Ease.Linear)
-            .OnComplete(AttackTower);
+        _isPause = false;
     }
     public void PauseMe(bool isPause)
     {
@@ -82,7 +92,6 @@ public class BaseMonsterBehavior : BasePersonBehavior
     {
         base.Dead();
 
-        DOTween.Kill(tweenMoving);
         MonsterManager.Instance.KillAMonster(this);
     }
 

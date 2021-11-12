@@ -48,8 +48,8 @@ public class BulletManager : MonoSingleton<BulletManager>
             b.transform.localPosition = Vector3.zero;
 
             Sequence seq = DOTween.Sequence();
-            seq.Join(b.transform.DOLocalMove(new Vector3(Random.Range(MaxSafeLeft.x, MaxSafeRight.x), Random.Range(-20, 20), 0), 0.25f));
-            seq.AppendInterval(0.2f);
+            seq.Join(b.transform.DOLocalMove(new Vector3(Random.Range(MaxSafeLeft.x, MaxSafeRight.x), Random.Range(-20, 20), 0), 0.15f));
+            seq.AppendInterval(0.1f);
             seq.OnComplete(b.Shooted);
         }
     }

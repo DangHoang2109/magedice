@@ -24,7 +24,6 @@ public class GameBoardCollumn : MonoBehaviour
 
     public void Active()
     {
-        Debug.Log("Active Collumn");
         this._isActivated = true;
         for (int i = 0; i < this.slots.Length; i++)
         {

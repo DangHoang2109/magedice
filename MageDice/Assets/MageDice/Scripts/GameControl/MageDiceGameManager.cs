@@ -14,9 +14,24 @@ public class MageDiceGameManager : MonoSingleton<MageDiceGameManager>
     [SerializeField] private Vector3 _tfMaxSafeLeft;
     public Vector3 TfMaxSafeLeft => this._tfMaxSafeLeft;
 
+    public GamWaveController WaveController;
 
     private void Start()
     {
+        this.WaveController = new GamWaveController();
+        this.WaveController.StartGame(GameMapConfigs.Instance.GetMap(MapName.GREENLAND));
+        this.WaveController.OnWaveChange += OnWaveChange;
+
         GameBoardManager.Instance.StartPlay();
+        MonsterManager.Instance.StartGame(GameMapConfigs.Instance.GetMap(MapName.GREENLAND));
+    }
+
+    private void OnWaveChange(int wave)
+    {
+        //show popup wave
+        //update text wave top
+
+        Debug.Log($"Wave {wave}");
     }
 }
+

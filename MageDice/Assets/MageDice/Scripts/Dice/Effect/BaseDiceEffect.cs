@@ -9,7 +9,6 @@ public class BaseDiceEffect
     public virtual DiceID ID => DiceID.NONE;
     public virtual void ActiveEffect()
     {
-        Debug.Log($"Dice {this.ID} {GameConfig.dot} activated ");
     }
 
     public virtual void ShootBullet(int amount)

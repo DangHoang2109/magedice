@@ -50,7 +50,6 @@ public class GameBoardManager : MonoSingleton<GameBoardManager>
 
     public void ClickAddDice()
     {
-        Debug.Log("cl add dice");
         AddDice(RandomDice());
     }
     public GameDiceData RandomDice(GameDiceData previous = null)
@@ -62,7 +61,6 @@ public class GameBoardManager : MonoSingleton<GameBoardManager>
         }
 
         DiceID id = userDicesList.GetRandomSafe();
-        Debug.Log($"random dice {id} {nextDot}");
 
         GameDiceData result = new GameDiceData();
         result.SetData<GameDiceData>(id)

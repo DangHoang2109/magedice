@@ -82,11 +82,9 @@ public class BaseDiceItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     }
     protected virtual void OnCustomEndDrag(PointerEventData eventData)
     {
-        Debug.Log("end drag");
     }
     protected virtual void OnCustomPointerClick(PointerEventData eventData)
     {
-        Debug.Log("Click");
     }
     #endregion Interact handler
 }

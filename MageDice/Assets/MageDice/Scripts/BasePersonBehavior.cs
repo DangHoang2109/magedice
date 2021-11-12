@@ -6,18 +6,19 @@ public class BasePersonBehavior : MonoBehaviour
 {
     [SerializeField] protected int id;
 
-    [SerializeField] protected float _currentHP;
-    [SerializeField] protected float _maxHP;
+    protected float _currentHP;
+    protected float _maxHP;
 
     [Header("UI")]
     public GameStatBar HPBar;
 
     public int Id { get => id; set => id = value; }
 
-    public virtual void Spawned()
+    public virtual void Spawned(PersonConfig config)
     {
-        _maxHP = 100;
-        _currentHP = 100;
+        this.gameObject.SetActive(true);
+        _maxHP = config.hp.init_stat;
+        _currentHP = config.hp.init_stat;
 
         HPBar.ParseData(max: _maxHP, current: _currentHP);
     }
