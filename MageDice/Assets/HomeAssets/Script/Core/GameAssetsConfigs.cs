@@ -26,13 +26,11 @@ public class GameAssetsConfigs : ScriptableObject
     [Header("Spire point battle pass")]
     public Sprite sprPointBattePass;
 
-    [Header("Card border")]
-    public CardBorderConfig cardBorderConfig;
-
     [Header("Battle pass")]
     public BattlePassAssetConfigs battlePassAssets;
 
     [Header("Glove collection")]
+    [HideInInspector]
     public GloveAssets gloveAssets;
 
     public static GameAssetsConfigs Instance

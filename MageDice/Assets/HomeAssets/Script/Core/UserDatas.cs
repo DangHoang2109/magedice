@@ -161,7 +161,7 @@ public class UserInfo
        this.facebook = new UserFacebookInfo();
         this.id = string.Empty;
         this.nickname = "Cosina";
-        this.Avatar = "0";
+        this.avatar = "0";
         this.isLoginFirebase = false;
    }
 

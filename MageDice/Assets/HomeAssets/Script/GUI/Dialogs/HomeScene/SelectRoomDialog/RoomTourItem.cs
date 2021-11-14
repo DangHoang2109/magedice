@@ -13,7 +13,7 @@ public class RoomTourItem : RoomItem
     public System.Action onClickPlay;
     [System.NonSerialized]
     public bool isBlockPlayByTutorial = false;
-    
+
     [Header("Lock")]
     public Transform tranLock;
     public Transform tranIconLock;
@@ -22,12 +22,8 @@ public class RoomTourItem : RoomItem
     [Header("Unlock")]
     public Transform tranUnlock;
 
-    [Header("Progress")]
-    public Image imgProgress;
-    public Sprite[] sprProgress;
-    public TextMeshProUGUI tmpProgress;
-    public TextMeshProUGUI tmpWinPoint;
-    public TextMeshProUGUI tmpLosePoint;
+    //[Header("Progress")]
+    //public RoomScoreProgress scoreProgress;
 
     [Space(2f)]
     [Header("Prize and fee")]
@@ -46,12 +42,14 @@ public class RoomTourItem : RoomItem
     public GameObject gBtnFreeEntry;
     public IBooster bstFreeEntry;
 
+    private bool isFullPoint; //full thanh trophy
+
     protected override void ParseData(RoomData roomData)
     {
         base.ParseData(roomData);
-        if (roomData != null && this.config!= null)
+        if (roomData != null && this.config != null)
         {
-            this.tmpName.SetText(string.Format("Tour {0}",this.config.id));
+            this.tmpName.SetText(string.Format("Tour {0}", this.config.id));
             this.tranLock.gameObject.SetActive(!roomData.unlocked);
             this.tranIconLock.gameObject.SetActive(!roomData.unlocked);
             this.tranUnlock.gameObject.SetActive(roomData.unlocked);
@@ -60,8 +58,7 @@ public class RoomTourItem : RoomItem
 
             if (roomData.unlocked)
             {
-                this.tmpWinPoint.SetText(this.config.pointWin.ToString());
-                this.tmpLosePoint.SetText(this.config.pointLose.ToString());
+                //this.scoreProgress.ParseWinLoseScore(this.config.pointWin, this.config.pointLose);
                 this.btEntry.ShowState(1);
                 this.shinyEntry.enabled = true;
 
@@ -73,6 +70,8 @@ public class RoomTourItem : RoomItem
                 //    bstFreeEntry.ParseBooster(new BoosterCommodity(this.config.fee.type, this.config.fee.GetValue() * 3));
                 //    this.gBtnFreeEntry.SetActive(true);
                 //}
+
+                this.isFullPoint = roomData.point >= config.pointMax;
             }
             else
             {
@@ -82,20 +81,58 @@ public class RoomTourItem : RoomItem
                 this.btEntry.ShowState(0);
                 this.shinyEntry.enabled = false;
             }
+
+            ////parse glove collection
+            //this.scoreProgress.ParseGlove(this.config.idGloveCollection, this.isFullPoint, ClickGlove);
         }
         StartCoroutine(IeReOnHorizontalLayout());
     }
 
     private void ParseProgress()
     {
-        if (this.data!=null && this.config != null)
-        {
-            this.tmpProgress.SetText(string.Format("{0}/{1}", this.data.point, this.config.pointMax));
+        //if (this.data != null && this.config != null)
+        //{
+        //    this.scoreProgress.ParseProgreess(this.data.point, this.config.pointMax);
+        //}
+    }
 
-            float ratioPoint = (float)this.data.point / (float)this.config.pointMax;
-            this.imgProgress.fillAmount = ratioPoint;
-            this.imgProgress.sprite = (ratioPoint < 1f) ? this.sprProgress[0] : this.sprProgress[1];
-        }  
+    /// <summary>
+    /// callback khi click glove item
+    /// </summary>
+    /// <param name="id"></param>
+    private void ClickGlove(int idGlove)
+    {
+        //if (this.isFullPoint)
+        //{
+        //    if (this.config != null)
+        //    {
+        //        GloveAsset gloveAsset = GloveAssets.Instance.GetGloveAsset(this.config.idGloveCollection);
+        //        if (gloveAsset != null)
+        //        {
+        //            UserCollectionData.Instance.CollectGlove(gloveAsset.id, 1, $"Tour {this.config.id}");
+
+        //            ////Reset point
+        //            RoomDatas.Instance.SetPoint(this.config.id, 0);
+
+        //            this.scoreProgress.AnimProgress(0, 0.4f, () => {
+        //                ParseProgress();
+        //                this.scoreProgress.gloveItem.ShowHighLight(false);
+
+        //                //TODO effect
+        //                Debug.Log("<color=blue>Effect glove</color>");
+        //                CollectGloveDialog dialog = GameManager.Instance.OnShowDialogWithSorting<CollectGloveDialog>("Home/GUI/Dialogs/CollectGlove/CollectGloveDialog",
+        //    PopupSortingType.OnTopBar);
+
+        //                dialog.ParseGlove(this.config.idGloveCollection);
+        //                dialog.ShowAnimCollect(this.scoreProgress.gloveItem.transform.position, HomeTopUI.Instance.avatarIcon.transform.position);
+        //            });
+        //        }
+        //    }
+        //}
+        //else
+        //{
+        //    Notification.Instance.ShowNotificationIcon(LanguageManager.GetString("GLOVE_COLLECT", LanguageCategory.Games));
+        //}
     }
 
     private IEnumerator IeReOnHorizontalLayout()
@@ -112,9 +149,9 @@ public class RoomTourItem : RoomItem
         this.onClickPlay?.Invoke();
         if (this.isBlockPlayByTutorial)
             return;
-        
+
         base.OnClickPlay();
-        if (this.data != null && this.config!= null)
+        if (this.data != null && this.config != null)
         {
             if (!data.unlocked)
             {
@@ -123,26 +160,7 @@ public class RoomTourItem : RoomItem
             }
             else
             {
-               // if (UserProfile.Instance.UseBooster(this.config.fee, string.Format("Room_{0}", this.config.id), LogSinkWhere.JOIN_ROOM))
-               if(UserProfile.Instance.IsCanUseBooster(this.config.fee.type, this.config.fee.GetValue())) 
-               {
-                    //TEMP
-                   this.FindPlayer();
-                }
-                else
-                {
-                    BoosterCommodity coin = UserBoosters.Instance.GetBoosterCommodity(this.config.fee.type);
-                    long coinNeed = this.config.fee.GetValue() - coin.GetValue();
-                    //NeedMoreCoinDialogs dialog =
-                    //    GameManager.Instance.OnShowDialogWithSorting<NeedMoreCoinDialogs>("Home/GUI/Dialogs/NeedMoreCoin/NeedMoreCoinDialog",
-                    //        PopupSortingType.CenterBottomAndTopBar);
-                    //dialog?.ParseData(coinNeed, "Upgrade_Card", () =>
-                    //{
-                    //    this.FindPlayer();
-                        
-                    //});
-                    //MessageBox.Instance.ShowMessageBox("Noice", "Not enough fee");
-                }
+                FindPlayerCommon.UseCoinAndFindPlayer(this.config);
             }
         }
         else
@@ -150,25 +168,7 @@ public class RoomTourItem : RoomItem
             if (this.data == null) Debug.LogError("Room data is NULL");
             if (this.config == null) Debug.LogError("Room config is NULL");
         }
-        
-    }
 
-    private void FindPlayer()
-    {
-        StandardPlayer player = JoinGameHelper.GetStandardMainUser();
-        StandardPlayer opponent = JoinGameHelper.RandomStandardPlayerByRoom(this.config);
-
-        //TODO trận đánh đầu tiên từ khi mở game
-        bool MainFirstMatchOpenApp = false;
-
-        FidingPlayerDialog dialog = GameManager.Instance.OnShowDialogWithSorting<FidingPlayerDialog>("Home/GUI/Dialogs/FindingPlayer/FindingPlayerDialog", PopupSortingType.OnTopBar);
-        dialog?.ShowFidingPlayer(player, opponent, this.config, () =>
-        {
-            UserProfile.Instance.UseBooster(this.config.fee, string.Format("Room_{0}", this.config.id),
-                LogSinkWhere.JOIN_ROOM);
-            JoinGameHelper.Instance.JoinRoom(MainFirstMatchOpenApp , player, opponent, this.config, GameType.AI);
-            //Move to game scene                       
-        }); 
     }
 
     public override void ShowEffectUnlock(UnityAction callback = null)
@@ -180,14 +180,14 @@ public class RoomTourItem : RoomItem
             Transform tranPopup = GameManager.Instance.GetScene().dialog;
             FxUnlockRoom fxUnlock = Instantiate<FxUnlockRoom>(this.fxUnlock, tranPopup);
             fxUnlock.ShowEffect(this.config.id, tranPopup.TransformPoint(this.tranIconLock.localPosition), () =>
-            { 
+            {
                 this.transform.DOPunchScale(new Vector3(-0.1f, -0.1f), 0.2f).SetId(this);
                 ReloadRoom();
                 callback?.Invoke();
             });
 
             this.tranIconLock.gameObject.SetActive(false);
-        } 
+        }
     }
 
     public override void OnClickInfo()
@@ -205,10 +205,10 @@ public class RoomTourItem : RoomItem
 
     public void OnClickClaimFreeEntry()
     {
-        BoosterCommodity b = new BoosterCommodity(this.config.fee.type, this.config.fee.GetValue() * 3);
-        this.gBtnFreeEntry.SetActive(false);
+        //BoosterCommodity b = new BoosterCommodity(this.config.fee.type, this.config.fee.GetValue() * 3);
+        //this.gBtnFreeEntry.SetActive(false);
         //BattlepassDatas.Instance.ClaimFreeEntry(b);
-        FxHelper.Instance.ShowFxCollectBooster(b, this.gBtnFreeEntry.transform);
+        //FxHelper.Instance.ShowFxCollectBooster(b, this.gBtnFreeEntry.transform);
 
     }
 }

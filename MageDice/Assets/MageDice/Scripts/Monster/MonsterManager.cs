@@ -70,6 +70,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
     }
 
     private List<MonsterGameData> monsterData;
+    private MapConfig _map;
 
     private Transform towerTop;
     public Transform TowerTop
@@ -83,14 +84,41 @@ public class MonsterManager : MonoSingleton<MonsterManager>
         }
     }
 
-    //public Queue<GameWaveUnit> activeWave;
+    private MageDiceGameManager _gameManager;
+    public MageDiceGameManager MageGameManager
+    {
+        get
+        {
+            if (_gameManager == null)
+                _gameManager = MageDiceGameManager.Instance;
 
+            return _gameManager;
+        }
+    }
+    private bool _isPause;
     private void OnValidate()
     {
     }
 
+    [ContextMenu("Jump 10th wave")]
+    private void Test_GothWave()
+    {
+        JumpToWave(9);
+    }
+    [ContextMenu("Jump final wave")]
+    private void Test_GoFinalWave()
+    {
+        JumpToWave(29);
+    }
+    private void JumpToWave(int wave)
+    {
+        GamWaveController.Instance.JumpToWave(wave);
+        this.StopAllCoroutines();
+        this.StartWave();
+    }
     public void StartGame(MapConfig map)
     {
+        this._map = map;
         this.activeMonsters = new List<BaseMonsterBehavior>();
         //this.activeWave = new Queue<GameWaveUnit>();
         this.monsterData = new List<MonsterGameData>();
@@ -101,11 +129,18 @@ public class MonsterManager : MonoSingleton<MonsterManager>
 
         StartWave();
     }
+    public void OnPauseGame(bool isPause)
+    {
+        _isPause = isPause;
+    }
     private void Update()
     {
-        for (int i = 0; i < this.activeMonsters.Count; i++)
+        if (!_isPause)
         {
-            activeMonsters[i].CustomUpdate();
+            for (int i = 0; i < this.activeMonsters.Count; i++)
+            {
+                activeMonsters[i].CustomUpdate();
+            }
         }
     }
 
@@ -113,16 +148,23 @@ public class MonsterManager : MonoSingleton<MonsterManager>
     public void StartWave()
     {
         WaveConfig wave = GamWaveController.Instance.GoNextWave();
-        int test_Wave = GamWaveController.Instance.CurrentWave;
-
-        GameWaveUnit waveUnit = new GameWaveUnit()
+        if(wave != null)
         {
-            wave = wave,
-            startTime = Time.timeSinceLevelLoad
-        };
-        //activeWave.Enqueue(waveUnit);
-
-        this.StartCoroutine(ieWaveProcess(waveUnit, test_Wave));
+            GameWaveUnit GameWaveUnit = new GameWaveUnit()
+            {
+                wave = wave,
+                startTime = Time.timeSinceLevelLoad
+            };
+            //activeWave.Enqueue(waveUnit);
+            if (GamWaveController.Instance.IsOutOfWave)
+            {
+                this.SpawnABoss(GameWaveUnit);
+            }
+            else
+            {
+                this.StartCoroutine(ieWaveProcess(GameWaveUnit));
+            }
+        }
     }
     public void EndWave(GameWaveUnit unit)
     {
@@ -137,33 +179,37 @@ public class MonsterManager : MonoSingleton<MonsterManager>
             m.Upgrade();
         }
     }
-    private IEnumerator ieWaveProcess(GameWaveUnit unit, int test_currentWave)
+    private IEnumerator ieWaveProcess(GameWaveUnit unit)
     {
 
-            YieldInstruction interval = new WaitForSeconds(unit.wave.intervalSpawn);
-            float lengthSpawn = unit.wave.lengthSpawn;
-            float length = unit.wave.length;
+        YieldInstruction interval = new WaitForSeconds(unit.wave.intervalSpawn);
+        float lengthSpawn = unit.wave.lengthSpawn;
+        float length = unit.wave.length;
 
-            while (length > 0)
+        while (length > 0)
+        {
+            try
             {
-                try
+                if (!_isPause)
                 {
                     length -= unit.wave.intervalSpawn;
-                    if (lengthSpawn > 0)
+                    if (lengthSpawn >= 0)
                     {
                         lengthSpawn -= unit.wave.intervalSpawn;
                         SpawnAMonster(unit.wave.monsterRate);
                     }
                 }
-                catch (System.Exception e)
-                {
-                    Debug.LogError(e.StackTrace);
-                }
-            yield return interval;
-            }
 
-            //end wave
-            EndWave(unit);
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError(e.StackTrace);
+            }
+            yield return interval;
+        }
+
+        //end wave
+        EndWave(unit);
 
     }
 
@@ -206,18 +252,47 @@ public class MonsterManager : MonoSingleton<MonsterManager>
 
         //take from pool
         BaseMonsterBehavior monsterObj = MonsterPoolManager.Instance.GetAMonster();
-        monsterObj.transform.SetParent(this.tfSpawnPosition);
-        monsterObj.transform.localPosition = new Vector3(Random.Range(MaxSafeLeft.x, MaxSafeRight.x), 0);
-        this.activeMonsters.Add(monsterObj);
-        monsterObj.Spawned(config);
+
+        SetUpMonsterObject(pick, config, monsterObj);
 
         monsterObj.Run();
+    }
+
+    private void SetUpMonsterObject(WaveMonsterRateConfig pick, MonsterGameData config, BaseMonsterBehavior monsterObj)
+    {
+        (monsterObj.transform as RectTransform).pivot = new Vector2(0.5f, 0);
+        monsterObj.transform.SetParent(this.tfSpawnPosition);
+
+        monsterObj.transform.localPosition = new Vector3(pick.IsBoss ? 0 : Random.Range(MaxSafeLeft.x, MaxSafeRight.x), 0);
+
+        this.activeMonsters.Add(monsterObj);
+        monsterObj.Spawned(config);
+    }
+
+    public void SpawnABoss(GameWaveUnit wave)
+    {
+        WaveMonsterRateConfig boss = wave.wave.monsterRate.Find(x => x.monsterID == MonsterType.SKILL_BOSS);
+        if(boss != null)
+        {
+            MonsterGameData bossConfig = this.monsterData.Find(x => x.ID == MonsterType.SKILL_BOSS);
+
+            //take from pool
+            SkillBossBehavior monsterObj = MonsterPoolManager.Instance.GetASkillBooss();
+
+            SetUpMonsterObject(boss, bossConfig, monsterObj);
+
+            monsterObj.SetSkill(System.Activator.CreateInstance(EnumUtility.GetStringType(this._map.FinalBossID)) as BossMonsterSkillHandler);
+
+            monsterObj.Run();
+        }
     }
     public void KillAMonster(BaseMonsterBehavior m)
     {
         this.activeMonsters.Remove(m);
         //return to pool
         MonsterPoolManager.Instance.ReturnMonster(m);
+        //add coin
+        MageGameManager.OnKillMonster(m.GiftedCoin);
     }
     /// <summary>
     /// get nearest monster
@@ -253,7 +328,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
     /// exclude the monster with register damage over his HP => monster may not dead but will dead before this bullet reach will be pass
     /// </summary>
     /// <returns></returns>
-    public List<BaseMonsterBehavior> GetNearestMonsters(int n)
+    public List<BaseMonsterBehavior> GetNearestMonsters(int n, float registerFutureDamage = -1)
     {
         if (activeMonsters.Count == 0)
             return null;

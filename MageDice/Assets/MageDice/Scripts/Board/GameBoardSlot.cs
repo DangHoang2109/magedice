@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class GameBoardSlot : MonoBehaviour
 {
     public GameDiceItem item;
@@ -13,7 +13,12 @@ public class GameBoardSlot : MonoBehaviour
         if (!IsPlacing)
         {
             this.item = item;
-            SetTransformDice();
+
+            item.transform.SetParent(this.tfPlaceDice);
+            item.transform.localScale = Vector3.zero;
+            item.transform.localPosition = Vector3.zero;
+
+            item.transform.DOScale(Vector3.one,0.15f);
 
             item.Place(this);
         }
@@ -31,6 +36,11 @@ public class GameBoardSlot : MonoBehaviour
     {
         if (this.IsPlacing)
             this.item.Active();
+    }
+    public void Block(bool isBlock)
+    {
+        if(this.IsPlacing)
+            this.item.Block(isBlock);
     }
     public void SetTransformDice()
     {

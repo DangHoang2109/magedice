@@ -166,6 +166,5 @@ MonoBehaviour:
   imgFront: {fileID: 3806572491525251545}
   imgLight: {fileID: 3806572491356440682}
   tmpDamage: {fileID: 0}
-  _ConfigDistance: 2
   _speed: 5
   _damage: 0

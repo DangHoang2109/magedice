@@ -27,7 +27,10 @@ public class LoadingScene : BaseScene
 
    private void OpenGame()
    {
-      if (TutorialDatas.TUTORIAL_PHASE <= TutorialDatas.NEVER_START_TUTORIAL)
+        GameManager.Instance.OnLoadScene(SceneName.HOME);
+        return;
+
+        if (TutorialDatas.TUTORIAL_PHASE <= TutorialDatas.NEVER_START_TUTORIAL)
       {
          //JOIN FRIST TUTORIAL FIRE BLUE BALL
          JoinGameHelper.Instance.JoinTutorial();

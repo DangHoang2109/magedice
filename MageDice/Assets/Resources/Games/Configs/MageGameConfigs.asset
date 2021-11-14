@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3223f86c042a3594bb4d878790709e5c, type: 3}
+  m_Name: MageGameConfigs
+  m_EditorClassIdentifier: 
+  Mage:
+    speed:
+      init_stat: 0
+      percentUpEachWave: 0
+    damage:
+      init_stat: 0
+      percentUpEachWave: 0
+    hp:
+      init_stat: 200
+      percentUpEachWave: 0
+    UI:
+      name: 
+      description: 
+    stamina: 0
+    initCoin: 100
+    addCoinKillMons: 2
+    addCoinSkipWave: 0
+    recoverHPEachWave: 0
+    chance2SpotDice: 0
+    chanceCriticalAtk: 0
+    timeChargeMana: 0
+    barSpeed: 0
+  CoinIncrement:
+    basePrice: 10
+    increStep: 2

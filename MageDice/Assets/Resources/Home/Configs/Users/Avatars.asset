@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7b3daaa0fba803459e998260fbda822, type: 3}
+  m_Name: Avatars
+  m_EditorClassIdentifier: 
+  avatars:
+  - avatarID: 0
+    avatarName: 
+    img: {fileID: 21300000, guid: e5f484ad90ff54fe19837b58efc0ae93, type: 3}
+    price: 0
+    type: 0
+  - avatarID: 1
+    avatarName: 
+    img: {fileID: 21300000, guid: 0c43472bf4eeb4c039ab01759e7906fd, type: 3}
+    price: 500
+    type: 2
+  - avatarID: 10
+    avatarName: 
+    img: {fileID: 21300000, guid: 6d935911ea0474f95a56cb269b32fb99, type: 3}
+    price: 500
+    type: 2
+  - avatarID: 11
+    avatarName: 
+    img: {fileID: 21300000, guid: 4dbe3c0767df94699b09b119ff2b8190, type: 3}
+    price: 500
+    type: 2
+  - avatarID: 12
+    avatarName: 
+    img: {fileID: 21300000, guid: 5060361278d514afe9adf16bf5ec6249, type: 3}
+    price: 500
+    type: 2
+  - avatarID: 13
+    avatarName: 
+    img: {fileID: 21300000, guid: eb696fc52c3c04e0fabf6c7798b4dd4d, type: 3}
+    price: 500
+    type: 2
+  - avatarID: 14
+    avatarName: 
+    img: {fileID: 21300000, guid: 0f1e04a794aa74a7896f4ef8fd5eb099, type: 3}
+    price: 500
+    type: 2
+  - avatarID: 15
+    avatarName: 
+    img: {fileID: 21300000, guid: cc87fde4ed56a49f1af2a43eb4ac8949, type: 3}
+    price: 500
+    type: 2
+  - avatarID: 16
+    avatarName: 
+    img: {fileID: 21300000, guid: 08c3d0f3f0efe45a4b2d03412f9f71a0, type: 3}
+    price: 500
+    type: 2
+  - avatarID: 17
+    avatarName: 
+    img: {fileID: 21300000, guid: d8f4168130f9a43cea7c171a4841994c, type: 3}
+    price: 500
+    type: 2
+  - avatarID: 18
+    avatarName: 
+    img: {fileID: 21300000, guid: a53e947cd5d8c4e5ab0496de6e2bb2a6, type: 3}
+    price: 500
+    type: 2
+  - avatarID: 19
+    avatarName: 
+    img: {fileID: 21300000, guid: e1e11ba1e57964180bceef22b1945f56, type: 3}
+    price: 500
+    type: 2
+  - avatarID: 2
+    avatarName: 
+    img: {fileID: 21300000, guid: d74d1df19781641de958701031265095, type: 3}
+    price: 500
+    type: 2
+  - avatarID: 20
+    avatarName: 
+    img: {fileID: 21300000, guid: b3832e2d2cf094308b288a0bed4a6870, type: 3}
+    price: 500
+    type: 2
+  - avatarID: 21
+    avatarName: 
+    img: {fileID: 21300000, guid: 43e7f377a35d04c95b8a5777a0f2323a, type: 3}
+    price: 500
+    type: 2
+  - avatarID: 22
+    avatarName: 
+    img: {fileID: 21300000, guid: 8853784d9216f4e17b344906a5ac45ea, type: 3}
+    price: 500
+    type: 2
+  - avatarID: 23
+    avatarName: 
+    img: {fileID: 21300000, guid: 192424b745c9d4de9b0eb72d3cdd2fcc, type: 3}
+    price: 500
+    type: 2
+  - avatarID: 24
+    avatarName: 
+    img: {fileID: 21300000, guid: aa5c4b723a60441b595d9b79f5020a63, type: 3}
+    price: 500
+    type: 2
+  - avatarID: 3
+    avatarName: 
+    img: {fileID: 21300000, guid: eebe8c2eca6c149afae0439e0b27675b, type: 3}
+    price: 500
+    type: 2
+  - avatarID: 4
+    avatarName: 
+    img: {fileID: 21300000, guid: d0c2fce6b199b45149cf9ee44ce14df9, type: 3}
+    price: 500
+    type: 2
+  - avatarID: 5
+    avatarName: 
+    img: {fileID: 21300000, guid: 82428af17919c4e82949889813f96bf1, type: 3}
+    price: 500
+    type: 2
+  - avatarID: 6
+    avatarName: 
+    img: {fileID: 21300000, guid: 17ab7593185cc4e5c9ff46ede403e8d7, type: 3}
+    price: 500
+    type: 2
+  - avatarID: 7
+    avatarName: 
+    img: {fileID: 21300000, guid: 99abf4615eaa74422a2848cab9eda859, type: 3}
+    price: 500
+    type: 2
+  - avatarID: 8
+    avatarName: 
+    img: {fileID: 21300000, guid: 84bc69d1c643f464497a6bcd093b6d26, type: 3}
+    price: 500
+    type: 2
+  - avatarID: 9
+    avatarName: 
+    img: {fileID: 21300000, guid: c7a572abaf6c34f73aae9dd65c01292b, type: 3}
+    price: 500
+    type: 2

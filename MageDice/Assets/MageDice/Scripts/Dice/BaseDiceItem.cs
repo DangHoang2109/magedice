@@ -30,6 +30,7 @@ public class BaseDiceItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     public enum STATE
     {
         DISABLE = 0,
+        BLOCKING,
         IDDLE,
         DRAGING
     }

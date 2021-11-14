@@ -15,8 +15,18 @@ public class GameBoardManager : MonoSingleton<GameBoardManager>
 
     public List<DiceID> userDicesList;
 
+    private MageDiceGameManager _gameManager;
+    public MageDiceGameManager MageGameManager
+    {
+        get
+        {
+            if (_gameManager == null)
+                _gameManager = MageDiceGameManager.Instance;
 
-    ///test
+            return _gameManager;
+        }
+    }
+
     public GameDiceItem prefabDice;
 
     public GameBoardCollumn GetCollumn(int index)
@@ -42,15 +52,18 @@ public class GameBoardManager : MonoSingleton<GameBoardManager>
         this.slot = new List<GameBoardSlot>(this.GetComponentsInChildren<GameBoardSlot>());
     }
 
-    [ContextMenu("StartPlay")]
     public void StartPlay()
     {
         this.ActiveLine.StartMove();
     }
-
+    public void OnPauseGame(bool isPause)
+    {
+        this.ActiveLine.PauseGame(isPause);
+    }
     public void ClickAddDice()
     {
-        AddDice(RandomDice());
+        if(MageGameManager.OnSpawnDice())
+            AddDice(RandomDice());
     }
     public GameDiceData RandomDice(GameDiceData previous = null)
     {
@@ -95,6 +108,30 @@ public class GameBoardManager : MonoSingleton<GameBoardManager>
         Destroy(diceReturn.gameObject);
     }
 
+    public void BlockRow(bool isBlock, int row, float time = -1f)
+    {
+        Debug.Log($"Block Row {isBlock} {row}");
+        for (int i = 0; i < this.Collumns.Length; i++)
+        {
+            Collumns[i].Block(isBlock, row);
+        }
+
+        StartCoroutine(ieWait(time, () =>
+        {
+            for (int i = 0; i < this.Collumns.Length; i++)
+            {
+                Collumns[i].Block(!isBlock, row);
+            }
+        }));
+    }
+    private IEnumerator ieWait(float time, System.Action callback)
+    {
+        if (time <= 0)
+            callback?.Invoke();
+
+        yield return new WaitForSeconds(time);
+        callback?.Invoke();
+    }
 
     #region Test
     public GameDiceData GetDice(DiceID id, GameDiceData previous = null)

@@ -53,32 +53,32 @@ MonoBehaviour:
       levels:
       - dot: 1
         damage: 150
-        speed: 10
+        speed: 12
         range: 0
         timeEffect: 0
       - dot: 2
-        damage: 50
-        speed: 10
+        damage: 300
+        speed: 12
         range: 0
         timeEffect: 0
       - dot: 3
-        damage: 50
-        speed: 10
+        damage: 450
+        speed: 12
         range: 0
         timeEffect: 0
       - dot: 4
-        damage: 50
-        speed: 10
+        damage: 600
+        speed: 12
         range: 0
         timeEffect: 0
       - dot: 5
-        damage: 50
-        speed: 10
+        damage: 750
+        speed: 12
         range: 0
         timeEffect: 0
       - dot: 6
-        damage: 50
-        speed: 10
+        damage: 900
+        speed: 12
         range: 0
         timeEffect: 0
       bullet:
@@ -100,32 +100,32 @@ MonoBehaviour:
       levels:
       - dot: 1
         damage: 100
-        speed: 10
+        speed: 12
         range: 0
         timeEffect: 3
       - dot: 2
-        damage: 50
-        speed: 10
+        damage: 200
+        speed: 12
         range: 0
         timeEffect: 0
       - dot: 3
-        damage: 50
-        speed: 10
+        damage: 300
+        speed: 12
         range: 0
         timeEffect: 0
       - dot: 4
-        damage: 50
-        speed: 10
+        damage: 400
+        speed: 12
         range: 0
         timeEffect: 0
       - dot: 5
-        damage: 50
-        speed: 10
+        damage: 500
+        speed: 12
         range: 0
         timeEffect: 0
       - dot: 6
-        damage: 50
-        speed: 10
+        damage: 600
+        speed: 12
         range: 0
         timeEffect: 0
       bullet:
@@ -147,32 +147,32 @@ MonoBehaviour:
       levels:
       - dot: 1
         damage: 50
-        speed: 20
+        speed: 24
         range: 0
         timeEffect: 0
       - dot: 2
-        damage: 50
-        speed: 10
+        damage: 100
+        speed: 12
         range: 0
         timeEffect: 0
       - dot: 3
-        damage: 50
-        speed: 10
+        damage: 150
+        speed: 12
         range: 0
         timeEffect: 0
       - dot: 4
-        damage: 50
-        speed: 10
+        damage: 200
+        speed: 12
         range: 0
         timeEffect: 0
       - dot: 5
-        damage: 50
-        speed: 10
+        damage: 250
+        speed: 12
         range: 0
         timeEffect: 0
       - dot: 6
-        damage: 50
-        speed: 10
+        damage: 300
+        speed: 12
         range: 0
         timeEffect: 0
       bullet:
@@ -194,32 +194,32 @@ MonoBehaviour:
       levels:
       - dot: 1
         damage: 100
-        speed: 10
+        speed: 12
         range: 0
         timeEffect: 0
       - dot: 2
-        damage: 50
-        speed: 10
+        damage: 200
+        speed: 12
         range: 0
         timeEffect: 0
       - dot: 3
-        damage: 50
-        speed: 10
+        damage: 300
+        speed: 12
         range: 0
         timeEffect: 0
       - dot: 4
-        damage: 50
-        speed: 10
+        damage: 400
+        speed: 12
         range: 0
         timeEffect: 0
       - dot: 5
-        damage: 50
-        speed: 10
+        damage: 500
+        speed: 12
         range: 0
         timeEffect: 0
       - dot: 6
-        damage: 50
-        speed: 10
+        damage: 600
+        speed: 12
         range: 0
         timeEffect: 0
       bullet:
@@ -241,32 +241,32 @@ MonoBehaviour:
       levels:
       - dot: 1
         damage: 100
-        speed: 8
+        speed: 9.6
         range: 0
         timeEffect: 5
       - dot: 2
-        damage: 50
-        speed: 10
+        damage: 200
+        speed: 12
         range: 0
         timeEffect: 0
       - dot: 3
-        damage: 50
-        speed: 10
+        damage: 300
+        speed: 12
         range: 0
         timeEffect: 0
       - dot: 4
-        damage: 50
-        speed: 10
+        damage: 400
+        speed: 12
         range: 0
         timeEffect: 0
       - dot: 5
-        damage: 50
-        speed: 10
+        damage: 500
+        speed: 12
         range: 0
         timeEffect: 0
       - dot: 6
-        damage: 50
-        speed: 10
+        damage: 600
+        speed: 12
         range: 0
         timeEffect: 0
       bullet:

@@ -8,21 +8,37 @@ public class BaseMonsterBehavior : BasePersonBehavior
     [Header("UI")]
     public Image imgFront;
 
-    private Transform Tower;
-    private Vector3 TowerPoint;
+    protected Transform Tower;
+    protected Vector3 TowerPoint;
 
     public float FutureHP { get => _futureHP;}
+    public float CurrentHP => this._currentHP;
+    public long GiftedCoin { get => _giftedCoin; set => _giftedCoin = value; }
 
-    private float _futureHP; //HP sau khi đòn tấn công sắp tới sẽ được hoàn thành
-    private float _damage;
-    private float _speed;
+    protected float _futureHP; //HP sau khi đòn tấn công sắp tới sẽ được hoàn thành
+    protected float _damage;
+    protected float _speed;
+    protected long _giftedCoin;
+    protected MonsterType _monsterID;
+    public MonsterType MonsterID => _monsterID;
 
-    Tween tweenMoving;
-    private bool _isPause;
-
+    protected bool _isPause;
+    protected bool _isAttacking;
+    protected Coroutine ieAttacking;
+    protected MageBehavior _mage;
+    protected MageBehavior Mage
+    {
+        get
+        {
+            if (_mage == null)
+                _mage = MageDiceGameManager.Instance.Mage;
+            return _mage;
+        }
+    }
     public override void Spawned(PersonGameData config)
     {
         _isPause = true;
+        _isAttacking = false;
 
         base.Spawned(config);
 
@@ -36,9 +52,12 @@ public class BaseMonsterBehavior : BasePersonBehavior
         MonsterGameData monsterConfig = config as MonsterGameData;
         imgFront.sprite = monsterConfig.config.UI.spr;
         this.transform.localScale = new Vector3(monsterConfig.config.UI.scale, monsterConfig.config.UI.scale);
+
+        _giftedCoin = monsterConfig.config.coinGifted;
+
     }
 
-    public void CustomUpdate()
+    public virtual void CustomUpdate()
     {
         if (!_isPause && this.Tower != null)
         {
@@ -58,22 +77,24 @@ public class BaseMonsterBehavior : BasePersonBehavior
     public void PauseMe(bool isPause)
     {
         _isPause = isPause;
-        if (isPause)
-            tweenMoving.Pause();
-        else
-            tweenMoving.Play();
     }
 
-    [ContextMenu("test pause")]
-    public void TestPause()
+    public virtual void AttackTower()
     {
-        PauseMe(true);
+        if (!IsDead() && !_isAttacking)
+        {
+            _isAttacking = true;
+            this.ieAttacking = StartCoroutine(ieAttack());
+        }
     }
-
-    public void AttackTower()
+    private IEnumerator ieAttack()
     {
-        if(!IsDead())
-            Debug.Log("Reach Tower");
+        YieldInstruction wait = new WaitForSeconds(0.5f);
+        while(!this.IsDead() && !this._isPause && _isAttacking)
+        {
+            yield return wait;
+            Mage.Hitted(_damage);
+        }
     }
 
     public virtual void RegisterHitting(float damage)
@@ -82,13 +103,19 @@ public class BaseMonsterBehavior : BasePersonBehavior
     }
     public override void Hitted(float damage)
     {
+        if (IsDead())
+            return;
+
         base.Hitted(damage);
+        this._futureHP = this._currentHP;
+
         ShowDamage(damage);
     }
     protected override void Dead()
     {
         base.Dead();
-
+        if(ieAttacking != null)
+            StopCoroutine(ieAttacking);
         MonsterManager.Instance.KillAMonster(this);
     }
 
@@ -113,11 +140,9 @@ public class BaseMonsterBehavior : BasePersonBehavior
         _isPause = true;
         Sequence seq = DOTween.Sequence();
         seq.SetId(this.GetInstanceID() + "Freeze");
-        seq.Join(tweenMoving.Pause());
         seq.AppendInterval(time);
         seq.AppendCallback(()=>{
             _isPause = false;
-            tweenMoving.Play();
         });
     }
 

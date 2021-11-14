@@ -44,6 +44,13 @@ public class GameBoardLine : MonoBehaviour
         this.collumn = GameBoardManager.Instance.Collumns;
         ResetData();
     }
+    public void PauseGame(bool isPause)
+    {
+        if (isPause)
+            this.StopMove();
+        else
+            StartMove();
+    }
     public void StartMove()
     {
         this.isMoving = true;

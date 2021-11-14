@@ -18,7 +18,7 @@ public class ElectricDiceEffect : BaseDiceEffect
         enemy.Hitted(this.GameConfig.damage);
 
         List<BaseMonsterBehavior> elecEfft = MonsterManager.Instance.GetNearestMonsters(2, enemy.transform, enemy.Id);
-        if(elecEfft.Count > 0)
+        if(elecEfft != null && elecEfft.Count > 0)
         {
             foreach(BaseMonsterBehavior m in elecEfft)
             {

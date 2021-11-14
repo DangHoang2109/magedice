@@ -15,12 +15,8 @@ public class BaseBullet : MonoBehaviour
     public TMPro.TextMeshProUGUI tmpDamage;
 
     [Header("Config")]
-    [SerializeField] private float _ConfigDistance = 5;
     [SerializeField] private float _speed;
     [SerializeField] private float _damage;
-
-    private float FlyTime => _ConfigDistance / _speed;
-    private Vector3 velocity = Vector3.zero;
 
     bool isFlying;
     public bool IsFlying => this.isFlying;
@@ -69,7 +65,16 @@ public class BaseBullet : MonoBehaviour
     {
         if (isFlying && this.Enemy != null)
         {
-            transform.position = Vector3.SmoothDamp(transform.position, Enemy.transform.position, ref velocity, FlyTime);
+            if(Enemy.CurrentHP < 0)
+            {
+                BaseMonsterBehavior newEnemy = MonsterManager.Instance.GetNearestMonster(Enemy.transform, Enemy.Id);
+                Debug.LogError($"HP < 0? {this.Enemy.Id} change to {newEnemy.Id}");
+                SetEnemy(newEnemy);
+//#if UNITY_EDITOR
+//                UnityEditor.EditorApplication.isPaused = true;
+//#endif      
+            }
+                transform.position = Vector3.MoveTowards(transform.position, Enemy.transform.position, _speed * 20 * Time.deltaTime);
             if (GameUtils.IsNear(transform.position, Enemy.transform.position, 20)) //pixel
             {
                 Hitted();

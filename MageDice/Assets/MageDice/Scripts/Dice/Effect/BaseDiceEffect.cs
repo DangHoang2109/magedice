@@ -18,12 +18,14 @@ public class BaseDiceEffect
             List<BaseMonsterBehavior> monsters = MonsterManager.Instance.GetNearestMonsters(amount);
             if(monsters != null && monsters.Count > 0)
             {
-                List<BaseBullet> bs = BulletPoolManager.Instance.GetBullets(amount);
+                List<BaseBullet> bs = BulletPoolManager.Instance.GetBullets(monsters.Count);
 
                 if (bs != null && bs.Count > 0)
                 {
                     for (int i = 0; i < bs.Count; i++)
                     {
+                        BaseMonsterBehavior m = i >= monsters.Count ? monsters[0] : monsters[i];
+
                         bs[i].SetData(GameConfig)
                             .SetUI(this.UIConfig.normalBullet)
                             .SetEnemy(i >= monsters.Count ? monsters[0] : monsters[i])

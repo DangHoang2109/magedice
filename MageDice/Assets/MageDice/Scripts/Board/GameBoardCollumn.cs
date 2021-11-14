@@ -30,6 +30,18 @@ public class GameBoardCollumn : MonoBehaviour
             this.slots[i].Active();
         }
     }
+    private IEnumerator ieActiveCollumn()
+    {
+        YieldInstruction yield = new WaitForEndOfFrame();
+        for (int i = 0; i < this.slots.Length; i++)
+        {
+            if (this.slots[i].IsPlacing)
+            {
+                this.slots[i].Active();
+                yield return yield;
+            }
+        }
+    }
     public void ResetData()
     {
         this._isActivated = false;
@@ -48,7 +60,10 @@ public class GameBoardCollumn : MonoBehaviour
 
         Debug.LogError("There is no free slot");
     }
-
+    public void Block(bool isBlock, int index)
+    {
+        this.slots[index].Block(isBlock);
+    }
     private void OnValidate()
     {
         this.slots = this.GetComponentsInChildren<GameBoardSlot>();

@@ -60,19 +60,19 @@ public class GameMapConfigs : ScriptableObject
         {
             ID = MonsterType.SPEEDER_CREEP,
 
-            speed = new MonsterStatConfig()
+            speed = new PersonStatConfig()
             {
                 init_stat = 10,
                 percentUpEachWave = upSpeed
             },
 
-            damage = new MonsterStatConfig()
+            damage = new PersonStatConfig()
             {
                 init_stat = 3,
                 percentUpEachWave = upDamage
             },
 
-            hp = new MonsterStatConfig()
+            hp = new PersonStatConfig()
             {
                 init_stat = 15,
                 percentUpEachWave = upHP
@@ -88,19 +88,19 @@ public class GameMapConfigs : ScriptableObject
         {
             ID = MonsterType.ELITE_CREEP,
 
-            speed = new MonsterStatConfig()
+            speed = new PersonStatConfig()
             {
                 init_stat = 5,
                 percentUpEachWave = upSpeed
             },
 
-            damage = new MonsterStatConfig()
+            damage = new PersonStatConfig()
             {
                 init_stat = 10,
                 percentUpEachWave = upDamage
             },
 
-            hp = new MonsterStatConfig()
+            hp = new PersonStatConfig()
             {
                 init_stat = 30,
                 percentUpEachWave = upHP
@@ -116,19 +116,19 @@ public class GameMapConfigs : ScriptableObject
         {
             ID = MonsterType.SUPER_CREEP,
 
-            speed = new MonsterStatConfig()
+            speed = new PersonStatConfig()
             {
                 init_stat = 3,
                 percentUpEachWave = upSpeed
             },
 
-            damage = new MonsterStatConfig()
+            damage = new PersonStatConfig()
             {
                 init_stat = 15,
                 percentUpEachWave = upDamage
             },
 
-            hp = new MonsterStatConfig()
+            hp = new PersonStatConfig()
             {
                 init_stat = 40,
                 percentUpEachWave = upHP
@@ -144,19 +144,19 @@ public class GameMapConfigs : ScriptableObject
         {
             ID = MonsterType.MINI_BOSS,
 
-            speed = new MonsterStatConfig()
+            speed = new PersonStatConfig()
             {
                 init_stat = 3,
                 percentUpEachWave = upSpeed
             },
 
-            damage = new MonsterStatConfig()
+            damage = new PersonStatConfig()
             {
                 init_stat = 25,
                 percentUpEachWave = upDamage
             },
 
-            hp = new MonsterStatConfig()
+            hp = new PersonStatConfig()
             {
                 init_stat = 150,
                 percentUpEachWave = upHP
@@ -172,19 +172,19 @@ public class GameMapConfigs : ScriptableObject
         {
             ID = MonsterType.SKILL_BOSS,
 
-            speed = new MonsterStatConfig()
+            speed = new PersonStatConfig()
             {
                 init_stat = 3,
                 percentUpEachWave = upSpeed
             },
 
-            damage = new MonsterStatConfig()
+            damage = new PersonStatConfig()
             {
                 init_stat = 50,
                 percentUpEachWave = upDamage
             },
 
-            hp = new MonsterStatConfig()
+            hp = new PersonStatConfig()
             {
                 init_stat = 200,
                 percentUpEachWave = upHP
@@ -208,30 +208,12 @@ public class GameMapConfigs : ScriptableObject
 
         foreach(MonsterConfig m in green.monsterConfig)
         {
-            m.speed.init_stat *= 1.25f;
-            m.speed.percentUpEachWave = 0;
-            //switch (m.ID)
-            //{
-            //    case MonsterType.NORMAL_CREEP:
-            //        m.UI.scale = 1f;
-            //        break;
-            //    case MonsterType.SPEEDER_CREEP:
-            //        m.UI.scale = 1.2f;
-            //        break;
-            //    case MonsterType.ELITE_CREEP:
-            //        m.UI.scale = 1.2f;
-            //        break;
-            //    case MonsterType.SUPER_CREEP:
-            //        m.UI.scale = 1.5f;
-            //        break;
-            //    case MonsterType.MINI_BOSS:
-            //        m.UI.scale = 1.75f;
-            //        break;
-            //    case MonsterType.SKILL_BOSS:
-            //        m.UI.scale = 2f;
-            //        break;
-            //}
+            if (m.ID == MonsterType.MINI_BOSS || m.ID == MonsterType.SKILL_BOSS)
+                continue;
 
+            //m.coinGifted = (int)m.ID;
+            //m.speed.init_stat *= 0.8f;
+            m.hp.init_stat *= 1.25f;
         }
     }
 
@@ -273,7 +255,7 @@ public class GameMapConfigs : ScriptableObject
         //}
         for (int i = 0; i < green.waves.Count; i++)
         {
-            green.waves[i].intervalSpawn = 0.5f;
+            green.waves[i].intervalSpawn = 0.7f;
             //foreach (WaveMonsterRateConfig item in green.waves[i].monsterRate)
             //{
             //    item.rate = 1f/ green.waves[i].monsterRate.Count;
@@ -319,6 +301,7 @@ public class MapConfig
     [Space(5f)]
     public List<MonsterConfig> monsterConfig;
 
+    public BossSkillHandler FinalBossID;
 }
 [System.Serializable]
 public class WaveConfig
@@ -346,6 +329,14 @@ public class WaveMonsterRateConfig
 {
     public MonsterType monsterID;
     public float rate;
+
+    public bool IsBoss
+    {
+        get
+        {
+            return (int)this.monsterID / 10 == 2;
+        }
+    }
 }
 
 public enum MonsterType
@@ -364,24 +355,12 @@ public enum MonsterType
 
     CHEST = 50,
 }
-
-[System.Serializable]
-public class PersonConfig
+public enum BossSkillHandler
 {
-    public MonsterStatConfig speed;
-    public MonsterStatConfig damage;
-    public MonsterStatConfig hp;
+    NONE = 0,
 
-    public PersonConfig()
-    {
-
-    }
-    public PersonConfig(PersonConfig c)
-    {
-        this.speed = new MonsterStatConfig(c.speed);
-        this.damage = new MonsterStatConfig(c.damage);
-        this.hp = new MonsterStatConfig(c.hp);
-    }
+    [Type(typeof(DragonBossSkillHandler))]
+    DRAGON = 10,
 }
 [System.Serializable]
 public class MonsterConfig : PersonConfig
@@ -389,6 +368,7 @@ public class MonsterConfig : PersonConfig
     public MonsterType ID;
 
     public MonsterUIConfig UI;
+    public long coinGifted;
 
     public MonsterConfig() : base()
     {
@@ -422,16 +402,16 @@ public class MonsterUIConfig
     }
 }
 [System.Serializable]
-public class MonsterStatConfig
+public class PersonStatConfig
 {
     public float init_stat;
     public float percentUpEachWave;
 
-    public MonsterStatConfig()
+    public PersonStatConfig()
     {
 
     }
-    public MonsterStatConfig(MonsterStatConfig c)
+    public PersonStatConfig(PersonStatConfig c)
     {
         this.init_stat = c.init_stat;
         this.percentUpEachWave = c.percentUpEachWave;

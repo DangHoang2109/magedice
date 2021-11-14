@@ -819,11 +819,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoadingManager
       objectReference: {fileID: 0}
-    - target: {fileID: 2720590604485301106, guid: 21c4aa2fd8092fb45ba47a59f93ffb69,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2720590604485301110, guid: 21c4aa2fd8092fb45ba47a59f93ffb69,
         type: 3}
       propertyPath: m_Pivot.x
@@ -927,11 +922,6 @@ PrefabInstance:
     - target: {fileID: 2720590604485301110, guid: 21c4aa2fd8092fb45ba47a59f93ffb69,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419360856730485024, guid: 21c4aa2fd8092fb45ba47a59f93ffb69,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -5,7 +5,7 @@ using DG.Tweening;
 using TMPro;
 public class GameDamageTextManager : MonoSingleton<GameDamageTextManager>
 {    
-    public const int AMOUNT_PREPARE = 25;
+    public const int AMOUNT_PREPARE = 150;
     public const int AMOUNT_PREPARE_EACH_CALL = 5;
 
     [SerializeField] private TextMeshProUGUI prefab;

@@ -7,6 +7,13 @@
       "dependencies": {},
       "hash": "b43e40508b167d143330d8b9eff0d5c9965cdf3c"
     },
+    "com.coffee.ui-particle": {
+      "version": "https://github.com/mob-sakai/ParticleEffectForUGUI.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "2e4d80bc1cbbfe5400fb052778c65bcccc505abd"
+    },
     "com.unity.2d.animation": {
       "version": "3.2.6",
       "depth": 0,
@@ -80,6 +87,13 @@
     },
     "com.unity.collab-proxy": {
       "version": "1.2.16",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.device-simulator": {
+      "version": "3.0.3-preview",
       "depth": 0,
       "source": "registry",
       "dependencies": {},

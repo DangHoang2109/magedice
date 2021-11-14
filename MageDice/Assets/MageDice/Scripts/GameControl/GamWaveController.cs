@@ -13,6 +13,7 @@ public class GamWaveController
             OnWaveChange.Invoke(_currentWave);
         } 
     }
+    public bool IsOutOfWave => CurrentWave >= gameWaves.Count;
 
     private int _currentWave;
 
@@ -26,13 +27,21 @@ public class GamWaveController
     }
     public WaveConfig GoNextWave()
     {
+        if(IsOutOfWave)
+        {
+            return null;
+        }
+
         WaveConfig w = gameWaves[CurrentWave];
         CurrentWave++;
 
-        
         return w;
     }
-
+    public WaveConfig JumpToWave(int wave)
+    {
+        this.CurrentWave = wave;
+        return gameWaves[CurrentWave];
+    }
 }
 public class GameWaveUnit
 {

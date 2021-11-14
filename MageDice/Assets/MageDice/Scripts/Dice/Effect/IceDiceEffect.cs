@@ -16,6 +16,6 @@ public class IceDiceEffect : BaseDiceEffect
         base.BulletEffect(enemy);
 
         enemy.Hitted(this.GameConfig.damage);
-        enemy.Freeze(this.GameConfig.timeEffect);
+        enemy.Freeze(enemy.MonsterID == MonsterType.SKILL_BOSS ? 0.2f : this.GameConfig.timeEffect);
     }
 }

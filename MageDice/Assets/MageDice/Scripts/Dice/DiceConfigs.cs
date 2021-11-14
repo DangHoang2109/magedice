@@ -65,9 +65,10 @@ public class DiceConfigs : ScriptableObject
     {
         foreach (DiceConfig config in this.config)
         {
-            foreach(DiceGameLevelConfig level in config.Game.levels)
+            for (int i = 0; i < config.Game.levels.Length; i++)
             {
-                level.damage *= 10;
+                config.Game.levels[i].speed *= 1.2f;
+                config.Game.levels[i].damage = config.Game.levels[0].damage * (i + 1);
             }
         }
     }

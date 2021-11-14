@@ -27,11 +27,10 @@ public class GameStatBar : MonoBehaviour
     }
     public void OnChangeValue(float newValue)
     {
-        if(_tweenBar != null)
-            DOTween.Kill(_tweenBar);
+        DOTween.Kill(this);
 
-        imgBar.fillAmount = this._currentValue;
-        _tweenBar = imgBar.DOFillAmount(newValue/MaxValue, 0.1f);
+        imgBar.fillAmount = this._currentValue / MaxValue;
+        imgBar.DOFillAmount(newValue/MaxValue, 0.1f).SetId(this);
         this._currentValue = newValue;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletPoolManager : MonoSingleton<BulletPoolManager>
 {
-    public const int AMOUNT_BULLET_PREPARE = 100;
+    public const int AMOUNT_BULLET_PREPARE = 150;
     public const int AMOUNT_BULLET_PREPARE_EACH_CALL = 5;
 
     [SerializeField] private BaseBullet bullet;
@@ -44,10 +44,16 @@ public class BulletPoolManager : MonoSingleton<BulletPoolManager>
     public BaseBullet GetABullet()
     {
         if (AvailableBullet == 0)
-            CreateABullet();
+        {
+            Debug.Log("out of bullet");
+            return CreateABullet();
+        }
 
         if (AvailableBullet <= AMOUNT_BULLET_PREPARE_EACH_CALL)
+        {
+            Debug.Log("short of bullet");
             StartCoroutine(iePreparePool(10));
+        }
 
         return this.bullets.Dequeue();
     }

@@ -20,7 +20,7 @@ MonoBehaviour:
         rate: 1
       length: 20
       lengthSpawn: 15
-      intervalSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 10
         rate: 0.5
@@ -28,7 +28,7 @@ MonoBehaviour:
         rate: 0.5
       length: 20
       lengthSpawn: 15
-      intervalSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 10
         rate: 0.33333334
@@ -38,7 +38,7 @@ MonoBehaviour:
         rate: 0.33333334
       length: 20
       lengthSpawn: 15
-      intervalSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 10
         rate: 0.33333334
@@ -48,7 +48,7 @@ MonoBehaviour:
         rate: 0.33333334
       length: 20
       lengthSpawn: 15
-      intervalSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 10
         rate: 0.33333334
@@ -58,7 +58,7 @@ MonoBehaviour:
         rate: 0.33333334
       length: 20
       lengthSpawn: 15
-      intervalSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 10
         rate: 0.33333334
@@ -68,7 +68,7 @@ MonoBehaviour:
         rate: 0.33333334
       length: 20
       lengthSpawn: 15
-      intervalSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 10
         rate: 0.33333334
@@ -78,7 +78,7 @@ MonoBehaviour:
         rate: 0.33333334
       length: 20
       lengthSpawn: 15
-      intervalSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 10
         rate: 0.33333334
@@ -88,7 +88,7 @@ MonoBehaviour:
         rate: 0.33333334
       length: 20
       lengthSpawn: 15
-      intervalSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 10
         rate: 0.33333334
@@ -98,13 +98,13 @@ MonoBehaviour:
         rate: 0.33333334
       length: 20
       lengthSpawn: 15
-      intervalSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 20
         rate: 1
       length: 20
-      lengthSpawn: 15
-      intervalSpawn: 0.5
+      lengthSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 10
         rate: 0.33333334
@@ -114,7 +114,7 @@ MonoBehaviour:
         rate: 0.33333334
       length: 20
       lengthSpawn: 15
-      intervalSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 10
         rate: 0.33333334
@@ -124,7 +124,7 @@ MonoBehaviour:
         rate: 0.33333334
       length: 20
       lengthSpawn: 15
-      intervalSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 10
         rate: 0.33333334
@@ -134,7 +134,7 @@ MonoBehaviour:
         rate: 0.33333334
       length: 20
       lengthSpawn: 15
-      intervalSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 10
         rate: 0.33333334
@@ -144,7 +144,7 @@ MonoBehaviour:
         rate: 0.33333334
       length: 20
       lengthSpawn: 15
-      intervalSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 10
         rate: 0.33333334
@@ -154,7 +154,7 @@ MonoBehaviour:
         rate: 0.33333334
       length: 20
       lengthSpawn: 15
-      intervalSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 10
         rate: 0.33333334
@@ -164,7 +164,7 @@ MonoBehaviour:
         rate: 0.33333334
       length: 20
       lengthSpawn: 15
-      intervalSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 10
         rate: 0.33333334
@@ -174,7 +174,7 @@ MonoBehaviour:
         rate: 0.33333334
       length: 20
       lengthSpawn: 15
-      intervalSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 10
         rate: 0.33333334
@@ -184,7 +184,7 @@ MonoBehaviour:
         rate: 0.33333334
       length: 20
       lengthSpawn: 15
-      intervalSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 10
         rate: 0.33333334
@@ -194,13 +194,13 @@ MonoBehaviour:
         rate: 0.33333334
       length: 20
       lengthSpawn: 15
-      intervalSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 20
         rate: 1
       length: 20
-      lengthSpawn: 15
-      intervalSpawn: 0.5
+      lengthSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 10
         rate: 0.33333334
@@ -210,7 +210,7 @@ MonoBehaviour:
         rate: 0.33333334
       length: 20
       lengthSpawn: 15
-      intervalSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 10
         rate: 0.33333334
@@ -220,7 +220,7 @@ MonoBehaviour:
         rate: 0.33333334
       length: 20
       lengthSpawn: 15
-      intervalSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 10
         rate: 0.33333334
@@ -230,7 +230,7 @@ MonoBehaviour:
         rate: 0.33333334
       length: 20
       lengthSpawn: 15
-      intervalSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 10
         rate: 0.33333334
@@ -240,7 +240,7 @@ MonoBehaviour:
         rate: 0.33333334
       length: 20
       lengthSpawn: 15
-      intervalSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 10
         rate: 0.33333334
@@ -250,7 +250,7 @@ MonoBehaviour:
         rate: 0.33333334
       length: 20
       lengthSpawn: 15
-      intervalSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 10
         rate: 0.33333334
@@ -260,7 +260,7 @@ MonoBehaviour:
         rate: 0.33333334
       length: 20
       lengthSpawn: 15
-      intervalSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 10
         rate: 0.33333334
@@ -270,7 +270,7 @@ MonoBehaviour:
         rate: 0.33333334
       length: 20
       lengthSpawn: 15
-      intervalSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 10
         rate: 0.33333334
@@ -280,7 +280,7 @@ MonoBehaviour:
         rate: 0.33333334
       length: 20
       lengthSpawn: 15
-      intervalSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 10
         rate: 0.33333334
@@ -290,22 +290,22 @@ MonoBehaviour:
         rate: 0.33333334
       length: 20
       lengthSpawn: 15
-      intervalSpawn: 0.5
+      intervalSpawn: 0.7
     - monsterRate:
       - monsterID: 23
         rate: 1
       length: 20
-      lengthSpawn: 15
-      intervalSpawn: 0.5
+      lengthSpawn: 0.5
+      intervalSpawn: 0.7
     monsterConfig:
     - speed:
-        init_stat: 14.0625
+        init_stat: 11.25
         percentUpEachWave: 0
       damage:
         init_stat: 5
         percentUpEachWave: 0.025
       hp:
-        init_stat: 250
+        init_stat: 156.25
         percentUpEachWave: 0.5
       ID: 10
       UI:
@@ -313,14 +313,15 @@ MonoBehaviour:
         name: Normal Creep
         description: 
         scale: 1
+      coinGifted: 10
     - speed:
-        init_stat: 28.125
+        init_stat: 22.5
         percentUpEachWave: 0
       damage:
         init_stat: 3
         percentUpEachWave: 0.025
       hp:
-        init_stat: 150
+        init_stat: 93.75
         percentUpEachWave: 0.1
       ID: 13
       UI:
@@ -328,14 +329,15 @@ MonoBehaviour:
         name: Speeder
         description: 
         scale: 1.2
+      coinGifted: 13
     - speed:
-        init_stat: 14.0625
+        init_stat: 11.25
         percentUpEachWave: 0
       damage:
         init_stat: 10
         percentUpEachWave: 0.025
       hp:
-        init_stat: 300
+        init_stat: 187.5
         percentUpEachWave: 0.1
       ID: 11
       UI:
@@ -343,14 +345,15 @@ MonoBehaviour:
         name: Elite Creep
         description: 
         scale: 1.2
+      coinGifted: 11
     - speed:
-        init_stat: 8.4375
+        init_stat: 6.75
         percentUpEachWave: 0
       damage:
         init_stat: 15
         percentUpEachWave: 0.025
       hp:
-        init_stat: 400
+        init_stat: 250
         percentUpEachWave: 0.1
       ID: 12
       UI:
@@ -358,6 +361,7 @@ MonoBehaviour:
         name: Super Creep
         description: 
         scale: 1.5
+      coinGifted: 12
     - speed:
         init_stat: 8.4375
         percentUpEachWave: 0
@@ -365,14 +369,15 @@ MonoBehaviour:
         init_stat: 25
         percentUpEachWave: 0.025
       hp:
-        init_stat: 1500
+        init_stat: 4000
         percentUpEachWave: 0.1
       ID: 20
       UI:
         spr: {fileID: 21300000, guid: 40a67ac09607f2c4ca4939a2e010d716, type: 3}
         name: Mini Boss
         description: 
-        scale: 1.75
+        scale: 2
+      coinGifted: 20
     - speed:
         init_stat: 8.4375
         percentUpEachWave: 0
@@ -380,11 +385,13 @@ MonoBehaviour:
         init_stat: 50
         percentUpEachWave: 0.025
       hp:
-        init_stat: 2000
+        init_stat: 15000
         percentUpEachWave: 0.1
       ID: 23
       UI:
         spr: {fileID: 21300000, guid: 39f3a1a99b068334ca49a76e39a2ce24, type: 3}
         name: Skill Boss
         description: 
-        scale: 2
+        scale: 1
+      coinGifted: 23
+    FinalBossID: 10

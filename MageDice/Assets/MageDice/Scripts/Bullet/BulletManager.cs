@@ -8,6 +8,8 @@ public class BulletManager : MonoSingleton<BulletManager>
 
     [SerializeField] private Transform bulletStart;
 
+    private bool _isPause;
+
     private Vector3 maxSafeRight;
     private Vector3 maxSafeLeft;
     protected Vector3 MaxSafeRight
@@ -63,14 +65,22 @@ public class BulletManager : MonoSingleton<BulletManager>
             RegisterBullet(bs[i], isScheduleShot);
         }
     }
+
+    public void OnPauseGame(bool isPause)
+    {
+        _isPause = isPause;
+    }
     private void Update()
     {
-        if (this.flyingBullets == null)
-            this.flyingBullets = new List<BaseBullet>();
-
-        for (int i = 0; i < this.flyingBullets.Count; i++)
+        if (!_isPause)
         {
-            this.flyingBullets[i].CustomUpdate();
+            if (this.flyingBullets == null)
+                this.flyingBullets = new List<BaseBullet>();
+
+            for (int i = 0; i < this.flyingBullets.Count; i++)
+            {
+                this.flyingBullets[i].CustomUpdate();
+            }
         }
     }
 }

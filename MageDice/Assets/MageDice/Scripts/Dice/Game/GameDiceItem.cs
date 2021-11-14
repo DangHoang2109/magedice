@@ -22,6 +22,7 @@ public class GameDiceItem : BaseDiceItem
     [Header("Game UI")]
     public GameObject gDot;
     public Image[] dots;
+    public GameObject gBlock;
 
     public override void SetData<T>(T data)
     {
@@ -70,13 +71,18 @@ public class GameDiceItem : BaseDiceItem
     }
     public void Active()
     {
-        if (this.Data != null)
+        if (this.Data != null && this.interactState != STATE.BLOCKING)
             this.Data.ActiveEffect();
     }
     
+    public void Block(bool isBlock)
+    {
+        this.interactState = isBlock ? STATE.BLOCKING : STATE.IDDLE;
+        gBlock.SetActive(isBlock);
+    }
 
     #region Interact handler
-    public GameBoardSlot currentSlot;
+    protected GameBoardSlot currentSlot;
     protected override void OnCustomBeginDrag(PointerEventData eventData)
     {
         base.OnCustomBeginDrag(eventData);
@@ -101,7 +107,9 @@ public class GameDiceItem : BaseDiceItem
             if (nearestSlot.IsPlacing && nearestSlot != this.currentSlot)
             {
                 GameDiceItem dice = nearestSlot.item;
-                if(dice.Data.id == this.Data.id && dice.Data.Dot == this.Data.Dot)
+                if( dice.interactState != STATE.BLOCKING &&
+                    this.interactState != STATE.BLOCKING &&
+                    dice.Data.id == this.Data.id && dice.Data.Dot == this.Data.Dot)
                 {
                     //merge if true
                     BoardManager.MergeDice(dice, this);

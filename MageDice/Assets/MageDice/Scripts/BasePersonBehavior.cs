@@ -9,7 +9,6 @@ public class BasePersonBehavior : MonoBehaviour
     protected float _currentHP;
     protected float _maxHP;
 
-    [Header("UI")]
     public GameStatBar HPBar;
 
     public int Id { get => id; set => id = value; }
@@ -26,10 +25,18 @@ public class BasePersonBehavior : MonoBehaviour
     public virtual void Hitted(float damage)
     {
         this._currentHP -= damage;
+        
         this.HPBar.CurrentValue = _currentHP;
 
         if (IsDead())
+        {
             Dead();
+        }
+    }
+    public virtual void AddHP(float hp)
+    {
+        this._currentHP += hp;
+        this.HPBar.CurrentValue = _currentHP;
     }
 
     public virtual bool IsDead()
