@@ -11,6 +11,7 @@ public class GameDatas
     //public StoreDatas storeDatas;
     public UserBehaviorDatas behaviorDatas;
     //public MissionDatas missionDatas;
+    public StatDatas cueDatas;
 
     public GameDatas()
     {
