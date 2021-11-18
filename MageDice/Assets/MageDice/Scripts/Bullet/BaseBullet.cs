@@ -68,13 +68,13 @@ public class BaseBullet : MonoBehaviour
             if(Enemy.CurrentHP < 0)
             {
                 BaseMonsterBehavior newEnemy = MonsterManager.Instance.GetNearestMonster(Enemy.transform, Enemy.Id);
-                Debug.LogError($"HP < 0? {this.Enemy.Id} change to {newEnemy.Id}");
+                //Debug.LogError($"HP < 0? {this.Enemy.Id} change to {newEnemy.Id}");
                 SetEnemy(newEnemy);
 //#if UNITY_EDITOR
 //                UnityEditor.EditorApplication.isPaused = true;
 //#endif      
             }
-                transform.position = Vector3.MoveTowards(transform.position, Enemy.transform.position, _speed * 20 * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, Enemy.transform.position, _speed * 40 * Time.deltaTime);
             if (GameUtils.IsNear(transform.position, Enemy.transform.position, 20)) //pixel
             {
                 Hitted();

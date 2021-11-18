@@ -74,11 +74,13 @@ public class FindPlayerCommon : MonoBehaviour
     {
         if (config != null)
         {
-            FidingPlayerDialog dialog = GameManager.Instance.OnShowDialogWithSorting<FidingPlayerDialog>("Home/GUI/Dialogs/FindingPlayer/FindingPlayerDialog", PopupSortingType.OnTopBar);
-            dialog?.ShowFidingPlayer(player, opponent, config, () =>
-            {
-                JoinRoomAI(config, player, opponent);
-            });
+            JoinRoomAI(config, player, opponent);
+
+            //FidingPlayerDialog dialog = GameManager.Instance.OnShowDialogWithSorting<FidingPlayerDialog>("Home/GUI/Dialogs/FindingPlayer/FindingPlayerDialog", PopupSortingType.OnTopBar);
+            //dialog?.ShowFidingPlayer(player, opponent, config, () =>
+            //{
+            //    JoinRoomAI(config, player, opponent);
+            //});
         }
     }
 

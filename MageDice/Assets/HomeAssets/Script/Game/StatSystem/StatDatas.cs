@@ -524,19 +524,19 @@ public class StatData
         get { return this.config.IsMaxLevel(this.level); }
     }
 
-    public CueStats PreviousStats
+    public StatItemStats PreviousStats
     {
         get { return this.config.GetLevelStats(this.level - 1); }
     }
-    public CueStats CurrentStats
+    public StatItemStats CurrentStats
     {
         get { return this.config.GetLevelStats(this.level); }
     }
-    public CueStats NextStats
+    public StatItemStats NextStats
     {
         get { return this.config.GetLevelStats(this.level + 1); }
     }
-    public CueStats FullStats
+    public StatItemStats FullStats
     {
         get { return this.config.GetFullStat(); }
     }

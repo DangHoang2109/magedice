@@ -45,7 +45,6 @@ public class BoosterTopUI : MonoBehaviour
 
     protected virtual void ParseValue(long coins)
     {
-        Debug.Log("<color=yellow>Parse booster value </color>" + coins);
         this.TxtCoin.ParseData(coins);
     }
 

@@ -178,128 +178,111 @@ public class ShopStatConfigs : ScriptableObject
 }
 
 [System.Serializable]
-public class CueStats
+public class StatItemStats
 {
-    public const float MIN_POWER = 1.2f;
-    public const float MIN_AIM = 80.0f;//old 70
-    public const float MIN_SPIN = 4.5f;
-    public const float MIN_TIME = 0.0f;
+    public const float MIN_DAMAGE = 5f;
+    public const float MIN_SPEED = 5f;
+    public const float MIN_RANGE = 0f;
+    public const float MIN_TIMEEFFECT = 0.0f;
 
-    public const float MAX_POWER = 1.6f;
-    public const float MAX_AIM = 145.0f;// old 110
-    public const float MAX_SPIN = 6f;
-    public const float MAX_TIME = 10.0f;
+    public const float MAX_DAMAGE = 100f;
+    public const float MAX_SPEED = 20f;// old 110
+    public const float MAX_RANGE = 6f;
+    public const float MAX_TIMEEFFECT = 10.0f;
 
     [System.NonSerialized]
     public Sprite sprCard;
 
     [System.NonSerialized]
-    public Sprite sprCue;
+    public Sprite sprStatItem;
 
     public long price = 10000;
     public int cardsRequired = 10;
 
     [Space(5f)]
-    public float powerStrength;
-    public float aimLength;
-    public float spin;
-    public float time;
+    public float damageStrength;
+    public float speedStrength;
+    public float rangeStrength;
+    public float timeEffectStrength;
 
     [Obsolete("Should call the static function instead!")]
-    public CueStats()
+    public StatItemStats()
     {
-        this.powerStrength = 0;
-        this.aimLength = 0;
-        this.spin = 0;
-        this.time = 0;
+        this.damageStrength = 0;
+        this.speedStrength = 0;
+        this.rangeStrength = 0;
+        this.timeEffectStrength = 0;
     }
 
-    public static CueStats CreateZero()
+    public static StatItemStats CreateZero()
     {
-        CueStats result = new CueStats()
+        StatItemStats result = new StatItemStats()
         {
-            powerStrength = 0f,
-            aimLength = 0f,
-            spin = 0f,
-            time = 0f,
+            damageStrength = 0f,
+            speedStrength = 0f,
+            rangeStrength = 0f,
+            timeEffectStrength = 0f,
         };
         return result;
     }
-    public static CueStats CreateBasic()
+    public static StatItemStats CreateBasic()
     {
-        CueStats result = new CueStats()
+        StatItemStats result = new StatItemStats()
         {
-            powerStrength = MIN_POWER,
-            aimLength = MIN_AIM,
-            spin = MIN_SPIN,
-            time = MIN_TIME,
+            damageStrength = MIN_DAMAGE,
+            speedStrength = MIN_SPEED,
+            rangeStrength = MIN_RANGE,
+            timeEffectStrength = MIN_TIMEEFFECT,
         };
         return result;
     }
-    public static CueStats CreateSafe(float pwr, float aim, float spn, float t)
+    public static StatItemStats CreateSafe(float pwr, float aim, float spn, float t)
     {
-        CueStats result = new CueStats()
+        StatItemStats result = new StatItemStats()
         {
-            powerStrength = Mathf.Clamp(pwr, MIN_POWER, MAX_POWER),
-            aimLength = Mathf.Clamp(aim, MIN_AIM, MAX_AIM),
-            spin = Mathf.Clamp(spn, MIN_SPIN, MAX_SPIN),
-            time = Mathf.Clamp(t, MIN_TIME, MAX_TIME),
-        };
-        return result;
-    }
-
-    public static CueStats Clone(CueStats target)
-    {
-        CueStats result = new CueStats()
-        {
-            powerStrength = target.powerStrength,
-            aimLength = target.aimLength,
-            spin = target.spin,
-            time = target.time,
+            damageStrength = Mathf.Clamp(pwr, MIN_DAMAGE, MAX_DAMAGE),
+            speedStrength = Mathf.Clamp(aim, MIN_SPEED, MAX_SPEED),
+            rangeStrength = Mathf.Clamp(spn, MIN_RANGE, MAX_RANGE),
+            timeEffectStrength = Mathf.Clamp(t, MIN_TIMEEFFECT, MAX_TIMEEFFECT),
         };
         return result;
     }
 
-    public static CueStats CreateRandom()
+    public static StatItemStats Clone(StatItemStats target)
     {
-        CueStats result = new CueStats()
+        StatItemStats result = new StatItemStats()
         {
-            powerStrength = UnityEngine.Random.Range(0f, 10f),
-            aimLength = UnityEngine.Random.Range(0f, 10f),
-            spin = UnityEngine.Random.Range(0f, 10f),
-            time = UnityEngine.Random.Range(0f, 10f),
+            damageStrength = target.damageStrength,
+            speedStrength = target.speedStrength,
+            rangeStrength = target.rangeStrength,
+            timeEffectStrength = target.timeEffectStrength,
         };
         return result;
     }
 
-    public static CueStats CreateRandomRealUsing(ShopStatConfig config)
+    public static StatItemStats CreateRandom()
     {
-        CueStats result = new CueStats()
+        StatItemStats result = new StatItemStats()
         {
-            powerStrength = UnityEngine.Random.Range(MIN_POWER, MAX_POWER),
-            aimLength = UnityEngine.Random.Range(MIN_AIM, MAX_AIM),
-            spin = UnityEngine.Random.Range(MIN_SPIN, MAX_SPIN),
-            time = UnityEngine.Random.Range(MIN_TIME, MAX_TIME),
+            damageStrength = UnityEngine.Random.Range(MIN_DAMAGE, MAX_DAMAGE),
+            speedStrength = UnityEngine.Random.Range(MIN_SPEED, MAX_SPEED),
+            rangeStrength = UnityEngine.Random.Range(MIN_RANGE, MAX_RANGE),
+            timeEffectStrength = UnityEngine.Random.Range(MIN_TIMEEFFECT, MAX_TIMEEFFECT),
+        };
+        return result;
+    }
 
+    public static StatItemStats CreateForRealUsing(StatItemStats stat, ShopStatConfig config)
+    {
+        return new StatItemStats()
+        {
+            damageStrength = stat.damageStrength,
+            speedStrength = stat.speedStrength,
+            rangeStrength = stat.rangeStrength,
+            timeEffectStrength = stat.timeEffectStrength,
             sprCard = config.sprCard,
-            sprCue = config.sprCue
+            sprStatItem = config.sprStatItem
         };
-        return result;
-    }
-
-    public static CueStats CreateForRealUsing(CueStats stats, ShopStatConfig config)
-    {
-        CueStats result = new CueStats()
-        {
-            powerStrength = (MAX_POWER - MIN_POWER) * stats.powerStrength / 10f + MIN_POWER,
-            aimLength = (MAX_AIM - MIN_AIM) * stats.aimLength / 10f + MIN_AIM,
-            spin = (MAX_SPIN - MIN_SPIN) * stats.spin / 10f + MIN_SPIN,
-            time = (MAX_TIME - MIN_TIME) * stats.time / 10f + MIN_TIME,
-            sprCard = config.sprCard,
-            sprCue = config.sprCue
-        };
-
-        return result;
     }
 }
 
@@ -307,10 +290,10 @@ public class CueStats
 public class ShopStatConfig
 {
     public string id;
-    public string cueName;
+    public string statName;
 
     public Sprite sprCard;
-    public Sprite sprCue;
+    public Sprite sprStatItem;
 
     [Tooltip("the higher the more value of this cue over other cues")]
     public int appearTier;
@@ -325,7 +308,7 @@ public class ShopStatConfig
     public int unlockLinkedId;
     public string unlockText;
 
-    public CueStats[] statsPerLevels;
+    public StatItemStats[] statsPerLevels;
 
     public float rateRandomUnlock; //rate random ra cue này trong bag bonus config;
 
@@ -344,8 +327,8 @@ public class ShopStatConfig
         ShopStatConfig newConfig = new ShopStatConfig()
         {
             id = original.id + "_clone",
-            cueName = original.cueName,
-            sprCue = original.sprCue,
+            statName = original.statName,
+            sprStatItem = original.sprStatItem,
             tier = original.tier,
             unlockType = original.unlockType,
             unlockText = original.unlockText,
@@ -353,11 +336,11 @@ public class ShopStatConfig
             unlockLinkedId = original.unlockLinkedId,
             appearTier = original.appearTier,
             isHide = original.isHide,
-            statsPerLevels = new CueStats[original.statsPerLevels.Length]
+            statsPerLevels = new StatItemStats[original.statsPerLevels.Length]
         };
         for(int iz = 0; iz < newConfig.statsPerLevels.Length; ++iz)
         {
-            newConfig.statsPerLevels[iz] = CueStats.Clone(original.statsPerLevels[iz]);
+            newConfig.statsPerLevels[iz] = StatItemStats.Clone(original.statsPerLevels[iz]);
             newConfig.statsPerLevels[iz].price = original.statsPerLevels[iz].price;
             newConfig.statsPerLevels[iz].cardsRequired = original.statsPerLevels[iz].cardsRequired;
         }
@@ -365,11 +348,11 @@ public class ShopStatConfig
     }
 #endif
 
-    public ShopStatConfig(string id, string name, CueStats baseStats, int levels, CueStats additionsEachLevel)
+    public ShopStatConfig(string id, string name, StatItemStats baseStats, int levels, StatItemStats additionsEachLevel)
     {
         this.id = id;
-        this.cueName = name;
-        this.statsPerLevels = new CueStats[levels];
+        this.statName = name;
+        this.statsPerLevels = new StatItemStats[levels];
         if (levels > 0)
         {
             this.statsPerLevels[0] = baseStats;
@@ -377,7 +360,7 @@ public class ShopStatConfig
         }
     }
 
-    public void AutoParseStats(CueStats additionsEachLevel)
+    public void AutoParseStats(StatItemStats additionsEachLevel)
     {
         if (this.statsPerLevels == null)
             return;
@@ -386,15 +369,15 @@ public class ShopStatConfig
         if (n == 0 || n == 1)
             return;
 
-        CueStats baseStats = this.statsPerLevels[0],
+        StatItemStats baseStats = this.statsPerLevels[0],
             newStats;
         for (int i = 1; i < n; ++i)
         {
-            newStats = CueStats.CreateSafe(
-                pwr: additionsEachLevel.powerStrength * i + baseStats.powerStrength,
-                aim: additionsEachLevel.aimLength * i + baseStats.aimLength,
-                spn: additionsEachLevel.spin * i + baseStats.spin,
-                t: additionsEachLevel.time * i + baseStats.time
+            newStats = StatItemStats.CreateSafe(
+                pwr: additionsEachLevel.damageStrength * i + baseStats.damageStrength,
+                aim: additionsEachLevel.speedStrength * i + baseStats.speedStrength,
+                spn: additionsEachLevel.rangeStrength * i + baseStats.rangeStrength,
+                t: additionsEachLevel.timeEffectStrength * i + baseStats.timeEffectStrength
                 );
             this.statsPerLevels[i] = newStats;
         }
@@ -437,18 +420,18 @@ public class ShopStatConfig
         return this.statsPerLevels[currentLevel].cardsRequired;
     }
 
-    public CueStats GetLevelStats(int level)
+    public StatItemStats GetLevelStats(int level)
     {
         if (level <= 0 || this.statsPerLevels == null || level > this.statsPerLevels.Length)
-            return CueStats.CreateZero();
+            return StatItemStats.CreateZero();
 
         return this.statsPerLevels[level - 1];
     }
 
-    public CueStats GetFullStat()
+    public StatItemStats GetFullStat()
     {
         if (this.statsPerLevels == null || this.statsPerLevels.Length == 0)
-            return CueStats.CreateZero();
+            return StatItemStats.CreateZero();
 
         return this.statsPerLevels[this.statsPerLevels.Length - 1];
     }
@@ -456,7 +439,7 @@ public class ShopStatConfig
 #if UNITY_EDITOR
     public override string ToString()
     {
-        return string.Format("{0}-{1}", this.id, this.cueName);
+        return string.Format("{0}-{1}", this.id, this.statName);
     }
 #endif
 }

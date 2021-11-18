@@ -7,8 +7,8 @@ public class GameDatas
 {
     public UserDatas userDatas;
     public RoomDatas roomDatas;
-    //public BagSlotDatas bagDatas;
-    //public StoreDatas storeDatas;
+    public BagSlotDatas bagDatas;
+    public StoreDatas storeDatas;
     public UserBehaviorDatas behaviorDatas;
     //public MissionDatas missionDatas;
     public StatDatas cueDatas;
@@ -17,8 +17,8 @@ public class GameDatas
     {
         this.userDatas = new UserDatas();
         this.roomDatas = new RoomDatas();
-        //this.bagDatas = new BagSlotDatas();
-        //this.storeDatas = new StoreDatas();
+        this.bagDatas = new BagSlotDatas();
+        this.storeDatas = new StoreDatas();
         this.behaviorDatas = new UserBehaviorDatas();
 
         //this.missionDatas = new MissionDatas();
@@ -34,8 +34,8 @@ public class GameDatas
     {
         this.userDatas.CreateUser();
         this.roomDatas.CreateUser();
-        //this.bagDatas.CreateUser();
-        //this.storeDatas.CreateUser();
+        this.bagDatas.CreateUser();
+        this.storeDatas.CreateUser();
         this.behaviorDatas.CreateUser();
 
         //this.missionDatas.CreateUser();
@@ -48,6 +48,6 @@ public class GameDatas
     {
         //this.missionDatas.OpenGame();
         this.userDatas.OpenGame();
-        //this.storeDatas.OpenGame();
+        this.storeDatas.OpenGame();
     }
 }

@@ -397,7 +397,7 @@ public class StatManager : MonoSingleton<StatManager>
     /// <summary>
     /// take current cue's stats
     /// </summary>
-    public CueStats CurrentCueStats
+    public StatItemStats CurrentCueStats
     {
         get
         {
@@ -409,11 +409,11 @@ public class StatManager : MonoSingleton<StatManager>
                 if (currentCue == null)
                 {
                     UnityEngine.Debug.LogError("CueManager.GetCurrentCueStats - Cue default ERROR");
-                    return CueStats.CreateBasic();
+                    return StatItemStats.CreateBasic();
                 }
             }
 
-            CueStats results = CueStats.CreateForRealUsing(
+            StatItemStats results = StatItemStats.CreateForRealUsing(
                 currentCue.CurrentStats, currentCue.config);
             return results;
         }
@@ -577,7 +577,7 @@ public class StatManager : MonoSingleton<StatManager>
 
     public static string Name3Selector(StatData c)
     {
-        return c.config.cueName.Substring(0, 3);
+        return c.config.statName.Substring(0, 3);
     }
 
     public static int CueTierSelector(StatData c)

@@ -126,7 +126,6 @@ public class SelectRoomPageView : MonoBehaviour
 
     private void ParseRooms()
     {
-        Debug.Log("parse room");
         this.currentRoom = 0;
         unlockRoom = false;
         List<RoomConfig> roomConfigs = RoomConfigs.Instance.GetRooms();
@@ -144,7 +143,6 @@ public class SelectRoomPageView : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("instante room");
                     room = Instantiate<RoomItem>(this.roomItemPrefab, this.tranItems);
                     this.dicRooms.Add(roomConfig.id, room);
                 }
@@ -165,7 +163,7 @@ public class SelectRoomPageView : MonoBehaviour
         yield return new WaitForEndOfFrame();
         yield return new WaitForSeconds(0.1f);
         //Debug.LogError("Start page view");
-        this.pageView.startingPage = this.currentRoom;
+        this.pageView.startingPage = this.currentRoom-1;
         this.pageView.changePageEvent.AddListener(ChangePageRoom);
         this.pageView._Start();
 

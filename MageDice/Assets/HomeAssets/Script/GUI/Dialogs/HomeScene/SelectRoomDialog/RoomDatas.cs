@@ -34,7 +34,6 @@ public class RoomDatas
                 this.datas.Add(new RoomData(room.id));
             }
         }
-        this.UnlockRoom(-1); //room id -1 = room practicle
         this.UnlockRoom(0);//room id = 0: tutorial first AI
         this.UnlockRoom(1);//room id = 1: newyork
 

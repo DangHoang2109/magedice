@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class RoomItem : MonoBehaviour
 {
     [Header("Room images")]
-    public Image imgIcon;
+    public GameObject gChainLock;
     public Image imgBg;
     public Image imgGradient;
     public Image imgMask;
@@ -51,7 +51,7 @@ public class RoomItem : MonoBehaviour
             if (roomAsset == null)
                 return;
 
-            this.imgIcon.sprite = roomAsset.sprIcons[roomData.unlocked ? 1 : 0]; //kiểm tra đã unlock chưa
+            gChainLock.SetActive(!roomData.unlocked); //kiểm tra đã unlock chưa
             this.imgBg.color = roomData.unlocked ? roomAsset.colorRoom : Color.gray;
             this.imgGradient.color = roomData.unlocked ? roomAsset.colorRoom : Color.gray;
             this.imgMask.sprite = roomAsset.sprMask;

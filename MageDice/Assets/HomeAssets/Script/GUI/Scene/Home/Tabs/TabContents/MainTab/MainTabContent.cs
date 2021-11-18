@@ -29,15 +29,11 @@ public class MainTabContent : TabContent
     {
         base.OnShow(index, data, callback);
 
-        //this.tranRewardTop.gameObject.SetActive(UserDatas.Instance.careers.totalMatch >= 2);
-
         //effect show tab
         this.tranRewardTop.localScale = Vector3.zero;
-        //this.btPlay.localScale = Vector3.zero;
         this.tranLeft.localPosition = new Vector3(-150, 0);
         this.tranRight.localPosition = new Vector3(150, 0);
         this.tranFeatureTop.localPosition = new Vector3(0, 70);
-        //this.roomPageView.transform.localScale = Vector3.zero;
 
         DOTween.Kill(this);
         Sequence seq = DOTween.Sequence();
@@ -45,17 +41,6 @@ public class MainTabContent : TabContent
         seq.Join(this.tranLeft.DOLocalMoveX(0, 0.2f).SetEase(Ease.Linear));
         seq.Join(this.tranRight.DOLocalMoveX(0, 0.2f).SetEase(Ease.Linear));
         seq.Join(this.tranFeatureTop.DOLocalMoveY(0, 0.2f).SetEase(Ease.Linear));
-        //seq.Join(this.roomPageView.transform.DOScale(1, 0.35f));
-        //if (MainBagSlots.Instance.bagSlots != null)
-        //{
-        //    foreach(MainBagSlot bagSlot in MainBagSlots.Instance.bagSlots)
-        //    {
-        //        bagSlot.transform.localScale = Vector3.zero;
-        //        seq.AppendInterval(0.03f);
-        //        seq.Append(bagSlot.transform.DOScale(1, 0.05f).SetEase(Ease.OutBack));
-        //    }
-        //}
-        //seq.Append(this.btPlay.DOScale(1, 0.1f));  
         seq.SetId(this);
     }
 

@@ -132,16 +132,16 @@ public class BagAssetConfigs
         return this.bagAssets;
     }
 
-    //public BagAssetConfig GetBagAsset(BagType type)
-    //{
-    //    return this.bagAssets.Find(x => x.type == type);
-    //}
+    public BagAssetConfig GetBagAsset(BagType type)
+    {
+        return this.bagAssets.Find(x => x.type == type);
+    }
 }
 
 [System.Serializable]
 public class BagAssetConfig
 {
-    //public BagType type;
+    public BagType type;
     public string name; //name of bag type
     public Sprite sprBag;
 }
