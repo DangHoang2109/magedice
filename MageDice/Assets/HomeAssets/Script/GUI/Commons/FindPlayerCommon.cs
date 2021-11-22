@@ -14,56 +14,56 @@ public class FindPlayerCommon : MonoBehaviour
     /// <param name="config"></param>
     public static void UseCoinAndFindPlayer(RoomConfig config)
     {
-        if (config != null)
-        {
-            StandardPlayer player = JoinGameHelper.GetStandardMainUser();
-            StandardPlayer opponent = JoinGameHelper.RandomStandardPlayerByRoom(config);
+        //if (config != null)
+        //{
+        //    StandardPlayer player = JoinGameHelper.GetStandardMainUser();
+        //    StandardPlayer opponent = JoinGameHelper.RandomStandardPlayerByRoom(config);
 
-            if (UserProfile.Instance.IsCanUseBooster(config.fee.type, config.fee.GetValue()))
-            {
-                ShowFindPlayer(config, player, opponent);
-            }
-            else
-            {
-                BoosterCommodity coin = UserBoosters.Instance.GetBoosterCommodity(config.fee.type);
-                long coinNeed = config.fee.GetValue() - coin.GetValue();
-                NeedMoreCoinDialogs dialog =
-                    GameManager.Instance.OnShowDialogWithSorting<NeedMoreCoinDialogs>("Home/GUI/Dialogs/NeedMoreCoin/NeedMoreCoinDialog",
-                        PopupSortingType.CenterBottomAndTopBar);
-                dialog?.ParseData(coinNeed, "Play_game", () =>
-                {
-                    ShowFindPlayer(config, player, opponent);
-                });
-                //MessageBox.Instance.ShowMessageBox("Noice", "Not enough fee");
-            }
-        }
+        //    if (UserProfile.Instance.IsCanUseBooster(config.fee.type, config.fee.GetValue()))
+        //    {
+        //        ShowFindPlayer(config, player, opponent);
+        //    }
+        //    else
+        //    {
+        //        BoosterCommodity coin = UserBoosters.Instance.GetBoosterCommodity(config.fee.type);
+        //        long coinNeed = config.fee.GetValue() - coin.GetValue();
+        //        NeedMoreCoinDialogs dialog =
+        //            GameManager.Instance.OnShowDialogWithSorting<NeedMoreCoinDialogs>("Home/GUI/Dialogs/NeedMoreCoin/NeedMoreCoinDialog",
+        //                PopupSortingType.CenterBottomAndTopBar);
+        //        dialog?.ParseData(coinNeed, "Play_game", () =>
+        //        {
+        //            ShowFindPlayer(config, player, opponent);
+        //        });
+        //        //MessageBox.Instance.ShowMessageBox("Noice", "Not enough fee");
+        //    }
+        //}
     }
 
     public static void UseCoinAndReplay(RoomConfig config, StandardPlayer opponent)
     {
-        if (config != null && opponent != null)
-        {
-            StandardPlayer player = JoinGameHelper.GetStandardMainUser();
-            if (UserProfile.Instance.IsCanUseBooster(config.fee.type, config.fee.GetValue()))
-            {
-                //TODO replay game
-                JoinRoomAI(config, player, opponent);
-            }
-            else
-            {
-                BoosterCommodity coin = UserBoosters.Instance.GetBoosterCommodity(config.fee.type);
-                long coinNeed = config.fee.GetValue() - coin.GetValue();
-                NeedMoreCoinDialogs dialog =
-                    GameManager.Instance.OnShowDialogWithSorting<NeedMoreCoinDialogs>("Home/GUI/Dialogs/NeedMoreCoin/NeedMoreCoinDialog",
-                        PopupSortingType.CenterBottomAndTopBar);
-                dialog?.ParseData(coinNeed, "Play_game", () =>
-                {
-                    //TODO replay game
-                    JoinRoomAI(config, player, opponent);
-                });
-                //MessageBox.Instance.ShowMessageBox("Noice", "Not enough fee");
-            }
-        }
+        //if (config != null && opponent != null)
+        //{
+        //    StandardPlayer player = JoinGameHelper.GetStandardMainUser();
+        //    if (UserProfile.Instance.IsCanUseBooster(config.fee.type, config.fee.GetValue()))
+        //    {
+        //        //TODO replay game
+        //        JoinRoomAI(config, player);
+        //    }
+        //    else
+        //    {
+        //        BoosterCommodity coin = UserBoosters.Instance.GetBoosterCommodity(config.fee.type);
+        //        long coinNeed = config.fee.GetValue() - coin.GetValue();
+        //        NeedMoreCoinDialogs dialog =
+        //            GameManager.Instance.OnShowDialogWithSorting<NeedMoreCoinDialogs>("Home/GUI/Dialogs/NeedMoreCoin/NeedMoreCoinDialog",
+        //                PopupSortingType.CenterBottomAndTopBar);
+        //        dialog?.ParseData(coinNeed, "Play_game", () =>
+        //        {
+        //            //TODO replay game
+        //            JoinRoomAI(config, player);
+        //        });
+        //        //MessageBox.Instance.ShowMessageBox("Noice", "Not enough fee");
+        //    }
+        //}
     }
 
     /// <summary>
@@ -74,7 +74,7 @@ public class FindPlayerCommon : MonoBehaviour
     {
         if (config != null)
         {
-            JoinRoomAI(config, player, opponent);
+            JoinRoomPlayer(config, player);
 
             //FidingPlayerDialog dialog = GameManager.Instance.OnShowDialogWithSorting<FidingPlayerDialog>("Home/GUI/Dialogs/FindingPlayer/FindingPlayerDialog", PopupSortingType.OnTopBar);
             //dialog?.ShowFidingPlayer(player, opponent, config, () =>
@@ -84,12 +84,16 @@ public class FindPlayerCommon : MonoBehaviour
         }
     }
 
-    private static void JoinRoomAI(RoomConfig config, StandardPlayer player, StandardPlayer opponent)
+    public static void JoinRoomPlayer(RoomConfig config, StandardPlayer player)
     {
-        bool MainFirstMatchOpenApp = false;
-
-        UserProfile.Instance.UseBooster(config.fee, string.Format("Room_{0}", config.id),
-                    LogSinkWhere.JOIN_ROOM);
-        JoinGameHelper.Instance.JoinRoom(MainFirstMatchOpenApp, player, opponent, config, GameType.AI);
+        //UserProfile.Instance.UseBooster(config.fee, string.Format("Room_{0}", config.id),
+        //            LogSinkWhere.JOIN_ROOM);
+        JoinGameHelper.Instance.JoinRoom( player, config, GameType.AI);
+    }
+    public static void JoinRoomAI(RoomConfig config)
+    {
+        //UserProfile.Instance.UseBooster(config.fee, string.Format("Room_{0}", config.id),
+        //            LogSinkWhere.JOIN_ROOM);
+        JoinGameHelper.Instance.JoinRoom(config, GameType.AI);
     }
 }

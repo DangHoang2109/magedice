@@ -14,6 +14,8 @@ public class GameBoardManager : MonoSingleton<GameBoardManager>
     public GameBoardLine ActiveLine => this.activeLine;
 
     public List<DiceID> userDicesList;
+    public Dictionary<DiceID,StatItemStats> dicUserDiceStartingStat;
+
 
     private MageDiceGameManager _gameManager;
     public MageDiceGameManager MageGameManager
@@ -52,6 +54,16 @@ public class GameBoardManager : MonoSingleton<GameBoardManager>
         this.slot = new List<GameBoardSlot>(this.GetComponentsInChildren<GameBoardSlot>());
     }
 
+    public void JoinGame(List<StatItemStats> stat)
+    {
+        this.dicUserDiceStartingStat = new Dictionary<DiceID, StatItemStats>();
+        this.userDicesList = new List<DiceID>();
+        foreach(StatItemStats s in stat)
+        {
+            userDicesList.Add(s.id);
+            dicUserDiceStartingStat.Add(s.id, s);
+        }
+    }
     public void StartPlay()
     {
         this.ActiveLine.StartMove();
@@ -78,7 +90,7 @@ public class GameBoardManager : MonoSingleton<GameBoardManager>
         GameDiceData result = new GameDiceData();
         result.SetData<GameDiceData>(id)
             .SetDot<GameDiceData>(nextDot)
-            .SetEffect<GameDiceData>();
+            .SetEffect<GameDiceData>(dicUserDiceStartingStat[id]);
 
 
         return result;
@@ -145,7 +157,7 @@ public class GameBoardManager : MonoSingleton<GameBoardManager>
         GameDiceData result = new GameDiceData();
         result.SetData<GameDiceData>(id)
             .SetDot<GameDiceData>(nextDot)
-            .SetEffect<GameDiceData>();
+            .SetEffect<GameDiceData>(dicUserDiceStartingStat[id]);
 
         return result;
     }

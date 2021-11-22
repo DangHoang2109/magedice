@@ -5,7 +5,10 @@ using UnityEngine;
 public class BaseDiceEffect 
 {
     public DiceGameLevelConfig GameConfig;
+    public StatItemStats diceStat;
     public DiceBulletConfig UIConfig;
+
+    protected float Damage => diceStat.damageStrength * GameConfig.damageMultiplier;
     public virtual DiceID ID => DiceID.NONE;
     public virtual void ActiveEffect()
     {
@@ -26,7 +29,7 @@ public class BaseDiceEffect
                     {
                         BaseMonsterBehavior m = i >= monsters.Count ? monsters[0] : monsters[i];
 
-                        bs[i].SetData(GameConfig)
+                        bs[i].SetData(diceStat.speedStrength, Damage)
                             .SetUI(this.UIConfig.normalBullet)
                             .SetEnemy(i >= monsters.Count ? monsters[0] : monsters[i])
                             .SetHitEffect(this.BulletEffect);

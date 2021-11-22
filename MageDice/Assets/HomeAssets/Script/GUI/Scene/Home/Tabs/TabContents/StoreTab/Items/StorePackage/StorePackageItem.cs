@@ -123,7 +123,7 @@ public class StorePackageItem : StoreItem
         this.tranCueItem.gameObject.SetActive(false);
         if (this.Config != null)
         {
-            if (this.Config.cueid != string.Empty && this.Config.cueid != "")
+            if (this.Config.cueid != DiceID.NONE)
             {
                 this.tranCueItem.gameObject.SetActive(true);
                 this.cueDisplay.ParseCueFullStats(this.Config.cueid);
@@ -171,12 +171,12 @@ public class StorePackageItem : StoreItem
                 FxHelper.Instance.ShowFxCollectBoosters(this.Config.boosters, this.transform);
             }
 
-            if (this.Config.cueid != string.Empty && this.Config.cueid != "")
+            if (this.Config.cueid != DiceID.NONE)
             {
-                StatData StatData = StatDatas.Instance.GetCue(this.Config.cueid);
+                StatData StatData = StatDatas.Instance.GetStat(this.Config.cueid);
                 StatManager.Instance.WinCue(StatData);
                 
-                LogGameAnalytics.Instance.LogEvent(LogAnalyticsEvent.CUE_UNLOCKED, LogParams.STAT_ITEM_ID, StatData.id);//unlock từ package
+                LogGameAnalytics.Instance.LogEvent(LogAnalyticsEvent.CUE_UNLOCKED, LogParams.STAT_ITEM_ID, StatData.id.ToString());//unlock từ package
             }
 
             Invoker.Invoke(CollectCueAndOpenBags, 1f);
@@ -186,12 +186,12 @@ public class StorePackageItem : StoreItem
     private void CollectCueAndOpenBags()
     {
         //collect cue, open bag
-        if (this.Config.cueid != string.Empty && this.Config.cueid != "")
+        if (this.Config.cueid != DiceID.NONE)
         {
             //TODO add cue
             Debug.Log(string.Format("<color=yellow>Collect cue </color>" + this.Config.cueid));
 
-            StatData StatData = StatDatas.Instance.GetCue(this.Config.cueid);
+            StatData StatData = StatDatas.Instance.GetStat(this.Config.cueid);
 
             CollectCueDialog dialog = GameManager.Instance.OnShowDialogWithSorting<CollectCueDialog>(
             "Home/GUI/Dialogs/OpenBag/CollectCue",

@@ -10,7 +10,7 @@ public class CardNumberItem : MonoBehaviour
     public TextMeshProUGUI tmpName;
     public TextMeshProUGUI tmpNumber;
 
-    private CardAssetConfig cardAsset;
+    private TierAssetConfig cardAsset;
 
     public void ParseCardNumber(CardAmount cardNumber)
     {

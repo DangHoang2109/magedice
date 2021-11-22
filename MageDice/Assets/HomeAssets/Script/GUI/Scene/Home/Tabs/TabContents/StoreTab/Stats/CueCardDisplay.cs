@@ -8,7 +8,7 @@ public class CueCardDisplay : MonoBehaviour
 {
     public TextMeshProUGUI tmpName;
     public Image[] imgCues;
-    public CueStatLines statLines;
+    public StatGUIStatLines statLines;
     public StatsCardLevelV2 lvl;
 
 
@@ -34,9 +34,9 @@ public class CueCardDisplay : MonoBehaviour
         }
     }
 
-    public void ParseCue(string cueId)
+    public void ParseCue(DiceID cueId)
     {
-        StatData StatData = StatDatas.Instance.GetCue(cueId);
+        StatData StatData = StatDatas.Instance.GetStat(cueId);
         ParseCue(StatData);
     }
 
@@ -53,9 +53,9 @@ public class CueCardDisplay : MonoBehaviour
         }
     }
 
-    public void ParseCueFullStats(string cueId)
+    public void ParseCueFullStats(DiceID cueId)
     {
-        StatData StatData = StatDatas.Instance.GetCue(cueId);
+        StatData StatData = StatDatas.Instance.GetStat(cueId);
         ParseCueFullStats(StatData);
     }
 

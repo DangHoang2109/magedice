@@ -86,6 +86,7 @@ public class IBooster : MonoBehaviour
                 SetValueText(GameUtils.FormatMoneyDot(this.booster.GetValue()));
             }         
         }
+        this.gameObject.SetActive(this.booster != null);
     }
 
     public void ShowSpriteOff(bool isSprOff = true)

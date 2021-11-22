@@ -535,7 +535,7 @@ public class StoreDealCardsData
         SaveData();
     }
 
-    public void OnBuyDealCard(string cueID)
+    public void OnBuyDealCard(DiceID cueID)
     {
         //TODO update price
         if (this.statsCardDeals != null)
@@ -575,7 +575,7 @@ public class StoreDealData
     public int idSlot;
 
     public Tier cueTier;
-    public string cueID;
+    public DiceID cueID;
 }
 
 /// <summary>
@@ -611,7 +611,7 @@ public class StoreDealCardData: StoreDealData
     public BoosterCommodity GetCurrentPrice()
     {
         
-        if (StatDatas.Instance.GetCue(cueID).kind == StatManager.Kind.NotUnlocked)
+        if (StatDatas.Instance.GetStat(cueID).kind == StatManager.Kind.NotUnlocked)
             return new BoosterCommodity(priceType, startPrice);
         else
             return new BoosterCommodity(priceType, indexBuy * step + basePrice);

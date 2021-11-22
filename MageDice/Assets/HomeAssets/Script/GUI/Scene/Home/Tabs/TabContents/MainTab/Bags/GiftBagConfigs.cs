@@ -227,7 +227,7 @@ public class GiftBagConfigs : ScriptableObject
 
             //get value card
 
-            List<string> showedItem = new List<string>();
+            List<DiceID> showedItem = new List<DiceID>();
             //float appearRate = Mathf.Clamp(min_rateAppearOwned + UserDatas.Instance.careers.totalMatch * 0.02f, min_rateAppearOwned, max_rateAppearOwned);
             foreach (CardAmount cardAmount in config.cardAmounts)
             {
@@ -303,7 +303,7 @@ public class GiftBagConfigs : ScriptableObject
 
             //get value card
 
-            List<string> showedItem = new List<string>();
+            List<DiceID> showedItem = new List<DiceID>();
             //float appearRate = Mathf.Clamp(min_rateAppearOwned + UserDatas.Instance.careers.totalMatch * 0.02f, min_rateAppearOwned, max_rateAppearOwned);
             foreach (CardAmount cardAmount in card)
             {
@@ -371,7 +371,7 @@ public class GiftBagConfigs : ScriptableObject
 
             //get value card
 
-            List<string> showedItem = new List<string>();
+            List<DiceID> showedItem = new List<DiceID>();
             //float appearRate = Mathf.Clamp(min_rateAppearOwned + UserDatas.Instance.careers.totalMatch * 0.02f, min_rateAppearOwned, max_rateAppearOwned);
             foreach(CardAmount cardAmount in giftBagConfig.cardAmounts)
             {
@@ -435,7 +435,7 @@ public class GiftBagConfigs : ScriptableObject
 
             //get value card
 
-            List<string> showedItem = new List<string>();
+            List<DiceID> showedItem = new List<DiceID>();
             
             foreach (CardAmount cardAmount in giftBagConfig.cardAmounts)
             {
@@ -461,7 +461,7 @@ public class GiftBagConfigs : ScriptableObject
         }
         return null;
     }
-    private void AddBonusGift(ref OpenBagDialog.BagModel giftBagModel, GiftBagPerTourConfig bagConfig, int tour, List<string> showedItem, bool isWatch = true)
+    private void AddBonusGift(ref OpenBagDialog.BagModel giftBagModel, GiftBagPerTourConfig bagConfig, int tour, List<DiceID> showedItem, bool isWatch = true)
     {
         if ((bagConfig.bonusUnlockCards == null || bagConfig.bonusUnlockCards.Count == 0) && (bagConfig.cueLists == null || bagConfig.cueLists.Count == 0))
             return;
@@ -613,7 +613,7 @@ public class GiftBagConfigs : ScriptableObject
     /// <param name="rarity">độ hiếm của card</param>
     /// <param name="rateOwn">tỷ lệ lấy card đã sở hữu, nếu không lấy được card đã sở hữu thì random card mới</param>
     /// <returns></returns>
-    private OpenBagDialog.BagCardModel RandomCueCard(StatManager.Tier rarity, float rateOwn, int tourID, List<string> showedID)
+    private OpenBagDialog.BagCardModel RandomCueCard(StatManager.Tier rarity, float rateOwn, int tourID, List<DiceID> showedID)
     {
         OpenBagDialog.BagCardModel bagCardModel = new OpenBagDialog.BagCardModel();
 
@@ -689,7 +689,7 @@ public class GiftBagConfigs : ScriptableObject
         return bagCardModel;
     }
 
-    public OpenBagDialog.BagCardModel RandomUnlockCard(StatManager.Tier rarity, string showedIds = "")
+    public OpenBagDialog.BagCardModel RandomUnlockCard(StatManager.Tier rarity, DiceID showedIds =  DiceID.NONE)
     {
         OpenBagDialog.BagCardModel bagCardModel = new OpenBagDialog.BagCardModel();
 
@@ -717,7 +717,7 @@ public class GiftBagConfigs : ScriptableObject
         bagCardModel.earnType = OpenBagDialog.BagCardModel.EarnType.Cue;
         //kiểm tra data có card này chưa
 
-        bagCardModel.equipmentConfig = StatDatas.Instance.GetCue("s1");
+        bagCardModel.equipmentConfig = StatDatas.Instance.GetStat( DiceID.FIRE);
 
         bagCardModel.value = 1;
 

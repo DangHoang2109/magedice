@@ -20,13 +20,13 @@ MonoBehaviour:
       init_stat: 0
       percentUpEachWave: 0
     hp:
-      init_stat: 200
+      init_stat: 400
       percentUpEachWave: 0
     UI:
       name: 
       description: 
     stamina: 0
-    initCoin: 100
+    initCoin: 200
     addCoinKillMons: 2
     addCoinSkipWave: 0
     recoverHPEachWave: 0

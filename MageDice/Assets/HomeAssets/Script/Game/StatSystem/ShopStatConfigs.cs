@@ -14,7 +14,7 @@ public class ShopStatConfigs : ScriptableObject
     private ShopStatConfig[] configs;
 
     [System.NonSerialized]
-    private Dictionary<string, ShopStatConfig> dicConfigs;
+    private Dictionary<DiceID, ShopStatConfig> dicConfigs;
 
     [System.NonSerialized]
     private Dictionary<StatManager.Tier, List<ShopStatConfig>> dictTierLists;
@@ -40,7 +40,6 @@ public class ShopStatConfigs : ScriptableObject
     public class Editor_TierConfigData
     {
         public StatManager.Tier tier;
-        public int step;
         public int maxLevel;
         public long BPUnit;
         public float offsetLevel;
@@ -57,7 +56,6 @@ public class ShopStatConfigs : ScriptableObject
         public Editor_TierConfigData(StatManager.Tier tier, int step, int maxLevel, long BPUnit, float offsetLevel)
         {
             this.tier = tier;
-            this.step = step;
             this.maxLevel = maxLevel;
             this.BPUnit = BPUnit;
             this.offsetLevel = offsetLevel;
@@ -72,16 +70,98 @@ public class ShopStatConfigs : ScriptableObject
                 {
                     level = i + 1,
                     cards = ExcelCardsConfig[i],
-                    price = (long)((levelUpgrades.Count == 0 ? 0 : levelUpgrades[i - 1].price) + this.step * this.BPUnit * (1 + (i + 1) * this.offsetLevel))
+                    price = (long)((levelUpgrades.Count == 0 ? 0 : levelUpgrades[i - 1].price) + this.BPUnit * (1 + (i + 1) * this.offsetLevel))
                 });
             }
         }
+    }
+
+    [ContextMenu("Config Cue Level")]
+    private void Editor_ConfigCue()
+    {
+        Editor_ConfigCueLevel(null, 0, this.configs.Length);
+    }
+
+
+    public void Editor_ConfigCueLevel(Dictionary<StatManager.Tier, Editor_TierConfigData> excelConfig, int indexStart, int amount)
+    {
+        if (excelConfig == null)
+        {
+            excelConfig = new Dictionary<StatManager.Tier, Editor_TierConfigData>();
+            excelConfig.Add(StatManager.Tier.Standard, new Editor_TierConfigData(
+            tier: StatManager.Tier.Standard,
+            step: 2,
+            maxLevel: 18,
+            BPUnit: 1000,
+            offsetLevel: 0.1f));
+
+            excelConfig.Add(StatManager.Tier.Rare, new Editor_TierConfigData(
+                tier: StatManager.Tier.Rare,
+                step: 3,
+                maxLevel: 10,
+                BPUnit: 7500,
+                offsetLevel: 0.2f));
+
+            excelConfig.Add(StatManager.Tier.Legendary, new Editor_TierConfigData(
+                tier: StatManager.Tier.Legendary,
+                step: 4,
+                maxLevel: 5,
+                BPUnit: 50000,
+                offsetLevel: 0.25f));
+        }
+
+        int endIndex = amount + indexStart > this.configs.Length ? this.configs.Length : amount + indexStart;
+        for (int i = indexStart; i < endIndex; i++)
+        {
+            if (!excelConfig.ContainsKey(this.configs[i].tier) || this.configs[i].isHide)
+                continue;
+
+            ieSetUpACue(this.configs[i], excelConfig[this.configs[i].tier]);
+
+            Debug.Log($"Finish a cue {this.configs[i].id}");
+        }
+    }
+    private void ieSetUpACue(ShopStatConfig cue, Editor_TierConfigData config)
+    {
+        List<StatItemStats> listStat = cue.statsPerLevels.ToList();
+
+        listStat.RemoveRange(1, listStat.Count - 1);
+
+        for (int i = 1; i <= config.maxLevel; i++)
+        {
+            StatItemStats stat = SetUpCueLevel(listStat[i - 1], config.levelUpgrades[i - 1]);
+            listStat.Add(stat);
+        }
+
+        cue.statsPerLevels = listStat.ToArray();
+    }
+    private StatItemStats SetUpCueLevel(StatItemStats pre, Editor_TierConfigData.Editor_LevelConfigData config)
+    {
+        StatItemStats stat = new StatItemStats()
+        {
+            cardsRequired = config.cards,
+            price = config.price,
+
+            damageStrength = pre.damageStrength,
+            rangeStrength = pre.rangeStrength,
+            speedStrength = pre.speedStrength,
+            timeEffectStrength = pre.timeEffectStrength,
+        };
+
+        List<float> statToLisr = new List<float>() { stat.damageStrength, stat.rangeStrength, stat.speedStrength, stat.timeEffectStrength };
+
+        stat.damageStrength = Mathf.CeilToInt(statToLisr[0] * 1.05f);
+        stat.rangeStrength = statToLisr[1];
+        stat.speedStrength = statToLisr[2];
+        stat.timeEffectStrength = statToLisr[3];
+
+        return stat;
     }
 #endif
 
     private void Init()
     {
-        this.dicConfigs = new Dictionary<string, ShopStatConfig>(this.configs.Length);
+        this.dicConfigs = new Dictionary<DiceID, ShopStatConfig>(this.configs.Length);
         this.dictTierLists = new Dictionary<StatManager.Tier, List<ShopStatConfig>>();
 
         for (int i = 0; i < this.configs.Length; ++i)
@@ -95,7 +175,7 @@ public class ShopStatConfigs : ScriptableObject
         }
     }
 
-    public string[] GetAllIds()
+    public DiceID[] GetAllIds()
     {
         if (this.dicConfigs == null)
         {
@@ -127,19 +207,19 @@ public class ShopStatConfigs : ScriptableObject
     }
 
 
-    public List<ShopStatConfig> GetConfigs(List<string> ids)
+    public List<ShopStatConfig> GetConfigs(List<DiceID> ids)
     {
         return ids.Select(GetConfigRisk).ToList();
     }
-    public List<ShopStatConfig> GetConfigs(string[] ids)
+    public List<ShopStatConfig> GetConfigs(DiceID[] ids)
     {
         return ids.Select(GetConfigRisk).ToList();
     }
-    public List<ShopStatConfig> GetConfigsSafe(List<string> ids)
+    public List<ShopStatConfig> GetConfigsSafe(List<DiceID> ids)
     {
         return ids.Where(this.dicConfigs.ContainsKey).Select(GetConfigRisk).ToList();
     }
-    public List<ShopStatConfig> GetConfigsSafe(string[] ids)
+    public List<ShopStatConfig> GetConfigsSafe(DiceID[] ids)
     {
         return ids.Where(this.dicConfigs.ContainsKey).Select(GetConfigRisk).ToList();
     }
@@ -158,7 +238,7 @@ public class ShopStatConfigs : ScriptableObject
         return null;
     }
 
-    public ShopStatConfig GetConfig(string id)
+    public ShopStatConfig GetConfig(DiceID id)
     {
         if (this.dicConfigs != null)
         {
@@ -171,7 +251,7 @@ public class ShopStatConfigs : ScriptableObject
         return null;
     }
 
-    private ShopStatConfig GetConfigRisk(string id)
+    private ShopStatConfig GetConfigRisk(DiceID id)
     {
         return this.dicConfigs[id];
     }
@@ -204,6 +284,10 @@ public class StatItemStats
     public float speedStrength;
     public float rangeStrength;
     public float timeEffectStrength;
+
+    [Space(5f)]
+    [Tooltip("You dont need to assign this")]
+    public DiceID id;
 
     [Obsolete("Should call the static function instead!")]
     public StatItemStats()
@@ -256,6 +340,8 @@ public class StatItemStats
             speedStrength = target.speedStrength,
             rangeStrength = target.rangeStrength,
             timeEffectStrength = target.timeEffectStrength,
+
+            id = target.id
         };
         return result;
     }
@@ -281,7 +367,9 @@ public class StatItemStats
             rangeStrength = stat.rangeStrength,
             timeEffectStrength = stat.timeEffectStrength,
             sprCard = config.sprCard,
-            sprStatItem = config.sprStatItem
+            sprStatItem = config.sprStatItem,
+
+            id = config.id
         };
     }
 }
@@ -289,8 +377,9 @@ public class StatItemStats
 [System.Serializable]
 public class ShopStatConfig
 {
-    public string id;
+    public DiceID id;
     public string statName;
+    public string skillDescription;
 
     public Sprite sprCard;
     public Sprite sprStatItem;
@@ -326,7 +415,7 @@ public class ShopStatConfig
     {
         ShopStatConfig newConfig = new ShopStatConfig()
         {
-            id = original.id + "_clone",
+            id = original.id,
             statName = original.statName,
             sprStatItem = original.sprStatItem,
             tier = original.tier,
@@ -348,7 +437,7 @@ public class ShopStatConfig
     }
 #endif
 
-    public ShopStatConfig(string id, string name, StatItemStats baseStats, int levels, StatItemStats additionsEachLevel)
+    public ShopStatConfig(DiceID id, string name, StatItemStats baseStats, int levels, StatItemStats additionsEachLevel)
     {
         this.id = id;
         this.statName = name;

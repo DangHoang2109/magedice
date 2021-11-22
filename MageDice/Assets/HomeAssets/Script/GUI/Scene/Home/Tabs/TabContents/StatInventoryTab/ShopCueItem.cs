@@ -3,8 +3,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.Events;
-using System.Collections;
 using Cosina.Components;
+using System.Collections.Generic;
 
 public class ShopCueItem : MonoBehaviour, IIndexable
 {
@@ -26,8 +26,8 @@ public class ShopCueItem : MonoBehaviour, IIndexable
     
     // stats
     [Header("part"), SerializeField]
-    private CueStatLines partStatLines;
-    public CueUpgrade partUpgrade;
+    private StatGUIStatLines partStatLines;
+    public StatGUIUpgrade partUpgrade;
     //public ShopCueBtnBuy partBuy;
     public GameObject goFrameSelected;
     
@@ -92,19 +92,21 @@ public class ShopCueItem : MonoBehaviour, IIndexable
         // parsing data
         this._data = data;
 
-        this.name = data.config.id;
-        this.txtCueName.text = data.config.statName;
+        this.name = data.config.id.ToString();
+
+        if(txtCueName != null)
+            this.txtCueName.text = data.config.statName;
 
         this.imgCue.sprite = data.config.sprStatItem;
-        var tier = data.config.tier;
-        this.imgBg.color = ShopCueRef.Instance.GetColorTier(tier).colorDark;
+        //var tier = data.config.tier;
+        //this.imgBg.color = ShopCueRef.Instance.GetColorTier(tier).colorDark;
 
-        this.Refresh(StatManager.Instance.CurrentCueId);
+        this.Refresh(StatManager.Instance.CurrentStatId);
         
         // bind event
-        StatManager.Instance.OnCueChanged += this.OnACueUpdated;
-        StatManager.Instance.OnCardBought += this.OnACueUpdated;
-        StatManager.Instance.OnCueUpgraded += OnACueUpdated;
+        StatManager.Instance.OnCueChanged += this.OnLineupUpdated;
+        StatManager.Instance.OnCardBought += this.OnAStatUpdated;
+        StatManager.Instance.OnCueUpgraded += OnAStatUpdated;
         
         StatManager.Instance.OnCueGained += this.OnACueGained;
         
@@ -128,19 +130,21 @@ public class ShopCueItem : MonoBehaviour, IIndexable
 #if UNITY_EDITOR
     [ContextMenu("Refresh")]
 #endif
-    private void Refresh(string usingCueId)
+    private void Refresh(List<DiceID> usingStat)
     {
         switch (this._data.kind)
         {
             case StatManager.Kind.NotUnlocked:
-                this.partStatLines.ParseStatsNext(this._data);
+                if(partStatLines != null)
+                    this.partStatLines.ParseStatsNext(this._data);
                 this.partUpgrade.ParseCueToBuy(this._data);
                 break;
             case StatManager.Kind.UnlockedNonMaxed:
             case StatManager.Kind.Maxed:
-                this.partStatLines.ParseStatsCurrent(this._data);
+                if (partStatLines != null)
+                    this.partStatLines.ParseStatsCurrent(this._data);
                 this.partUpgrade.ParseCueBought(this._data);
-                this.CheckUseState(usingCueId);
+                this.CheckUseState(usingStat);
                 break;
             default:
                 Debug.LogException(new System.Exception("ShopCueItem Refresh: kind exception: " + this._data.kind.ToString()));
@@ -169,20 +173,22 @@ public class ShopCueItem : MonoBehaviour, IIndexable
         return this;
     }
 
-    private void CheckUseState(string usingCueId)
+    private void CheckUseState(List<DiceID> usingStat)
     {
-        this.goFrameSelected.SetActive(this._data.id == usingCueId);
+        this.goFrameSelected.SetActive(usingStat.Contains(this._data.id));
     }
-
-    public void OnClickCue()
+    private void CheckUseState(List<StatData> usingStat)
     {
-        Debug.Log("edit");
+        this.goFrameSelected.SetActive(usingStat.Find(x => x.id == this._data.id) != null);
+    }
+    public void OnClickItem()
+    {
         // show dialog cue detail
-        //var d = GameManager.Instance.OnShowDialogWithSorting<CueDetailDialog>(
-        //    "Home/GUI/Dialogs/Cue/CueDetail",
-        //    PopupSortingType.CenterBottomAndTopBar,
-        //    this._data);
-        //SoundManager.Instance.PlayButtonClick();
+        var d = GameManager.Instance.OnShowDialogWithSorting<StatGUIDetailDialog>(
+            "Home/GUI/StatDetail/StatDetailDialog",
+            PopupSortingType.CenterBottomAndTopBar,
+            this._data);
+        SoundManager.Instance.PlayButtonClick();
     }
 
     private void OnACueGained(StatData cue)
@@ -204,27 +210,52 @@ public class ShopCueItem : MonoBehaviour, IIndexable
 
     public void ProcReturn()
     {
-        this.partStatLines.ClearAnim();
+        //if (partStatLines != null)
+        //    this.partStatLines.ClearAnim();
         
         this.gameObject.SetActive(false);
         ShopCueRef.Instance.ReturnItem(this);
 
-        StatManager.Instance.OnCueChanged -= this.OnACueUpdated;
-        StatManager.Instance.OnCardBought -= this.OnACueUpdated;
-        StatManager.Instance.OnCueUpgraded -= OnACueUpdated;
+        StatManager.Instance.OnCueChanged -= this.OnLineupUpdated;
+        StatManager.Instance.OnCardBought -= this.OnAStatUpdated;
+        StatManager.Instance.OnCueUpgraded -= OnAStatUpdated;
         
         StatManager.Instance.OnCueGained -= this.OnACueGained;
         
         GameManager.Instance.OnSceneChanging -= this.BackStack;
     }
     
-    private void OnACueUpdated(StatData c)
+    private void OnAStatUpdated(StatData c)
     {
-        if (!c.id.Equals(this._data.id))
+        if (c.id != this._data.id) //nếu trong lineup mới ko contain id này
+        {
+            //no need this
+            //if (this.goFrameSelected.activeSelf)
+            //{
+            //    this.CheckUseState(cs);
+            //}
+            //else
+            //{
+            //    return;
+            //}
+        }
+
+        if (this.gameObject.activeInHierarchy)
+        {
+            this.Refresh(StatManager.Instance.CurrentStatId);
+        }
+        else
+        {
+            this.needToRefresh = true;
+        }
+    }
+    private void OnLineupUpdated(List<StatData> cs)
+    {
+        if (cs.Find( c => c.id == this._data.id) == null) //nếu trong lineup mới ko contain id này
         {
             if (this.goFrameSelected.activeSelf)
             {
-                this.CheckUseState(c.id);
+                this.CheckUseState(cs);
             }
             else
             {
@@ -234,7 +265,7 @@ public class ShopCueItem : MonoBehaviour, IIndexable
 
         if (this.gameObject.activeInHierarchy)
         {
-            this.Refresh(StatManager.Instance.CurrentCueId);
+            this.Refresh(StatManager.Instance.CurrentStatId);
         }
         else
         {
@@ -251,7 +282,7 @@ public class ShopCueItem : MonoBehaviour, IIndexable
     {
         if (this.needToRefresh)
         {
-            this.Refresh(StatManager.Instance.CurrentCueId);
+            this.Refresh(StatManager.Instance.CurrentStatId);
             this.needToRefresh = false;
         }
     }
@@ -298,7 +329,7 @@ public class ShopCueItem : MonoBehaviour, IIndexable
             return;
 
         StatManager.Instance.WinCue(this._data);
-        this.Refresh(StatManager.Instance.CurrentCueId);
+        this.Refresh(StatManager.Instance.CurrentStatId);
     }
 
     private GameObject CreateButton(string name, string text

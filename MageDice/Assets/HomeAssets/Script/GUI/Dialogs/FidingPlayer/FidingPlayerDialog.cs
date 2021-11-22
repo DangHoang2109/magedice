@@ -84,12 +84,12 @@ public class FidingPlayerDialog : BaseSortingDialog
             SoundManager.Instance.Play("snd_match_found");
             this.opponent.ShowInfo();
         });
-        if (config.fee.GetValue() > 0)
-        {
-            seq.Append(this.player.ShowMoney(config.fee.GetValue()).SetEase(Ease.Linear).SetId(this.GetInstanceID()));
-            seq.Join(this.opponent.ShowMoney(config.fee.GetValue()).SetEase(Ease.Linear).SetId(this.GetInstanceID()));
-        }
-        if (config.prize.GetValue() > 0)
+        //if (config.fee.GetValue() > 0)
+        //{
+        //    seq.Append(this.player.ShowMoney(config.fee.GetValue()).SetEase(Ease.Linear).SetId(this.GetInstanceID()));
+        //    seq.Join(this.opponent.ShowMoney(config.fee.GetValue()).SetEase(Ease.Linear).SetId(this.GetInstanceID()));
+        //}
+        if (config.prizePerWave.GetValue() > 0)
         {
             seq.Append(AddTotalMoney(config).SetId(this.GetInstanceID()));
         }       
@@ -119,21 +119,20 @@ public class FidingPlayerDialog : BaseSortingDialog
     private Sequence AddTotalMoney(RoomConfig roomConfig, float duration = 0.5f)
     {
         //ADD TO TOTAL MONEY PHARSE
-        this.txtMoneyTotal.tmpValue.text = "0";
-        long gameMoney = roomConfig.prize.GetValue();
-        long fee = roomConfig.fee.GetValue();
+        //this.txtMoneyTotal.tmpValue.text = "0";
+        //long gameMoney = roomConfig.prizePerWave.GetValue();
+        //long fee = roomConfig.fee.GetValue();
 
         Sequence seq = DOTween.Sequence();
-        seq.AppendCallback(() => SoundManager.Instance.Play("snd_collect_coin2"));
-        seq.Join(this.player.TakeAllMoney(fee, 1f).SetEase(Ease.Linear));
-        seq.Join(this.opponent.TakeAllMoney(fee, 1f).SetEase(Ease.Linear));
-        seq.Join(this.txtMoneyTotal.AddValueAnimtion(0, gameMoney, 1f).SetEase(Ease.Linear));
-        seq.Join(this.cgMoneyTotal.DOFade(1f, 0.5f).SetEase(Ease.Linear));
-        seq.AppendInterval(0.5f);
-        seq.Append(this.player.HidePrize().SetEase(Ease.Linear));
-        seq.Join(this.opponent.HidePrize().SetEase(Ease.Linear));
-        //seq.Join(this.cgMoneyTotal.DOFade(0f, duration / 6f).SetEase(Ease.Linear));
-        seq.SetId(this.GetInstanceID());
+        //seq.AppendCallback(() => SoundManager.Instance.Play("snd_collect_coin2"));
+        //seq.Join(this.player.TakeAllMoney(fee, 1f).SetEase(Ease.Linear));
+        //seq.Join(this.opponent.TakeAllMoney(fee, 1f).SetEase(Ease.Linear));
+        //seq.Join(this.txtMoneyTotal.AddValueAnimtion(0, gameMoney, 1f).SetEase(Ease.Linear));
+        //seq.Join(this.cgMoneyTotal.DOFade(1f, 0.5f).SetEase(Ease.Linear));
+        //seq.AppendInterval(0.5f);
+        //seq.Append(this.player.HidePrize().SetEase(Ease.Linear));
+        //seq.Join(this.opponent.HidePrize().SetEase(Ease.Linear));
+        //seq.SetId(this.GetInstanceID());
         return seq;
     }
 

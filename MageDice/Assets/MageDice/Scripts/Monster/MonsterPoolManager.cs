@@ -72,6 +72,7 @@ public class MonsterPoolManager : MonoSingleton<MonsterPoolManager>
     {
         b.transform.SetParent(tfPool);
         b.gameObject.SetActive(false);
+        b.imgFront.color = Color.white;
         b.transform.localPosition = Vector3.zero;
         this.monsters.Enqueue(b);
     }

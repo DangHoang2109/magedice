@@ -17,23 +17,24 @@ public class RoomTourItem : RoomItem
     [Header("Lock")]
     public Transform tranLock;
     public Transform tranIconLock;
-    public IBooster bstUnlock;
+    //public IBooster bstUnlock;
 
     [Header("Unlock")]
     public Transform tranUnlock;
+    public HorizontalLayoutGroup horizontalLayout;
+    public IBooster bstPrizePerWave;
 
     //[Header("Progress")]
     //public RoomScoreProgress scoreProgress;
 
-    [Space(2f)]
-    [Header("Prize and fee")]
-    public IBooster bstPrize;
-    public IBooster bstFee;
+    //[Space(2f)]
+    //[Header("Prize and fee")]
+    //public IBooster bstPrize;
+    //public IBooster bstFee;
 
     [Header("Button")]
     public StateImageUI btEntry;
     public UIShiny shinyEntry;
-    public HorizontalLayoutGroup horizontalLayout;
 
     [Header("Fx unlock")]
     public FxUnlockRoom fxUnlock;
@@ -42,22 +43,23 @@ public class RoomTourItem : RoomItem
     public GameObject gBtnFreeEntry;
     public IBooster bstFreeEntry;
 
-    private bool isFullPoint; //full thanh trophy
+    //private bool isFullPoint; //full thanh trophy
 
     protected override void ParseData(RoomData roomData)
     {
         base.ParseData(roomData);
         if (roomData != null && this.config != null)
         {
-            this.tmpName.SetText(string.Format("Tour {0}", this.config.id));
+            this.tmpName.SetText(this.config.name);
             this.tranLock.gameObject.SetActive(!roomData.unlocked);
             this.tranIconLock.gameObject.SetActive(!roomData.unlocked);
             this.tranUnlock.gameObject.SetActive(roomData.unlocked);
-            this.bstFee.ParseBooster(this.config.fee);
-            this.bstPrize.ParseBooster(this.config.prize);
+            //this.bstFee.ParseBooster(this.config.fee);
+            //this.bstPrize.ParseBooster(this.config.prizePerWave);
 
             if (roomData.unlocked)
             {
+                this.bstPrizePerWave.ParseBooster(this.config.prizePerWave);
                 //this.scoreProgress.ParseWinLoseScore(this.config.pointWin, this.config.pointLose);
                 this.btEntry.ShowState(1);
                 this.shinyEntry.enabled = true;
@@ -71,13 +73,13 @@ public class RoomTourItem : RoomItem
                 //    this.gBtnFreeEntry.SetActive(true);
                 //}
 
-                this.isFullPoint = roomData.point >= config.pointMax;
+                //this.isFullPoint = roomData.point >= config.pointMax;
             }
             else
             {
-                this.bstUnlock.ParseBooster(this.config.unlock);
-                this.bstPrize.ShowSpriteOff();
-                this.bstFee.ShowSpriteOff();
+                //this.bstUnlock.ParseBooster(this.config.unlock);
+                //this.bstPrize.ShowSpriteOff();
+                //this.bstFee.ShowSpriteOff();
                 this.btEntry.ShowState(0);
                 this.shinyEntry.enabled = false;
             }
@@ -160,7 +162,8 @@ public class RoomTourItem : RoomItem
             }
             else
             {
-                FindPlayerCommon.UseCoinAndFindPlayer(this.config);
+                //FindPlayerCommon.UseCoinAndFindPlayer(this.config);
+                FindPlayerCommon.JoinRoomAI(this.config);
             }
         }
         else

@@ -71,6 +71,7 @@ public class GameDataManager : MonoSingleton<GameDataManager>
                 if (!string.IsNullOrEmpty(jsonData))
                 {
                     this.gameDatas = JsonUtility.FromJson<GameDatas>(jsonData);
+                    this.gameDatas.ParseDataNotFirstTime();
                 }
                 else
                 {
@@ -181,6 +182,8 @@ public class GameDataManager : MonoSingleton<GameDataManager>
     private void CreateUser()
     {
         this.gameDatas = new GameDatas();
+        this.gameDatas.ParseDataFirstTime();
+
         this.boosters = new UserBoosters();
         this.gameDatas.CreateUser();
         this.boosters.CreateUser();

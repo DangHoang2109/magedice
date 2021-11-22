@@ -67,8 +67,7 @@ public class DiceConfigs : ScriptableObject
         {
             for (int i = 0; i < config.Game.levels.Length; i++)
             {
-                config.Game.levels[i].speed *= 1.2f;
-                config.Game.levels[i].damage = config.Game.levels[0].damage * (i + 1);
+                config.Game.levels[i].damageMultiplier = (i + 1);
             }
         }
     }
@@ -140,11 +139,11 @@ public class DiceGameLevelConfig
 {
     public int dot;
 
-    public float damage;
-    public float speed;
-    public float range;
+    public float damageMultiplier;
+    //public float speed;
+    //public float range;
 
-    public float timeEffect;
+    //public float timeEffect;
 }
 
 [System.Serializable]

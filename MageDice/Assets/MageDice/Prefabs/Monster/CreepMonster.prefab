@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5805131763713274920}
   - component: {fileID: 5805131763713274927}
   - component: {fileID: 5805131763713274926}
+  - component: {fileID: 497376939677282912}
   m_Layer: 5
   m_Name: CreepMonster
   m_TagString: Untagged
@@ -91,6 +92,19 @@ MonoBehaviour:
   id: 0
   HPBar: {fileID: 5805131764993434652}
   imgFront: {fileID: 5805131763713274927}
+  canvas: {fileID: 497376939677282912}
+--- !u!225 &497376939677282912
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5805131763713274924}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5805131764357954150
 GameObject:
   m_ObjectHideFlags: 0

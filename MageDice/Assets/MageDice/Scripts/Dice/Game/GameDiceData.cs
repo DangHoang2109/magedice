@@ -30,10 +30,11 @@ public class GameDiceData : BaseDiceData
 
         return this as T;
     }
-    public virtual T SetEffect<T>() where T : BaseDiceData
+    public virtual T SetEffect<T>(StatItemStats userStat) where T : BaseDiceData
     {
         this.diceEffect = Activator.CreateInstance(EnumUtility.GetStringType(this.id)) as BaseDiceEffect;
         this.diceEffect.GameConfig = this.Config.Game.levels[this.Dot-1];
+        this.diceEffect.diceStat = userStat;
         this.diceEffect.UIConfig = this.Config.Game.bullet;
 
         return this as T;

@@ -15,7 +15,7 @@ public class PoisionDiceEffect : BaseDiceEffect
     {
         base.BulletEffect(enemy);
 
-        enemy.Hitted(this.GameConfig.damage);
-        enemy.Poision(this.GameConfig.timeEffect, this.GameConfig.timeEffect / 5, Mathf.Floor(this.GameConfig.damage / 10) <= 0 ? 1f : Mathf.Floor(this.GameConfig.damage / 10));
+        enemy.Hitted(this.Damage);
+        enemy.Poision(this.diceStat.timeEffectStrength, this.diceStat.timeEffectStrength / 5, Mathf.Floor(this.Damage / 10) <= 0 ? 1f : Mathf.Floor(this.Damage / 10));
     }
 }

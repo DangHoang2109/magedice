@@ -11,7 +11,7 @@ public class GameDatas
     public StoreDatas storeDatas;
     public UserBehaviorDatas behaviorDatas;
     //public MissionDatas missionDatas;
-    public StatDatas cueDatas;
+    public StatDatas statDatas;
 
     public GameDatas()
     {
@@ -20,7 +20,7 @@ public class GameDatas
         this.bagDatas = new BagSlotDatas();
         this.storeDatas = new StoreDatas();
         this.behaviorDatas = new UserBehaviorDatas();
-
+        this.statDatas = new StatDatas();
         //this.missionDatas = new MissionDatas();
 
         //this.eventDatas = new UserTournamentDatas();
@@ -41,6 +41,16 @@ public class GameDatas
         //this.missionDatas.CreateUser();
     }
 
+    public void ParseDataFirstTime()
+    {
+        this.statDatas.ParseDataFirstTime();
+        StatManager.Instance.NewUser();
+    }
+
+    public void ParseDataNotFirstTime()
+    {
+        this.statDatas.ParseDatasNotFirstTime();
+    }
     /// <summary>
     /// Gọi khi mở game
     /// </summary>

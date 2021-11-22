@@ -255,7 +255,14 @@ public class GameMapConfigs : ScriptableObject
         //}
         for (int i = 0; i < green.waves.Count; i++)
         {
-            green.waves[i].intervalSpawn = 0.7f;
+            if (i < 5)
+                green.waves[i].intervalSpawn = 1.2f;
+            else if(i < 9)
+                green.waves[i].intervalSpawn = 1f;
+            else if (i < 19)
+                green.waves[i].intervalSpawn = 0.8f;
+            else
+                green.waves[i].intervalSpawn = 0.6f;
             //foreach (WaveMonsterRateConfig item in green.waves[i].monsterRate)
             //{
             //    item.rate = 1f/ green.waves[i].monsterRate.Count;
@@ -265,7 +272,9 @@ public class GameMapConfigs : ScriptableObject
         //green.waves[9].monsterRate = new List<WaveMonsterRateConfig>() { new WaveMonsterRateConfig() { monsterID = MonsterType.MINI_BOSS, rate = 1 } };
         //green.waves[19].monsterRate = new List<WaveMonsterRateConfig>() { new WaveMonsterRateConfig() { monsterID = MonsterType.MINI_BOSS, rate = 1 } };
         //green.waves[29].monsterRate = new List<WaveMonsterRateConfig>() { new WaveMonsterRateConfig() { monsterID = MonsterType.SKILL_BOSS, rate = 1 } };
+
     }
+
 #endif
 
     public List<MapConfig> maps;
@@ -277,11 +286,11 @@ public class GameMapConfigs : ScriptableObject
 }
 public enum MapName
 {
-    NONE = 0,
-    CHEST = 1,
+    NONE = -1,
+    CHEST = 0,
 
-    GREENLAND,
-    ICELAND,
+    GREENLAND = 1,
+    ICELAND = 2,
     VOLCANO,
 }
 [System.Serializable]
@@ -297,11 +306,17 @@ public class MapUIConfig
 public class MapConfig
 {
     public MapName ID;
+    public string mapName;
     public List<WaveConfig> waves;
     [Space(5f)]
     public List<MonsterConfig> monsterConfig;
 
     public BossSkillHandler FinalBossID;
+
+    public string GetName()
+    {
+        return this.mapName;
+    }
 }
 [System.Serializable]
 public class WaveConfig

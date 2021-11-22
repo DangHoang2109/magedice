@@ -2,38 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Events;
 
-public class GameMenuDialog : BaseSortingDialog
+public class GameMenuDialog : BaseDialog
 {
-    [SerializeField]
-    private Transform panelMenu;
-    protected override void AnimationShow()
+    public override void OnShow(object data = null, UnityAction callback = null)
     {
-        //PoolGame.Instance.OnPauseGame();
-        this.panelMenu.DOLocalMoveX(80, 0.2f);
+        MageDiceGameManager.Instance.OnPauseGame(true);
+        base.OnShow(data, callback);
     }
-    protected override void AnimationHide()
+    protected override void OnCompleteHide()
     {
-        this.panelMenu.DOLocalMoveX(-300, 0.2f).OnComplete(this.OnCompleteHide);
-    }
-    public override void OnCloseDialog()
-    {
-        //PoolGame.Instance.OnResumeGame();
-        base.OnCloseDialog();
-    }
-    public void ClickClose()
-    {
-        this.ClickCloseDialog();
-    }
+        base.OnCompleteHide();
+        MageDiceGameManager.Instance.OnPauseGame(false);
 
-    public void ClickOption()
-    {
-        GameManager.Instance.OnShowDialog<UserProfileDialog>("Home/GUI/Dialogs/Profiles/UserProfileDialog");
     }
-    public void ClickLeave()
+    public void OnClickBackHome()
     {
-        //PoolGame.Instance.LeaveGame();
         SoundManager.Instance.PlayButtonClick();
 
+        MessageBox.Instance.ShowMessageBox("Quit Game!?", "You will not receive prize if you quit! Are you sure?")
+            .SetButtonYes("Stay")
+            .SetButtonNo("Quit")
+            .SetEvent(
+            callbackYes: null,
+            callbackNo: LoadHome);
     }
+    private void LoadHome()
+    {
+        JoinGameHelper.Instance.BackHomeScene();
+    }
+
 }

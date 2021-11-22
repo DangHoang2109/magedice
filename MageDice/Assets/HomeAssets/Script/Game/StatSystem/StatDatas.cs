@@ -9,34 +9,41 @@ public class StatDatas
 {
 
     [SerializeField]
-    public string currentStatId;
+    public List<DiceID> currentStatId;
 
-    public string CurrentCueId
+    public List<DiceID> CurrentStatId
     {
         get { return this.currentStatId; }
     }
+    //[SerializeField]
+    //public string currentStatId;
+
+    //public string CurrentCueId
+    //{
+    //    get { return this.currentStatId; }
+    //}
 
     [SerializeField]
     public List<ListStatData> listsCue;
 
     [System.NonSerialized]
-    private Dictionary<StatManager.Kind, ListStatData> dictCueDatas;
+    private Dictionary<StatManager.Kind, ListStatData> dictStatDatas;
 
     public static StatDatas Instance
     {
         get
         {
-            return GameDataManager.Instance.GameDatas.cueDatas;
+            return GameDataManager.Instance.GameDatas.statDatas;
         }
 
     }
 
     public void ParseDataFirstTime()
     {
-        this.currentStatId = "default";//new List<DiceID>() { DiceID.FIRE, DiceID.ICE, DiceID.WIND, DiceID.ELECTRIC, DiceID.POISION };
+        this.currentStatId = new List<DiceID>() { DiceID.FIRE, DiceID.ICE, DiceID.WIND, DiceID.ELECTRIC, DiceID.POISION }; //"default";
         this.listsCue = new List<ListStatData>(3);
 
-        dictCueDatas = new Dictionary<StatManager.Kind, ListStatData>(3);
+        dictStatDatas = new Dictionary<StatManager.Kind, ListStatData>(3);
 
         // 3 = hard code
         for (int i = 0; i < 3; ++i)
@@ -44,12 +51,12 @@ public class StatDatas
             this.listsCue.Add(new ListStatData((StatManager.Kind)(1 << i)));
             this.listsCue[i].EnsureDict();
 
-            this.dictCueDatas.Add(this.listsCue[i].kind, this.listsCue[i]);
+            this.dictStatDatas.Add(this.listsCue[i].kind, this.listsCue[i]);
         }
 
-        this.dictCueDatas[StatManager.Kind.NotUnlocked].ImportConfigDataFirstTime();
+        this.dictStatDatas[StatManager.Kind.NotUnlocked].ImportConfigDataFirstTime();
 
-        //ShopCueRef.Instance.Prepare();
+        ShopCueRef.Instance.Prepare();
     }
 
 
@@ -57,14 +64,14 @@ public class StatDatas
     {
         // TODO! mr K: need impletement something to check new cue (after updating)
 
-        dictCueDatas = new Dictionary<StatManager.Kind, ListStatData>(3);
+        dictStatDatas = new Dictionary<StatManager.Kind, ListStatData>(3);
         for (int i = 0; i < 3; ++i)
         {
             this.listsCue[i].ParseDataNotFirstTime();
-            this.dictCueDatas.Add(this.listsCue[i].kind, this.listsCue[i]);
+            this.dictStatDatas.Add(this.listsCue[i].kind, this.listsCue[i]);
         }
 
-        //ShopCueRef.Instance.Prepare();
+        ShopCueRef.Instance.Prepare();
     }
 
 
@@ -77,9 +84,9 @@ public class StatDatas
 
     internal List<StatData> GetListSimple(StatManager.Kind kind)
     {
-        if (this.dictCueDatas.ContainsKey(kind))
+        if (this.dictStatDatas.ContainsKey(kind))
         {
-            return this.dictCueDatas[kind].datas;
+            return this.dictStatDatas[kind].datas;
         }
         return null;
     }
@@ -100,9 +107,9 @@ public class StatDatas
 
         return results;
     }
-    internal void UnlockCue(string id)
+    internal void UnlockStat(DiceID id)
     {
-        StatData cue = this.dictCueDatas[StatManager.Kind.NotUnlocked].GetCueData(id);
+        StatData cue = this.dictStatDatas[StatManager.Kind.NotUnlocked].GetCueData(id);
         if (cue == null)
         {
             Debug.LogError("CueDatas:BuyCue failed - cue is null");
@@ -111,7 +118,11 @@ public class StatDatas
 
         this.UnlockCue(cue);
     }
-
+    internal void UnlockStats(List<DiceID> ids)
+    {
+        foreach (DiceID id in ids)
+            this.UnlockStat(id);
+    }
     /// <summary>
     /// WARNING! This cue must be in "Not Unlocked" list
     /// </summary>
@@ -120,14 +131,14 @@ public class StatDatas
         cue.level = 1;
         if (cue.IsMaxLevel)
         {
-            this.dictCueDatas[StatManager.Kind.Maxed]
-                .TakeCueFrom(this.dictCueDatas[StatManager.Kind.NotUnlocked], cue.id);
+            this.dictStatDatas[StatManager.Kind.Maxed]
+                .TakeCueFrom(this.dictStatDatas[StatManager.Kind.NotUnlocked], cue.id);
             cue.kind = StatManager.Kind.Maxed;
         }
         else
         {
-            this.dictCueDatas[StatManager.Kind.UnlockedNonMaxed]
-                .TakeCueFrom(this.dictCueDatas[StatManager.Kind.NotUnlocked], cue.id);
+            this.dictStatDatas[StatManager.Kind.UnlockedNonMaxed]
+                .TakeCueFrom(this.dictStatDatas[StatManager.Kind.NotUnlocked], cue.id);
             cue.kind = StatManager.Kind.UnlockedNonMaxed;
         }
     }
@@ -143,9 +154,9 @@ public class StatDatas
         return l == null ? 0 : l.Count();
     }
 
-    internal void UpgradeCue(string id)
+    internal void UpgradeCue(DiceID id)
     {
-        StatData cue = this.dictCueDatas[StatManager.Kind.UnlockedNonMaxed].GetCueData(id);
+        StatData cue = this.dictStatDatas[StatManager.Kind.UnlockedNonMaxed].GetCueData(id);
         if (cue == null)
         {
             Debug.LogError("CueDatas:UpgradeCue failed - cue is null");
@@ -155,8 +166,8 @@ public class StatDatas
         ++cue.level;
         if (cue.IsMaxLevel)
         {
-            this.dictCueDatas[StatManager.Kind.Maxed]
-                .TakeCueFrom(this.dictCueDatas[StatManager.Kind.UnlockedNonMaxed], id);
+            this.dictStatDatas[StatManager.Kind.Maxed]
+                .TakeCueFrom(this.dictStatDatas[StatManager.Kind.UnlockedNonMaxed], id);
             cue.kind = StatManager.Kind.Maxed;
         }
     }
@@ -288,36 +299,52 @@ public class StatDatas
     //}
 #endif // CHEAT
 
-    internal void ChangeCurrentCue(string id)
+    internal void ChangeCurrentStat(List<DiceID> stats)
     {
-        this.currentStatId = id;
+        this.currentStatId = new List<DiceID>(stats);
     }
+    //internal void ChangeCurrentCue(string id)
+    //{
+    //    this.currentStatId = id;
+    //}
 
-    internal StatData GetCurrentCue()
+    internal List<StatData> GetCurrentCue()
     {
-        return this.GetCue(this.currentStatId);
+        return this.GetStats(this.currentStatId);
     }
+    //internal StatData GetCurrentCue()
+    //{
+    //    return this.GetCue(this.currentStatId);
+    //}
 
-    internal StatData GetCue(string id)
+    internal StatData GetStat(DiceID id)
     {
-        StatData cueData = this.dictCueDatas[StatManager.Kind.NotUnlocked].GetCueData(id);
+        StatData cueData = this.dictStatDatas[StatManager.Kind.NotUnlocked].GetCueData(id);
         if (cueData != null)
             return cueData;
-        cueData = this.dictCueDatas[StatManager.Kind.UnlockedNonMaxed].GetCueData(id);
+        cueData = this.dictStatDatas[StatManager.Kind.UnlockedNonMaxed].GetCueData(id);
         if (cueData != null)
             return cueData;
-        cueData = this.dictCueDatas[StatManager.Kind.Maxed].GetCueData(id);
+        cueData = this.dictStatDatas[StatManager.Kind.Maxed].GetCueData(id);
         return cueData;
     }
-
+    internal List<StatData> GetStats(List<DiceID> ids)
+    {
+        List<StatData> res = new List<StatData>();
+        foreach(DiceID i in ids)
+        {
+            res.Add(GetStat(i));
+        }
+        return res;
+    }
     /// <summary>
     /// Return the cueData since <br></br>
     /// - unlocking the cue <br></br>
     /// - have enough card for upgrading
     /// </summary>
-    internal StatData AddCard(string id, long count)
+    internal StatData AddCard(DiceID id, long count)
     {
-        StatData cueData = this.GetCue(id);
+        StatData cueData = this.GetStat(id);
         if (cueData == null)
         {
             Debug.LogError("Cue not found: " + id);
@@ -363,7 +390,7 @@ public class ListStatData
     public StatManager.Kind kind;
     public List<StatData> datas;
 
-    private Dictionary<string, StatData> dictDatas;
+    private Dictionary<DiceID, StatData> dictDatas; //Dictionary<string, StatData>;
 
     public ListStatData(StatManager.Kind kind)
     {
@@ -371,7 +398,7 @@ public class ListStatData
         this.datas = new List<StatData>();
     }
 
-    public bool CheckContainId(string id)
+    public bool CheckContainId(DiceID id)
     {
         if (this.datas == null || this.datas.Count == 0)
             return false;
@@ -397,7 +424,7 @@ public class ListStatData
     }
 
 
-    public StatData TakeCueFrom(ListStatData otherList, string id)
+    public StatData TakeCueFrom(ListStatData otherList, DiceID id)
     {
         StatData data = otherList.GetCueData(id);
         if (data == null)
@@ -435,7 +462,7 @@ public class ListStatData
     /// <summary>
     /// Without ensure dics
     /// </summary>
-    public void ImportNewReleasedCuesRawly(List<string> ids)
+    public void ImportNewReleasedCuesRawly(List<DiceID> ids)
     {
         if (ids == null || ids.Count == 0)
             return;
@@ -448,7 +475,7 @@ public class ListStatData
 
     public void ParseDataNotFirstTime()
     {
-        this.dictDatas = new Dictionary<string, StatData>();
+        this.dictDatas = new Dictionary<DiceID, StatData>();
         for (int i = 0; i < this.datas.Count; ++i)
         {
             this.dictDatas.Add(this.datas[i].id, this.datas[i]);
@@ -459,14 +486,14 @@ public class ListStatData
 
     public void EnsureDict()
     {
-        this.dictDatas = new Dictionary<string, StatData>();
+        this.dictDatas = new Dictionary<DiceID, StatData>();
         for (int i = 0; i < this.datas.Count; ++i)
         {
             this.dictDatas.Add(this.datas[i].id, this.datas[i]);
         }
     }
 
-    public StatData GetCueData(string id)
+    public StatData GetCueData(DiceID id) //string id
     {
         if (this.dictDatas.ContainsKey(id))
             return this.dictDatas[id];
@@ -488,7 +515,7 @@ public class ListStatData
 [System.Serializable]
 public class StatData
 {
-    public string id;
+    public DiceID id; //string
     [Tooltip("Level start from 1")]
     public int level;
     public long cards;
@@ -498,7 +525,7 @@ public class StatData
     [System.NonSerialized]
     public ShopStatConfig config;
 
-    public StatData(string id)
+    public StatData(DiceID id)
     {
         this.id = id;
         this.level = 0;
@@ -563,6 +590,6 @@ public class StatData
 
     public override string ToString()
     {
-        return string.Format("CueData: {0}", this.id);
+        return string.Format("CueData: {0}", this.id.ToString());
     }
 }

@@ -96,7 +96,7 @@ public class StatCardItemDisplay : MonoBehaviour
             //hiển thị tag card cue đang dùng hay không
             if (this.tagCard != null)
             {
-                this.tagCard.ParseData(StatDatas.Instance.CurrentCueId.Equals(c.id)
+                this.tagCard.ParseData(StatDatas.Instance.CurrentStatId.Contains(c.id)
                     ? StatCardTag.TagType.Equipped
                     : StatCardTag.TagType.None);
             }

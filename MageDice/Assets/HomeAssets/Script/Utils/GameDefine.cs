@@ -35,7 +35,7 @@ public static class GameDefine
     public const int AMOUNT_GAMES_BOOST_MAIN = 7;
     public const float DIVIDER_IN_GAMES_BOOST_MAIN = 3;
 
-    public const string ID_CUE_DEFAULT = "default";
+    //public const string ID_CUE_DEFAULT = "default";
 }
 
 public static class SceneName

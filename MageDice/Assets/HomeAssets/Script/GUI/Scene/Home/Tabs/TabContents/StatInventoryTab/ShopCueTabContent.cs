@@ -15,8 +15,9 @@ public class ShopCueTabContent : TabContent
         NowOwn = 1,
         Own = 2,
     }
+    [Header("Inventory Deck Line Up")]
+    public InventoryLineUp lineUpManager;
 
-    
     [Header("Children")]
     public GameObject goTabs;
     public GameObject goPanels;
@@ -50,7 +51,8 @@ public class ShopCueTabContent : TabContent
             this.goPanels.SetActive(true);
             this.goTabs.SetActive(true);
         }
-        
+        lineUpManager.ParseData();
+        StatManager.Instance.OnCueChanged += lineUpManager.OnLineUpChange;
         base.OnShow(index, data, callback);
     }
 
@@ -118,5 +120,7 @@ public class ShopCueTabContent : TabContent
         {
             this.tweenFxBuy.Complete();
         }
+        StatManager.Instance.OnCueChanged -= lineUpManager.OnLineUpChange;
+
     }
 }

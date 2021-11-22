@@ -84,6 +84,13 @@ public class RoomDatas
         return false;
     }
 
+    public void ClearRoom(int id)
+    {
+        if(this.GetRoom(id + 1) != null && !IsUnlockedRoom(id + 1))
+        {
+            this.UnlockRoom(id + 1);
+        }
+    }
     public void UnlockRoom(int id)
     {
         this.GetRoom(id)?.UnlockRoom();
@@ -93,18 +100,23 @@ public class RoomDatas
         
         SaveData();
     }
-
-    public void AddPoint(int id, int value)
+    public void SetIndexBagClaim(int id,int index)
     {
-        this.GetRoom(id)?.AddPoint(value);
+        this.GetRoom(id)?.SetIndexBagClaim(index);
         SaveData();
-    }
 
-    public void SetPoint(int id, int value)
-    {
-        this.GetRoom(id)?.SetPoint(value);
-        SaveData();
     }
+    //public void AddPoint(int id, int value)
+    //{
+    //    this.GetRoom(id)?.AddPoint(value);
+    //    SaveData();
+    //}
+
+    //public void SetPoint(int id, int value)
+    //{
+    //    this.GetRoom(id)?.SetPoint(value);
+    //    SaveData();
+    //}
 
 
     private void SaveData()
@@ -112,13 +124,13 @@ public class RoomDatas
         GameDataManager.Instance.SaveUserData();
     }
 
-#if UNITY_EDITOR
-    [UnityEditor.MenuItem("Test/Trophy/+50 room 1")]
-    private static void TestFullTrophyRoom1()
-    {
-        RoomDatas.Instance.AddPoint(1, 50);
-    }
-#endif
+//#if UNITY_EDITOR
+//    [UnityEditor.MenuItem("Test/Trophy/+50 room 1")]
+//    private static void TestFullTrophyRoom1()
+//    {
+//        RoomDatas.Instance.AddPoint(1, 50);
+//    }
+//#endif
 }
 
 [System.Serializable]
@@ -126,25 +138,35 @@ public class RoomData
 {
     public int id;
     public bool unlocked; //đã được unlock hay chưa
-    public int point; //điểm
+    //public int point; //điểm
+
+    public int indexBagClaim;
 
     public RoomData(int id)
     {
         this.id = id;
         this.unlocked = false;
-        this.point = 0;
+        this.indexBagClaim = -1;
+        //this.point = 0;
     }
-
-    public void AddPoint(int value)
+    public bool NotClaimThisIndex(int index)
     {
-        this.point += value;
-        if (this.point <= 0) this.point = 0;
+        return this.indexBagClaim < index;
     }
-
-    public void SetPoint(int value)
+    public void SetIndexBagClaim(int index)
     {
-        this.point = value;
+        this.indexBagClaim = (index);
     }
+    //public void AddPoint(int value)
+    //{
+    //    this.point += value;
+    //    if (this.point <= 0) this.point = 0;
+    //}
+
+    //public void SetPoint(int value)
+    //{
+    //    this.point = value;
+    //}
 
     public void UnlockRoom()
     {

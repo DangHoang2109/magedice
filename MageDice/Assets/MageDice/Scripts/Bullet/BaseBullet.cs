@@ -42,10 +42,10 @@ public class BaseBullet : MonoBehaviour
         enemy.RegisterHitting(this._damage);
         return this;
     }
-    public BaseBullet SetData(DiceGameLevelConfig config)
+    public BaseBullet SetData(float speed, float damage)
     {
-        this._speed = config.speed;
-        this._damage = config.damage;
+        this._speed = speed;
+        this._damage = damage;
         return this;
     }
     public BaseBullet SetHitEffect(System.Action<BaseMonsterBehavior> enemy)

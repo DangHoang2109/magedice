@@ -260,10 +260,12 @@ public class StoreConfigs : ScriptableObject
 
     [Header("Packages")]
     public List<StorePackageConfig> packgages;
-    private string GetRandomCueMasterySeriesID()
+    private DiceID GetRandomCueMasterySeriesID()
     {
-        int cueID = Random.Range(8, 20); //cue l8 đến l19
-        return $"l{cueID}";
+        Debug.Log("ediy");
+        return DiceID.FIRE;
+        //int cueID = Random.Range(8, 20); //cue l8 đến l19
+        //return $"l{cueID}";
     }
     public List<StorePackageConfig> GetPackages()
     {
@@ -457,7 +459,7 @@ public class StorePackageConfig: StoreCashConfig
     public StorePackageLayoutType layoutType;
 
     public List<BagAmount> bagAmounts;
-    public string cueid;
+    public DiceID cueid;
 
     public StorePackageConfig() : base()
     {

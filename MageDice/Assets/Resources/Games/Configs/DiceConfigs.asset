@@ -52,35 +52,17 @@ MonoBehaviour:
       id: 1
       levels:
       - dot: 1
-        damage: 150
-        speed: 12
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 1
       - dot: 2
-        damage: 300
-        speed: 12
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 2
       - dot: 3
-        damage: 450
-        speed: 12
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 3
       - dot: 4
-        damage: 600
-        speed: 12
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 4
       - dot: 5
-        damage: 750
-        speed: 12
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 5
       - dot: 6
-        damage: 900
-        speed: 12
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 6
       bullet:
         normalBullet:
           sprBullet: {fileID: 21300000, guid: 8514f98ff1b421e4e9e17ac13bd396e6, type: 3}
@@ -99,35 +81,17 @@ MonoBehaviour:
       id: 2
       levels:
       - dot: 1
-        damage: 100
-        speed: 12
-        range: 0
-        timeEffect: 3
+        damageMultiplier: 1
       - dot: 2
-        damage: 200
-        speed: 12
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 2
       - dot: 3
-        damage: 300
-        speed: 12
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 3
       - dot: 4
-        damage: 400
-        speed: 12
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 4
       - dot: 5
-        damage: 500
-        speed: 12
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 5
       - dot: 6
-        damage: 600
-        speed: 12
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 6
       bullet:
         normalBullet:
           sprBullet: {fileID: 21300000, guid: a4da5d534d50fc34a870202a30b9417d, type: 3}
@@ -146,35 +110,17 @@ MonoBehaviour:
       id: 3
       levels:
       - dot: 1
-        damage: 50
-        speed: 24
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 1
       - dot: 2
-        damage: 100
-        speed: 12
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 2
       - dot: 3
-        damage: 150
-        speed: 12
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 3
       - dot: 4
-        damage: 200
-        speed: 12
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 4
       - dot: 5
-        damage: 250
-        speed: 12
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 5
       - dot: 6
-        damage: 300
-        speed: 12
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 6
       bullet:
         normalBullet:
           sprBullet: {fileID: 21300000, guid: 5f191663aee585f49b8a774e6c01b5ca, type: 3}
@@ -193,35 +139,17 @@ MonoBehaviour:
       id: 4
       levels:
       - dot: 1
-        damage: 100
-        speed: 12
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 1
       - dot: 2
-        damage: 200
-        speed: 12
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 2
       - dot: 3
-        damage: 300
-        speed: 12
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 3
       - dot: 4
-        damage: 400
-        speed: 12
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 4
       - dot: 5
-        damage: 500
-        speed: 12
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 5
       - dot: 6
-        damage: 600
-        speed: 12
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 6
       bullet:
         normalBullet:
           sprBullet: {fileID: 21300000, guid: 7e690df535053544296960bc95d18bd8, type: 3}
@@ -240,35 +168,17 @@ MonoBehaviour:
       id: 5
       levels:
       - dot: 1
-        damage: 100
-        speed: 9.6
-        range: 0
-        timeEffect: 5
+        damageMultiplier: 1
       - dot: 2
-        damage: 200
-        speed: 12
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 2
       - dot: 3
-        damage: 300
-        speed: 12
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 3
       - dot: 4
-        damage: 400
-        speed: 12
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 4
       - dot: 5
-        damage: 500
-        speed: 12
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 5
       - dot: 6
-        damage: 600
-        speed: 12
-        range: 0
-        timeEffect: 0
+        damageMultiplier: 6
       bullet:
         normalBullet:
           sprBullet: {fileID: 21300000, guid: 4ebaa5db5c719974c86d444f956d2ce9, type: 3}

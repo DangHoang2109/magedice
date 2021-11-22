@@ -312,7 +312,7 @@ public class OpenBagDialog : BaseSortingDialog
     private void OnShowCue()
     {
         
-        LogGameAnalytics.Instance.LogEvent(LogAnalyticsEvent.CUE_UNLOCKED, LogParams.STAT_ITEM_ID, this.models[this.indexBag].items[this.indexCard].equipmentConfig.id);  //unlock trong bag
+        LogGameAnalytics.Instance.LogEvent(LogAnalyticsEvent.CUE_UNLOCKED, LogParams.STAT_ITEM_ID, this.models[this.indexBag].items[this.indexCard].equipmentConfig.id.ToString());  //unlock trong bag
         this.isBlockingByAds = false;
         this.cardPlay.ParseData(this.models[this.indexBag].typeBag, this.models[this.indexBag].items[this.indexCard], this.transMid.position);
         this.cardPlay.StartAnimate();

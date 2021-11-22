@@ -23,7 +23,6 @@ public class OpenBagItemUpper : MonoBehaviour
     [Header("Linkers")]
     public CanvasGroup cg;
     public StatCardItemDisplay displayer;
-    public CueUnlock partUnlock;
     public CollectCuePanel displayerCue;
     
     [Space(10f)]
@@ -102,7 +101,6 @@ public class OpenBagItemUpper : MonoBehaviour
         // this.transNewUnlockedFX = this.txtNewUnlockedFX.transform;
 
         this.displayer.gameObject.SetActive(false);
-        this.partUnlock.gameObject.SetActive(false);
         this.displayerCue.Init(this.ShowWatchButton, this.SetBlockingByAds);
     }
 
@@ -223,18 +221,18 @@ public class OpenBagItemUpper : MonoBehaviour
             {
                 this.isBlockingByAnim = true;
                 this.host.txtLogBlockByAnim.text = "block by anim: OpenBagItemUpper ParseStatsCardAndEarn";
-                this.partUnlock.ParseCue(c);
+                //this.partUnlock.ParseCue(c);
 
 
                 // earn here
                 StatManager.Instance.AddCard(c, valueGet);
 
                 this.StatDataCurrent = c;
-                this.partUnlock.AnimateRemoveCoverInBag(
-                    valueGet > int.MaxValue ? int.MaxValue : (int)valueGet,
-                    0.7f,
-                    this.OnFxUnlockCueStarting,
-                    this.OnAnimateRemovedCoverComplete);
+                //this.partUnlock.AnimateRemoveCoverInBag(
+                //    valueGet > int.MaxValue ? int.MaxValue : (int)valueGet,
+                //    0.7f,
+                //    this.OnFxUnlockCueStarting,
+                //    this.OnAnimateRemovedCoverComplete);
             }
             else
             {
@@ -449,16 +447,16 @@ public class OpenBagItemUpper : MonoBehaviour
                             this.isBlockingByAnim = true;
                             this.host.txtLogBlockByAnim.text = "block by anim: OpenBagItemUpper OnWatchAdsFinished";
                             
-                            this.partUnlock.ParseCue(this.StatDataCurrent);
+                            //this.partUnlock.ParseCue(this.StatDataCurrent);
             
                             // earn here
                             StatManager.Instance.AddCard(this.StatDataCurrent, this.valueCurrent);  
 
-                            this.partUnlock.AnimateRemoveCoverInBag(
-                                this.valueCurrent > int.MaxValue ? int.MaxValue : (int)this.valueCurrent,
-                                0.7f,
-                                this.OnFxUnlockCueStarting,
-                                this.OnAnimateRemovedCoverComplete);
+                            //this.partUnlock.AnimateRemoveCoverInBag(
+                            //    this.valueCurrent > int.MaxValue ? int.MaxValue : (int)this.valueCurrent,
+                            //    0.7f,
+                            //    this.OnFxUnlockCueStarting,
+                            //    this.OnAnimateRemovedCoverComplete);
                         }
                         else
                         {
@@ -584,6 +582,6 @@ public class OpenBagItemUpper : MonoBehaviour
     private void OnHideComplete()
     {
         this.displayer.gameObject.SetActive(false);
-        this.partUnlock.Hide();
+        //this.partUnlock.Hide();
     }
 }

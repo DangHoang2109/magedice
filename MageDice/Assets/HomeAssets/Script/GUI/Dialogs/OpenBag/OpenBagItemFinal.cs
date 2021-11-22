@@ -77,8 +77,8 @@ public class OpenBagItemFinal : MonoBehaviour
         if (config == null)
         {
             Debug.LogException(new System.Exception("OpenBagItemFinal ParseCard error: config NULL"
-                                                    + $" -id: {(c?.id?? "NULL")}"));
-            this.txtName.text = c?.id ?? "NULL";
+                                                    + $" -id: {("NULL")}"));
+            this.txtName.text = "NULL";
             return;
         }
         
@@ -102,9 +102,9 @@ public class OpenBagItemFinal : MonoBehaviour
         ShopStatConfig config = c.config;
         if (config == null)
         {
-            Debug.LogException(new System.Exception("OpenBagItemFinal ParseCue error: config NULL"
-                                                    + $" -id: {(c?.id?? "NULL")}"));
-            this.txtName.text = c?.id ?? "NULL";
+            Debug.LogException(new System.Exception("OpenBagItemFinal ParseCard error: config NULL"
+                                                    + $" -id: {("NULL")}"));
+            this.txtName.text = "NULL";
             return;
         }
         

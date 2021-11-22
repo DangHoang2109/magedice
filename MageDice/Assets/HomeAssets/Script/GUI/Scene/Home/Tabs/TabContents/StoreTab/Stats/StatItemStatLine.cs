@@ -4,83 +4,31 @@ using Cosina.Components;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
+using Coffee.UIEffects;
 public class StatItemStatLine : MonoBehaviour
 {
-    public Image imgBack;
-    public Image imgFront;
+    public Image bg;
+    public TextMeshProUGUI tmpCurrentValue;
+    public TextMeshProUGUI tmpNextStatReduce;
+    public UIShiny shiny;
+
+    public static Color colorBlack = Color.black;
+    public static Color colorUpgrade = new Color(0, 157, 157, 255);
+
 
     /// <summary>
     /// value must be 0 ~ 10
     /// </summary>
-    public void ParseData(float back, in Color colBack, float front)
+    public void ParseData(float currentV, float nextV)
     {
-        this.imgBack.fillAmount = back / 10f;
-        this.imgFront.fillAmount = front / 10f;
-        this.imgBack.color = colBack;
-    }
+        tmpCurrentValue.SetText(currentV.ToString());
 
-    public Tween ChangeColorBack(in Color colBackNew, float time)
-    {
-        if (time <= CosinaMathf.ZERO_BUT_GREATER)
-        {
-            this.imgBack.color = colBackNew;
-            return null;
-        }
-        else
-        {
-            return this.imgBack.DOColor(colBackNew, time)
-                .SetEase(Ease.InCubic).SetId(this);
-        }
-    }
+        float nextStatReduce = nextV - currentV;
+        tmpNextStatReduce.SetText((nextStatReduce > 0) ? $"+{nextStatReduce}" : nextStatReduce.ToString());
+        tmpNextStatReduce.gameObject.SetActive(nextStatReduce != 0);
 
-    public Tween ChangeValueBack(float newBack, float time)
-    {
-        if (time <= CosinaMathf.ZERO_BUT_GREATER)
-        {
-            this.imgBack.fillAmount = newBack / 10f;
-            return null;
-        }
-        else
-        {
-            return this.imgBack.DOFillAmount(newBack, time);
-        }
-    }
-
-    public Tween ChangeColorFront(in Color colFrontNew, float time)
-    {
-        if (time <= CosinaMathf.ZERO_BUT_GREATER)
-        {
-            this.imgFront.color = colFrontNew;
-            return null;
-        }
-        else
-        {
-            return this.imgFront.DOColor(colFrontNew, time)
-                .SetEase(Ease.InCubic)
-                .SetId(this);
-        }
-    }
-
-    
-    public Tween ChangeValueFront(float newFront, float time)
-    {
-        if (time <= CosinaMathf.ZERO_BUT_GREATER)
-        {
-            this.imgFront.fillAmount = newFront / 10f;
-            return null;
-        }
-        else
-        {
-            return this.imgFront.DOFillAmount(newFront, time);
-        }
-    }
-
-    public Tween FlashingBack(float cycle)
-    {
-        Color c = this.imgBack.color;
-        c.a = 0f;
-        this.imgBack.color = c;
-        return this.imgBack.DOFade(1f, cycle / 2f).SetLoops(-1, LoopType.Yoyo);
+        bg.color = nextStatReduce != 0 ? colorUpgrade : colorBlack;
+        shiny.enabled = nextStatReduce != 0;
     }
 }

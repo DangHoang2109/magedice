@@ -5,9 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class NewCuePack
 {
-    public List<string> newIds;
+    public List<DiceID> newIds;
     public NewCuePack()
     {
-        newIds = new List<string>();
+        newIds = new List<DiceID>();
     }
 }

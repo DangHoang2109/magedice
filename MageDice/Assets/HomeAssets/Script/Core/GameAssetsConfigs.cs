@@ -18,7 +18,7 @@ public class GameAssetsConfigs : ScriptableObject
     public BagAssetConfigs bagAsset;
 
     [Header("Card asset")]
-    public CardAssetConfigs cardAsset;
+    public TierAssetConfigs cardAsset;
 
     [Header("Coin cash with value")]
     public SpriteIconValueConfigs valueIconAsset;
@@ -150,9 +150,9 @@ public class BagAssetConfig
 
 #region Card asset
 [System.Serializable]
-public class CardAssetConfigs
+public class TierAssetConfigs
 {
-    public static CardAssetConfigs Instance
+    public static TierAssetConfigs Instance
     {
         get
         {
@@ -160,27 +160,23 @@ public class CardAssetConfigs
         }
     }
 
-    public List<CardAssetConfig> cardAssets;
+    public List<TierAssetConfig> tierAssets;
 
-    //public CardAssetConfig GetCardAsset(CardType cardType)
-    //{
-    //    return this.cardAssets.Find(x => x.cardType == cardType);
-    //}
-
-    //public CardAssetConfig GetCardAsset(CueSystem.CueManager.Tier cardType)
-    //{
-    //    return this.cardAssets.Find(x => x.tier == cardType);
-    //}
+    public TierAssetConfig GetCardAsset(StatManager.Tier tier)
+    {
+        return this.tierAssets.Find(x => x.tier == tier);
+    }
 }
 
 [System.Serializable]
-public class CardAssetConfig
+public class TierAssetConfig
 {
-    //public CueSystem.CueManager.Tier tier;
-    //public CardType cardType;
+    public StatManager.Tier tier;
     public string name;
     public Sprite sprCard;
     public Color color;
+    public Sprite sprRarityCircle;
+
 }
 
 #endregion

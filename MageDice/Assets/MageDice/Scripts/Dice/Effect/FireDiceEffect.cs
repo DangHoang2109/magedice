@@ -15,6 +15,6 @@ public class FireDiceEffect : BaseDiceEffect
     {
         base.BulletEffect(enemy);
 
-        enemy.Hitted(this.GameConfig.damage);
+        enemy.Hitted(this.Damage);
     }
 }

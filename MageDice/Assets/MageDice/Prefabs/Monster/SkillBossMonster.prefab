@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 3971255544212979692}
   - component: {fileID: 3971255544212979691}
   - component: {fileID: 3971255544212979695}
+  - component: {fileID: 6847923722189662321}
   m_Layer: 5
   m_Name: SkillBossMonster
   m_TagString: Untagged
@@ -256,3 +257,16 @@ MonoBehaviour:
   id: 0
   HPBar: {fileID: 3971255542813241304}
   imgFront: {fileID: 3971255544212979691}
+  canvas: {fileID: 6847923722189662321}
+--- !u!225 &6847923722189662321
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3971255544212979688}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

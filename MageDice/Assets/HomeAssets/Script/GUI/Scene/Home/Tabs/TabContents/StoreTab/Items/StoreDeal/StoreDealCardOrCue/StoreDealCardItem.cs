@@ -49,7 +49,7 @@ public class StoreDealCardItem : StoreItem
                     ui.ShowLock(false);
                     this.bstPrice.imgBooster.enabled = true;
                     this.bstPrice.gameObject.SetActive(true);
-                    StatData = StatDatas.Instance.GetCue(dealCardData.cueID);
+                    StatData = StatDatas.Instance.GetStat(dealCardData.cueID);
                     if (StatData != null)
                     {
                         cardDisplay.ParseStatDataAndShowTag(StatData, this.countBuy); //mỗi lần mua 1 card
@@ -106,7 +106,7 @@ public class StoreDealCardItem : StoreItem
                     Debug.Log("Price is NULL");
                     return;
                 }
-                LogGameAnalytics.Instance.LogEvent(LogAnalyticsEvent.CLICK_SHOP_ITEM, LogParams.SHOP_ITEM_ID, StatData.id);
+                LogGameAnalytics.Instance.LogEvent(LogAnalyticsEvent.CLICK_SHOP_ITEM, LogParams.SHOP_ITEM_ID, StatData.id.ToString());
 
                 if (UserProfile.Instance.IsCanUseBooster(price.type, price.GetValue()))
                 {
@@ -157,6 +157,6 @@ public class StoreDealCardItem : StoreItem
             StoreDealCardsData.Instance.OnBuyDealCard(this.dealCardData.cueID);
             ParseData(this.dealCardData); //parse lại data
         }
-        LogGameAnalytics.Instance.LogEvent(LogAnalyticsEvent.COMPLETE_BUY_SHOP_ITEM, LogParams.SHOP_ITEM_ID, StatData.id);
+        LogGameAnalytics.Instance.LogEvent(LogAnalyticsEvent.COMPLETE_BUY_SHOP_ITEM, LogParams.SHOP_ITEM_ID, StatData.id.ToString());
     }
 }

@@ -73,7 +73,7 @@ public class StatManager : MonoSingleton<StatManager>
     #endregion enum
 
     #region events
-    public event System.Action<StatData> OnCueChanged;
+    public event System.Action<List<StatData>> OnCueChanged;
     public event System.Action<StatData> OnCueGained;
     public event System.Action<StatData> OnCueUpgraded;
     public event System.Action<StatData> OnCardBought;
@@ -153,8 +153,8 @@ public class StatManager : MonoSingleton<StatManager>
     /// </summary>
     public void NewUser()
     {
-        StatDatas.Instance.UnlockCue(GameDefine.ID_CUE_DEFAULT);
-        StatDatas.Instance.ChangeCurrentCue(GameDefine.ID_CUE_DEFAULT);
+        StatDatas.Instance.UnlockStats(new List<DiceID>() { DiceID.FIRE, DiceID.ICE, DiceID.WIND, DiceID.ELECTRIC, DiceID.POISION });
+        StatDatas.Instance.ChangeCurrentStat(new List<DiceID>() { DiceID.FIRE, DiceID.ICE, DiceID.WIND, DiceID.ELECTRIC, DiceID.POISION });
     }
 
     private StatData GetCueDataFromConfig(ShopStatConfig config)
@@ -169,13 +169,13 @@ public class StatManager : MonoSingleton<StatManager>
 
     #region public method - get data
 
-    public string GetRandomCardId(Tier tier, Kind kind)
+    public DiceID? GetRandomCardId(Tier tier, Kind kind)
     {
         StatData c = this.GetRandomCue(tier, kind);
         return c?.id;
     }
 
-    public string GetRandomCardId(Tier tier, Kind kind, bool isIncludeHideCue = false)
+    public DiceID? GetRandomCardId(Tier tier, Kind kind, bool isIncludeHideCue = false)
     {
         List<StatData> cues = this.GetDatasByTierKind_Complex(tier, kind);
         if (!isIncludeHideCue)
@@ -196,7 +196,7 @@ public class StatManager : MonoSingleton<StatManager>
         return cues.GetRandom();
     }
 
-    public string GetRandomStatForPackage()
+    public DiceID? GetRandomStatForPackage()
     {
         List<StatData> l = new List<StatData>();
         l = StatDatas.Instance.GetListSimple(Kind.NotUnlocked)
@@ -215,7 +215,7 @@ public class StatManager : MonoSingleton<StatManager>
         return null;
     }
 
-    public StatData GetDataById(string id)
+    public StatData GetDataById(DiceID id)
     {
         return ShopStatConfigs.Instance.GetConfig(id).cueData;
     }
@@ -276,7 +276,7 @@ public class StatManager : MonoSingleton<StatManager>
         });
     }
 
-    public StatData QueryCueForUnlockBonusCard(Tier tier, string showedIDs = "")
+    public StatData QueryCueForUnlockBonusCard(Tier tier, DiceID showedIDs = DiceID.NONE)
     {
         List<StatData> cues = GetDatasByTierKind_Simple(tier, Kind.NotUnlocked).Where(x => x.config.statsPerLevels[0].cardsRequired > 0).ToList();
 
@@ -298,7 +298,7 @@ public class StatManager : MonoSingleton<StatManager>
             }
 
             StatData c = l[index];
-            if (!string.IsNullOrEmpty(showedIDs) && c.id.Equals(showedIDs))
+            if (showedIDs != DiceID.NONE && c.id.Equals(showedIDs))
             {
                 if (index == 0)
                     index += 1;
@@ -389,35 +389,62 @@ public class StatManager : MonoSingleton<StatManager>
         return this.GetDatasByTierKind_Complex(tier, kind)?.Count ?? 0;
     }
 
-    public string CurrentCueId
+    //public string CurrentCueId
+    //{
+    //    get { return StatDatas.Instance.CurrentCueId; }
+    //}
+    public List<DiceID> CurrentStatId
     {
-        get { return StatDatas.Instance.CurrentCueId; }
+        get { return StatDatas.Instance.CurrentStatId; }
     }
-
+    public bool IsUsing(DiceID id)
+    {
+        return this.CurrentStatId.Contains(id);
+    }
     /// <summary>
     /// take current cue's stats
     /// </summary>
-    public StatItemStats CurrentCueStats
+    public List<StatItemStats> CurrentCueStats
     {
         get
         {
-            StatData currentCue = StatDatas.Instance.GetCurrentCue();
+            List< StatData> currentCue = StatDatas.Instance.GetCurrentCue();
             if (currentCue == null)
             {
-                currentCue = StatDatas.Instance.GetCue(GameDefine.ID_CUE_DEFAULT);
+                UnityEngine.Debug.LogError("CueManager.GetCurrentCueStats - Cue default ERROR");
+            }
+            List<StatItemStats> results = new List<StatItemStats>();
 
-                if (currentCue == null)
-                {
-                    UnityEngine.Debug.LogError("CueManager.GetCurrentCueStats - Cue default ERROR");
-                    return StatItemStats.CreateBasic();
-                }
+            foreach(StatData s in currentCue)
+            {
+                results.Add(StatItemStats.CreateForRealUsing(
+                s.CurrentStats, s.config));
             }
 
-            StatItemStats results = StatItemStats.CreateForRealUsing(
-                currentCue.CurrentStats, currentCue.config);
             return results;
         }
     }
+    //public StatItemStats CurrentCueStats
+    //{
+    //    get
+    //    {
+    //        StatData currentCue = StatDatas.Instance.GetCurrentCue();
+    //        if (currentCue == null)
+    //        {
+    //            currentCue = StatDatas.Instance.GetStat(GameDefine.ID_CUE_DEFAULT);
+
+    //            if (currentCue == null)
+    //            {
+    //                UnityEngine.Debug.LogError("CueManager.GetCurrentCueStats - Cue default ERROR");
+    //                return StatItemStats.CreateBasic();
+    //            }
+    //        }
+
+    //        StatItemStats results = StatItemStats.CreateForRealUsing(
+    //            currentCue.CurrentStats, currentCue.config);
+    //        return results;
+    //    }
+    //}
 
     #endregion public method - get data
 
@@ -570,7 +597,7 @@ public class StatManager : MonoSingleton<StatManager>
         return Mathf.Abs(userMoney - c.UpgradePrice);
     }
 
-    public static string IDSelector(StatData c)
+    public static DiceID IDSelector(StatData c)
     {
         return c.id;
     }
@@ -782,15 +809,19 @@ public class StatManager : MonoSingleton<StatManager>
         GameDataManager.Instance.SaveUserData();
 
         //AchievementDatas.Instance.DoStep(MissionID.USE_CARD, cue.RequirementCard);
-        LogGameAnalytics.Instance.LogEvent(LogAnalyticsEvent.COMPLETE_UPGRADE_STAT_ITEM, LogParams.STAT_ITEM_ID, cue.id);
+        LogGameAnalytics.Instance.LogEvent(LogAnalyticsEvent.COMPLETE_UPGRADE_STAT_ITEM, LogParams.STAT_ITEM_ID, cue.id.ToString());
     }
 
     /// <summary>
     /// switch to use this cue
     /// </summary>
-    public void ChangeCue(StatData cue, System.Action<string> onSuccess = null, System.Action<string> onFail = null)
+    public void ChangeCue(List<StatData> cue, System.Action<string> onSuccess = null, System.Action<string> onFail = null)
     {
-        StatDatas.Instance.ChangeCurrentCue(cue.id);
+        List<DiceID> ids = new List<DiceID>();
+        foreach (StatData s in cue)
+            ids.Add(s.id);
+
+        StatDatas.Instance.ChangeCurrentStat(ids);
         onSuccess?.Invoke(string.Empty);
         GameDataManager.Instance.SaveUserData();
 
@@ -812,7 +843,7 @@ public class StatManager : MonoSingleton<StatManager>
         {
             this.OnCueGained?.Invoke(c);
 
-            LogGameAnalytics.Instance.LogEvent(LogAnalyticsEvent.CUE_UNLOCKED, LogParams.STAT_ITEM_ID, c.id); //unlock khi đủ card
+            LogGameAnalytics.Instance.LogEvent(LogAnalyticsEvent.CUE_UNLOCKED, LogParams.STAT_ITEM_ID, c.id.ToString()); //unlock khi đủ card
         }
 
         GameDataManager.Instance.SaveUserData();

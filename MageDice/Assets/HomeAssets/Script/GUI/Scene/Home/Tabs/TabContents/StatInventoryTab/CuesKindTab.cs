@@ -32,13 +32,15 @@ public class CuesKindTab : ShopCuesTab
         {
             this.ParseData();
 
-            this.recyclerView.Init(
-                callParseItem: this.ParseItem,
-                funcGetCountItems: this.GetCount,
-                funcTakeItemFromStock: this.TakeItemFromPool,
-                callReturnItemToStock: this.ReturnItemToPool
-            );
-            
+            ParseAllItem();
+
+            //this.recyclerView.Init(
+            //    callParseItem: this.ParseItem,
+            //    funcGetCountItems: this.GetCount,
+            //    funcTakeItemFromStock: this.TakeItemFromPool,
+            //    callReturnItemToStock: this.ReturnItemToPool
+            //);
+
             StatManager.Instance.OnCueGained -= OnACueGained;
             StatManager.Instance.OnCueGained += OnACueGained;
             this.NeedToRefresh = false;
@@ -56,18 +58,15 @@ public class CuesKindTab : ShopCuesTab
 
     private void ParseData()
     {
-        this._datas = StatManager.Instance.GetDatasByKind_Complex(this.kind)
-            .OrderByDescending(StatManager.CueValueSelector).ToList();
+        this._datas = StatManager.Instance.GetDatasByKind_Complex(this.kind);
+        if (_datas == null)
+            _datas = new List<StatData>();
+        else
+            _datas.OrderByDescending(StatManager.CueValueSelector).ToList();
     }
 
     
-    private void ParseItem(RectTransform r, int index)
-    {
-        r.GetComponent<ShopCueItem>()
-            .ParseData(this._datas[index], index, false)
-            .SetRemoveAfterBuy(null)
-            .SetHost(this);
-    }
+
     
     private void OnACueGained(StatData _)
     {
@@ -84,7 +83,8 @@ public class CuesKindTab : ShopCuesTab
     private void Refresh()
     {
         this.ParseData();
-        this.recyclerView.OnCollectionChanged(false);
+        ParseAllItem();
+        //this.recyclerView.OnCollectionChanged(false);
         this.NeedToRefresh = false;
     }
 

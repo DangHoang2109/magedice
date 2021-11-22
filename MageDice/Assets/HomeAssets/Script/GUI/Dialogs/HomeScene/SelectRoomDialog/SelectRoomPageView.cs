@@ -83,7 +83,7 @@ public class SelectRoomPageView : MonoBehaviour
     private void OnDisable()
     {
         this.pageView.changePageEvent.RemoveAllListeners();
-        UserProfile.Instance.RemoveCallbackBooster(BoosterType.CUP, OnChangeBoosterCup);
+        //UserProfile.Instance.RemoveCallbackBooster(BoosterType.CUP, OnChangeBoosterCup);
     }
 
     private void Start()
@@ -92,37 +92,37 @@ public class SelectRoomPageView : MonoBehaviour
 
     }
 
-    private void OnChangeBoosterCup(BoosterCommodity booster)
-    {
-        if (booster != null)
-        {
-            unlockRoom = false;
-            List<RoomData> roomDatas = RoomDatas.Instance.GetRooms();
-            if (roomDatas != null)
-            {
-                foreach (RoomData roomData in roomDatas)
-                {
-                    RoomConfig roomConfig = RoomConfigs.Instance.GetRoom(roomData.id);
-                    if (roomConfig != null)
-                    {
-                        if (roomData.id !=  GameDefine.ROOM_FRIST_AI && roomData.id !=  GameDefine.ROOM_PRACTICLE && !roomData.unlocked && booster.GetValue() >= roomConfig.unlock.GetValue())
-                        {
-                            //Unlock room data
-                            RoomDatas.Instance.UnlockRoom(roomData.id);
-                            this.currentRoom = roomData.id;
-                            unlockRoom = true;
-                        }
-                    }
-                }
+    //private void OnChangeBoosterCup(BoosterCommodity booster)
+    //{
+    //    if (booster != null)
+    //    {
+    //        unlockRoom = false;
+    //        List<RoomData> roomDatas = RoomDatas.Instance.GetRooms();
+    //        if (roomDatas != null)
+    //        {
+    //            foreach (RoomData roomData in roomDatas)
+    //            {
+    //                RoomConfig roomConfig = RoomConfigs.Instance.GetRoom(roomData.id);
+    //                if (roomConfig != null)
+    //                {
+    //                    if (roomData.id !=  GameDefine.ROOM_FRIST_AI && roomData.id !=  GameDefine.ROOM_PRACTICLE && !roomData.unlocked) //&& booster.GetValue() >= roomConfig.unlock.GetValue()
+    //                    {
+    //                        //Unlock room data
+    //                        RoomDatas.Instance.UnlockRoom(roomData.id);
+    //                        this.currentRoom = roomData.id;
+    //                        unlockRoom = true;
+    //                    }
+    //                }
+    //            }
 
-                if (unlockRoom)
-                {
-                    this.scroll.enabled = false;
-                    this.pageView.LerpToPage(this.currentRoom);
-                }
-            }
-        }
-    }
+    //            if (unlockRoom)
+    //            {
+    //                this.scroll.enabled = false;
+    //                this.pageView.LerpToPage(this.currentRoom);
+    //            }
+    //        }
+    //    }
+    //}
 
     private void ParseRooms()
     {
@@ -168,7 +168,7 @@ public class SelectRoomPageView : MonoBehaviour
         this.pageView._Start();
 
         yield return new WaitForEndOfFrame();
-        UserProfile.Instance.AddCallbackBooster(BoosterType.CUP, OnChangeBoosterCup); //call back cup : for check unlock
+        //UserProfile.Instance.AddCallbackBooster(BoosterType.CUP, OnChangeBoosterCup); //call back cup : for check unlock
     }
 
     private void ChangePageRoom(int id)

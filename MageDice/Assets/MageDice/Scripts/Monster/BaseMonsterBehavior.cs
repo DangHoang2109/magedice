@@ -7,6 +7,7 @@ public class BaseMonsterBehavior : BasePersonBehavior
 {
     [Header("UI")]
     public Image imgFront;
+    public CanvasGroup canvas;
 
     protected Transform Tower;
     protected Vector3 TowerPoint;
@@ -39,6 +40,7 @@ public class BaseMonsterBehavior : BasePersonBehavior
     {
         _isPause = true;
         _isAttacking = false;
+        this.canvas.alpha = 1;
 
         base.Spawned(config);
 
@@ -89,7 +91,7 @@ public class BaseMonsterBehavior : BasePersonBehavior
     }
     private IEnumerator ieAttack()
     {
-        YieldInstruction wait = new WaitForSeconds(0.5f);
+        YieldInstruction wait = new WaitForSeconds(1f);
         while(!this.IsDead() && !this._isPause && _isAttacking)
         {
             yield return wait;
@@ -116,7 +118,13 @@ public class BaseMonsterBehavior : BasePersonBehavior
         base.Dead();
         if(ieAttacking != null)
             StopCoroutine(ieAttacking);
-        MonsterManager.Instance.KillAMonster(this);
+
+        this.PauseMe(true);
+        this.imgFront.color = Color.black;
+        this.canvas.DOFade(0f, 0.25f).OnComplete(() =>
+        {
+            MonsterManager.Instance.KillAMonster(this);
+        });
     }
 
     public override void ShowDamage(float damage)

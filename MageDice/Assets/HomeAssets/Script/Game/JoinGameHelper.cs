@@ -48,20 +48,6 @@ public class JoinGameHelper : MonoSingleton<JoinGameHelper>
             return GameType.AI;
         }
     }
-
-    public long Prize
-    {
-        get
-        {
-            if (this.datas != null)
-            {
-                return this.datas.GetPrizeMoney();
-            }
-
-            return 0;
-        }
-    }
-
     public List<StandardPlayer> Players
     {
         get
@@ -89,7 +75,7 @@ public class JoinGameHelper : MonoSingleton<JoinGameHelper>
         { 
             StandardPlayer p1 = GetStandardMainUser();
             StandardPlayer p2 = RandomStandardPlayerByRoom(config);
-            this.datas = new JoinGameStandardDatas(p1, p2, config);
+            this.datas = new JoinGameStandardDatas(p1, config);
             this.datas.gameType = GameType.AI;
             LoadSceneGame();
         }
@@ -99,24 +85,28 @@ public class JoinGameHelper : MonoSingleton<JoinGameHelper>
         }
     }
 
-    public void JoinRoom(StandardPlayer player,StandardPlayer opponent, RoomConfig config, GameType gameType)
-    {
-        JoinRoom(false, player, opponent, config, gameType);
-    }
-
-    private void BaseJoinRoom(bool MainFirstOpenApp, StandardPlayer player, StandardPlayer opponent, RoomConfig config, GameType gameType)
+    private void BaseJoinRoom(StandardPlayer player, RoomConfig config, GameType gameType)
     {
         //TODO JOIN ROOM
-        this.datas = new JoinGameStandardDatas(player, opponent, config);
+        this.datas = new JoinGameStandardDatas(player, config);
         this.datas.gameType = gameType;
     }
-
-    public void JoinRoom(bool MainFirstOpenApp ,StandardPlayer player, StandardPlayer opponent, RoomConfig config, GameType gameType)
+    private void BaseJoinRoom(RoomConfig config, GameType gameType)
     {
-        BaseJoinRoom(MainFirstOpenApp, player, opponent, config, gameType);
+        //TODO JOIN ROOM
+        this.datas = new JoinGameStandardDatas(GetStandardMainUser(), config);
+        this.datas.gameType = gameType;
+    }
+    public void JoinRoom(StandardPlayer player, RoomConfig config, GameType gameType)
+    {
+        BaseJoinRoom(player, config, gameType);
         this.LoadSceneGame();
     }
-
+    public void JoinRoom(RoomConfig config, GameType gameType)
+    {
+        BaseJoinRoom(config, gameType);
+        this.LoadSceneGame();
+    }
 
     private void LoadSceneGame()
     {
@@ -132,24 +122,27 @@ public class JoinGameHelper : MonoSingleton<JoinGameHelper>
         {
             if (win)
             {
-                RoomDatas.Instance.AddPoint(joinGame.config.id, joinGame.config.pointWin);
-                UserProfile.Instance.AddBooster(BoosterType.CUP, joinGame.config.pointWin, "Win_Game",string.Format("Tour_{0}",joinGame.config.id));
-                UserProfile.Instance.AddBooster(joinGame.config.prize, string.Format("Tour_{0}", joinGame.config.id),
-                    LogSourceWhere.COIN_WIN_GAME);
-                joinGame.player.AddTrophy(joinGame.config.pointWin);
-                joinGame.opponent.AddTrophy(joinGame.config.pointLose); 
+                RoomDatas.Instance.ClearRoom(joinGame.roomConfig.id);
             }
             else
             {
-                RoomDatas.Instance.AddPoint(joinGame.config.id, joinGame.config.pointLose);
-                //TODO: LOSE TROPHY
-                UserProfile.Instance.UseBooster(BoosterType.CUP, Mathf.Abs(joinGame.config.pointLose),"Lose_Game", string.Format("Tour_{0}",joinGame.config.id));
-                joinGame.player.AddTrophy(joinGame.config.pointLose);
-                joinGame.opponent.AddTrophy(joinGame.config.pointWin);
             }
 
-            //TODO show rate      
+            UserProfile.Instance.AddBoosters(joinGame.GetPrizes(), string.Format("Tour_{0}", joinGame.roomConfig.id),
+                LogSourceWhere.COIN_WIN_GAME);
+            BagSlotDatas.Instance.CollectBag(joinGame.bagReward, $"Tour {joinGame.roomConfig.id}", "Win_Game",
+                string.Format("Tour_{0}", joinGame.roomConfig.id));
         }
+    }
+    public void BackHomeScene()
+    {
+        GameManager.Instance.OnLoadScene(SceneName.HOME, null, () =>
+        {
+            if (UserCareers.MainUserInstance.CompletedGame >= 2)
+            {
+                AdsManager.Instance.ShowInterstitial(LogAdsInterstitialWhere.END_GAME);
+            }
+        });
     }
 
     #region Random player
@@ -178,9 +171,6 @@ public class JoinGameHelper : MonoSingleton<JoinGameHelper>
     public static StandardPlayer RandomStandardPlayerByRoom(RoomConfig room)
     {
         StandardPlayer p = CreateRandomStandardPlayer();
-
-        p = MatchMakingManager.Instance.CalTrophy(room: room, info: p);
-
         return p;
     }
 
@@ -193,9 +183,6 @@ public class JoinGameHelper : MonoSingleton<JoinGameHelper>
     public static StandardPlayer RandomBotForTournament(RoomConfig room)
     {
         StandardPlayer p = CreateRandomStandardPlayer();
-
-        p = MatchMakingManager.Instance.CalTrophy(room: room, info: p);
-
         return p;
     }
 
@@ -220,37 +207,6 @@ public class JoinGameHelper : MonoSingleton<JoinGameHelper>
         return p;
     }
     #endregion
-
-    /// <summary>
-    /// Lấy ra tỉ lệ đánh fail
-    /// true: đánh ra ngoài
-    /// false: đánh vào trong
-    /// </summary>
-    /// <returns></returns>
-    public bool IsBotShootFail()
-    {
-        JoinGameStandardDatas gData = GetJoinGameData<JoinGameStandardDatas>();
-        if (gData == null)
-            return false;
-
-        float userWinRate = UserCareers.MainUserInstance.GetWinRate_LastNGame(10);
-
-        int completeGame = UserCareers.MainUserInstance.CompletedGame;
-
-        float currentRoomWinRate = gData.config.rateBotWin;
-
-        ///Trong 7 game đầu, độ winrate của room được boost lên tối đa 170% = 250 điểm 
-        ///| Mỗi game giảm 10% => Khi unlock tour 2 chỉ số sau boost = 102 => game 2 đầu tiên bot không quá khó
-        if (completeGame <= GameDefine.AMOUNT_GAMES_BOOST_MAIN)
-        {
-            currentRoomWinRate *= (1 + (float)(GameDefine.AMOUNT_GAMES_BOOST_MAIN - completeGame) / GameDefine.DIVIDER_IN_GAMES_BOOST_MAIN);
-        }
-        float random = Random.Range(0, currentRoomWinRate) / 100;
-
-        Debug.Log($"roomrate {currentRoomWinRate} random {random} user winrate {userWinRate}");
-        //currentRoomWinRate càng lớn => random càng dễ lớn => random càng dễ lớn hơn userCurrentWinrate => bot càng dễ shoot out
-        return random >= userWinRate;
-    }
 }
 
 public enum GameType
@@ -266,13 +222,17 @@ public class JoinGameDatas
 {
     public StandardPlayer player;
     public GameType gameType;
+    public List<StatItemStats> userStatDeck;
+
     public JoinGameDatas()
     {}
 
     public JoinGameDatas(StandardPlayer p)
     {
         this.player = p;
+        this.userStatDeck = new List<StatItemStats>(StatManager.Instance.CurrentCueStats);
     }
+
     /// <summary>
     /// Số tiền bet
     /// </summary>
@@ -302,12 +262,14 @@ public class JoinGameDatas
 
 public class JoinGameStandardDatas : JoinGameDatas
 {   
-    public StandardPlayer opponent;
-    public RoomConfig config;
-    //public BagAmount bagReward;
+    public RoomConfig roomConfig;
+    public MapConfig mapConfig;
+    public BagAmount bagReward;
 
     public bool IsMainUserWin;
     public bool IsNewUser;
+
+    public List<BoosterCommodity> prizes;
 
     /// <summary>
     /// only use this for join pratice
@@ -317,33 +279,47 @@ public class JoinGameStandardDatas : JoinGameDatas
     {
     }
 
-    public JoinGameStandardDatas(StandardPlayer p, StandardPlayer o, RoomConfig config) : base(p)
+    public JoinGameStandardDatas(StandardPlayer p, RoomConfig config) : base(p)
     {
-        this.opponent = o;
-        this.config = config;
-        //this.bagReward = config.GetBagReward(UserDatas.Instance.careers.matchWin);
+        this.roomConfig = config;
+        this.mapConfig = GameMapConfigs.Instance.GetMap((MapName)config.id);
+
+        int matchWin = (UserDatas.Instance != null && UserDatas.Instance.careers != null) ? UserDatas.Instance.careers.matchWin : 0;
+        
     }
 
     public override long GetBetMoney()
     {
-        if (this.config != null)
-        {
-            return this.config.fee.GetValue();
-        }
+        //if (this.roomConfig != null)
+        //{
+        //    return this.roomConfig.fee.GetValue();
+        //}
         return base.GetBetMoney();
     }
 
+    public void SetPrize(List<BoosterCommodity> p, int waveComplete)
+    {
+        this.prizes = new List<BoosterCommodity>(p);
+
+        int indexWaveBoss = waveComplete / 10 - 1;
+        if (indexWaveBoss >= 0 && RoomDatas.Instance.GetRoom(roomConfig.id).NotClaimThisIndex(indexWaveBoss))
+        {
+            this.bagReward = roomConfig.GetBagReward(indexWaveBoss);
+            RoomDatas.Instance.GetRoom(roomConfig.id).SetIndexBagClaim(indexWaveBoss);
+        }
+        else
+            this.bagReward = null;
+    }
+    public List<BoosterCommodity> GetPrizes()
+    {
+        return this.prizes;
+    }
     public override long GetPrizeMoney()
     {
-        if (this.config != null)
+        if (this.roomConfig != null)
         {
-            return this.config.prize.GetValue();
+            return this.roomConfig.prizePerWave.GetValue();
         }
         return base.GetPrizeMoney();
-    }
-
-    public override List<StandardPlayer> GetPlayers()
-    {
-        return new List<StandardPlayer> {this.player, this.opponent};
     }
 }
