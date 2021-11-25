@@ -33,6 +33,12 @@ public class GameAssetsConfigs : ScriptableObject
     [HideInInspector]
     public GloveAssets gloveAssets;
 
+    [Header("Card border")]
+    public CardBorderConfig cardBorderConfig;
+
+    [Header("Perk Asset")]
+    public SkillPerkAssets perkAsset;
+
     public static GameAssetsConfigs Instance
     {
         get
@@ -459,4 +465,62 @@ public enum GloveType
 
 
 #endregion
+
+#region Glove collection
+
+[System.Serializable]
+public class SkillPerkAssets
+{
+    public List<SkillPerkAsset> perks;
+
+    public enum PerkRank
+    {
+        STANDARD = 0,
+        RARE = 1,
+        EPIC = 2,
+    }
+    public static SkillPerkAssets Instance
+    {
+        get
+        {
+            return GameAssetsConfigs.Instance.perkAsset;
+        }
+    }
+
+    public List<SkillPerkAsset> GetPerkAssets()
+    {
+        return this.perks;
+    }
+
+    public SkillPerkAsset GetPerkAsset(int id)
+    {
+        return this.perks.Find(x => x.id == id);
+    }
+
+    public List<SkillPerkAsset> GetPerkByRank(int rank)
+    {
+        return this.perks.FindAll(x => x.rank == rank);
+    }
+    public List<SkillPerkAsset> GetPerkByRank(PerkRank rank)
+    {
+        return this.perks.FindAll(x => x.rank == (int)rank);
+    }
+}
+
+
+[System.Serializable]
+public class SkillPerkAsset
+{
+    public int id;
+    public int rank;
+    public string name;
+    public Sprite sprIcon;
+    public Sprite sprBG;
+    public Color colorTitle;
+    public Color colorText;
+
+}
+
+#endregion
+
 

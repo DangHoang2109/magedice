@@ -53,11 +53,18 @@ public class GameCoinController
     }
     public bool BuyDice()
     {
-        if (CurrentCoin < CostNextDice)
+        if (!UseCoin(CostNextDice))
             return false;
 
-        CurrentCoin -= this.CostNextDice;
         this.TimeBuy++;
+        return true;
+    }
+    public bool UseCoin(long coin)
+    {
+        if (CurrentCoin < coin)
+            return false;
+
+        CurrentCoin -= coin;
         return true;
     }
     public void AddCoin(long coin)

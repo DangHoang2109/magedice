@@ -89,7 +89,7 @@ public class MainBagSlots : MonoSingleton<MainBagSlots>
         if (listBags != null)
         {
             OpenBagDialog openBag = GameManager.Instance.OnShowDialogWithSorting<OpenBagDialog>(
-                    "Home/GUI/Dialogs/OpenBag/OpenBag",
+                    "Home/GUI/OpenBag/OpenBag",
                     PopupSortingType.OnTopBar,
                     listBags);
         }      
@@ -106,7 +106,7 @@ public class MainBagSlots : MonoSingleton<MainBagSlots>
         if (listBags != null)
         {
             OpenBagDialog openBag = GameManager.Instance.OnShowDialogWithSorting<OpenBagDialog>(
-                    "Home/GUI/Dialogs/OpenBag/OpenBag",
+                    "Home/GUI/OpenBag/OpenBag",
                     PopupSortingType.OnTopBar,
                     listBags);
         }
@@ -114,7 +114,7 @@ public class MainBagSlots : MonoSingleton<MainBagSlots>
     public static OpenBagDialog OpenBagNow(BagType bagType, int tour, string source)
     {
         OpenBagDialog openBag = GameManager.Instance.OnShowDialogWithSorting<OpenBagDialog>(
-                    "Home/GUI/Dialogs/OpenBag/OpenBag",
+                    "Home/GUI/OpenBag/OpenBag",
                     PopupSortingType.OnTopBar,
                     GiftBagConfigs.Instance.GetGiftBagModel(bagType, tour, source)); //RoomDatas.Instance.GetRoomUnlockedMax()
         return openBag;
@@ -122,7 +122,7 @@ public class MainBagSlots : MonoSingleton<MainBagSlots>
     public static OpenBagDialog OpenBagNow(BagType type, List<CardAmount> card, string source)
     {
         OpenBagDialog openBag = GameManager.Instance.OnShowDialogWithSorting<OpenBagDialog>(
-                    "Home/GUI/Dialogs/OpenBag/OpenBag",
+                    "Home/GUI/OpenBag/OpenBag",
                     PopupSortingType.OnTopBar,
                     GiftBagConfigs.Instance.GetGiftBagModel(type, card, source)); //RoomDatas.Instance.GetRoomUnlockedMax()
         return openBag;
@@ -130,14 +130,14 @@ public class MainBagSlots : MonoSingleton<MainBagSlots>
     public void OpenPointBag(int tour)
     {
         OpenBagDialog openBag = GameManager.Instance.OnShowDialogWithSorting<OpenBagDialog>(
-                    "Home/GUI/Dialogs/OpenBag/OpenBag",
+                    "Home/GUI/OpenBag/OpenBag",
                     PopupSortingType.OnTopBar,
                     GiftBagConfigs.Instance.GetPointbagModel(tour)); //RoomDatas.Instance.GetRoomUnlockedMax()
     }
     public void OpenTutorialBag()
     {
         OpenBagDialog openBag = GameManager.Instance.OnShowDialogWithSorting<OpenBagDialog>(
-                    "Home/GUI/Dialogs/OpenBag/OpenBag",
+                    "Home/GUI/OpenBag/OpenBag",
                     PopupSortingType.OnTopBar,
                     GiftBagConfigs.Instance.GetTutorialGiftBagModel());
     }

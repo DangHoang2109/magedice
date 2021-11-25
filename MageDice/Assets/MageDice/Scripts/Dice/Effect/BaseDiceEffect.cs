@@ -8,7 +8,8 @@ public class BaseDiceEffect
     public StatItemStats diceStat;
     public DiceBulletConfig UIConfig;
 
-    protected float Damage => diceStat.damageStrength * GameConfig.damageMultiplier;
+    public float diceBoosterDamage;
+    protected float Damage => diceStat.damageStrength * GameConfig.damageMultiplier * (diceBoosterDamage);
     public virtual DiceID ID => DiceID.NONE;
     public virtual void ActiveEffect()
     {
@@ -19,6 +20,9 @@ public class BaseDiceEffect
         try
         {
             List<BaseMonsterBehavior> monsters = MonsterManager.Instance.GetNearestMonsters(amount);
+
+            Debug.Log($"{ID} Damage factor diceStat {diceStat.damageStrength} gamedot {GameConfig.damageMultiplier} booster {diceBoosterDamage}");
+
             if(monsters != null && monsters.Count > 0)
             {
                 List<BaseBullet> bs = BulletPoolManager.Instance.GetBullets(monsters.Count);

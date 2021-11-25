@@ -52,7 +52,8 @@ public class StoreDealCardItem : StoreItem
                     StatData = StatDatas.Instance.GetStat(dealCardData.cueID);
                     if (StatData != null)
                     {
-                        cardDisplay.ParseStatDataAndShowTag(StatData, this.countBuy); //mỗi lần mua 1 card
+                        Debug.Log("edit");
+                        //cardDisplay.ParseStatDataAndShowTag(StatData, this.countBuy); //mỗi lần mua 1 card
                         this.bstPrice.ParseBooster(dealCardData.GetCurrentPrice());
                     }
                     else

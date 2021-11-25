@@ -1,0 +1,4137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 585dbb5c9426005498f6cd9070a446f7, type: 3}
+  m_Name: GiftBagConfigs
+  m_EditorClassIdentifier: 
+  min_rateAppearOwned: 0.1
+  max_rateAppearOwned: 0.5
+  giftBagTours:
+  - bag: 0
+    gifts:
+    - valueCoin:
+        min: 200
+        max: 348
+        step: 20
+        rateOfReceiptMax: 0.2
+      valueGem:
+        min: 1
+        max: 0
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 1
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 5
+      rateBonus: 0
+      cardBonuss: []
+    - valueCoin:
+        min: 500
+        max: 848
+        step: 20
+        rateOfReceiptMax: 0.2
+      valueGem:
+        min: 3
+        max: 4
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 2
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 9
+      rateBonus: 0
+      cardBonuss: []
+    - valueCoin:
+        min: 1400
+        max: 2348
+        step: 20
+        rateOfReceiptMax: 0.2
+      valueGem:
+        min: 5
+        max: 8
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 3
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 13
+      - tier: 2
+        cardType: 0
+        amount: 1
+      rateBonus: 0
+      cardBonuss: []
+    - valueCoin:
+        min: 2900
+        max: 4848
+        step: 20
+        rateOfReceiptMax: 0.2
+      valueGem:
+        min: 7
+        max: 12
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 4
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 17
+      - tier: 2
+        cardType: 0
+        amount: 1
+      rateBonus: 0
+      cardBonuss: []
+    - valueCoin:
+        min: 5000
+        max: 8348
+        step: 20
+        rateOfReceiptMax: 0.2
+      valueGem:
+        min: 9
+        max: 16
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 5
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 21
+      - tier: 2
+        cardType: 0
+        amount: 1
+      rateBonus: 0
+      cardBonuss: []
+    - valueCoin:
+        min: 7700
+        max: 12848
+        step: 20
+        rateOfReceiptMax: 0.2
+      valueGem:
+        min: 11
+        max: 20
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 6
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 25
+      - tier: 2
+        cardType: 0
+        amount: 1
+      rateBonus: 0
+      cardBonuss: []
+    - valueCoin:
+        min: 11000
+        max: 18348
+        step: 20
+        rateOfReceiptMax: 0.2
+      valueGem:
+        min: 13
+        max: 24
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 7
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 29
+      - tier: 2
+        cardType: 0
+        amount: 1
+      rateBonus: 0
+      cardBonuss: []
+    - valueCoin:
+        min: 14900
+        max: 24848
+        step: 20
+        rateOfReceiptMax: 0.2
+      valueGem:
+        min: 15
+        max: 28
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 8
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 33
+      rateBonus: 0
+      cardBonuss: []
+  - bag: 1
+    gifts:
+    - valueCoin:
+        min: 150
+        max: 174
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 1
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 1
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 16
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 1
+      - tier: 3
+        cardType: 0
+        amount: 1
+      - tier: 1
+        cardType: 0
+        amount: 5
+    - valueCoin:
+        min: 186
+        max: 224
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 1
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 2
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 20
+      - tier: 2
+        cardType: 0
+        amount: 2
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 1
+      - tier: 3
+        cardType: 0
+        amount: 1
+      - tier: 1
+        cardType: 0
+        amount: 5
+    - valueCoin:
+        min: 225
+        max: 274
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 1
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 3
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 24
+      - tier: 2
+        cardType: 0
+        amount: 2
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 3
+      - tier: 3
+        cardType: 0
+        amount: 1
+      - tier: 1
+        cardType: 0
+        amount: 10
+    - valueCoin:
+        min: 261
+        max: 324
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 1
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 4
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 28
+      - tier: 2
+        cardType: 0
+        amount: 2
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 6
+      - tier: 3
+        cardType: 0
+        amount: 2
+      - tier: 1
+        cardType: 0
+        amount: 20
+    - valueCoin:
+        min: 300
+        max: 374
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 1
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 5
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 32
+      - tier: 2
+        cardType: 0
+        amount: 2
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 6
+      - tier: 3
+        cardType: 0
+        amount: 2
+      - tier: 1
+        cardType: 0
+        amount: 20
+    - valueCoin:
+        min: 336
+        max: 424
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 1
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 6
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 36
+      - tier: 2
+        cardType: 0
+        amount: 2
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 9
+      - tier: 3
+        cardType: 0
+        amount: 3
+      - tier: 1
+        cardType: 0
+        amount: 30
+    - valueCoin:
+        min: 375
+        max: 474
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 1
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 7
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 40
+      - tier: 2
+        cardType: 0
+        amount: 2
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 9
+      - tier: 3
+        cardType: 0
+        amount: 3
+      - tier: 1
+        cardType: 0
+        amount: 30
+    - valueCoin:
+        min: 411
+        max: 524
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 1
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 8
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 44
+      - tier: 2
+        cardType: 0
+        amount: 2
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 9
+      - tier: 3
+        cardType: 0
+        amount: 3
+      - tier: 1
+        cardType: 0
+        amount: 30
+  - bag: 2
+    gifts:
+    - valueCoin:
+        min: 375
+        max: 561
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 0
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 1
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 84
+      - tier: 2
+        cardType: 0
+        amount: 8
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 2
+      - tier: 3
+        cardType: 0
+        amount: 2
+      - tier: 1
+        cardType: 0
+        amount: 10
+    - valueCoin:
+        min: 600
+        max: 900
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 1
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 2
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 96
+      - tier: 2
+        cardType: 0
+        amount: 8
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 2
+      - tier: 3
+        cardType: 0
+        amount: 2
+      - tier: 1
+        cardType: 0
+        amount: 10
+    - valueCoin:
+        min: 1050
+        max: 1311
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 2
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 3
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 108
+      - tier: 2
+        cardType: 0
+        amount: 8
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 3
+      - tier: 3
+        cardType: 0
+        amount: 1
+      - tier: 1
+        cardType: 0
+        amount: 10
+    - valueCoin:
+        min: 1275
+        max: 1374
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 3
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 4
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 120
+      - tier: 2
+        cardType: 0
+        amount: 8
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 6
+      - tier: 3
+        cardType: 0
+        amount: 2
+      - tier: 1
+        cardType: 0
+        amount: 20
+    - valueCoin:
+        min: 1725
+        max: 2374
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 4
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 5
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 132
+      - tier: 2
+        cardType: 0
+        amount: 8
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 6
+      - tier: 3
+        cardType: 0
+        amount: 2
+      - tier: 1
+        cardType: 0
+        amount: 20
+    - valueCoin:
+        min: 1950
+        max: 3374
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 6
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 144
+      - tier: 2
+        cardType: 0
+        amount: 8
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 9
+      - tier: 3
+        cardType: 0
+        amount: 3
+      - tier: 1
+        cardType: 0
+        amount: 30
+    - valueCoin:
+        min: 2400
+        max: 4874
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 6
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 7
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 156
+      - tier: 2
+        cardType: 0
+        amount: 8
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 9
+      - tier: 3
+        cardType: 0
+        amount: 3
+      - tier: 1
+        cardType: 0
+        amount: 30
+    - valueCoin:
+        min: 2625
+        max: 6374
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 7
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 8
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 168
+      - tier: 2
+        cardType: 0
+        amount: 8
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 12
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 1
+        cardType: 0
+        amount: 40
+  - bag: 3
+    gifts:
+    - valueCoin:
+        min: 1250
+        max: 2500
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 0
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 1
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 120
+      - tier: 2
+        cardType: 0
+        amount: 20
+      - tier: 3
+        cardType: 0
+        amount: 2
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 3
+      - tier: 3
+        cardType: 0
+        amount: 1
+      - tier: 1
+        cardType: 0
+        amount: 10
+    - valueCoin:
+        min: 1875
+        max: 3750
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 4
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 2
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 140
+      - tier: 2
+        cardType: 0
+        amount: 24
+      - tier: 3
+        cardType: 0
+        amount: 2
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 3
+      - tier: 3
+        cardType: 0
+        amount: 1
+      - tier: 1
+        cardType: 0
+        amount: 10
+    - valueCoin:
+        min: 2500
+        max: 5000
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 8
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 3
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 160
+      - tier: 2
+        cardType: 0
+        amount: 28
+      - tier: 3
+        cardType: 0
+        amount: 4
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 6
+      - tier: 3
+        cardType: 0
+        amount: 2
+      - tier: 1
+        cardType: 0
+        amount: 20
+    - valueCoin:
+        min: 3125
+        max: 6250
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 12
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 4
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 180
+      - tier: 2
+        cardType: 0
+        amount: 32
+      - tier: 3
+        cardType: 0
+        amount: 4
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 6
+      - tier: 3
+        cardType: 0
+        amount: 2
+      - tier: 1
+        cardType: 0
+        amount: 20
+    - valueCoin:
+        min: 3750
+        max: 7500
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 16
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 5
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 200
+      - tier: 2
+        cardType: 0
+        amount: 36
+      - tier: 3
+        cardType: 0
+        amount: 6
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 9
+      - tier: 3
+        cardType: 0
+        amount: 3
+      - tier: 1
+        cardType: 0
+        amount: 30
+    - valueCoin:
+        min: 4375
+        max: 8750
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 20
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 6
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 220
+      - tier: 2
+        cardType: 0
+        amount: 40
+      - tier: 3
+        cardType: 0
+        amount: 6
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 9
+      - tier: 3
+        cardType: 0
+        amount: 3
+      - tier: 1
+        cardType: 0
+        amount: 30
+    - valueCoin:
+        min: 5000
+        max: 10000
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 24
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 7
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 240
+      - tier: 2
+        cardType: 0
+        amount: 44
+      - tier: 3
+        cardType: 0
+        amount: 8
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 12
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 1
+        cardType: 0
+        amount: 40
+    - valueCoin:
+        min: 5625
+        max: 11250
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 28
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 8
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 260
+      - tier: 2
+        cardType: 0
+        amount: 48
+      - tier: 3
+        cardType: 0
+        amount: 8
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 12
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 1
+        cardType: 0
+        amount: 40
+  - bag: 4
+    gifts:
+    - valueCoin:
+        min: 3750
+        max: 4687
+        step: 200
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 0
+        step: 1
+        rateOfReceiptMax: 0
+      tour: 1
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 10
+      rateBonus: 1
+      cardBonuss: []
+    - valueCoin:
+        min: 3750
+        max: 4687
+        step: 200
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 1
+        step: 1
+        rateOfReceiptMax: 0.0125
+      tour: 2
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 13
+      rateBonus: 1
+      cardBonuss: []
+    - valueCoin:
+        min: 3750
+        max: 4687
+        step: 200
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 3
+        step: 1
+        rateOfReceiptMax: 0.025
+      tour: 3
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 16
+      - tier: 2
+        cardType: 0
+        amount: 1
+      rateBonus: 1
+      cardBonuss: []
+    - valueCoin:
+        min: 3750
+        max: 4687
+        step: 200
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.0375
+      tour: 4
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 19
+      - tier: 2
+        cardType: 0
+        amount: 1
+      rateBonus: 1
+      cardBonuss: []
+    - valueCoin:
+        min: 3750
+        max: 4687
+        step: 200
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 6
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 5
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 22
+      - tier: 2
+        cardType: 0
+        amount: 1
+      rateBonus: 1
+      cardBonuss: []
+    - valueCoin:
+        min: 3750
+        max: 4687
+        step: 200
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 8
+        step: 1
+        rateOfReceiptMax: 0.0625
+      tour: 6
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 25
+      - tier: 2
+        cardType: 0
+        amount: 1
+      rateBonus: 1
+      cardBonuss: []
+    - valueCoin:
+        min: 3750
+        max: 4687
+        step: 200
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 10
+        step: 1
+        rateOfReceiptMax: 0.075
+      tour: 7
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 28
+      - tier: 2
+        cardType: 0
+        amount: 1
+      rateBonus: 1
+      cardBonuss: []
+    - valueCoin:
+        min: 3750
+        max: 4687
+        step: 200
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 11
+        step: 1
+        rateOfReceiptMax: 0.0875
+      tour: 8
+      cardAmounts: []
+      rateBonus: 1
+      cardBonuss: []
+  - bag: 10
+    gifts:
+    - valueCoin:
+        min: 450
+        max: 522
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 1
+        max: 2
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 1
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 32
+      - tier: 3
+        cardType: 0
+        amount: 1
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 2
+      - tier: 3
+        cardType: 0
+        amount: 2
+      - tier: 1
+        cardType: 0
+        amount: 10
+      - tier: 3
+        cardType: 0
+        amount: 1
+    - valueCoin:
+        min: 558
+        max: 672
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 1
+        max: 2
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 2
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 40
+      - tier: 2
+        cardType: 0
+        amount: 4
+      - tier: 3
+        cardType: 0
+        amount: 1
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 2
+      - tier: 3
+        cardType: 0
+        amount: 2
+      - tier: 1
+        cardType: 0
+        amount: 10
+      - tier: 3
+        cardType: 0
+        amount: 1
+    - valueCoin:
+        min: 675
+        max: 822
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 1
+        max: 2
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 3
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 48
+      - tier: 2
+        cardType: 0
+        amount: 4
+      - tier: 3
+        cardType: 0
+        amount: 2
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 6
+      - tier: 3
+        cardType: 0
+        amount: 2
+      - tier: 1
+        cardType: 0
+        amount: 20
+      - tier: 3
+        cardType: 0
+        amount: 2
+    - valueCoin:
+        min: 783
+        max: 972
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 1
+        max: 2
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 4
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 56
+      - tier: 2
+        cardType: 0
+        amount: 4
+      - tier: 3
+        cardType: 0
+        amount: 2
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 12
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 1
+        cardType: 0
+        amount: 40
+      - tier: 3
+        cardType: 0
+        amount: 2
+    - valueCoin:
+        min: 900
+        max: 1122
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 1
+        max: 2
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 5
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 64
+      - tier: 2
+        cardType: 0
+        amount: 4
+      - tier: 3
+        cardType: 0
+        amount: 3
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 12
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 1
+        cardType: 0
+        amount: 40
+      - tier: 3
+        cardType: 0
+        amount: 3
+    - valueCoin:
+        min: 1008
+        max: 1272
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 1
+        max: 2
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 6
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 72
+      - tier: 2
+        cardType: 0
+        amount: 4
+      - tier: 3
+        cardType: 0
+        amount: 3
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 18
+      - tier: 3
+        cardType: 0
+        amount: 6
+      - tier: 1
+        cardType: 0
+        amount: 60
+      - tier: 3
+        cardType: 0
+        amount: 3
+    - valueCoin:
+        min: 1125
+        max: 1422
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 1
+        max: 2
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 7
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 80
+      - tier: 2
+        cardType: 0
+        amount: 4
+      - tier: 3
+        cardType: 0
+        amount: 4
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 18
+      - tier: 3
+        cardType: 0
+        amount: 6
+      - tier: 1
+        cardType: 0
+        amount: 60
+      - tier: 3
+        cardType: 0
+        amount: 4
+    - valueCoin:
+        min: 1233
+        max: 1572
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 1
+        max: 2
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 8
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 88
+      - tier: 2
+        cardType: 0
+        amount: 4
+      - tier: 3
+        cardType: 0
+        amount: 4
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 18
+      - tier: 3
+        cardType: 0
+        amount: 6
+      - tier: 1
+        cardType: 0
+        amount: 60
+      - tier: 3
+        cardType: 0
+        amount: 4
+  - bag: 11
+    gifts:
+    - valueCoin:
+        min: 1125
+        max: 1683
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 0
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 1
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 168
+      - tier: 2
+        cardType: 0
+        amount: 16
+      - tier: 3
+        cardType: 0
+        amount: 2
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 4
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 1
+        cardType: 0
+        amount: 20
+      - tier: 3
+        cardType: 0
+        amount: 2
+    - valueCoin:
+        min: 1800
+        max: 2700
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 1
+        max: 2
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 2
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 192
+      - tier: 2
+        cardType: 0
+        amount: 16
+      - tier: 3
+        cardType: 0
+        amount: 2
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 4
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 1
+        cardType: 0
+        amount: 20
+      - tier: 3
+        cardType: 0
+        amount: 2
+    - valueCoin:
+        min: 3150
+        max: 3933
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 2
+        max: 4
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 3
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 216
+      - tier: 2
+        cardType: 0
+        amount: 16
+      - tier: 3
+        cardType: 0
+        amount: 4
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 6
+      - tier: 3
+        cardType: 0
+        amount: 2
+      - tier: 1
+        cardType: 0
+        amount: 20
+      - tier: 3
+        cardType: 0
+        amount: 4
+    - valueCoin:
+        min: 3825
+        max: 4122
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 3
+        max: 6
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 4
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 240
+      - tier: 2
+        cardType: 0
+        amount: 16
+      - tier: 3
+        cardType: 0
+        amount: 4
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 12
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 1
+        cardType: 0
+        amount: 40
+      - tier: 3
+        cardType: 0
+        amount: 4
+    - valueCoin:
+        min: 5175
+        max: 7122
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 4
+        max: 8
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 5
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 264
+      - tier: 2
+        cardType: 0
+        amount: 16
+      - tier: 3
+        cardType: 0
+        amount: 6
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 12
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 1
+        cardType: 0
+        amount: 40
+      - tier: 3
+        cardType: 0
+        amount: 6
+    - valueCoin:
+        min: 5850
+        max: 10122
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 5
+        max: 10
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 6
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 288
+      - tier: 2
+        cardType: 0
+        amount: 16
+      - tier: 3
+        cardType: 0
+        amount: 6
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 18
+      - tier: 3
+        cardType: 0
+        amount: 6
+      - tier: 1
+        cardType: 0
+        amount: 60
+      - tier: 3
+        cardType: 0
+        amount: 6
+    - valueCoin:
+        min: 7200
+        max: 14622
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 6
+        max: 12
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 7
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 312
+      - tier: 2
+        cardType: 0
+        amount: 16
+      - tier: 3
+        cardType: 0
+        amount: 8
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 18
+      - tier: 3
+        cardType: 0
+        amount: 6
+      - tier: 1
+        cardType: 0
+        amount: 60
+      - tier: 3
+        cardType: 0
+        amount: 8
+    - valueCoin:
+        min: 7875
+        max: 19122
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 7
+        max: 14
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 8
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 336
+      - tier: 2
+        cardType: 0
+        amount: 16
+      - tier: 3
+        cardType: 0
+        amount: 8
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 24
+      - tier: 3
+        cardType: 0
+        amount: 8
+      - tier: 1
+        cardType: 0
+        amount: 80
+      - tier: 3
+        cardType: 0
+        amount: 8
+  - bag: 12
+    gifts:
+    - valueCoin:
+        min: 3750
+        max: 7500
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 2
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 1
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 240
+      - tier: 2
+        cardType: 0
+        amount: 40
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 3
+        cardType: 0
+        amount: 3
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 6
+      - tier: 3
+        cardType: 0
+        amount: 2
+      - tier: 1
+        cardType: 0
+        amount: 20
+      - tier: 3
+        cardType: 0
+        amount: 3
+    - valueCoin:
+        min: 5625
+        max: 11250
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 4
+        max: 8
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 2
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 280
+      - tier: 2
+        cardType: 0
+        amount: 48
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 3
+        cardType: 0
+        amount: 3
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 6
+      - tier: 3
+        cardType: 0
+        amount: 2
+      - tier: 1
+        cardType: 0
+        amount: 20
+      - tier: 3
+        cardType: 0
+        amount: 3
+    - valueCoin:
+        min: 7500
+        max: 15000
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 8
+        max: 16
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 3
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 320
+      - tier: 2
+        cardType: 0
+        amount: 56
+      - tier: 3
+        cardType: 0
+        amount: 8
+      - tier: 3
+        cardType: 0
+        amount: 6
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 12
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 1
+        cardType: 0
+        amount: 40
+      - tier: 3
+        cardType: 0
+        amount: 6
+    - valueCoin:
+        min: 9375
+        max: 18750
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 12
+        max: 24
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 4
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 360
+      - tier: 2
+        cardType: 0
+        amount: 64
+      - tier: 3
+        cardType: 0
+        amount: 8
+      - tier: 3
+        cardType: 0
+        amount: 6
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 12
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 1
+        cardType: 0
+        amount: 40
+      - tier: 3
+        cardType: 0
+        amount: 6
+    - valueCoin:
+        min: 11250
+        max: 22500
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 16
+        max: 32
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 5
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 400
+      - tier: 2
+        cardType: 0
+        amount: 72
+      - tier: 3
+        cardType: 0
+        amount: 12
+      - tier: 3
+        cardType: 0
+        amount: 9
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 18
+      - tier: 3
+        cardType: 0
+        amount: 6
+      - tier: 1
+        cardType: 0
+        amount: 60
+      - tier: 3
+        cardType: 0
+        amount: 9
+    - valueCoin:
+        min: 13125
+        max: 26250
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 20
+        max: 40
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 6
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 440
+      - tier: 2
+        cardType: 0
+        amount: 80
+      - tier: 3
+        cardType: 0
+        amount: 12
+      - tier: 3
+        cardType: 0
+        amount: 9
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 18
+      - tier: 3
+        cardType: 0
+        amount: 6
+      - tier: 1
+        cardType: 0
+        amount: 60
+      - tier: 3
+        cardType: 0
+        amount: 9
+    - valueCoin:
+        min: 15000
+        max: 30000
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 24
+        max: 48
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 7
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 480
+      - tier: 2
+        cardType: 0
+        amount: 88
+      - tier: 3
+        cardType: 0
+        amount: 16
+      - tier: 3
+        cardType: 0
+        amount: 12
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 24
+      - tier: 3
+        cardType: 0
+        amount: 8
+      - tier: 1
+        cardType: 0
+        amount: 80
+      - tier: 3
+        cardType: 0
+        amount: 12
+    - valueCoin:
+        min: 16875
+        max: 33750
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 28
+        max: 56
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 8
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 520
+      - tier: 2
+        cardType: 0
+        amount: 96
+      - tier: 3
+        cardType: 0
+        amount: 16
+      - tier: 3
+        cardType: 0
+        amount: 12
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 24
+      - tier: 3
+        cardType: 0
+        amount: 8
+      - tier: 1
+        cardType: 0
+        amount: 80
+      - tier: 3
+        cardType: 0
+        amount: 12
+  - bag: 13
+    gifts:
+    - valueCoin:
+        min: 7500
+        max: 18750
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 24
+        max: 48
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 1
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 800
+      - tier: 2
+        cardType: 0
+        amount: 480
+      - tier: 3
+        cardType: 0
+        amount: 64
+      - tier: 3
+        cardType: 0
+        amount: 5
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 12
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 1
+        cardType: 0
+        amount: 40
+      - tier: 3
+        cardType: 0
+        amount: 5
+    - valueCoin:
+        min: 11250
+        max: 18750
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 36
+        max: 72
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 2
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 1040
+      - tier: 2
+        cardType: 0
+        amount: 544
+      - tier: 3
+        cardType: 0
+        amount: 64
+      - tier: 3
+        cardType: 0
+        amount: 5
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 12
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 1
+        cardType: 0
+        amount: 40
+      - tier: 3
+        cardType: 0
+        amount: 5
+    - valueCoin:
+        min: 18750
+        max: 33750
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 50
+        max: 100
+        step: 4
+        rateOfReceiptMax: 0.05
+      tour: 3
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 1280
+      - tier: 2
+        cardType: 0
+        amount: 608
+      - tier: 3
+        cardType: 0
+        amount: 128
+      - tier: 3
+        cardType: 0
+        amount: 10
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 18
+      - tier: 3
+        cardType: 0
+        amount: 6
+      - tier: 1
+        cardType: 0
+        amount: 60
+      - tier: 3
+        cardType: 0
+        amount: 10
+    - valueCoin:
+        min: 22500
+        max: 48750
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 62
+        max: 124
+        step: 5
+        rateOfReceiptMax: 0.05
+      tour: 4
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 1520
+      - tier: 2
+        cardType: 0
+        amount: 672
+      - tier: 3
+        cardType: 0
+        amount: 128
+      - tier: 3
+        cardType: 0
+        amount: 10
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 18
+      - tier: 3
+        cardType: 0
+        amount: 6
+      - tier: 1
+        cardType: 0
+        amount: 60
+      - tier: 3
+        cardType: 0
+        amount: 10
+    - valueCoin:
+        min: 30000
+        max: 78750
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 74
+        max: 148
+        step: 5
+        rateOfReceiptMax: 0.05
+      tour: 5
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 1760
+      - tier: 2
+        cardType: 0
+        amount: 736
+      - tier: 3
+        cardType: 0
+        amount: 192
+      - tier: 3
+        cardType: 0
+        amount: 15
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 24
+      - tier: 3
+        cardType: 0
+        amount: 8
+      - tier: 1
+        cardType: 0
+        amount: 80
+      - tier: 3
+        cardType: 0
+        amount: 15
+    - valueCoin:
+        min: 33750
+        max: 108750
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 86
+        max: 172
+        step: 7
+        rateOfReceiptMax: 0.05
+      tour: 6
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 2000
+      - tier: 2
+        cardType: 0
+        amount: 800
+      - tier: 3
+        cardType: 0
+        amount: 192
+      - tier: 3
+        cardType: 0
+        amount: 15
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 24
+      - tier: 3
+        cardType: 0
+        amount: 8
+      - tier: 1
+        cardType: 0
+        amount: 80
+      - tier: 3
+        cardType: 0
+        amount: 15
+    - valueCoin:
+        min: 41250
+        max: 153750
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 100
+        max: 200
+        step: 10
+        rateOfReceiptMax: 0.05
+      tour: 7
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 2240
+      - tier: 2
+        cardType: 0
+        amount: 864
+      - tier: 3
+        cardType: 0
+        amount: 256
+      - tier: 3
+        cardType: 0
+        amount: 20
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 30
+      - tier: 3
+        cardType: 0
+        amount: 10
+      - tier: 1
+        cardType: 0
+        amount: 100
+      - tier: 3
+        cardType: 0
+        amount: 20
+    - valueCoin:
+        min: 45000
+        max: 198750
+        step: 40
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 112
+        max: 224
+        step: 12
+        rateOfReceiptMax: 0.05
+      tour: 8
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 2480
+      - tier: 2
+        cardType: 0
+        amount: 928
+      - tier: 3
+        cardType: 0
+        amount: 256
+      - tier: 3
+        cardType: 0
+        amount: 20
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 30
+      - tier: 3
+        cardType: 0
+        amount: 10
+      - tier: 1
+        cardType: 0
+        amount: 100
+      - tier: 3
+        cardType: 0
+        amount: 20
+  - bag: 20
+    gifts:
+    - valueCoin:
+        min: 750
+        max: 870
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 1
+        max: 4
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 1
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 32
+      - tier: 3
+        cardType: 0
+        amount: 1
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 2
+      - tier: 3
+        cardType: 0
+        amount: 2
+      - tier: 1
+        cardType: 0
+        amount: 10
+      - tier: 3
+        cardType: 0
+        amount: 1
+    - valueCoin:
+        min: 930
+        max: 1120
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 1
+        max: 4
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 2
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 40
+      - tier: 2
+        cardType: 0
+        amount: 4
+      - tier: 3
+        cardType: 0
+        amount: 1
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 2
+      - tier: 3
+        cardType: 0
+        amount: 2
+      - tier: 1
+        cardType: 0
+        amount: 10
+      - tier: 3
+        cardType: 0
+        amount: 1
+    - valueCoin:
+        min: 1125
+        max: 1370
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 1
+        max: 4
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 3
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 48
+      - tier: 2
+        cardType: 0
+        amount: 4
+      - tier: 3
+        cardType: 0
+        amount: 2
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 6
+      - tier: 3
+        cardType: 0
+        amount: 2
+      - tier: 1
+        cardType: 0
+        amount: 20
+      - tier: 3
+        cardType: 0
+        amount: 2
+    - valueCoin:
+        min: 1305
+        max: 1620
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 1
+        max: 4
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 4
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 56
+      - tier: 2
+        cardType: 0
+        amount: 4
+      - tier: 3
+        cardType: 0
+        amount: 2
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 12
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 1
+        cardType: 0
+        amount: 40
+      - tier: 3
+        cardType: 0
+        amount: 2
+    - valueCoin:
+        min: 1500
+        max: 1870
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 1
+        max: 4
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 5
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 64
+      - tier: 2
+        cardType: 0
+        amount: 4
+      - tier: 3
+        cardType: 0
+        amount: 3
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 12
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 1
+        cardType: 0
+        amount: 40
+      - tier: 3
+        cardType: 0
+        amount: 3
+    - valueCoin:
+        min: 1680
+        max: 2120
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 1
+        max: 4
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 6
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 72
+      - tier: 2
+        cardType: 0
+        amount: 4
+      - tier: 3
+        cardType: 0
+        amount: 3
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 18
+      - tier: 3
+        cardType: 0
+        amount: 6
+      - tier: 1
+        cardType: 0
+        amount: 60
+      - tier: 3
+        cardType: 0
+        amount: 3
+    - valueCoin:
+        min: 1875
+        max: 2370
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 1
+        max: 4
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 7
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 80
+      - tier: 2
+        cardType: 0
+        amount: 4
+      - tier: 3
+        cardType: 0
+        amount: 4
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 18
+      - tier: 3
+        cardType: 0
+        amount: 6
+      - tier: 1
+        cardType: 0
+        amount: 60
+      - tier: 3
+        cardType: 0
+        amount: 4
+    - valueCoin:
+        min: 2055
+        max: 2620
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 1
+        max: 4
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 8
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 88
+      - tier: 2
+        cardType: 0
+        amount: 4
+      - tier: 3
+        cardType: 0
+        amount: 4
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 18
+      - tier: 3
+        cardType: 0
+        amount: 6
+      - tier: 1
+        cardType: 0
+        amount: 60
+      - tier: 3
+        cardType: 0
+        amount: 4
+  - bag: 21
+    gifts:
+    - valueCoin:
+        min: 1875
+        max: 2805
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 0
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 1
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 168
+      - tier: 2
+        cardType: 0
+        amount: 16
+      - tier: 3
+        cardType: 0
+        amount: 2
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 4
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 1
+        cardType: 0
+        amount: 20
+      - tier: 3
+        cardType: 0
+        amount: 2
+    - valueCoin:
+        min: 3000
+        max: 4500
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 1
+        max: 3
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 2
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 192
+      - tier: 2
+        cardType: 0
+        amount: 16
+      - tier: 3
+        cardType: 0
+        amount: 2
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 4
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 1
+        cardType: 0
+        amount: 20
+      - tier: 3
+        cardType: 0
+        amount: 2
+    - valueCoin:
+        min: 5250
+        max: 6555
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 2
+        max: 6
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 3
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 216
+      - tier: 2
+        cardType: 0
+        amount: 16
+      - tier: 3
+        cardType: 0
+        amount: 4
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 6
+      - tier: 3
+        cardType: 0
+        amount: 2
+      - tier: 1
+        cardType: 0
+        amount: 20
+      - tier: 3
+        cardType: 0
+        amount: 4
+    - valueCoin:
+        min: 6375
+        max: 6870
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 3
+        max: 9
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 4
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 240
+      - tier: 2
+        cardType: 0
+        amount: 16
+      - tier: 3
+        cardType: 0
+        amount: 4
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 12
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 1
+        cardType: 0
+        amount: 40
+      - tier: 3
+        cardType: 0
+        amount: 4
+    - valueCoin:
+        min: 8625
+        max: 11870
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 4
+        max: 12
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 5
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 264
+      - tier: 2
+        cardType: 0
+        amount: 16
+      - tier: 3
+        cardType: 0
+        amount: 6
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 12
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 1
+        cardType: 0
+        amount: 40
+      - tier: 3
+        cardType: 0
+        amount: 6
+    - valueCoin:
+        min: 9750
+        max: 16870
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 5
+        max: 15
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 6
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 288
+      - tier: 2
+        cardType: 0
+        amount: 16
+      - tier: 3
+        cardType: 0
+        amount: 6
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 18
+      - tier: 3
+        cardType: 0
+        amount: 6
+      - tier: 1
+        cardType: 0
+        amount: 60
+      - tier: 3
+        cardType: 0
+        amount: 6
+    - valueCoin:
+        min: 12000
+        max: 24370
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 6
+        max: 18
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 7
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 312
+      - tier: 2
+        cardType: 0
+        amount: 16
+      - tier: 3
+        cardType: 0
+        amount: 8
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 18
+      - tier: 3
+        cardType: 0
+        amount: 6
+      - tier: 1
+        cardType: 0
+        amount: 60
+      - tier: 3
+        cardType: 0
+        amount: 8
+    - valueCoin:
+        min: 13125
+        max: 31870
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 7
+        max: 21
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 8
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 336
+      - tier: 2
+        cardType: 0
+        amount: 16
+      - tier: 3
+        cardType: 0
+        amount: 8
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 24
+      - tier: 3
+        cardType: 0
+        amount: 8
+      - tier: 1
+        cardType: 0
+        amount: 80
+      - tier: 3
+        cardType: 0
+        amount: 8
+  - bag: 22
+    gifts:
+    - valueCoin:
+        min: 6250
+        max: 12500
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 0
+        max: 0
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 1
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 240
+      - tier: 2
+        cardType: 0
+        amount: 40
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 3
+        cardType: 0
+        amount: 3
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 6
+      - tier: 3
+        cardType: 0
+        amount: 2
+      - tier: 1
+        cardType: 0
+        amount: 20
+      - tier: 3
+        cardType: 0
+        amount: 3
+    - valueCoin:
+        min: 9375
+        max: 18750
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 4
+        max: 12
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 2
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 280
+      - tier: 2
+        cardType: 0
+        amount: 48
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 3
+        cardType: 0
+        amount: 3
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 6
+      - tier: 3
+        cardType: 0
+        amount: 2
+      - tier: 1
+        cardType: 0
+        amount: 20
+      - tier: 3
+        cardType: 0
+        amount: 3
+    - valueCoin:
+        min: 12500
+        max: 25000
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 8
+        max: 24
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 3
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 320
+      - tier: 2
+        cardType: 0
+        amount: 56
+      - tier: 3
+        cardType: 0
+        amount: 8
+      - tier: 3
+        cardType: 0
+        amount: 6
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 12
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 1
+        cardType: 0
+        amount: 40
+      - tier: 3
+        cardType: 0
+        amount: 6
+    - valueCoin:
+        min: 15625
+        max: 31250
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 12
+        max: 36
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 4
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 360
+      - tier: 2
+        cardType: 0
+        amount: 64
+      - tier: 3
+        cardType: 0
+        amount: 8
+      - tier: 3
+        cardType: 0
+        amount: 6
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 12
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 1
+        cardType: 0
+        amount: 40
+      - tier: 3
+        cardType: 0
+        amount: 6
+    - valueCoin:
+        min: 18750
+        max: 37500
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 16
+        max: 48
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 5
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 400
+      - tier: 2
+        cardType: 0
+        amount: 72
+      - tier: 3
+        cardType: 0
+        amount: 12
+      - tier: 3
+        cardType: 0
+        amount: 9
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 18
+      - tier: 3
+        cardType: 0
+        amount: 6
+      - tier: 1
+        cardType: 0
+        amount: 60
+      - tier: 3
+        cardType: 0
+        amount: 9
+    - valueCoin:
+        min: 21875
+        max: 43750
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 20
+        max: 60
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 6
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 440
+      - tier: 2
+        cardType: 0
+        amount: 80
+      - tier: 3
+        cardType: 0
+        amount: 12
+      - tier: 3
+        cardType: 0
+        amount: 9
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 18
+      - tier: 3
+        cardType: 0
+        amount: 6
+      - tier: 1
+        cardType: 0
+        amount: 60
+      - tier: 3
+        cardType: 0
+        amount: 9
+    - valueCoin:
+        min: 25000
+        max: 50000
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 24
+        max: 72
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 7
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 480
+      - tier: 2
+        cardType: 0
+        amount: 88
+      - tier: 3
+        cardType: 0
+        amount: 16
+      - tier: 3
+        cardType: 0
+        amount: 12
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 24
+      - tier: 3
+        cardType: 0
+        amount: 8
+      - tier: 1
+        cardType: 0
+        amount: 80
+      - tier: 3
+        cardType: 0
+        amount: 12
+    - valueCoin:
+        min: 28125
+        max: 56250
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 28
+        max: 84
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 8
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 520
+      - tier: 2
+        cardType: 0
+        amount: 96
+      - tier: 3
+        cardType: 0
+        amount: 16
+      - tier: 3
+        cardType: 0
+        amount: 12
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 24
+      - tier: 3
+        cardType: 0
+        amount: 8
+      - tier: 1
+        cardType: 0
+        amount: 80
+      - tier: 3
+        cardType: 0
+        amount: 12
+  - bag: 23
+    gifts:
+    - valueCoin:
+        min: 12500
+        max: 31250
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 24
+        max: 72
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 1
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 800
+      - tier: 2
+        cardType: 0
+        amount: 480
+      - tier: 3
+        cardType: 0
+        amount: 64
+      - tier: 3
+        cardType: 0
+        amount: 4
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 12
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 1
+        cardType: 0
+        amount: 40
+      - tier: 3
+        cardType: 0
+        amount: 4
+    - valueCoin:
+        min: 18750
+        max: 31250
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 36
+        max: 108
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 2
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 1040
+      - tier: 2
+        cardType: 0
+        amount: 544
+      - tier: 3
+        cardType: 0
+        amount: 64
+      - tier: 3
+        cardType: 0
+        amount: 4
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 12
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 1
+        cardType: 0
+        amount: 40
+      - tier: 3
+        cardType: 0
+        amount: 4
+    - valueCoin:
+        min: 31250
+        max: 56250
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 50
+        max: 150
+        step: 4
+        rateOfReceiptMax: 0.05
+      tour: 3
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 1280
+      - tier: 2
+        cardType: 0
+        amount: 608
+      - tier: 3
+        cardType: 0
+        amount: 128
+      - tier: 3
+        cardType: 0
+        amount: 8
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 18
+      - tier: 3
+        cardType: 0
+        amount: 6
+      - tier: 1
+        cardType: 0
+        amount: 60
+      - tier: 3
+        cardType: 0
+        amount: 8
+    - valueCoin:
+        min: 37500
+        max: 81250
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 62
+        max: 186
+        step: 5
+        rateOfReceiptMax: 0.05
+      tour: 4
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 1520
+      - tier: 2
+        cardType: 0
+        amount: 672
+      - tier: 3
+        cardType: 0
+        amount: 128
+      - tier: 3
+        cardType: 0
+        amount: 8
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 18
+      - tier: 3
+        cardType: 0
+        amount: 6
+      - tier: 1
+        cardType: 0
+        amount: 60
+      - tier: 3
+        cardType: 0
+        amount: 8
+    - valueCoin:
+        min: 50000
+        max: 131250
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 74
+        max: 222
+        step: 5
+        rateOfReceiptMax: 0.05
+      tour: 5
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 1760
+      - tier: 2
+        cardType: 0
+        amount: 736
+      - tier: 3
+        cardType: 0
+        amount: 192
+      - tier: 3
+        cardType: 0
+        amount: 12
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 24
+      - tier: 3
+        cardType: 0
+        amount: 8
+      - tier: 1
+        cardType: 0
+        amount: 80
+      - tier: 3
+        cardType: 0
+        amount: 12
+    - valueCoin:
+        min: 56250
+        max: 181250
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 86
+        max: 258
+        step: 7
+        rateOfReceiptMax: 0.05
+      tour: 6
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 2000
+      - tier: 2
+        cardType: 0
+        amount: 800
+      - tier: 3
+        cardType: 0
+        amount: 192
+      - tier: 3
+        cardType: 0
+        amount: 12
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 24
+      - tier: 3
+        cardType: 0
+        amount: 8
+      - tier: 1
+        cardType: 0
+        amount: 80
+      - tier: 3
+        cardType: 0
+        amount: 12
+    - valueCoin:
+        min: 68750
+        max: 256250
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 100
+        max: 300
+        step: 10
+        rateOfReceiptMax: 0.05
+      tour: 7
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 2240
+      - tier: 2
+        cardType: 0
+        amount: 864
+      - tier: 3
+        cardType: 0
+        amount: 256
+      - tier: 3
+        cardType: 0
+        amount: 16
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 30
+      - tier: 3
+        cardType: 0
+        amount: 10
+      - tier: 1
+        cardType: 0
+        amount: 100
+      - tier: 3
+        cardType: 0
+        amount: 16
+    - valueCoin:
+        min: 75000
+        max: 331250
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 112
+        max: 336
+        step: 12
+        rateOfReceiptMax: 0.05
+      tour: 8
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 2480
+      - tier: 2
+        cardType: 0
+        amount: 928
+      - tier: 3
+        cardType: 0
+        amount: 256
+      - tier: 3
+        cardType: 0
+        amount: 16
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 30
+      - tier: 3
+        cardType: 0
+        amount: 10
+      - tier: 1
+        cardType: 0
+        amount: 100
+      - tier: 3
+        cardType: 0
+        amount: 16
+  - bag: 24
+    gifts:
+    - valueCoin:
+        min: 12500
+        max: 31250
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 24
+        max: 120
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 1
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 800
+      - tier: 2
+        cardType: 0
+        amount: 480
+      - tier: 3
+        cardType: 0
+        amount: 64
+      - tier: 3
+        cardType: 0
+        amount: 5
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 12
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 1
+        cardType: 0
+        amount: 40
+      - tier: 3
+        cardType: 0
+        amount: 5
+    - valueCoin:
+        min: 18750
+        max: 31250
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 36
+        max: 180
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 2
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 1040
+      - tier: 2
+        cardType: 0
+        amount: 544
+      - tier: 3
+        cardType: 0
+        amount: 64
+      - tier: 3
+        cardType: 0
+        amount: 5
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 12
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 1
+        cardType: 0
+        amount: 40
+      - tier: 3
+        cardType: 0
+        amount: 5
+    - valueCoin:
+        min: 31250
+        max: 56250
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 50
+        max: 250
+        step: 4
+        rateOfReceiptMax: 0.05
+      tour: 3
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 1280
+      - tier: 2
+        cardType: 0
+        amount: 608
+      - tier: 3
+        cardType: 0
+        amount: 128
+      - tier: 3
+        cardType: 0
+        amount: 10
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 18
+      - tier: 3
+        cardType: 0
+        amount: 6
+      - tier: 1
+        cardType: 0
+        amount: 60
+      - tier: 3
+        cardType: 0
+        amount: 10
+    - valueCoin:
+        min: 37500
+        max: 81250
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 62
+        max: 310
+        step: 5
+        rateOfReceiptMax: 0.05
+      tour: 4
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 1520
+      - tier: 2
+        cardType: 0
+        amount: 672
+      - tier: 3
+        cardType: 0
+        amount: 128
+      - tier: 3
+        cardType: 0
+        amount: 10
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 18
+      - tier: 3
+        cardType: 0
+        amount: 6
+      - tier: 1
+        cardType: 0
+        amount: 60
+      - tier: 3
+        cardType: 0
+        amount: 10
+    - valueCoin:
+        min: 50000
+        max: 131250
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 74
+        max: 370
+        step: 5
+        rateOfReceiptMax: 0.05
+      tour: 5
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 1760
+      - tier: 2
+        cardType: 0
+        amount: 736
+      - tier: 3
+        cardType: 0
+        amount: 192
+      - tier: 3
+        cardType: 0
+        amount: 15
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 24
+      - tier: 3
+        cardType: 0
+        amount: 8
+      - tier: 1
+        cardType: 0
+        amount: 80
+      - tier: 3
+        cardType: 0
+        amount: 15
+    - valueCoin:
+        min: 56250
+        max: 181250
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 86
+        max: 430
+        step: 7
+        rateOfReceiptMax: 0.05
+      tour: 6
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 2000
+      - tier: 2
+        cardType: 0
+        amount: 800
+      - tier: 3
+        cardType: 0
+        amount: 192
+      - tier: 3
+        cardType: 0
+        amount: 15
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 24
+      - tier: 3
+        cardType: 0
+        amount: 8
+      - tier: 1
+        cardType: 0
+        amount: 80
+      - tier: 3
+        cardType: 0
+        amount: 15
+    - valueCoin:
+        min: 68750
+        max: 256250
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 100
+        max: 500
+        step: 10
+        rateOfReceiptMax: 0.05
+      tour: 7
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 2240
+      - tier: 2
+        cardType: 0
+        amount: 864
+      - tier: 3
+        cardType: 0
+        amount: 256
+      - tier: 3
+        cardType: 0
+        amount: 20
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 30
+      - tier: 3
+        cardType: 0
+        amount: 10
+      - tier: 1
+        cardType: 0
+        amount: 100
+      - tier: 3
+        cardType: 0
+        amount: 20
+    - valueCoin:
+        min: 75000
+        max: 331250
+        step: 60
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 112
+        max: 560
+        step: 12
+        rateOfReceiptMax: 0.05
+      tour: 8
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 2480
+      - tier: 2
+        cardType: 0
+        amount: 928
+      - tier: 3
+        cardType: 0
+        amount: 256
+      - tier: 3
+        cardType: 0
+        amount: 20
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 30
+      - tier: 3
+        cardType: 0
+        amount: 10
+      - tier: 1
+        cardType: 0
+        amount: 100
+      - tier: 3
+        cardType: 0
+        amount: 20
+  - bag: 50
+    gifts:
+    - valueCoin:
+        min: 2500
+        max: 6250
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 10
+        max: 24
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 1
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 400
+      - tier: 2
+        cardType: 0
+        amount: 240
+      - tier: 3
+        cardType: 0
+        amount: 32
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 6
+      - tier: 3
+        cardType: 0
+        amount: 2
+      - tier: 1
+        cardType: 0
+        amount: 20
+    - valueCoin:
+        min: 3750
+        max: 6250
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 15
+        max: 36
+        step: 1
+        rateOfReceiptMax: 0.05
+      tour: 2
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 520
+      - tier: 2
+        cardType: 0
+        amount: 272
+      - tier: 3
+        cardType: 0
+        amount: 32
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 6
+      - tier: 3
+        cardType: 0
+        amount: 2
+      - tier: 1
+        cardType: 0
+        amount: 20
+    - valueCoin:
+        min: 6250
+        max: 11250
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 20
+        max: 50
+        step: 4
+        rateOfReceiptMax: 0.05
+      tour: 3
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 640
+      - tier: 2
+        cardType: 0
+        amount: 304
+      - tier: 3
+        cardType: 0
+        amount: 64
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 9
+      - tier: 3
+        cardType: 0
+        amount: 3
+      - tier: 1
+        cardType: 0
+        amount: 30
+    - valueCoin:
+        min: 7500
+        max: 16250
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 25
+        max: 62
+        step: 5
+        rateOfReceiptMax: 0.05
+      tour: 4
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 760
+      - tier: 2
+        cardType: 0
+        amount: 336
+      - tier: 3
+        cardType: 0
+        amount: 64
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 9
+      - tier: 3
+        cardType: 0
+        amount: 3
+      - tier: 1
+        cardType: 0
+        amount: 30
+    - valueCoin:
+        min: 10000
+        max: 26250
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 30
+        max: 74
+        step: 5
+        rateOfReceiptMax: 0.05
+      tour: 5
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 880
+      - tier: 2
+        cardType: 0
+        amount: 368
+      - tier: 3
+        cardType: 0
+        amount: 96
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 12
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 1
+        cardType: 0
+        amount: 40
+    - valueCoin:
+        min: 11250
+        max: 36250
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 35
+        max: 86
+        step: 7
+        rateOfReceiptMax: 0.05
+      tour: 6
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 1000
+      - tier: 2
+        cardType: 0
+        amount: 400
+      - tier: 3
+        cardType: 0
+        amount: 96
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 12
+      - tier: 3
+        cardType: 0
+        amount: 4
+      - tier: 1
+        cardType: 0
+        amount: 40
+    - valueCoin:
+        min: 13750
+        max: 51250
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 40
+        max: 100
+        step: 10
+        rateOfReceiptMax: 0.05
+      tour: 7
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 1120
+      - tier: 2
+        cardType: 0
+        amount: 432
+      - tier: 3
+        cardType: 0
+        amount: 128
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 15
+      - tier: 3
+        cardType: 0
+        amount: 5
+      - tier: 1
+        cardType: 0
+        amount: 50
+    - valueCoin:
+        min: 15000
+        max: 66250
+        step: 20
+        rateOfReceiptMax: 0.1
+      valueGem:
+        min: 45
+        max: 112
+        step: 12
+        rateOfReceiptMax: 0.05
+      tour: 8
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 1240
+      - tier: 2
+        cardType: 0
+        amount: 464
+      - tier: 3
+        cardType: 0
+        amount: 128
+      rateBonus: 1
+      cardBonuss:
+      - tier: 2
+        cardType: 0
+        amount: 15
+      - tier: 3
+        cardType: 0
+        amount: 5
+      - tier: 1
+        cardType: 0
+        amount: 50
+  TutorialGiftBag:
+    valueCoin:
+      min: 500
+      max: 1000
+      step: 100
+      rateOfReceiptMax: 0.5
+    valueGem:
+      min: 0
+      max: 5
+      step: 1
+      rateOfReceiptMax: 0.05
+    tour: 1
+    cardAmounts:
+    - tier: 1
+      cardType: 0
+      amount: 10
+    - tier: 2
+      cardType: 0
+      amount: 1
+    rateBonus: 0
+    cardBonuss: []
+  PointbagConfig:
+    bag: 2
+    gifts:
+    - valueCoin:
+        min: 750
+        max: 1125
+        step: 0
+        rateOfReceiptMax: 0
+      valueGem:
+        min: 0
+        max: 0
+        step: 0
+        rateOfReceiptMax: 0
+      tour: 1
+      cardAmounts:
+      - tier: 1
+        cardType: 0
+        amount: 31
+      - tier: 2
+        cardType: 0
+        amount: 3
+      rateBonus: 1
+      cardBonuss: []
+    - valueCoin:
+        min: 1200
+        max: 1125
+        step: 0
+        rateOfReceiptMax: 0
+      valueGem:
+        min: 0
+        max: 2
+        step: 0
+        rateOfReceiptMax: 0
+      tour: 2
+      cardAmounts:
+      - tier: 0
+        cardType: 0
+        amount: 0
+      - tier: 0
+        cardType: 0
+        amount: 0
+      rateBonus: 1
+      cardBonuss: []
+    - valueCoin:
+        min: 2100
+        max: 2625
+        step: 0
+        rateOfReceiptMax: 0
+      valueGem:
+        min: 0
+        max: 4
+        step: 0
+        rateOfReceiptMax: 0
+      tour: 3
+      cardAmounts:
+      - tier: 0
+        cardType: 0
+        amount: 0
+      - tier: 0
+        cardType: 0
+        amount: 0
+      rateBonus: 1
+      cardBonuss: []
+    - valueCoin:
+        min: 2550
+        max: 4125
+        step: 0
+        rateOfReceiptMax: 0
+      valueGem:
+        min: 0
+        max: 7
+        step: 0
+        rateOfReceiptMax: 0
+      tour: 4
+      cardAmounts:
+      - tier: 0
+        cardType: 0
+        amount: 0
+      - tier: 0
+        cardType: 0
+        amount: 0
+      rateBonus: 1
+      cardBonuss: []
+    - valueCoin:
+        min: 3450
+        max: 7125
+        step: 0
+        rateOfReceiptMax: 0
+      valueGem:
+        min: 0
+        max: 9
+        step: 0
+        rateOfReceiptMax: 0
+      tour: 5
+      cardAmounts:
+      - tier: 0
+        cardType: 0
+        amount: 0
+      - tier: 0
+        cardType: 0
+        amount: 0
+      rateBonus: 1
+      cardBonuss: []
+    - valueCoin:
+        min: 3900
+        max: 10125
+        step: 0
+        rateOfReceiptMax: 0
+      valueGem:
+        min: 0
+        max: 12
+        step: 0
+        rateOfReceiptMax: 0
+      tour: 6
+      cardAmounts:
+      - tier: 0
+        cardType: 0
+        amount: 0
+      - tier: 0
+        cardType: 0
+        amount: 0
+      rateBonus: 1
+      cardBonuss: []
+    - valueCoin:
+        min: 4800
+        max: 14625
+        step: 0
+        rateOfReceiptMax: 0
+      valueGem:
+        min: 0
+        max: 14
+        step: 0
+        rateOfReceiptMax: 0
+      tour: 7
+      cardAmounts:
+      - tier: 0
+        cardType: 0
+        amount: 0
+      - tier: 0
+        cardType: 0
+        amount: 0
+      rateBonus: 1
+      cardBonuss: []
+    - valueCoin:
+        min: 5250
+        max: 19125
+        step: 0
+        rateOfReceiptMax: 0
+      valueGem:
+        min: 0
+        max: 16
+        step: 0
+        rateOfReceiptMax: 0
+      tour: 8
+      cardAmounts:
+      - tier: 0
+        cardType: 0
+        amount: 0
+      - tier: 0
+        cardType: 0
+        amount: 0
+      rateBonus: 1
+      cardBonuss: []

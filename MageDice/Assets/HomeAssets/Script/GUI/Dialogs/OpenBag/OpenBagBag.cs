@@ -21,10 +21,9 @@ public class OpenBagBag : MonoBehaviour
 
     [Header("Linker")]
     public BGTexScroller texScroller;
-    
-    public Image imgBox;
-    public Image imgBoxUpper;
-    
+
+    public Image imgBag;
+
     public OpenBagBall ball;
     public Transform firePlace;
 
@@ -34,11 +33,10 @@ public class OpenBagBag : MonoBehaviour
     [Header("Fall down animation")]
     public float durationFall;
     public PairTweenVector[] scalesLandedEachPhase;
-    
+
     [Header("Open bag animation")]
     public PairTweenVector[] scalesOpenEachPhase;
-    public PairTweenVector[] movesOpenEachPhase;
-    
+
     private Tween tween;
     private Transform cachedTransform;
     public Transform CachedTransform => cachedTransform;
@@ -56,7 +54,7 @@ public class OpenBagBag : MonoBehaviour
     //
     // public RectTransform transFxLanded;
     // public Image imgFxLanded;
-    
+
     public void Init(Transform transformTop, Transform transformMid)
     {
         this.tween = null;
@@ -65,14 +63,14 @@ public class OpenBagBag : MonoBehaviour
 
         this.transTop = transformTop;
         this.transMid = transformMid;
-        
+
         this.ball.Init();
         this.ball.OnHideBG(this.HideBagAndCounter);
     }
 
     public OpenBagBag ParseData(BagType t)
     {
-        this.imgBox.sprite = GameAssetsConfigs.Instance.bagAsset.GetBagAsset(t)?.sprBag;
+        this.imgBag.sprite = GameAssetsConfigs.Instance.bagAsset.GetBagAsset(t)?.sprBag;
         return this;
     }
 
@@ -85,13 +83,16 @@ public class OpenBagBag : MonoBehaviour
         this.tween = this.cachedTransform.DOMove(posEnd, this.durationFall)
             .OnComplete(this.OnLanded).SetEase(Ease.InCubic);
 
+        // this.transFxLanded.sizeDelta = Vector2.zero;
+        // this.imgFxLanded.color = Color.white;
+
         return this;
     }
 
     private void OnLanded()
     {
         this.Clear();
-        
+
         this.texScroller.speed.y = -0.2f;
         Sequence s = this.scalesLandedEachPhase.ToScaleSequence(this.cachedTransform);
         s?.OnComplete(this.OnAnimateComplete);
@@ -99,6 +100,10 @@ public class OpenBagBag : MonoBehaviour
 
         this.fxLanded.time = 0f;
         this.fxLanded.Play(false);
+        // this.transFxLanded.DOSizeDelta(new Vector2(2000f, 2000f), 1f)
+        //     .SetEase(Ease.OutQuad);
+        // this.imgFxLanded.DOFade(0f, 0.5f)
+        //     .SetDelay(0.5f).SetEase(Ease.OutSine);
     }
 
     public OpenBagBag StartOpenBag(OpenBagItemUpper.CardDisplayType animationType)
@@ -111,29 +116,29 @@ public class OpenBagBag : MonoBehaviour
         switch (animationType)
         {
             case OpenBagItemUpper.CardDisplayType.Common:
-            case OpenBagItemUpper.CardDisplayType.Card:
-            case OpenBagItemUpper.CardDisplayType.CardNewCue:
-                s = this.scalesOpenEachPhase.ToScaleSequence(this.cachedTransform, OnFireCard);
+            case OpenBagItemUpper.CardDisplayType.StatsCardOld:
+                s = this.scalesOpenEachPhase.ToScaleSequence(this.cachedTransform, OnFireNormal);
                 break;
-            case OpenBagItemUpper.CardDisplayType.Cue:
-                s = this.scalesOpenEachPhase.ToScaleSequence(this.cachedTransform, OnFireCue);
+            case OpenBagItemUpper.CardDisplayType.StatsCardNew:
+                s = this.scalesOpenEachPhase.ToScaleSequence(this.cachedTransform, OnFireFlash);
                 break;
-            case OpenBagItemUpper.CardDisplayType.Box:
+            case OpenBagItemUpper.CardDisplayType.SpecialString:
+                //s = this.scalesOpenEachPhase.ToScaleSequence(this.cachedTransform, OnStringAppear);
                 break;
         }
-        
+
         this.tween = s;
 
         return this;
     }
-    
+
 
     /// <summary>
     /// must be called after animation
     /// </summary>
     public OpenBagBag OnComplete(System.Action c)
     {
-        
+
         if (this.tween is null)
         {
             Invoker.Invoke(c);
@@ -156,32 +161,38 @@ public class OpenBagBag : MonoBehaviour
     {
         this.step = BagAppearStep.None;
     }
-    
-    private void OnFireCard()
+
+    private void OnFireNormal()
     {
         this.ball.StartFlyUp(this.firePlace.position, this.transTop.position)
             .OnComplete(this.OnFireReachTarget);
     }
 
-    private void OnFireCue()
+    private void OnFireFlash()
     {
         this.ball.StartFlyUpSpecial(this.firePlace.position, this.transMid.position)
             .OnComplete(this.OnFireReachTarget);
     }
+
+    // private void OnStringAppear()
+    // {
+    //     
+    // }
+
     private void OnFireReachTarget()
     {
         if (this.ball.gameObject.activeSelf)
             this.ball.Hide();
         this.OnAnimateComplete();
     }
-    
+
     private void OnAnimateComplete()
     {
-        
+
         switch (this.step)
         {
             case BagAppearStep.FallingDown:
-                
+
             case BagAppearStep.Opening:
                 this.step = BagAppearStep.Waiting;
                 break;
@@ -189,16 +200,16 @@ public class OpenBagBag : MonoBehaviour
                 this.step = BagAppearStep.Opening;
                 break;
         }
-        Debug.Log( $"{"OpenBag_Bag".WrapColor("cyan")} OnAnimateComplete -step {this.step}");
-        
-        if(!(this.callback is null))
+        Debug.Log($"{"OpenBag_Bag".WrapColor("cyan")} OnAnimateComplete -step {this.step}");
+
+        if (!(this.callback is null))
         {
             // prevent nested callback -> cause null callback afterward
             var backupCall = this.callback;
             this.callback = null;
             backupCall.Invoke();
         }
-        
+
     }
 
     public void HideBagAndCounter()
@@ -211,13 +222,13 @@ public class OpenBagBag : MonoBehaviour
         this.gameObject.SetActive(true);
         this.goCounter.SetActive(true);
     }
-    
+
     private void Clear(bool complete = false)
     {
         if (this.tween != null)
             this.tween.Kill(complete);
         this.tween = null;
-        
+
         this.ball.Hide();
         this.cachedTransform.localScale = Vector3.one;
         this.ShowBagAndCounter();

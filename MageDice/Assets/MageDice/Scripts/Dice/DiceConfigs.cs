@@ -11,6 +11,9 @@ public class DiceConfigs : ScriptableObject
     [Header("Dice Info Config")]
     public List<DiceConfig> config;
 
+    [Header("Dice Booster Deck")]
+    public DiceBoosterConfigs boosterConfigs;
+
     //public List<MissionConfig> configs; //daily mission
     private static DiceConfigs _instance;
     public static DiceConfigs Instance
@@ -69,6 +72,21 @@ public class DiceConfigs : ScriptableObject
             {
                 config.Game.levels[i].damageMultiplier = (i + 1);
             }
+        }
+    }
+
+    [ContextMenu("Load Booster")]
+    private void LoadBooster()
+    {
+        boosterConfigs = new DiceBoosterConfigs();
+        boosterConfigs.level = new DiceBoosterConfig[10];
+        for (int i = 0; i < 10; i++)
+        {
+            boosterConfigs.level[i] = new DiceBoosterConfig()
+            {
+                costUpgradeNext = i == 0 ? 400 : boosterConfigs.level[i - 1].costUpgradeNext + 300,
+                currentBoostPercent = i == 0 ? 1f : boosterConfigs.level[i - 1].currentBoostPercent + (0.7f - i * 0.065f)
+            };
         }
     }
 #endif
@@ -159,4 +177,24 @@ public class DiceBulletConfig
     public DiceBulletStateConfig normalBullet;
 
     public DiceBulletStateConfig rageBullet;
+}
+[System.Serializable]
+public class DiceBoosterConfigs
+{
+    public DiceBoosterConfig[] level;
+
+    public DiceBoosterConfig GetLevel(int level)
+    {
+        if (level < 0 || level >= this.level.Length)
+            return null;
+
+        return this.level[level];
+    }
+}
+[System.Serializable]
+public class DiceBoosterConfig
+{
+    public long costUpgradeNext;
+    public float currentBoostPercent;
+    public bool isMax;
 }

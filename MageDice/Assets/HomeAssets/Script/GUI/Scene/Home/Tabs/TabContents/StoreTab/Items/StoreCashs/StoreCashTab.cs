@@ -22,18 +22,16 @@ public class StoreCashTab : StoreChildTab
 
     public void ParseConfig()
     {
-        Debug.Log("edit");
-
-        //List<StoreCashConfig> cashConfigs = StoreConfigs.Instance.GetBetterPlaceCashs();
-        //if (cashConfigs != null)
-        //{
-        //    for(int i=0; i< cashConfigs.Count; i++)
-        //    {
-        //        if (i < this.cashItems.Length)
-        //        {
-        //            this.cashItems[i].ParseConfig(cashConfigs[i]);
-        //        }
-        //    }
-        //}
+        List<StoreCashConfig> cashConfigs = StoreConfigs.Instance.GetBetterPlaceCashs();
+        if (cashConfigs != null)
+        {
+            for (int i = 0; i < cashConfigs.Count; i++)
+            {
+                if (i < this.cashItems.Length)
+                {
+                    this.cashItems[i].ParseConfig(cashConfigs[i]);
+                }
+            }
+        }
     }
 }

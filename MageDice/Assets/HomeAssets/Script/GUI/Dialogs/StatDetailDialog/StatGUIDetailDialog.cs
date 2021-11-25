@@ -131,12 +131,12 @@ public class StatGUIDetailDialog : BaseSortingDialog
             return;
         }
         Debug.Log("edit");
-        //var du = GameManager.Instance.OnShowDialogWithSorting<CueUpgradingDialog>(
-        //    "Home/GUI/Dialogs/Cue/CueUpgrading",
-        //    PopupSortingType.CenterBottomAndTopBar,
-        //    this._data);
+        var du = GameManager.Instance.OnShowDialogWithSorting<UpgradeCardDialog>(
+            "Home/GUI/UpgradeCardDialog/UpgradeCard",
+            PopupSortingType.CenterBottomAndTopBar,
+            this._data);
 
-        //du.OnClosing = this.OnAnimateUpgradeComplete;
+        du.OnClosing = this.OnAnimateUpgradeComplete;
         this._lastStats = null;
     }
 

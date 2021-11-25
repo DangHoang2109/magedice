@@ -123,10 +123,10 @@ public class StorePackageItem : StoreItem
         this.tranCueItem.gameObject.SetActive(false);
         if (this.Config != null)
         {
-            if (this.Config.cueid != DiceID.NONE)
+            if (this.Config.diceID != DiceID.NONE)
             {
                 this.tranCueItem.gameObject.SetActive(true);
-                this.cueDisplay.ParseCueFullStats(this.Config.cueid);
+                this.cueDisplay.ParseCueFullStats(this.Config.diceID);
             }
         }
     }
@@ -171,9 +171,9 @@ public class StorePackageItem : StoreItem
                 FxHelper.Instance.ShowFxCollectBoosters(this.Config.boosters, this.transform);
             }
 
-            if (this.Config.cueid != DiceID.NONE)
+            if (this.Config.diceID != DiceID.NONE)
             {
-                StatData StatData = StatDatas.Instance.GetStat(this.Config.cueid);
+                StatData StatData = StatDatas.Instance.GetStat(this.Config.diceID);
                 StatManager.Instance.WinCue(StatData);
                 
                 LogGameAnalytics.Instance.LogEvent(LogAnalyticsEvent.CUE_UNLOCKED, LogParams.STAT_ITEM_ID, StatData.id.ToString());//unlock từ package
@@ -186,12 +186,12 @@ public class StorePackageItem : StoreItem
     private void CollectCueAndOpenBags()
     {
         //collect cue, open bag
-        if (this.Config.cueid != DiceID.NONE)
+        if (this.Config.diceID != DiceID.NONE)
         {
             //TODO add cue
-            Debug.Log(string.Format("<color=yellow>Collect cue </color>" + this.Config.cueid));
+            Debug.Log(string.Format("<color=yellow>Collect cue </color>" + this.Config.diceID));
 
-            StatData StatData = StatDatas.Instance.GetStat(this.Config.cueid);
+            StatData StatData = StatDatas.Instance.GetStat(this.Config.diceID);
 
             CollectCueDialog dialog = GameManager.Instance.OnShowDialogWithSorting<CollectCueDialog>(
             "Home/GUI/Dialogs/OpenBag/CollectCue",

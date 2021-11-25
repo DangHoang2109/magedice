@@ -2,8 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.Events;
+
 public class GameBoardManager : MonoSingleton<GameBoardManager>
 {
+    public class CallbackEventFloat : UnityEvent<float>
+    {
+
+    }
+
     [SerializeField] private List<GameBoardSlot> slot;
     public List<GameBoardSlot> Slots => this.slot;
 
@@ -13,8 +20,11 @@ public class GameBoardManager : MonoSingleton<GameBoardManager>
     [SerializeField] private GameBoardLine activeLine;
     public GameBoardLine ActiveLine => this.activeLine;
 
+    [SerializeField] private BoosterDiceDeck boosterDeck;
+
     public List<DiceID> userDicesList;
     public Dictionary<DiceID,StatItemStats> dicUserDiceStartingStat;
+    public Dictionary<DiceID, CallbackEventFloat> dicCallbackBoosterUpdate;
 
 
     private MageDiceGameManager _gameManager;
@@ -57,12 +67,18 @@ public class GameBoardManager : MonoSingleton<GameBoardManager>
     public void JoinGame(List<StatItemStats> stat)
     {
         this.dicUserDiceStartingStat = new Dictionary<DiceID, StatItemStats>();
+        this.dicCallbackBoosterUpdate = new Dictionary<DiceID, CallbackEventFloat>();
         this.userDicesList = new List<DiceID>();
         foreach(StatItemStats s in stat)
         {
             userDicesList.Add(s.id);
             dicUserDiceStartingStat.Add(s.id, s);
+
+            CallbackEventFloat e = new CallbackEventFloat();
+            dicCallbackBoosterUpdate.Add(s.id, e);
         }
+
+        this.boosterDeck.ParseData(userDicesList);
     }
     public void StartPlay()
     {
@@ -72,10 +88,38 @@ public class GameBoardManager : MonoSingleton<GameBoardManager>
     {
         this.ActiveLine.PauseGame(isPause);
     }
+    public BoosterDiceDeck.BoosterDiceData UpgradeBooster(BoosterDiceDeck.BoosterDiceData current)
+    {
+        if (MageGameManager.OnBuyUpgrade(current._priceUpgradeNext))
+        {
+            DiceBoosterConfigs boosterConfig = DiceConfigs.Instance.boosterConfigs;
+            DiceBoosterConfig config = boosterConfig.GetLevel(current._currentLevel + 1);
+
+            current._currentLevel++;
+            current._isMax = config.isMax;
+            current._currentBoostPercent = config.currentBoostPercent;
+            current._priceUpgradeNext = config.costUpgradeNext;
+
+            if (dicCallbackBoosterUpdate.ContainsKey(current._id))
+                dicCallbackBoosterUpdate[current._id].Invoke(current._currentBoostPercent);
+
+            Debug.Log($"Upgrade booster {current._id} success to lv {current._currentLevel} current {current._currentBoostPercent}");
+        }
+        else
+        {
+            Debug.Log($"Not enough money {current._priceUpgradeNext}");
+        }
+
+        return current;
+    }
     public void ClickAddDice()
     {
-        if(MageGameManager.OnSpawnDice())
-            AddDice(RandomDice());
+        GameBoardCollumn freeCollumn = this.collumns.Where(x => !x.IsFull).ToList().GetRandomSafe();
+        if (freeCollumn == null)
+            return;
+
+        if (MageGameManager.OnSpawnDice())
+            AddDice(RandomDice(), freeCollumn);
     }
     public GameDiceData RandomDice(GameDiceData previous = null)
     {
@@ -90,20 +134,26 @@ public class GameBoardManager : MonoSingleton<GameBoardManager>
         GameDiceData result = new GameDiceData();
         result.SetData<GameDiceData>(id)
             .SetDot<GameDiceData>(nextDot)
-            .SetEffect<GameDiceData>(dicUserDiceStartingStat[id]);
+            .SetEffect<GameDiceData>(dicUserDiceStartingStat[id], this.boosterDeck.dicBoosterDiceStat[id]._currentBoostPercent); //
+
+        this.dicCallbackBoosterUpdate[id].AddListener(result.onChangeDiceBoosterPercent);
 
 
         return result;
     }
-    public void AddDice(GameDiceData dice)
+    public void AddDice(GameDiceData dice, GameBoardCollumn freeCollumn)
     {
-        GameBoardCollumn freeCollumn = this.collumns.Where(x => !x.IsFull).ToList().GetRandomSafe();
+        if (freeCollumn == null)
+             freeCollumn = this.collumns.Where(x => !x.IsFull).ToList().GetRandomSafe();
+
         if (freeCollumn == null)
             return;
 
         GameDiceItem item = Instantiate(prefabDice);//must get from pool
         item.SetData(dice);
         freeCollumn.PlaceDice(item);
+
+        boosterDeck.OnDotChange(dice.id, TotalDotOfID(dice.id));
     }
 
     /// <summary>
@@ -113,11 +163,24 @@ public class GameBoardManager : MonoSingleton<GameBoardManager>
     /// <param name="diceReturn">Viên dice drag, bị thu hồi về pool</param>
     public void MergeDice(GameDiceItem diceReplace, GameDiceItem diceReturn)
     {
+        DiceID id = diceReplace.Data.id;
+
+        this.dicCallbackBoosterUpdate[id].AddListener(diceReplace.Data.onChangeDiceBoosterPercent);
+        this.dicCallbackBoosterUpdate[id].AddListener(diceReturn.Data.onChangeDiceBoosterPercent);
+
         GameDiceData newData = RandomDice(diceReplace.Data);
         diceReplace.SetData(newData);
 
         diceReturn.UnPlace();
         Destroy(diceReturn.gameObject);
+
+        boosterDeck.OnDotChange(newData.id, TotalDotOfID(newData.id));
+        boosterDeck.OnDotChange(id, TotalDotOfID(id));
+    }
+
+    public int TotalDotOfID(DiceID id)
+    {
+        return this.Slots.Where(x => x.IsPlacing && x.item.Data.id == id).Sum(x => x.item.Data.Dot);
     }
 
     public void BlockRow(bool isBlock, int row, float time = -1f)
@@ -157,7 +220,7 @@ public class GameBoardManager : MonoSingleton<GameBoardManager>
         GameDiceData result = new GameDiceData();
         result.SetData<GameDiceData>(id)
             .SetDot<GameDiceData>(nextDot)
-            .SetEffect<GameDiceData>(dicUserDiceStartingStat[id]);
+            .SetEffect<GameDiceData>(dicUserDiceStartingStat[id], this.boosterDeck.dicBoosterDiceStat[id]._currentBoostPercent);
 
         return result;
     }

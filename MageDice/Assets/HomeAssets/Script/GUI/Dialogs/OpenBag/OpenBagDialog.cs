@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Cosina.Components;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using Random = UnityEngine.Random;
 
 /// <summary>
 /// Earn things in: OpenBagItemUpper -> ParseBooster & ParseStatsCard
@@ -20,8 +20,8 @@ public class OpenBagDialog : BaseSortingDialog
         {
             None = 0,
             Booster = 1,
-            CueCard = 2,
-            Cue = 3,
+            String = 2,
+            Equipment = 3
         }
 
         /// <summary>
@@ -33,9 +33,13 @@ public class OpenBagDialog : BaseSortingDialog
         /// </summary>
         public BoosterType booster;
         /// <summary>
-        /// card or cue you earn
+        /// string you earn 
         /// </summary>
-        public StatData equipmentConfig;
+        public int stringId;
+        /// <summary>
+        /// card equipment you earn
+        /// </summary>
+        public ShopStatConfig equipmentConfig;
         /// <summary>
         /// value you earn
         /// </summary>
@@ -44,30 +48,25 @@ public class OpenBagDialog : BaseSortingDialog
         /// need watch ads?
         /// </summary>
         public bool isWatch = false;
+        /// <summary>
+        /// is this card new
+        /// </summary>
+        public bool isNew = false;
     }
     public class BagModel
     {
         public BagType typeBag;
         public List<BagCardModel> items;
 
-        /// <summary>
-        /// Nếu user ko coi reward ads thì có show inter hay ko?
-        /// 3 bag đầu thì ko có reward ads nên ko show inter
-        /// Các bag mua IAP ko có show inter
-        /// </summary>
-        public bool isShowInterAtEnd;
-
         public BagModel()
         {
             this.items = new List<BagCardModel>();
-            this.isShowInterAtEnd = false;
         }
     }
-    
     [Header("Logs")]
     public Text txtLogBlockByAd;
     public Text txtLogBlockByAnim;
-    
+
     [Header("Panels Play")]
     public Transform transTop;
     public Transform transMid;
@@ -87,7 +86,7 @@ public class OpenBagDialog : BaseSortingDialog
 
     [Header("Result")]
     public RectTransform transTxtYouGot;
-    
+
     public GameObject goResult;
     public Transform transResult;
     public Transform transCache;
@@ -100,26 +99,24 @@ public class OpenBagDialog : BaseSortingDialog
     private bool isBlockingByAds;
     private bool isInitialized = false;
 
-    private bool isNeedShowInterstitial = false;
-    
     private void FirstRun()
     {
         this.bag.Init(this.transTop, transMid);
         this.counter.Init();
         this.cardPlay.Init();
-        
+
         this.cardsPool = new Stack<OpenBagItemFinal>();
         this.cardsResult = new List<OpenBagItemFinal>();
-        
+
         this.canvasGroup.alpha = 0f;
-        
+
         this.isInitialized = true;
-        
+
     }
-    
+
     public override void OnShow(object data = null, UnityAction callback = null)
     {
-        if(!this.isInitialized)
+        if (!this.isInitialized)
             this.FirstRun();
 
         base.OnShow(data, callback);
@@ -127,36 +124,27 @@ public class OpenBagDialog : BaseSortingDialog
         this.AnimateBagFall();
     }
 
-    public void DisableInterstitial()
-    {
-        this.isNeedShowInterstitial = false;
-    }
-
     private void ParseData()
     {
         if (data is BagModel m)
         {
-            this.models = new List<BagModel>() {m};
-
-            this.isNeedShowInterstitial = m.isShowInterAtEnd;
+            this.models = new List<BagModel>() { m };
         }
         else if (data is List<BagModel> b)
         {
             this.models = b;
-            
-            this.isNeedShowInterstitial = b[0].isShowInterAtEnd;
         }
         else
         {
-            Debug.LogError( $"{"OpenBagDialog".WrapColor("red")} ParseData exception: data is not model or list model, it is: {data?.GetType().Name??"NULL"}" );
+            Debug.LogError($"{"OpenBagDialog".WrapColor("red")} ParseData exception: data is not model or list model, it is: {data?.GetType().Name ?? "NULL"}");
             return;
         }
-
-        //do mission openbag
 
         this.indexBag = 0;
         this.ParseNextBag();
 
+        //do mission openbag
+        //MissionDatas.Instance.DoStep(MissionID.OPEN_BAGS, models.Count);
 
     }
 
@@ -164,21 +152,21 @@ public class OpenBagDialog : BaseSortingDialog
     {
         if (this.indexBag >= this.models.Count)
         {
-            Debug.LogError( $"{"OpenBagDialog".WrapColor("red")} ParseBag exception: -indexBag {indexBag} -bagsCount {this.models.Count}" );
+            Debug.LogError($"{"OpenBagDialog".WrapColor("red")} ParseBag exception: -indexBag {indexBag} -bagsCount {this.models.Count}");
             this.ClickCloseDialog();
             return;
         }
 
         this.indexCard = 0;
-        
+
         this.bag.gameObject.SetActive(true);
         this.bag.ParseData(this.models[this.indexBag].typeBag);
         this.bag.CachedTransform.position = this.transTop.position + Vector3.up * 5f;
-        
+
         this.counter.gameObject.SetActive(true);
         this.counter.Parse(this.models[this.indexBag].typeBag, this.models[this.indexBag].items.Count);
     }
-    
+
     protected override void AnimationShow()
     {
         this.canvasGroup.DOFade(1f, this.transitionTime)
@@ -209,21 +197,8 @@ public class OpenBagDialog : BaseSortingDialog
     {
         DOTween.Kill(this);
         base.OnCompleteHide();
-        
+
         this.ReturnAllCards();
-        
-        //check tutorial
-        if (TutorialDatas.TUTORIAL_PHASE == TutorialDatas.DONE_PHASE_AI)
-        {
-            TutorialDatas.TUTORIAL_PHASE = TutorialDatas.TUT_PHASE_FINAL;
-            //Hướng dẫn click find room
-            //step này không quan trọng, xem như đã complete tutorial
-            TutorialHomeStep1 nextStep = FindObjectOfType<TutorialHomeStep1>();
-            if (nextStep != null)
-            {
-                nextStep.TutorialClickRoom();
-            }
-        }
     }
 
     private void OnBagFallComplete()
@@ -233,14 +208,14 @@ public class OpenBagDialog : BaseSortingDialog
 
     public void OnClickStep()
     {
-        if (this.isBlockingByAds || !this.cardPlay.CheckClickable())
+        if (this.isBlockingByAds || this.cardPlay.IsBlockingByAds)
         {
             Debug.Log("OpenBagDialog".WrapColor("magenta")
                       + " OnClickStep failed: " + "ads".WrapColor("yellow"));
             return;
         }
-            
-        
+
+
         switch (this.bag.Step)
         {
             case OpenBagBag.BagAppearStep.None:
@@ -250,9 +225,9 @@ public class OpenBagDialog : BaseSortingDialog
                 //this.bag.SkipAnimation(); // no longer let this be skipped
                 break;
             case OpenBagBag.BagAppearStep.Waiting:
-                if(this.indexCard > 0)
+                if (this.indexCard > 0)
                     this.cardPlay.StartHide();
-            
+
                 if (indexCard >= this.models[this.indexBag].items.Count)
                 {
                     this.ShowResult();
@@ -274,52 +249,47 @@ public class OpenBagDialog : BaseSortingDialog
 
         var itemModel = this.models[this.indexBag].items[this.indexCard];
         this.isBlockingByAds = itemModel.isWatch;
-        if (itemModel.earnType == BagCardModel.EarnType.Cue)
+        if (itemModel.earnType == BagCardModel.EarnType.Equipment)
         {
-            StatData c = itemModel.equipmentConfig;
-            this.bag.StartOpenBag(OpenBagItemUpper.CardDisplayType.Cue)
-                .OnComplete(this.OnShowCue);
-#if UNITY_EDITOR
-            Debug.Log("b_ " + "OpenBag".WrapColor("yellow")
-                            + $" StartOpenNextCard {"new".WrapColor("yellow")} -isAds {this.isBlockingByAds}" );
-#else
-            Debug.Log($"b_ OpenBag StartOpenNextCard new -isAds {this.isBlockingByAds}");
-#endif
-            SoundManager.Instance.Play("snd_RandomCard");
-            return;
+            StatData d = StatDatas.Instance.GetStat(itemModel.equipmentConfig.id);
+            if (d == null)
+            {
+                itemModel.isNew = true;
+                this.bag.StartOpenBag(OpenBagItemUpper.CardDisplayType.StatsCardNew)
+                    .OnComplete(this.OnShowCardNew);
+                Debug.Log("b_ " + "OpenBag".WrapColor("yellow")
+                                + $" StartOpenNextCard {"new".WrapColor("yellow")} -isAds {this.isBlockingByAds}");
+                SoundManager.Instance.Play("snd_RandomCard");
+                return;
+            }
         }
-#if UNITY_EDITOR
+
+        itemModel.isNew = false;
         Debug.Log("b_ " + "OpenBag".WrapColor("yellow")
-                        + $" StartOpenNextCard -isAds {this.isBlockingByAds}" );
-#else
-        Debug.Log($"b_ OpenBag StartOpenNextCard -isAds {this.isBlockingByAds}" );
-#endif
-        
+                        + $" StartOpenNextCard -isAds {this.isBlockingByAds}");
         this.bag.StartOpenBag(OpenBagItemUpper.CardDisplayType.Common)
-            .OnComplete(this.OnShowCard);
+            .OnComplete(this.OnShowCardNormal);
 
         SoundManager.Instance.Play("snd_OpenCard");
     }
 
 
-    private void OnShowCard()
+    private void OnShowCardNormal()
     {
         this.isBlockingByAds = false;
         this.cardPlay.ParseData(this.models[this.indexBag].typeBag, this.models[this.indexBag].items[this.indexCard], this.transTop.position);
         this.cardPlay.StartAnimate();
         ++this.indexCard;
     }
-    private void OnShowCue()
+    private void OnShowCardNew()
     {
-        
-        LogGameAnalytics.Instance.LogEvent(LogAnalyticsEvent.CUE_UNLOCKED, LogParams.STAT_ITEM_ID, this.models[this.indexBag].items[this.indexCard].equipmentConfig.id.ToString());  //unlock trong bag
         this.isBlockingByAds = false;
         this.cardPlay.ParseData(this.models[this.indexBag].typeBag, this.models[this.indexBag].items[this.indexCard], this.transMid.position);
         this.cardPlay.StartAnimate();
         ++this.indexCard;
         SoundManager.Instance.Play("snd_ShowCard");
     }
-    
+
     public void ShowResult()
     {
         this.bag.Done();
@@ -346,12 +316,12 @@ public class OpenBagDialog : BaseSortingDialog
                 //Vector3 oldScale = itemFinal.transform.lossyScale;
                 //itemFinal.transform.localScale = Vector3.zero;
                 //itemFinal.transform.DOScale(oldScale, 0.2f);
-            }      
+            }
         }
         this.transResult.localScale = Vector3.zero;
         this.transResult.DOScale(Vector3.one, 0.2f);
 
-        if(curCards.Count <= 6)
+        if (curCards.Count <= 6)
         {
             this.transTxtYouGot.anchoredPosition = new Vector2(0, 256f);
         }
@@ -370,7 +340,7 @@ public class OpenBagDialog : BaseSortingDialog
         OpenBagItemFinal result;
         if (!this.cardsPool.Any())
         {
-            result = GameObject.Instantiate(this.pfCardResult, this.transResult);          
+            result = GameObject.Instantiate(this.pfCardResult, this.transResult);
         }
         else
         {
@@ -390,7 +360,7 @@ public class OpenBagDialog : BaseSortingDialog
             this.cardsPool.Push(this.cardsResult[i]);
         }
         this.cardsResult.Clear();
-        
+
         this.goResult.SetActive(false);
     }
 
@@ -398,10 +368,6 @@ public class OpenBagDialog : BaseSortingDialog
     {
         if ((++this.indexBag) >= this.models.Count)
         {
-            if (this.isNeedShowInterstitial)
-            {
-                AdsManager.Instance.ShowInterstitial(LogAdsInterstitialWhere.OPEN_BOX);
-            }
             this.ClickCloseDialog();
         }
         else
@@ -411,207 +377,6 @@ public class OpenBagDialog : BaseSortingDialog
             this.AnimateBagFall();
         }
     }
-    
-#if UNITY_EDITOR
-    
 
-    [UnityEditor.MenuItem("Test/Dialogs/Bag/Demo many cases")]
-    public static void TestManyCase()
-    {
-        if (!Application.isPlaying)
-        {
-            UnityEditor.EditorUtility.DisplayDialog("Ehhh", "Hey bro, please run this when the game is running!", "Yes sir");
-            return;
-        }
 
-        var bagType = System.Enum.GetValues(typeof(BagType)).Cast<BagType>()
-            .OrderBy(elem => System.Guid.NewGuid()).FirstOrDefault();
-        BagModel m = new BagModel()
-        {
-            typeBag = bagType,
-            items = new List<BagCardModel>()
-            {
-                new BagCardModel()
-                {
-                    earnType = BagCardModel.EarnType.Booster,
-                    booster = BoosterType.CASH,
-                    value = 1000,
-                },
-                new BagCardModel()
-                {
-                    earnType = BagCardModel.EarnType.Booster,
-                    booster = BoosterType.COIN,
-                    value = 1000,
-                },
-                new BagCardModel()
-                {
-                    earnType = BagCardModel.EarnType.Cue,
-                    equipmentConfig = StatManager.Instance.GetDatasByKind_Simple(StatManager.Kind.NotUnlocked).GetRandom(),
-                    value = 1,
-                },
-                new BagCardModel()
-                {
-                    earnType = BagCardModel.EarnType.Cue,
-                    equipmentConfig = StatManager.Instance.GetDatasByKind_Simple(StatManager.Kind.NotUnlocked).GetRandom(),
-                    value = 1,
-                    isWatch =  true,
-                },
-                new BagCardModel()
-                {
-                    earnType = BagCardModel.EarnType.CueCard,
-                    equipmentConfig = StatManager.Instance.GetDatasByKind_Simple(StatManager.Kind.NotUnlocked).GetRandom(),
-                    value = Random.Range(1, 11),
-                },
-                new BagCardModel()
-                {
-                    earnType = BagCardModel.EarnType.CueCard,
-                    equipmentConfig = StatManager.Instance.GetDatasByKind_Simple(StatManager.Kind.NotUnlocked).GetRandom(),
-                    value = Random.Range(1, 11),
-                    isWatch = true,
-                },
-                new BagCardModel()
-                {
-                    earnType = BagCardModel.EarnType.Booster,
-                    booster = BoosterType.CASH,
-                    value = 1000,
-                },
-                new BagCardModel()
-                {
-                    earnType = BagCardModel.EarnType.Booster,
-                    booster = BoosterType.COIN,
-                    value = 1000,
-                    isWatch = true
-                },
-            }
-        };
-
-        m.items.Shuffle();
-        
-        Invoker.Invoke(() =>
-        {
-            GameManager.Instance.OnShowDialogWithSorting<OpenBagDialog>(
-                "Home/GUI/Dialogs/OpenBag/OpenBag",
-                PopupSortingType.OnTopBar,
-                m);
-        }, 0.5f);
-    }
-    
-    [UnityEditor.MenuItem("Test/Dialogs/Bag/Demo cards for strange non-country cue")]
-    public static void TestCardsStrange()
-    {
-        if (!Application.isPlaying)
-        {
-            UnityEditor.EditorUtility.DisplayDialog("Ehhh", "Hey bro, please run this when the game is running!", "Yes sir");
-            return;
-        }
-
-        var bagType = System.Enum.GetValues(typeof(BagType)).Cast<BagType>()
-            .OrderBy(elem => System.Guid.NewGuid()).FirstOrDefault();
-        var collection = StatManager.Instance.GetDatasByKind_Simple(StatManager.Kind.NotUnlocked);
-        BagModel m = new BagModel()
-        {
-            typeBag = bagType,
-            items = new List<BagCardModel>()
-        };
-        for (int i = 0; i < 9; ++i)
-        {
-            var bm = new BagCardModel()
-            {
-                earnType = BagCardModel.EarnType.CueCard,
-                equipmentConfig = collection.GetRandom(),
-                value = Random.Range(1, 11),
-                isWatch = Random.Range(0, 2) == 0,
-            };
-            collection.Remove(bm.equipmentConfig);
-            m.items.Add(bm);
-        }
-        
-        Invoker.Invoke(() =>
-        {
-            GameManager.Instance.OnShowDialogWithSorting<OpenBagDialog>(
-                "Home/GUI/Dialogs/OpenBag/OpenBag",
-                PopupSortingType.OnTopBar,
-                m);
-        }, 0.5f);
-    }
-    [UnityEditor.MenuItem("Test/Dialogs/Bag/Demo get cues  %&#B")]
-    public static void TestGetCues()
-    {
-        if (!Application.isPlaying)
-        {
-            UnityEditor.EditorUtility.DisplayDialog("Ehhh", "Hey bro, please run this when the game is running!", "Yes sir");
-            return;
-        }
-
-        var bagType = System.Enum.GetValues(typeof(BagType)).Cast<BagType>()
-            .OrderBy(elem => System.Guid.NewGuid()).FirstOrDefault();
-        BagModel m = new BagModel()
-        {
-            typeBag = bagType,
-            items = new List<BagCardModel>()
-            {
-                new BagCardModel()
-                {
-                    earnType = BagCardModel.EarnType.Cue,
-                    equipmentConfig = StatManager.Instance.GetDatasByKind_Simple(StatManager.Kind.NotUnlocked).GetRandom(),
-                    isWatch = false,
-                },
-                new BagCardModel()
-                {
-                    earnType = BagCardModel.EarnType.Cue,
-                    equipmentConfig = StatManager.Instance.GetDatasByKind_Simple(StatManager.Kind.NotUnlocked).GetRandom(),
-                    isWatch = false,
-                },
-                new BagCardModel()
-                {
-                    earnType = BagCardModel.EarnType.Cue,
-                    equipmentConfig = StatManager.Instance.GetDatasByKind_Simple(StatManager.Kind.NotUnlocked).GetRandom(),
-                    isWatch = false,
-                },
-                new BagCardModel()
-                {
-                    earnType = BagCardModel.EarnType.Cue,
-                    equipmentConfig = StatManager.Instance.GetDatasByKind_Simple(StatManager.Kind.NotUnlocked).GetRandom(),
-                    isWatch = false,
-                },
-                new BagCardModel()
-                {
-                    earnType = BagCardModel.EarnType.Cue,
-                    equipmentConfig = StatManager.Instance.GetDatasByKind_Simple(StatManager.Kind.NotUnlocked).GetRandom(),
-                    isWatch = true,
-                },
-                new BagCardModel()
-                {
-                    earnType = BagCardModel.EarnType.Cue,
-                    equipmentConfig = StatManager.Instance.GetDatasByKind_Simple(StatManager.Kind.NotUnlocked).GetRandom(),
-                    isWatch = true,
-                },
-                new BagCardModel()
-                {
-                    earnType = BagCardModel.EarnType.Cue,
-                    equipmentConfig = StatManager.Instance.GetDatasByKind_Simple(StatManager.Kind.NotUnlocked).GetRandom(),
-                    isWatch = true,
-                },
-                new BagCardModel()
-                {
-                    earnType = BagCardModel.EarnType.Cue,
-                    equipmentConfig = StatManager.Instance.GetDatasByKind_Simple(StatManager.Kind.NotUnlocked).GetRandom(),
-                    isWatch = true,
-                },
-            }
-        };
-
-        m.items.Shuffle();
-        
-        Invoker.Invoke(() =>
-        {
-            GameManager.Instance.OnShowDialogWithSorting<OpenBagDialog>(
-                "Home/GUI/Dialogs/OpenBag/OpenBag",
-                PopupSortingType.OnTopBar,
-                m);
-        }, 0.5f);
-    }
-    
-    
-#endif
 }

@@ -31,20 +31,20 @@ public class MainFreeBagIcon : BaseIcon
     private void OpenFreeBag()
     {
         int currentTour = RoomDatas.Instance.GetRoomUnlockedMax();
-        //MainBagSlots.OpenBagNow(BagType.FREE_BAG, currentTour, "MainFreeBagSlot");
-        //BagSlotDatas.Instance.bagFree.OpenBag();
+        MainBagSlots.OpenBagNow(BagType.FREE_BAG, currentTour, "MainFreeBagSlot");
+        BagSlotDatas.Instance.bagFree.OpenBag();
     }
 
     private void Update()
     {
-        //this.isFree = BagSlotDatas.Instance.bagFree.IsReadyToOpen(ref timeRemain);
-        //this.tranFree.gameObject.SetActive(isFree);
-        //this.tranWait.gameObject.SetActive(!isFree);
-        //if (!isFree)
-        //{
-        //    this.timeWait = BagFreeData.TOTAL_TIME_WAIT - timeRemain;
-        //    this.tmpTime.text = string.Format(LanguageManager.GetString("DES_WAIT"), GameUtils.ConvertFloatToTime(this.timeWait)); //"Wait: {0}"
-        //}
+        this.isFree = BagSlotDatas.Instance.bagFree.IsReadyToOpen(ref timeRemain);
+        this.tranFree.gameObject.SetActive(isFree);
+        this.tranWait.gameObject.SetActive(!isFree);
+        if (!isFree)
+        {
+            this.timeWait = BagFreeData.TOTAL_TIME_WAIT - timeRemain;
+            this.tmpTime.text = string.Format(LanguageManager.GetString("DES_WAIT"), GameUtils.ConvertFloatToTime(this.timeWait)); //"Wait: {0}"
+        }
     }
 
 }

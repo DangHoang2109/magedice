@@ -9,28 +9,15 @@ public class StatCardItemDisplay : MonoBehaviour
 {
     [Header("Linkers")]
     public StatCardTag tagCard;
-    
-    //OLD
-    //public StatsCommon stats; 
+    public StatGUIUpgrade lvl; //StatsCardLevelV2
 
     [Space(5f)]
     public TextMeshProUGUI txtName;
 
     public Image imgPortrait;
-    private Sprite sprBGDefault;
+    public Image imgIconSmall; //for booster
+    public Image imgIconBig; //for dice
     public Image imgBorder;
-
-    [Header("Booster")]
-    public Transform tranBooster;
-    public Image imgIconSmall;
-
-
-    [Header("Cue")]
-    public CueCardDisplay cueDisplay;
-    public StatsCardLevelV2 lvl => cueDisplay.lvl;
-
-    [Header("Count")]
-    public TextMeshProUGUI tmpCount;
 
     private string itemName;
 
@@ -46,104 +33,297 @@ public class StatCardItemDisplay : MonoBehaviour
     private bool isInitialized = false;
     private void CheckInit()
     {
-        if(isInitialized)
+        if (isInitialized)
             return;
 
         this.rectTransPortrait = this.imgPortrait.GetComponent<RectTransform>();
         this.cachedTransform = this.transform;
-        
-        
-        this.sprBGDefault = this.imgPortrait.sprite;
-
-        this.isInitialized = true;
     }
 
-    public void ParseStatData(StatData c, int count)
+    public void ParseData(ShopStatConfig c, bool isNewWithNonUnlocked = true)
     {
-        Debug.Log("<color=yellow>Parse cue</color>");
-        
-        
         this.CheckInit();
 
-        this.imgIconSmall.gameObject.SetActive(false);
-        this.cueDisplay.gameObject.SetActive(true);
+        this.imgBorder.color = ShopCueRef.GetBgColorByRarity(c.tier);
+        this.SetInternalName(c.statName, ShopCueRef.GetFgColorByRarity(c.tier));
 
-        this.tmpCount.text = string.Format("x{0}", count);
-
-        //parse boder theo cue, đổi màu card
-        this.SetColorBg(ColorCommon.GetBgColorByRarity(c.config.tier), ColorCommon.GetBgColorByRarity(c.config.tier));
-
-        //parse name
-        this.SetInternalName(c.config.statName, Color.white);
-
-        //TODO parse cue
-        this.cueDisplay.ParseCue(c);
- 
-    }
-    public void FillToCurrentCard(StatData c, in float duration)
-    {
-        this.lvl.DoFillTo(c.cards, duration, Ease.InSine);
-    }
-
-    public void ParseStatDataAndShowTag(StatData c, int count, bool isNewWithNonUnlocked = true)
-    {
-        ParseStatData(c, count);
-
-        bool isUnlock = c.kind != StatManager.Kind.NotUnlocked;
-
+        this.ApplyPortraitStat(
+            c.sprStatItem);
+        StatData data = StatDatas.Instance.GetStat(c.id);
+        bool isUnlock = data != null && StatManager.CheckKind(data.kind, StatManager.Kind.Unlocked);
         if (isUnlock)
         {
-            //hiển thị tag card cue đang dùng hay không
             if (this.tagCard != null)
             {
-                this.tagCard.ParseData(StatDatas.Instance.CurrentStatId.Contains(c.id)
+                this.tagCard.ParseData(StatManager.Instance.IsUsing(c.id)
                     ? StatCardTag.TagType.Equipped
                     : StatCardTag.TagType.None);
             }
+
+            //StatsLevel cur = data.GetStatsByLevel(data.level);
+            //if (cur != null && c.type != StatsCardType.CHARACTER)
+            //{
+            //    this.stats.ParseData(cur.stats);
+            //}
+            //else
+            //{
+            //    this.stats.Show(false);
+            //}
+
+            StatItemStats next = data.NextStats;
+            if (next != null)
+            {
+                this.lvl.ParseCueBought(data);
+                //this.lvl.ParseData(data.level, data.card, next.card,
+                //    ShopCueRef.GetLevelColorByCardType(c.type));
+                //this.lvl.DoFillTo(data.card + countEarn, duration, Ease.Linear);
+            }
+            else
+            {
+                this.lvl.ParseCueToBuy(data);
+                //if (data.card == 0)
+                //{
+                //    this.lvl.ParseData(data.level,
+                //        ShopCueRef.GetLevelColorByCardType(c.type));
+                //}
+                //else
+                //{
+                //    this.lvl.ParseDataMaxed(data.level, data.card,
+                //        ShopCueRef.GetLevelColorByCardType(c.type));
+                //}
+            }
+        }
+        else
+        {
+            if (this.tagCard != null)
+            {
+                this.tagCard.ParseData(isNewWithNonUnlocked
+                    ? StatCardTag.TagType.New
+                    : StatCardTag.TagType.None);
+            }
+
+            //StatsLevel cur = c.GetStatsStartLevel();
+            //int curLevel = 0;
+            //if (cur != null)
+            //{
+            //    curLevel = cur.level;
+            //    if (c.type != StatsCardType.CHARACTER)
+            //    {
+            //        this.stats.ParseData(cur.stats);
+            //    }
+            //    else
+            //    {
+            //        this.stats.Show(false);
+            //    }
+            //}
+            //else
+            //{
+            //    this.stats.Show(false);
+            //}
+            this.lvl.ParseCueBought(data);
+
+            //StatsLevel next = c.GetStatsByLevel(curLevel + 1);
+            //if (next != null)
+            //{
+            //    this.lvl.ParseData(curLevel, countEarn, next.card,
+            //        ShopCueRef.GetLevelColorByCardType(c.type));
+            //}
+            //else
+            //{
+            //    this.lvl.ParseData(curLevel,
+            //        ShopCueRef.GetLevelColorByCardType(c.type));
+            //}
+        }
+    }
+
+    public void ParseForBag(ShopStatConfig c, int countEarn, in float duration, bool isNewWithNonUnlocked = true)
+    {
+        this.CheckInit();
+
+        this.imgBorder.sprite = TierAssetConfigs.Instance.GetCardAsset(c.tier).sprCard;
+        this.SetInternalName(c.statName, ShopCueRef.GetFgColorByRarity(c.tier));
+
+        this.ApplyPortraitStat(
+            c.sprStatItem);
+        StatData data = StatDatas.Instance.GetStat(c.id);
+        bool isUnlock = data != null && StatManager.CheckKind(data.kind, StatManager.Kind.Unlocked);
+        this.lvl.gameObject.SetActive(true);
+
+        if (isUnlock)
+        {
+            if (this.tagCard != null)
+            {
+                this.tagCard.ParseData(StatManager.Instance.IsUsing(c.id)
+                    ? StatCardTag.TagType.Equipped
+                    : StatCardTag.TagType.None);
+            }
+
+            StatItemStats next = data.NextStats;
+            if (next != null)
+            {
+                this.lvl.ParseCueBought(data);
+                this.lvl.DoFillTo(data.cards + countEarn, duration);
+            }
+            else
+            {
+                this.lvl.ParseCueToBuy(data);
+            }
+        }
+        else
+        {
+            if (this.tagCard != null)
+            {
+                this.tagCard.ParseData(isNewWithNonUnlocked
+                    ? StatCardTag.TagType.New
+                    : StatCardTag.TagType.None);
+            }
+            this.lvl.ParseCueBought(data);
+
+            //StatsLevel cur = c.GetStatsStartLevel();
+            //int curLevel = 0;
+            //if (cur != null)
+            //{
+            //    curLevel = cur.level;
+            //    if (c.type != StatsCardType.CHARACTER)
+            //    {
+            //        this.stats.ParseData(cur.stats);
+            //    }
+            //    else
+            //    {
+            //        this.stats.Show(false);
+            //    }
+            //}
+            //else
+            //{
+            //    this.stats.Show(false);
+            //}
+
+            //StatsLevel next = c.GetStatsByLevel(curLevel + 1);
+            //if (next != null)
+            //{
+            //    this.lvl.ParseData(curLevel, countEarn, next.card,
+            //        ShopCueRef.GetLevelColorByCardType(c.type));
+            //}
+            //else
+            //{
+            //    this.lvl.ParseData(curLevel,
+            //        ShopCueRef.GetLevelColorByCardType(c.type));
+            //}
+        }
+        //
+        // // earn here
+        // StatDatas.Instance.CollectCard(c, countEarn);
+    }
+
+    public void ParseData(StatData d, bool needCapCount = false)
+    {
+        this.CheckInit();
+
+        if (d == null)
+        {
+            Debug.LogError("NULL HERE");
+#if UNITY_EDITOR
+            UnityEditor.EditorUtility.DisplayDialog("hey", "Bac oi cai nay null roi, xem log", "OK");
+#endif
             return;
         }
 
-        //hiển thị tag card cue new
+        ShopStatConfig c = d.config;
+        this.ApplyPortraitStat(
+            c.sprStatItem);
+
         if (this.tagCard != null)
         {
-            this.tagCard.ParseData(!isUnlock
-                ? StatCardTag.TagType.New
+            this.tagCard.ParseData(StatManager.Instance.IsUsing(c.id)
+                ? StatCardTag.TagType.Equipped
                 : StatCardTag.TagType.None);
         }
+
+        //if (c.type == StatsCardType.CHARACTER)
+        //{
+        //    this.imgBorder.color = ShopCueRef.GetBgColorByRarity(StatsItemRarity.CHARACTER);
+        //    this.SetInternalName(c.name, ShopCueRef.GetFgColorByRarity(StatsItemRarity.CHARACTER));
+
+        //    this.stats.Show(false);
+        //}
+        //else
+        //{
+        //    this.imgBorder.color = ShopCueRef.GetBgColorByRarity(c.tier);
+        //    this.SetInternalName(c.name, ShopCueRef.GetFgColorByRarity(c.tier));
+
+        //    StatsLevel cur = d.GetStatsByLevel(d.level);
+        //    if (cur != null)
+        //    {
+        //        this.stats.ParseData(cur.stats);
+        //    }
+        //    else
+        //    {
+        //        this.stats.Show(false);
+        //    }
+        //}
+
+        this.imgBorder.sprite = TierAssetConfigs.Instance.GetCardAsset(c.tier).sprCard;
+        this.SetInternalName(c.statName, ShopCueRef.GetFgColorByRarity(c.tier));
+
+        //StatsLevel cur = d.GetStatsByLevel(d.level);
+        //if (cur != null)
+        //{
+        //    this.stats.ParseData(cur.stats);
+        //}
+        //else
+        //{
+        //    this.stats.Show(false);
+        //}
+        this.lvl.ParseCueBought(d);
+
+        //StatsLevel next = d.GetStatsByLevel(d.level + 1);
+        //if (next != null)
+        //{
+        //    this.lvl.ParseCueBought(d);
+
+        //    if (d.card > next.card && needCapCount)
+        //    {
+        //        this.lvl.ParseData(d.level, next.card, next.card,
+        //            ShopCueRef.GetLevelColorByCardType(c.type));
+        //    }
+        //    else
+        //    {
+        //        this.lvl.ParseData(d.level, d.card, next.card,
+        //            ShopCueRef.GetLevelColorByCardType(c.type));
+        //    }
+        //}
+        //else
+        //{
+        //    this.lvl.ParseDataMaxed(d.level, d.card,
+        //        ShopCueRef.GetLevelColorByCardType(c.type));
+        //}
     }
 
     public void ParseData(BoosterType bt)
     {
         this.CheckInit();
 
-        this.tranBooster.gameObject.SetActive(true);
-        this.cueDisplay.gameObject.SetActive(false);
-        this.tmpCount.text = "";
+        var bc = BoosterConfigs.Instance.GetBooster(bt);
+        this.ApplyPortraitMaterial(
+            bc.spr);
+        this.SetInternalMaterialValue(bc.name, 0);
 
-        //TODO parse booster
-
-        this.imgBorder.color = Color.white;
-        //this.imgPortrait.sprite = GameAssetsConfigs.Instance.cardBorderConfig.portraitGeneric;
-        this.imgPortrait.color = Color.white;
-        
-        BoosterConfig boosterConfig = GameAssetsConfigs.Instance.boosters.GetBooster(bt);
-        if (boosterConfig != null)
-        {
-            this.txtName.text = boosterConfig.name;
-            this.imgIconSmall.gameObject.SetActive(true);
-            this.imgIconSmall.sprite = boosterConfig.spr;
-        }
+        if (this.tagCard != null)
+            this.tagCard.Show(false);
+        //this.stats.Show(false);
+        this.lvl.gameObject.SetActive(false);
     }
 
     public string GetName()
     {
         return this.itemName;
     }
- 
+
+
     private void SetInternalName(in string n, in Color col)
     {
         this.itemName = n;
-        
+
         if (this.txtName != null)
         {
             this.txtName.text = n;
@@ -154,7 +334,7 @@ public class StatCardItemDisplay : MonoBehaviour
     private void SetInternalMaterialValue(in string n, in int value)
     {
         this.itemName = n;
-        
+
         if (this.txtName != null)
         {
             this.txtName.text = value.ToString();
@@ -162,40 +342,43 @@ public class StatCardItemDisplay : MonoBehaviour
         }
     }
 
-    private void ApplyPortraitStat(Sprite spr)
+    private void ApplyPortraitStat(Sprite icon)
     {
         if (this.imgIconSmall != null)
             this.imgIconSmall.gameObject.SetActive(false);
-        this.imgPortrait.sprite = spr;
-        this.rectTransPortrait.anchoredPosition = new Vector2(coorStatCard.x, coorStatCard.y);
-        this.rectTransPortrait.sizeDelta = new Vector2(coorStatCard.z, coorStatCard.w);
+
+        if (this.imgIconBig != null)
+        {
+            this.imgIconBig.gameObject.SetActive(true);
+            this.imgIconBig.sprite = icon;
+        }
+
+        //this.imgPortrait.sprite = background;
+
+        //this.rectTransPortrait.anchoredPosition = new Vector2(coorMaterialCard.x, coorMaterialCard.y);
+        //this.rectTransPortrait.sizeDelta = new Vector2(coorMaterialCard.z, coorMaterialCard.w);
+
+        //this.rectTransPortrait.anchoredPosition = new Vector2(coorStatCard.x, coorStatCard.y);
+        //this.rectTransPortrait.sizeDelta = new Vector2(coorStatCard.z, coorStatCard.w);
 
         //this.imgBorder.sprite = GameAssetsConfigs.Instance.cardBorderConfig.cardStats;
     }
-    private void ApplyPortraitMaterial(Sprite background, Sprite icon)
+    private void ApplyPortraitMaterial(Sprite icon)
     {
+        if (this.imgIconBig != null)
+            this.imgIconBig.gameObject.SetActive(false);
+
         if (this.imgIconSmall != null)
         {
             this.imgIconSmall.gameObject.SetActive(true);
             this.imgIconSmall.sprite = icon;
         }
-        this.imgPortrait.sprite = background;
-        this.rectTransPortrait.anchoredPosition = new Vector2(coorMaterialCard.x, coorMaterialCard.y);
-        this.rectTransPortrait.sizeDelta = new Vector2(coorMaterialCard.z, coorMaterialCard.w);
-        
+        //this.imgPortrait.sprite = background;
+        //this.rectTransPortrait.anchoredPosition = new Vector2(coorMaterialCard.x, coorMaterialCard.y);
+        //this.rectTransPortrait.sizeDelta = new Vector2(coorMaterialCard.z, coorMaterialCard.w);
+
         this.imgBorder.color = Color.white;
-        //this.imgBorder.sprite = GameAssetsConfigs.Instance.cardBorderConfig.cardMaterial;
+        this.imgBorder.sprite = GameAssetsConfigs.Instance.cardBorderConfig.cardMaterial;
     }
 
-    /// <summary>
-    /// Set color card
-    /// </summary>
-    /// <param name="colorBoder">phía ngoài</param>
-    /// <param name="colorPortrait">phía trong</param>
-    public void SetColorBg(Color colorBoder, Color colorPortrait)
-    {
-        this.imgBorder.color = colorBoder;
-        this.imgPortrait.sprite = this.sprBGDefault;
-        this.imgPortrait.color = colorPortrait;
-    }
 }

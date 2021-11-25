@@ -1,0 +1,1957 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd9cc99fdbb022447be72453d443eb7f, type: 3}
+  m_Name: StoreConfigs
+  m_EditorClassIdentifier: 
+  packgages:
+  - id: 100
+    key_iap: package_100
+    money: 9.99
+    Bonus: 0
+    boosters:
+    - type: 1
+      value: 1000
+    name: Package bonus
+    xBonus: 5
+    layoutType: 0
+    bagAmounts:
+    - bagType: 50
+      tour: 0
+      amount: 2
+    diceID: 0
+  - id: 101
+    key_iap: package_101
+    money: 1.99
+    Bonus: 0
+    boosters:
+    - type: 1
+      value: 100
+    name: Package bonus
+    xBonus: 2
+    layoutType: 2
+    bagAmounts:
+    - bagType: 3
+      tour: 0
+      amount: 1
+    diceID: 0
+  - id: 102
+    key_iap: package_102
+    money: 4.99
+    Bonus: 0
+    boosters:
+    - type: 1
+      value: 300
+    name: Package bonus
+    xBonus: 3
+    layoutType: 2
+    bagAmounts:
+    - bagType: 50
+      tour: 0
+      amount: 1
+    diceID: 0
+  - id: 110
+    key_iap: package_110
+    money: 14.99
+    Bonus: 0
+    boosters:
+    - type: 1
+      value: 4000
+    name: Package bonus
+    xBonus: 5
+    layoutType: 0
+    bagAmounts:
+    - bagType: 50
+      tour: 0
+      amount: 3
+    diceID: 0
+  - id: 111
+    key_iap: package_111
+    money: 4.99
+    Bonus: 0
+    boosters:
+    - type: 1
+      value: 200
+    name: Package bonus
+    xBonus: 2
+    layoutType: 2
+    bagAmounts:
+    - bagType: 3
+      tour: 0
+      amount: 2
+    diceID: 0
+  - id: 112
+    key_iap: package_112
+    money: 9.99
+    Bonus: 0
+    boosters:
+    - type: 1
+      value: 700
+    name: Package bonus
+    xBonus: 3
+    layoutType: 2
+    bagAmounts:
+    - bagType: 50
+      tour: 0
+      amount: 1
+    diceID: 0
+  - id: 120
+    key_iap: package_120
+    money: 24.99
+    Bonus: 0
+    boosters:
+    - type: 1
+      value: 5000
+    name: Package bonus
+    xBonus: 5
+    layoutType: 0
+    bagAmounts:
+    - bagType: 50
+      tour: 0
+      amount: 5
+    diceID: 0
+  - id: 121
+    key_iap: package_121
+    money: 9.99
+    Bonus: 0
+    boosters:
+    - type: 1
+      value: 700
+    name: Package bonus
+    xBonus: 2
+    layoutType: 2
+    bagAmounts:
+    - bagType: 50
+      tour: 0
+      amount: 1
+    diceID: 0
+  - id: 122
+    key_iap: package_122
+    money: 14.99
+    Bonus: 0
+    boosters:
+    - type: 1
+      value: 2000
+    name: Package bonus
+    xBonus: 3
+    layoutType: 2
+    bagAmounts:
+    - bagType: 50
+      tour: 0
+      amount: 3
+    diceID: 0
+  freeDeals:
+  - id: 200
+    boosters:
+    - type: 0
+      value: 200
+    bagAmounts: []
+    timeWait: 180
+  - id: 201
+    boosters:
+    - type: 1
+      value: 5
+    bagAmounts: []
+    timeWait: 300
+  - id: 202
+    boosters: []
+    bagAmounts:
+    - bagType: 0
+      tour: 1
+      amount: 1
+    timeWait: 300
+  - id: 203
+    boosters:
+    - type: 1
+      value: 5
+    bagAmounts: []
+    timeWait: 3600
+  - id: 204
+    boosters: []
+    bagAmounts:
+    - bagType: 1
+      tour: 1
+      amount: 1
+    timeWait: 3600
+  - id: 210
+    boosters:
+    - type: 0
+      value: 200
+    bagAmounts: []
+    timeWait: 180
+  - id: 211
+    boosters:
+    - type: 1
+      value: 5
+    bagAmounts: []
+    timeWait: 300
+  - id: 212
+    boosters: []
+    bagAmounts:
+    - bagType: 0
+      tour: 1
+      amount: 1
+    timeWait: 300
+  - id: 213
+    boosters:
+    - type: 1
+      value: 5
+    bagAmounts: []
+    timeWait: 14400
+  - id: 214
+    boosters: []
+    bagAmounts:
+    - bagType: 1
+      tour: 1
+      amount: 1
+    timeWait: 14400
+  - id: 220
+    boosters:
+    - type: 0
+      value: 200
+    bagAmounts: []
+    timeWait: 180
+  - id: 221
+    boosters:
+    - type: 1
+      value: 5
+    bagAmounts: []
+    timeWait: 300
+  - id: 222
+    boosters: []
+    bagAmounts:
+    - bagType: 0
+      tour: 1
+      amount: 1
+    timeWait: 300
+  - id: 223
+    boosters:
+    - type: 1
+      value: 5
+    bagAmounts: []
+    timeWait: 14400
+  - id: 224
+    boosters: []
+    bagAmounts:
+    - bagType: 1
+      tour: 1
+      amount: 1
+    timeWait: 14400
+  dealSlots:
+  - id: 300
+    tourUnlock: 0
+    rate_Owned: 0
+    rate_Equiped: 0
+    dealCards:
+    - id: 0
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 1
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 2
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 3
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 4
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+  - id: 301
+    tourUnlock: 0
+    rate_Owned: 1
+    rate_Equiped: 0.8
+    dealCards:
+    - id: 0
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 1
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 2
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 3
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 4
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+  - id: 302
+    tourUnlock: 1
+    rate_Owned: 1
+    rate_Equiped: 0.8
+    dealCards:
+    - id: 0
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 1
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 2
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 3
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 4
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+  - id: 303
+    tourUnlock: 2
+    rate_Owned: 0
+    rate_Equiped: 0
+    dealCards:
+    - id: 0
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 1
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 2
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 3
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 4
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+  - id: 304
+    tourUnlock: 6
+    rate_Owned: 0
+    rate_Equiped: 0
+    dealCards:
+    - id: 0
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 1
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 2
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 3
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 4
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+  - id: 310
+    tourUnlock: 0
+    rate_Owned: 0
+    rate_Equiped: 0
+    dealCards:
+    - id: 0
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 1
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 2
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 3
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 4
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+  - id: 311
+    tourUnlock: 0
+    rate_Owned: 1
+    rate_Equiped: 0.8
+    dealCards:
+    - id: 0
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 1
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 2
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 3
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 4
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+  - id: 312
+    tourUnlock: 1
+    rate_Owned: 1
+    rate_Equiped: 0.8
+    dealCards:
+    - id: 0
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 1
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 2
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 3
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 4
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+  - id: 313
+    tourUnlock: 2
+    rate_Owned: 0
+    rate_Equiped: 0
+    dealCards:
+    - id: 0
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 1
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 2
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 3
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 4
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+  - id: 314
+    tourUnlock: 6
+    rate_Owned: 0
+    rate_Equiped: 0
+    dealCards:
+    - id: 0
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 1
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 2
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 3
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 4
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+  - id: 320
+    tourUnlock: 0
+    rate_Owned: 0
+    rate_Equiped: 0
+    dealCards:
+    - id: 0
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 1
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 2
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 3
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 4
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+  - id: 321
+    tourUnlock: 0
+    rate_Owned: 1
+    rate_Equiped: 0.8
+    dealCards:
+    - id: 0
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 1
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 2
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 3
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 4
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+  - id: 322
+    tourUnlock: 1
+    rate_Owned: 1
+    rate_Equiped: 0.8
+    dealCards:
+    - id: 0
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 1
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 2
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 3
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 4
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+  - id: 323
+    tourUnlock: 2
+    rate_Owned: 0
+    rate_Equiped: 0
+    dealCards:
+    - id: 0
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 1
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 2
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 3
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 4
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+  - id: 324
+    tourUnlock: 6
+    rate_Owned: 0
+    rate_Equiped: 0
+    dealCards:
+    - id: 0
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 1
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 2
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 3
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+    - id: 4
+      rarity: 0
+      rateOwn: 0.8
+      countCard:
+        min: 2
+        max: 5
+        step: 1
+        rateOfReceiptMax: 0.4
+      prices:
+      - type: 1
+        value: 10
+      - type: 1
+        value: 20
+      - type: 1
+        value: 30
+      - type: 1
+        value: 40
+      - type: 1
+        value: 50
+  bags:
+  - id: 410
+    price:
+      type: 0
+      value: 50000
+    Bonus: 0
+    boosters: []
+    bagAmounts:
+    - bagType: 1
+      tour: 1
+      amount: 1
+    isShowInStore: 1
+  - id: 411
+    price:
+      type: 0
+      value: 270000
+    Bonus: 0
+    boosters: []
+    bagAmounts:
+    - bagType: 2
+      tour: 1
+      amount: 1
+    isShowInStore: 1
+  - id: 412
+    price:
+      type: 0
+      value: 720000
+    Bonus: 0
+    boosters: []
+    bagAmounts:
+    - bagType: 3
+      tour: 1
+      amount: 1
+    isShowInStore: 1
+  - id: 413
+    price:
+      type: 1
+      value: 1500
+    Bonus: 0
+    boosters: []
+    bagAmounts:
+    - bagType: 50
+      tour: 1
+      amount: 1
+    isShowInStore: 0
+  - id: 400
+    price:
+      type: 1
+      value: 100
+    Bonus: 0
+    boosters: []
+    bagAmounts:
+    - bagType: 10
+      tour: 1
+      amount: 1
+    isShowInStore: 0
+  - id: 401
+    price:
+      type: 1
+      value: 270
+    Bonus: 0
+    boosters: []
+    bagAmounts:
+    - bagType: 11
+      tour: 0
+      amount: 1
+    isShowInStore: 1
+  - id: 402
+    price:
+      type: 1
+      value: 520
+    Bonus: 0
+    boosters: []
+    bagAmounts:
+    - bagType: 12
+      tour: 0
+      amount: 1
+    isShowInStore: 1
+  - id: 403
+    price:
+      type: 1
+      value: 3100
+    Bonus: 0
+    boosters: []
+    bagAmounts:
+    - bagType: 13
+      tour: 0
+      amount: 1
+    isShowInStore: 1
+  cashs:
+  - id: 500
+    key_iap: gem_500
+    money: 0.99
+    Bonus: 0
+    boosters:
+    - type: 1
+      value: 150
+  - id: 501
+    key_iap: gem_501
+    money: 4.99
+    Bonus: 0.3
+    boosters:
+    - type: 1
+      value: 1000
+  - id: 502
+    key_iap: gem_502
+    money: 9.99
+    Bonus: 0.5
+    boosters:
+    - type: 1
+      value: 2250
+  - id: 512
+    key_iap: gem_512
+    money: 19.99
+    Bonus: 0.85
+    boosters:
+    - type: 1
+      value: 5550
+  - id: 521
+    key_iap: gem_521
+    money: 49.99
+    Bonus: 1
+    boosters:
+    - type: 1
+      value: 15000
+  - id: 522
+    key_iap: gem_522
+    money: 99.99
+    Bonus: 2
+    boosters:
+    - type: 1
+      value: 45000
+  coins:
+  - id: 600
+    price:
+      type: 1
+      value: 100
+    Bonus: 0
+    boosters:
+    - type: 0
+      value: 5000
+    bagAmounts: []
+    isShowInStore: 0
+  - id: 601
+    price:
+      type: 1
+      value: 800
+    Bonus: 0.1
+    boosters:
+    - type: 0
+      value: 44000
+    bagAmounts: []
+    isShowInStore: 0
+  - id: 602
+    price:
+      type: 1
+      value: 1800
+    Bonus: 0.25
+    boosters:
+    - type: 0
+      value: 112500
+    bagAmounts: []
+    isShowInStore: 0
+  - id: 603
+    price:
+      type: 1
+      value: 4400
+    Bonus: 0.5
+    boosters:
+    - type: 0
+      value: 330000
+    bagAmounts: []
+    isShowInStore: 0
+  - id: 604
+    price:
+      type: 1
+      value: 12000
+    Bonus: 0.75
+    boosters:
+    - type: 0
+      value: 1050000
+    bagAmounts: []
+    isShowInStore: 0
+  - id: 605
+    price:
+      type: 1
+      value: 36000
+    Bonus: 1
+    boosters:
+    - type: 0
+      value: 3600000
+    bagAmounts: []
+    isShowInStore: 0
+  bulleyeCashConfig:
+    id: 700
+    price:
+      type: 1
+      value: 300
+    Bonus: 0
+  bulleyeIAPConfig:
+    id: 710
+    key_iap: bulleye_710
+    money: 0.99
+    Bonus: 0
+  wheelIAPConfig:
+    id: 810
+    key_iap: wheel_810
+    money: 0.99
+    Bonus: 0

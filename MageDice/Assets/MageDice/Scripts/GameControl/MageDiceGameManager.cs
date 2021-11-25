@@ -95,6 +95,10 @@ public class MageDiceGameManager : MonoSingleton<MageDiceGameManager>
     {
         this.UI.tmpCurrentCoin.SetText($"{current}");
     }
+    public bool OnBuyUpgrade(long cost)
+    {
+        return this.CoinController.UseCoin(cost);
+    }
     public bool OnSpawnDice()
     {
         return this.CoinController.BuyDice();

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -7,47 +6,35 @@ using UnityEngine.UI;
 
 public class OpenBagItemFinal : MonoBehaviour
 {
+    public GameObject goNew;
     public Image imgIconLarge;
     public Image imgIconSmall;
-    
-    public Image imgIconCueTail;
-    public Image imgIconCueHead;
-    
+    //public StatsCommon stats;
     public Image imgBG;
     public TextMeshProUGUI txtName;
     public TextMeshProUGUI txtCount;
 
     private Transform cachedTransform;
-    private Sprite sprBGDefault;
-    
-    
 
     public virtual void ParseData(OpenBagDialog.BagCardModel model)
     {
         if (this.cachedTransform is null)
-        {
             this.cachedTransform = this.transform;
-            this.sprBGDefault = this.imgIconLarge.sprite;
-            this.txtName.color = Color.white;
-        }
-        
+
         this.gameObject.SetActive(true);
-        
+
         switch (model.earnType)
         {
             case OpenBagDialog.BagCardModel.EarnType.Booster:
                 this.ParseBooster(BoosterConfigs.Instance.GetBooster(model.booster), model.value);
                 //this.imgBG.sprite = GameAssetsConfigs.Instance.cardBorderConfig.cardMaterial;
                 break;
-            // case OpenBagDialog.BagCardModel.EarnType.String:
-            //     //this.ParseString(model.stringId, valueGet);
-            //     break;
-            case OpenBagDialog.BagCardModel.EarnType.CueCard:
-                this.ParseCard(model.equipmentConfig, model.value);
-                //this.imgBG.sprite = GameAssetsConfigs.Instance.cardBorderConfig.cardMaterial;
+            case OpenBagDialog.BagCardModel.EarnType.String:
+                //this.ParseString(model.stringId, valueGet);
                 break;
-            case OpenBagDialog.BagCardModel.EarnType.Cue:
-                this.ParseCue(model.equipmentConfig);
+            case OpenBagDialog.BagCardModel.EarnType.Equipment:
+                this.ParseStatsCard(model.equipmentConfig, model.value, model.isNew);
+                //this.imgBG.sprite = GameAssetsConfigs.Instance.cardBorderConfig.cardMaterial;
                 break;
         }
 
@@ -56,74 +43,64 @@ public class OpenBagItemFinal : MonoBehaviour
     private void ParseBooster(BoosterConfig b, long valueGet)
     {
         this.txtName.text = b.name;
+        this.txtName.color = ShopCueRef.GetFgColorByRarity( StatManager.Tier.None); ;
         this.txtCount.text = $"+{valueGet}";
-        this.txtCount.color = new Color(0.1f, 0.1f, 0.1f, 1f);;
-        this.txtCount.outlineColor = Color.white;
-        
-        //this.imgIconLarge.sprite = GameAssetsConfigs.Instance.cardBorderConfig.portraitGeneric;
-        
+        this.txtCount.color = ShopCueRef.GetLevelColorByCardType();
+
+        //this.stats.Show(false);
         this.imgIconSmall.gameObject.SetActive(true);
+        this.imgIconLarge.gameObject.SetActive(false);
+
+        this.goNew.gameObject.SetActive(false);
+
         this.imgIconSmall.sprite = b.spr;
-        
-        this.imgIconCueTail.gameObject.SetActive(false);
-        this.imgIconCueHead.gameObject.SetActive(false);
 
-        this.imgBG.color = Color.white;
+        this.imgBG.sprite = GameAssetsConfigs.Instance.cardBorderConfig.cardMaterial;
     }
 
-    private void ParseCard(StatData c, long valueGet)
+    private void ParseStatsCard(ShopStatConfig c, long valueGet, bool isNew)
     {
-        ShopStatConfig config = c.config;
-        if (config == null)
-        {
-            Debug.LogException(new System.Exception("OpenBagItemFinal ParseCard error: config NULL"
-                                                    + $" -id: {("NULL")}"));
-            this.txtName.text = "NULL";
-            return;
-        }
-        
-        this.txtName.text = config.statName;
-        //this.txtName.color = ColorCommon.GetFgColorByRarity(config.tier);
+        this.txtName.text = c.statName;
+        this.txtName.color = ShopCueRef.GetFgColorByRarity(c.tier);
         this.txtCount.text = $"x{valueGet}";
-        this.txtCount.color = Color.white;
-        this.txtCount.outlineColor = Color.black;
-        
-        this.imgIconLarge.sprite = this.sprBGDefault;
+        this.txtCount.color = ShopCueRef.GetLevelColorByCardType();
+
+        //this.stats.gameObject.SetActive(true);
         this.imgIconSmall.gameObject.SetActive(false);
-        
-        this.imgIconCueTail.gameObject.SetActive(true);
-        this.imgIconCueHead.gameObject.SetActive(true);
-        this.imgIconCueHead.sprite = this.imgIconCueTail.sprite = config.sprStatItem;
-        
-        this.imgBG.color = ColorCommon.GetBgColorByRarity(config.tier);
+        this.imgIconLarge.gameObject.SetActive(true);
+        this.imgIconLarge.sprite = c.sprStatItem;
+
+        this.imgBG.sprite = TierAssetConfigs.Instance.GetCardAsset(c.tier).sprCard;
+
+        //StatData data = StatDatas.Instance.GetStat(c.id);
+        this.goNew.SetActive(isNew);
+
+        //if (!isNew)
+        //{
+        //    StatsLevel cur = data.GetStatsByLevel(data.level);
+        //    if (cur is null)
+        //    {
+        //        this.stats.Show(false);
+        //    }
+        //    else
+        //    {
+        //        this.stats.ParseData(cur.stats);
+        //    }
+        //}
+        //else
+        //{
+        //    StatsLevel cur = c.GetStatsStartLevel();
+        //    if (cur is null)
+        //    {
+        //        this.stats.Show(false);
+        //    }
+        //    else
+        //    {
+        //        this.stats.ParseData(cur.stats);
+        //    }
+        //}
     }
-    private void ParseCue(StatData c)
-    {
-        ShopStatConfig config = c.config;
-        if (config == null)
-        {
-            Debug.LogException(new System.Exception("OpenBagItemFinal ParseCard error: config NULL"
-                                                    + $" -id: {("NULL")}"));
-            this.txtName.text = "NULL";
-            return;
-        }
-        
-        this.txtName.text = config.statName;
-        //this.txtName.color = ColorCommon.GetFgColorByRarity(config.tier);
-        this.txtCount.text = "A Cue!";
-        this.txtCount.color = Color.white;
-        this.txtCount.outlineColor = Color.black;
-        
-        this.imgIconLarge.sprite = this.sprBGDefault;
-        this.imgIconSmall.gameObject.SetActive(false);
-        
-        this.imgIconCueTail.gameObject.SetActive(true);
-        this.imgIconCueHead.gameObject.SetActive(true);
-        this.imgIconCueHead.sprite = this.imgIconCueTail.sprite = config.sprStatItem;
-        
-        this.imgBG.color = ColorCommon.GetBgColorByRarity(config.tier);
-    }
-    
+
     public void SetParent(Transform parent)
     {
         this.cachedTransform.SetParent(parent);

@@ -10,6 +10,7 @@ public class StoreBagTab : StoreChildTab
 #if UNITY_EDITOR
     protected override void OnValidate()
     {
+        Debug.Log("on validate");
         base.OnValidate();
         this.bagItems = this.GetComponentsInChildren<StoreBagItem>();
     }
@@ -23,17 +24,16 @@ public class StoreBagTab : StoreChildTab
     public void ParseBag()
     {
         //parse bag
-        Debug.Log("edit");
-        //List<StoreBoosterConfig> bags = StoreConfigs.Instance.GetBags();
-        //if (bags != null)
-        //{
-        //    for(int i=0; i< bags.Count; i++)
-        //    {
-        //        if (i < this.bagItems.Length)
-        //        {
-        //            this.bagItems[i].ParseConfig(bags[i]);
-        //        }
-        //    }
-        //}
+        List<StoreBoosterConfig> bags = StoreConfigs.Instance.GetBagsShowInStore();
+        if (bags != null)
+        {
+            for (int i = 0; i < bags.Count; i++)
+            {
+                if (i < this.bagItems.Length)
+                {
+                    this.bagItems[i].ParseConfig(bags[i]);
+                }
+            }
+        }
     }
 }

@@ -15,36 +15,6 @@ public class StoreConfigs : ScriptableObject
         }
     }
 
-    [ContextMenu("CreateRemote")]
-    private void CreateRemote()
-    {
-        for (int i = 1; i < this.listRemote.Count; i++)
-        {
-            StoreRemoteConfig c = listRemote[i];
-
-            for (int j = 0; j < c.idPackgages.Count; j++)
-            {
-                c.idPackgages[j] = c.idPackgages[j] - c.userType * 10;
-                if (this.packgages.Find(x => x.id == c.idPackgages[j]) == null)
-                    Debug.LogError($"THERE IS NO ITEM ID {c.idPackgages[j]}");
-            }
-
-            for (int j = 0; j < c.idPackgages.Count; j++)
-            {
-                c.idFreeDeals[j] = c.idFreeDeals[j] - c.userType * 10;
-                if (this.freeDeals.Find(x => x.id == c.idFreeDeals[j]) == null)
-                    Debug.LogError($"THERE IS NO ITEM ID {c.idFreeDeals[j]}");
-            }
-
-            for (int j = 0; j < c.idPackgages.Count; j++)
-            {
-                c.idBags[j] = c.idBags[j] - c.userType * 10;
-                if (this.bags.Find(x => x.id == c.idBags[j]) == null)
-                    Debug.LogError($"THERE IS NO ITEM ID {c.idBags[j]}");
-            }
-        }
-    }
-
     public void BuyIAP(int id, string key_iap, string where, UnityAction<bool> callback)
     {
         IAPManager.Instance.BuyProduct(key_iap, where, (success) =>
@@ -57,90 +27,20 @@ public class StoreConfigs : ScriptableObject
         });
     }
 
-    public static BoosterCommodity GetPriceCueCardNeed(StatData cue)
+    public static BoosterCommodity GetPriceCueCardNeed(StatData stat)
     {
-        long need = cue.RequirementCard - cue.cards;
+        long need = stat.RequirementCard - stat.cards;
 
-        if(need > 0)
+        if (need > 0)
         {
             return new BoosterCommodity(
-                key: StoreConfigs.GetRarirty_PriceUpgradeType(cue.config.tier),
-                value: StoreConfigs.GetRarity_PriceCardUpgrade(cue.config.tier) * need);
+                key: GetRarirty_PriceUpgradeType(stat.config.tier),
+                value: GetRarity_PriceCardUpgrade(stat.config.tier) * need);
         }
 
         return null;
     }
 
-    public static int GetRairityMaxStock(StatManager.Tier r)
-    {
-        return 4;
-    }
-
-    public static long GetRarity_NotOwnPrice(StatManager.Tier r)
-    {
-        switch (r)
-        {
-            case StatManager.Tier.Standard:
-                return 4;
-            case StatManager.Tier.Rare:
-                return 45;
-            case StatManager.Tier.Legendary:
-                return 400;
-            //case StatManager.Tier.CHARACTER:
-            //    return 4000;
-            default:
-                return 100;
-        }
-    }
-    public static long GetRarity_BasePrice(StatManager.Tier r)
-    {
-        switch (r)
-        {
-            case StatManager.Tier.Standard:
-                return 2; //coin
-            case StatManager.Tier.Rare:
-                return 35; //coin
-            case StatManager.Tier.Legendary:
-                return 300;
-            //case StatsItemRarity.CHARACTER:
-            //    return 25;
-            default:
-                return 25;
-        }
-    }
-    public static long GetRarity_StepPrice(StatManager.Tier r)
-    {
-        switch (r)
-        {
-            case StatManager.Tier.Standard:
-                return 2;
-            case StatManager.Tier.Rare:
-                return 35;
-            case StatManager.Tier.Legendary:
-                return 300;
-            //case StatsItemRarity.CHARACTER:
-            //    return 25;
-            default:
-                return 25;
-        }
-    }
-
-    public static BoosterType GetRarirty_PriceType(StatManager.Tier t)
-    {
-        switch (t)
-        {
-            case StatManager.Tier.Standard:
-                return BoosterType.CASH;
-            case StatManager.Tier.Rare:
-                return BoosterType.CASH;
-            case StatManager.Tier.Legendary:
-                return BoosterType.CASH;
-            //case StatsItemRarity.CHARACTER:
-            //    return 25;
-            default:
-                return BoosterType.CASH;
-        }
-    }
     public static long GetRarity_PriceCardUpgrade(StatManager.Tier r)
     {
         switch (r)
@@ -151,7 +51,7 @@ public class StoreConfigs : ScriptableObject
                 return 5;
             case StatManager.Tier.Legendary:
                 return 50;
-            //case StatsItemRarity.CHARACTER:
+            //case StatManager.Tier.CHARACTER:
             //    return 25;
             default:
                 return 25;
@@ -167,124 +67,110 @@ public class StoreConfigs : ScriptableObject
                 return BoosterType.CASH;
             case StatManager.Tier.Legendary:
                 return BoosterType.CASH;
-            //case StatsItemRarity.CHARACTER:
+            //case StatManager.Tier.CHARACTER:
             //    return 25;
             default:
                 return BoosterType.CASH;
         }
     }
-#if UNITY_EDITOR
-    [ContextMenu("UpdateProductCoin")]
-    private void Editor_UpdateProductCoin()
+    public static int GetRairityMaxStock(StatManager.Tier r)
     {
-        foreach(StoreBoosterConfig c in this.coins)
+        switch (r)
         {
-            foreach(BoosterCommodity b in c.boosters)
-            {
-                b.Set((long)(c.price.GetValue() * GameDefine.RATE_CASH_TO_COIN * (1 + c.Bonus)));
-            }
+            case StatManager.Tier.Standard:
+                return 100;
+            case StatManager.Tier.Rare:
+                return 50;
+            case StatManager.Tier.Legendary:
+                return 20;
+            default:
+                return 1;
         }
     }
 
-    [ContextMenu("UpdateSpecialPackage")]
-    private void Editor_UpdateSpecialPackage()
+    public static long GetRarity_NotOwnPrice(StatManager.Tier r)
     {
-        foreach (StoreSpecialPackageConfig c in this.specialPackgagesV2)
+        switch (r)
         {
-            c.bagAmounts.Add(new BagAmount(c.bagAmounts[0]));
-            c.bagAmounts.RemoveAt(0);
+            case StatManager.Tier.Standard:
+                return 200;
+            case StatManager.Tier.Rare:
+                return 500;
+            case StatManager.Tier.Legendary:
+                return 1000;
+            default:
+                return 4000;
         }
+    }
+    public static long GetRarity_BasePrice(StatManager.Tier r)
+    {
+        switch (r)
+        {
+            case StatManager.Tier.Standard:
+                return 2;
+            case StatManager.Tier.Rare:
+                return 20;
+            case StatManager.Tier.Legendary:
+                return 200;
+            default:
+                return 500;
+        }
+    }
+    public static long GetRarity_StepPrice(StatManager.Tier r)
+    {
+        switch (r)
+        {
+            case StatManager.Tier.Standard:
+                return 2;
+            case StatManager.Tier.Rare:
+                return 20;
+            case StatManager.Tier.Legendary:
+                return 200;
+            default:
+                return 500;
+        }
+    }
+
+#if UNITY_EDITOR
+    [ContextMenu("Add More Bag")]
+    private void Editor_AddCoinBag()
+    {
+        //foreach (StoreBoosterConfig c in this.bags)
+        //    c.isShowInStore = true;
+
+        StoreBoosterConfig kingBag = new StoreBoosterConfig()
+        {
+            id = 413,
+            bagAmounts = new List<BagAmount>() { new BagAmount(BagType.KING_BAG, 1, 1) },
+            price = new BoosterCommodity(BoosterType.CASH, 1500),
+            isShowInStore = false
+        };
+        this.bags.Insert(3, kingBag);
+
+        StoreBoosterConfig s1Bag = new StoreBoosterConfig()
+        {
+            id = 400,
+            bagAmounts = new List<BagAmount>() { new BagAmount(BagType.SUPER_BAG_1, 1, 1) },
+            price = new BoosterCommodity(BoosterType.CASH, 100),
+            isShowInStore = false
+        };
+        this.bags.Insert(4, s1Bag);
     }
 #endif
-    [Header("Special Packages")]
-    public List<StoreSpecialPackageConfig> specialPackgagesV2;
-
-    public List<StoreSpecialPackageConfig> GetSpecialPackages()
-    {
-        return this.specialPackgagesV2;
-    }
-
-    /// <summary>
-    /// Call this function to get a package.
-    /// If receive null => dont show package to UI
-    /// </summary>
-    /// <returns></returns>
-    public StoreSpecialPackageConfig GetRandomAvailableSpecialPackage()
-    {
-        //get mastery cue that user have bought;
-        List<StatData> available = StatManager.Instance.QueryDatasByTierKind_Simple(StatManager.Tier.Legendary, StatManager.Kind.NotUnlocked)
-                                                .Where(x => x.config.isHide).ToList();
-
-        if (available.Count > 0)
-        {
-            StatData cue = available.GetRandom();
-            StoreSpecialPackageConfig config = this.specialPackgagesV2.Find(x => x.cueid == cue.id);
-            StoreSpecialPackageConfig p = new StoreSpecialPackageConfig(config);
-            //check if user have bought any package?
-            if (!UserBehaviorDatas.Instance.IsPurchased)
-            {
-                if(p != null)
-                {
-                    p.name = p.name.Replace("The Mastery Series", "First Buy Super Deal");
-                    p.Title = "First Buy Super Deal";
-
-                    return p;
-                }
-                else
-                {
-                    Debug.LogError($"Wait what this id is null {cue.id}");
-                }
-            }
-            //else => check if user have reach D7 or D14
-            else
-            {
-                if (UserBehaviorDatas.Instance.IsDaySevenOrSame())
-                {
-                    if (p != null)
-                    {
-                        p.Title = "Veteran Booster!";
-
-                        return p;
-                    }
-                    else
-                    {
-                        Debug.LogError($"Wait what this id is null {cue.id}");
-                    }
-                }
-            }
-        }
-
-        return null;
-    }
 
 
     [Header("Packages")]
     public List<StorePackageConfig> packgages;
-    private DiceID GetRandomCueMasterySeriesID()
-    {
-        Debug.Log("ediy");
-        return DiceID.FIRE;
-        //int cueID = Random.Range(8, 20); //cue l8 đến l19
-        //return $"l{cueID}";
-    }
     public List<StorePackageConfig> GetPackages()
     {
-        List<StorePackageConfig> res = this.packgages.FindAll(x => this.RemoteData.idPackgages.Contains(x.id));
-
-        StorePackageConfig best = res.Find(x => x.layoutType == StorePackageLayoutType.Hor_Middle);
-        if(best != null)
-        {
-            best.cueid = GetRandomCueMasterySeriesID();
-        }
-
-        return res;
+        return this.packgages;
     }
 
     [Header("Deals")]
     public List<StoreFreeDealConfig> freeDeals;
     public List<StoreFreeDealConfig> GetFreeDeals()
     {
-        return this.freeDeals.FindAll(x => this.RemoteData.idFreeDeals.Contains(x.id));
+        return this.freeDeals;
     }
 
     public List<StoreDealSlotConfig> dealSlots;
@@ -306,14 +192,21 @@ public class StoreConfigs : ScriptableObject
     public List<StoreBoosterConfig> bags;
     public List<StoreBoosterConfig> GetBags()
     {
-        return this.bags.FindAll(x => this.RemoteData.idBags.Contains(x.id));
+        return this.bags;
     }
-
+    public List<StoreBoosterConfig> GetBagsShowInStore()
+    {
+        return this.bags.Where(x => x.isShowInStore).ToList();
+    }
+    public StoreBoosterConfig GetBag(BagType type)
+    {
+        return this.bags.Find(x => x.bagAmounts.Find(x => x.bagType == type) != null);
+    }
     [Header("Cash")]
     public List<StoreCashConfig> cashs;
     public List<StoreCashConfig> GetCashs()
     {
-        return this.cashs.FindAll(x => this.RemoteData.idCashs.Contains(x.id));
+        return this.cashs;
     }
 
     public List<StoreCashConfig> GetBetterPlaceCashs()
@@ -347,7 +240,7 @@ public class StoreConfigs : ScriptableObject
     public List<StoreBoosterConfig> coins;
     public List<StoreBoosterConfig> GetCoins()
     {
-        return this.coins.FindAll(x => this.RemoteData.idCoins.Contains(x.id));
+        return this.coins;
     }
 
     /// <summary>
@@ -370,11 +263,10 @@ public class StoreConfigs : ScriptableObject
     public List<StoreIAPBaseConfig> GetAllIAPConfig()
     {
         List<StoreIAPBaseConfig> res = new List<StoreIAPBaseConfig>();
-        res.AddRange(this.specialPackgagesV2);
         res.AddRange(this.packgages);
         res.AddRange(this.cashs);
+        res.Add(bulleyeIAPConfig);
         res.Add(wheelIAPConfig);
-        res.Add(quickFireIAPConfig);
 
         return res;
     }
@@ -389,16 +281,16 @@ public class StoreConfigs : ScriptableObject
     }
 
     [Header("Bulleye")]
-    public StoreBoosterBaseConfig quickFireCashConfig;
-    public StoreBoosterBaseConfig GetQuickFireCashConfig()
+    public StoreBoosterBaseConfig bulleyeCashConfig;
+    public StoreBoosterBaseConfig GetBulleyeCashConfig()
     {
-        return quickFireCashConfig;
+        return bulleyeCashConfig;
     }
 
-    public StoreIAPBaseConfig quickFireIAPConfig;
-    public StoreIAPBaseConfig GetQuickFireIAPConfig()
+    public StoreIAPBaseConfig bulleyeIAPConfig;
+    public StoreIAPBaseConfig GetBulleyeIAPConfig()
     {
-        return quickFireIAPConfig;
+        return bulleyeIAPConfig;
     }
 
     [Header("Wheel")]
@@ -408,58 +300,18 @@ public class StoreConfigs : ScriptableObject
         return wheelIAPConfig;
     }
 
-    #region Remote Config
-    /// <summary>
-    /// Download this config from firebase
-    /// All config in shop with finding in this id list
-    /// 
-    /// Note fore Hoang below
-    /// ID of each item will has format [Seg of Type][userType][itemIndex]
-    /// 100 will 1 0 0 : Package Item - User never paid - package index 0
-    /// </summary>
-    public List<StoreRemoteConfig> listRemote;
-
-    public StoreRemoteConfig RemoteData
-    {
-        get
-        {
-            if (RemoteConfigsManager.UserType >= listRemote.Count)
-                return listRemote[0];
-
-            return listRemote[RemoteConfigsManager.UserType];
-        }
-    }
-    #endregion
 }
 
-[System.Serializable]
-public class StoreRemoteConfig
-{
-    /// <summary>
-    /// Label user from their audice in firebase
-    /// currently we get:
-    /// 0: user never paid IAP and rarely paid gem
-    /// 1: user paid gem only or rarely use IAP
-    /// 2: user paid a lot, both gem and IAP
-    /// </summary>
-    public int userType;
-
-    public List<int> idPackgages;
-    public List<int> idFreeDeals;
-    public List<int> idBags;
-    public List<int> idCashs;
-    public List<int> idCoins;
-}
 
 [System.Serializable]
-public class StorePackageConfig: StoreCashConfig
+public class StorePackageConfig : StoreCashConfig
 {
     public string name;
     public int xBonus; //x2, x3, x4
     public StorePackageLayoutType layoutType;
 
     public List<BagAmount> bagAmounts;
-    public DiceID cueid;
+    public DiceID diceID;
 
     public StorePackageConfig() : base()
     {
@@ -472,7 +324,7 @@ public class StorePackageConfig: StoreCashConfig
         this.xBonus = c.xBonus;
         this.layoutType = c.layoutType;
         this.bagAmounts = new List<BagAmount>(c.bagAmounts);
-        this.cueid = c.cueid;
+        this.diceID = c.diceID;
     }
 }
 
@@ -486,7 +338,7 @@ public class StoreSpecialPackageConfig : StorePackageConfig
         DAILY,
         VETARAN,
     }
-    public double time; 
+    public double time;
     public SpecialPackageType type;
     public string Title = "First Buy Super Deal!";
     public StoreSpecialPackageConfig(StorePackageConfig c) : base(c)
@@ -494,17 +346,16 @@ public class StoreSpecialPackageConfig : StorePackageConfig
         this.type = SpecialPackageType.DAILY;
         this.time = DEFAULT_TIME;
         this.boosters = new List<BoosterCommodity>();
-        foreach(BoosterCommodity b in c.boosters)
+        foreach (BoosterCommodity b in c.boosters)
         {
             this.boosters.Add(new BoosterCommodity(b.type, b.GetValue()));
         }
     }
 }
-
 /// <summary>
 /// Store cash (mua cashs bằng IAP)
 /// </summary>
-[System.Serializable] 
+[System.Serializable]
 public class StoreCashConfig : StoreIAPBaseConfig
 {
     public List<BoosterCommodity> boosters;
@@ -529,7 +380,7 @@ public class StoreCashConfig : StoreIAPBaseConfig
 /// Store deal free (lần đầu tiên free, mấy lần sau watch)
 /// </summary>
 [System.Serializable]
-public class StoreFreeDealConfig: StoreItemConfig
+public class StoreFreeDealConfig : StoreItemConfig
 {
     public List<BoosterCommodity> boosters;
     public List<BagAmount> bagAmounts;
@@ -540,10 +391,12 @@ public class StoreFreeDealConfig: StoreItemConfig
 /// Store booster (mua boosters bằng boosters)
 /// </summary>
 [System.Serializable]
-public class StoreBoosterConfig: StoreBoosterBaseConfig
+public class StoreBoosterConfig : StoreBoosterBaseConfig
 {
     public List<BoosterCommodity> boosters; //những booster nhận được
     public List<BagAmount> bagAmounts; //bags
+
+    public bool isShowInStore;
 }
 
 [System.Serializable]
@@ -552,13 +405,28 @@ public class StoreDealSlotConfig
     public int id;
     public int tourUnlock;
 
-    public float rate_Owned; 
+    public float rate_Owned;
+    public float rate_Equiped; //nếu ra owned thì bao nhiêu % ra item user đang dùng
+
+    public List<StoreDealCardConfig> dealCards;
+
+    public StoreDealCardConfig RandomDealCard()
+    {
+        return this.dealCards[Random.Range(0, this.dealCards.Count)];
+    }
+
+    public StoreDealCardConfig GetDealCard(int id)
+    {
+        return this.dealCards.Find(x => x.id == id);
+    }
 }
 
 
 [System.Serializable]
 public class StoreDealCardConfig : StoreItemConfig
 {
+    [Header("Card")]
+    public StatManager.Tier rarity;
 
     [Header("Tỷ lệ lấy card đã sở hữu")]
     public float rateOwn = 0.8f;
@@ -567,7 +435,7 @@ public class StoreDealCardConfig : StoreItemConfig
     public ValueRandom countCard; //randome count card
 
     [Header("Tiền tăng lên sau mỗi lần buy")]
-    public List<BoosterCommodity> prices; 
+    public List<BoosterCommodity> prices;
 }
 
 #region Base config
@@ -575,6 +443,8 @@ public class StoreDealCardConfig : StoreItemConfig
 public class StoreItemConfig
 {
     public int id;
+
+
 }
 
 [System.Serializable] //shop mua bằng IAP

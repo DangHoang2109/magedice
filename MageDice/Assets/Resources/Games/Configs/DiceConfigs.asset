@@ -186,3 +186,35 @@ MonoBehaviour:
         rageBullet:
           sprBullet: {fileID: 0}
           sprLight: {fileID: 0}
+  boosterConfigs:
+    level:
+    - costUpgradeNext: 400
+      currentBoostPercent: 1
+      isMax: 0
+    - costUpgradeNext: 700
+      currentBoostPercent: 1.635
+      isMax: 0
+    - costUpgradeNext: 1000
+      currentBoostPercent: 2.205
+      isMax: 0
+    - costUpgradeNext: 1300
+      currentBoostPercent: 2.71
+      isMax: 0
+    - costUpgradeNext: 1600
+      currentBoostPercent: 3.15
+      isMax: 0
+    - costUpgradeNext: 1900
+      currentBoostPercent: 3.525
+      isMax: 0
+    - costUpgradeNext: 2200
+      currentBoostPercent: 3.835
+      isMax: 0
+    - costUpgradeNext: 2500
+      currentBoostPercent: 4.08
+      isMax: 0
+    - costUpgradeNext: 2800
+      currentBoostPercent: 4.2599998
+      isMax: 0
+    - costUpgradeNext: 3100
+      currentBoostPercent: 4.375
+      isMax: 0

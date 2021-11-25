@@ -30,17 +30,23 @@ public class GameDiceData : BaseDiceData
 
         return this as T;
     }
-    public virtual T SetEffect<T>(StatItemStats userStat) where T : BaseDiceData
+    public virtual T SetEffect<T>(StatItemStats userStat, float diceBoosterPercent) where T : BaseDiceData
     {
         this.diceEffect = Activator.CreateInstance(EnumUtility.GetStringType(this.id)) as BaseDiceEffect;
         this.diceEffect.GameConfig = this.Config.Game.levels[this.Dot-1];
         this.diceEffect.diceStat = userStat;
         this.diceEffect.UIConfig = this.Config.Game.bullet;
-
+        this.diceEffect.diceBoosterDamage = diceBoosterPercent;
         return this as T;
     }
     public virtual void ActiveEffect()
     {
         this.diceEffect.ActiveEffect();
+    }
+
+    public void onChangeDiceBoosterPercent(float newValue)
+    {
+        Debug.Log("CB change booster percent to  " + newValue);
+        this.diceEffect.diceBoosterDamage = newValue;
     }
 }

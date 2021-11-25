@@ -23,26 +23,38 @@ public class StatGUIUpgrade : MonoBehaviour
 
     //[Tooltip("Collect enough to unlock free ,Must the same count as the unlock requirement cards count")]
     //public GameObject[] goPartsCover;
-    
+    private int cur;
+    private int newCur;
+    private int tot;
+    private System.Action callback;
+
     public void ParseCueToBuy(StatData c)
     {
         if(this.goButtonUpgrade != null)
             this.goButtonUpgrade.SetActive(false);
         //this.imgArrow.color = Color.clear;
-        this.txtLevel.text = string.Empty;
+        if (this.txtLevel != null)
+            this.txtLevel.text = string.Empty;
         
         
         this.imgProgress.gameObject.SetActive(false);
         
-        long req = c.RequirementCard;
-         if (req == 0)
-         {
-             this.ShowCover(0);
-         }
-         else
-         {
-             this.ShowCover((int)(req - c.cards));
-         }
+        tot = (int)c.RequirementCard;
+        this.cur = (int)c.cards;
+
+        if (tot == 0)
+        {
+            this.imgProgress.fillAmount = 1f;
+            //this.imgProgress.color = new Color(0.8f, 0.8f, 0.8f);
+            this.txtCountCard.text = c.cards.ToString();
+        }
+        else
+        {
+            this.imgProgress.fillAmount = (float)c.cards / (float)tot;
+            this.txtCountCard.text = $"{c.cards}/{tot}";
+
+            //this.imgProgress.color = (c.cards >= req)? Color.green : Color.blue;
+        }
     }
 
     public void ParseCueBought(StatData c)
@@ -54,13 +66,18 @@ public class StatGUIUpgrade : MonoBehaviour
             this.imgProgress.gameObject.SetActive(false);
             if(this.goButtonUpgrade != null)
                 this.goButtonUpgrade.SetActive(false);
-            this.txtLevel.text = "";
+
+
+            if (this.txtLevel != null)
+                this.txtLevel.text = "";
         }
         else
         {
+            this.cur = (int)c.cards;
             if (c.IsMaxLevel)
             {
-                this.txtLevel.text = "Level Max";
+                if (this.txtLevel != null)
+                    this.txtLevel.text = "Level Max";
 
                 if (this.goButtonUpgrade != null)
                     this.goButtonUpgrade.SetActive(false);
@@ -74,7 +91,8 @@ public class StatGUIUpgrade : MonoBehaviour
             }
             else
             {
-                this.txtLevel.text = $"Level {c.level}";
+                if (this.txtLevel != null)
+                    this.txtLevel.text = $"Level {c.level}";
 
                 this.imgProgress.gameObject.SetActive(true);
                 imgEnough.gameObject.SetActive(false);
@@ -103,8 +121,8 @@ public class StatGUIUpgrade : MonoBehaviour
                 }
 
 
-                long req = c.RequirementCard;
-                if (req == 0)
+                tot = (int)c.RequirementCard;
+                if (tot == 0)
                 {
                     this.imgProgress.fillAmount = 1f;
                     //this.imgProgress.color = new Color(0.8f, 0.8f, 0.8f);
@@ -112,8 +130,8 @@ public class StatGUIUpgrade : MonoBehaviour
                 }
                 else
                 {
-                    this.imgProgress.fillAmount = (float) c.cards / (float) req;
-                    this.txtCountCard.text = $"{c.cards}/{req}";
+                    this.imgProgress.fillAmount = (float) c.cards / (float)tot;
+                    this.txtCountCard.text = $"{c.cards}/{tot}";
                     
                     //this.imgProgress.color = (c.cards >= req)? Color.green : Color.blue;
                 }
@@ -145,5 +163,64 @@ public class StatGUIUpgrade : MonoBehaviour
         //{
         //    this.goPartsCover[i2].SetActive(false);
         //}
+    }
+
+    public StatGUIUpgrade DoFillTo(in long newCurrent, in float duration)
+    {
+        return DoFillTo((int)newCurrent, duration);
+    }
+
+    public StatGUIUpgrade DoFillTo(in int newCurrent, in float duration)
+    {
+        this.newCur = newCurrent;
+
+        //this.imgProgress.DOFillAmount((float)newCurrent/this.tot, duration)
+        //   .OnComplete(this.OnFillCompleted).SetId(this);
+
+        DOTween.To(this.GetCurrent, this.OnUpdateFill, newCurrent, duration)
+            .OnComplete(this.OnFillCompleted).SetId(this);
+
+        return this;
+    }
+
+
+    private float GetCurrent()
+    {
+        return (float)this.cur;
+    }
+    private void OnUpdateFill(float current)
+    {
+        this.imgProgress.fillAmount = current / (float)this.tot;
+        this.txtCountCard.text = string.Format("{0}/{1}", Mathf.RoundToInt(current), this.tot);
+    }
+
+    private void OnFillCompleted()
+    {
+        this.OnUpdateFill(this.cur = this.newCur);
+        // ensure no miscalculation from rounding float
+        this.txtCountCard.text = string.Format("{0}/{1}", this.cur, this.tot);
+
+        //if (this.cur >= this.tot)
+        //{
+        //    if (this.panelUpgrade != null)
+        //    {
+        //        this.panelUpgrade.SetActive(true);
+        //    }
+        //}
+        //else
+        //{
+        //    this.imgProgress.color = TennisColor.ColorProgressLightBlue;
+        //    if (this.panelUpgrade != null)
+        //    {
+        //        this.panelUpgrade.SetActive(false);
+        //    }
+        //}
+
+        if (this.callback == null)
+            return;
+
+        var c2 = callback;
+        this.callback = null;
+        c2.Invoke();
     }
 }

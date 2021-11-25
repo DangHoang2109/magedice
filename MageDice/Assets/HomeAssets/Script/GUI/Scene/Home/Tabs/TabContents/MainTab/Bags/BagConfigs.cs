@@ -28,27 +28,10 @@ public class BagConfig
 {
     public BagType type; //loại bag
 
-    [Header("Number of cards")]
-    [System.Obsolete("Move the amount of card to giftbag tour config")]
-    public List<CardAmount> cardAmounts;
-
     [Header("If waitting for open bag")]
     public BoosterCommodity bstOpenNow;         // giá trị để bỏ qua đợi
     public double totalTimeWait;               // thời gian đợi để mở
     public double timeReduce = 3000;           // thời gian bỏ qua cho mỗi lần quảng cáo (15 phút)
-
-    public CardAmount GetCardAmount(CardType cardType)
-    {
-        return this.cardAmounts.Find(x => x.cardType == cardType);
-    }
-
-    public int GetCountCard(CardType cardType)
-    {
-        CardAmount cardAmount = this.GetCardAmount(cardType);
-        if (cardAmount != null)
-            return cardAmount.amount;
-        return 0;
-    }
 }
 
 [System.Serializable]
@@ -118,18 +101,16 @@ public class CardAmount
 public enum CardType
 {
     //TODO cue, các loại booster
-
     NONE = 0,
-    STANDARD,
-    COUNTRY,
-    RARE,
-    EPIC,
+    LOOT = 1,
+    RARE = 2,
+    EPIC = 3,
 
     CHARACTER = 10,
     STRING = 11,
 
     [System.Obsolete("SMASHES is times to change to result")]
-    SMASHES = 20 
+    SMASHES = 20
 }
 
 #endregion

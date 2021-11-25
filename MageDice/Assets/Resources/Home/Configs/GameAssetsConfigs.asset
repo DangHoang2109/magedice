@@ -83,60 +83,60 @@ MonoBehaviour:
     - type: 0
       name: Free Chest
       sprBag: {fileID: 21300000, guid: 24f44c84f0946b3439e458453b037c8c, type: 3}
-    - type: 0
+    - type: 1
       name: Wooden Chest
       sprBag: {fileID: 21300000, guid: 9170c7978ba1fc54f80236023dec6ea0, type: 3}
-    - type: 0
+    - type: 2
       name: Silver Chest
       sprBag: {fileID: 21300000, guid: 53bebf3ed5574e64491f8d12a66871c0, type: 3}
-    - type: 0
+    - type: 3
       name: Prism Chest
       sprBag: {fileID: 21300000, guid: 2d923f553703ce147bdcccf1e6d5ffae, type: 3}
-    - type: 0
+    - type: 10
       name: Glory Wooden Chest
       sprBag: {fileID: 21300000, guid: b19f72b9c39384f4788c3b9c77ed4d8c, type: 3}
-    - type: 0
+    - type: 11
       name: Glory Silver Chest
       sprBag: {fileID: 21300000, guid: 8b6da4d320466d54da3a4340cec9e89a, type: 3}
-    - type: 0
+    - type: 12
       name: Glory Prism  Chest
       sprBag: {fileID: 21300000, guid: a2e077a37e24b3c42892da2ea12b21b8, type: 3}
-    - type: 0
+    - type: 13
       name: Glory Diamond Chest
       sprBag: {fileID: 21300000, guid: 5ff489961e31c6f4ba7c97b85a4cda74, type: 3}
-    - type: 0
+    - type: 20
       name: Bullseye bag 1
       sprBag: {fileID: 21300000, guid: 797859d82130fc847aaffefa8a2a0e11, type: 3}
-    - type: 0
+    - type: 21
       name: Bullseye bag 2
       sprBag: {fileID: 21300000, guid: 7ef9a4f320af10740aca18214a367591, type: 3}
-    - type: 0
+    - type: 22
       name: Bullseye bag 3
       sprBag: {fileID: 21300000, guid: 4a8f22dd26b83954e92735015cb47790, type: 3}
-    - type: 0
+    - type: 23
       name: Bullseye bag 4
       sprBag: {fileID: 21300000, guid: 9c9baba3e93d0e2439add8aacd125b92, type: 3}
-    - type: 0
+    - type: 24
       name: Bullseye bag 5
       sprBag: {fileID: 21300000, guid: f1c7d94071aba4e408942e4a79e90863, type: 3}
-    - type: 0
+    - type: 50
       name: Diamond chest
       sprBag: {fileID: 21300000, guid: 2fb3e968c977a0849a9f58ca0ed10c77, type: 3}
   cardAsset:
     tierAssets:
     - tier: 1
       name: Loot
-      sprCard: {fileID: 0}
+      sprCard: {fileID: 21300000, guid: 58673e9db7b0e0448861a164fa6510d2, type: 3}
       color: {r: 0.5254902, g: 0.8078432, b: 0.36078432, a: 1}
       sprRarityCircle: {fileID: 0}
     - tier: 2
       name: 
-      sprCard: {fileID: 0}
+      sprCard: {fileID: 21300000, guid: 9e7fffe16879a854ca2500ab943a6520, type: 3}
       color: {r: 0.29411766, g: 0.8000001, b: 0.96470594, a: 1}
       sprRarityCircle: {fileID: 0}
     - tier: 3
       name: 
-      sprCard: {fileID: 0}
+      sprCard: {fileID: 21300000, guid: 19ad4b62e117d5149a4d5f1a36b8aed0, type: 3}
       color: {r: 0.74509805, g: 0.42352945, b: 1, a: 1}
       sprRarityCircle: {fileID: 0}
   valueIconAsset:
@@ -289,3 +289,93 @@ MonoBehaviour:
       sprite: {fileID: 21300000, guid: 483fa7f0d7dcd724ab70906e648cca68, type: 3}
       name: Surviver
       content: Collect gloves in events
+  cardBorderConfig:
+    cardStats: {fileID: 21300000, guid: d6e3d32a6f0b91548848168582e7afd3, type: 3}
+    cardMaterial: {fileID: 21300000, guid: b2e21a39506e9e94795a422ccee8a4b0, type: 3}
+    portraitGeneric: {fileID: 21300000, guid: 84f99c0aa6f5a564a8cb5db6b305f945, type: 3}
+  perkAsset:
+    perks:
+    - id: 0
+      rank: 0
+      name: 
+      sprIcon: {fileID: 0}
+      sprBG: {fileID: 21300000, guid: 675a24831631bd646bc22150a24b1401, type: 3}
+      colorTitle: {r: 0.41960788, g: 0.41176474, b: 0.41960788, a: 1}
+      colorText: {r: 0.7411765, g: 0.7294118, b: 0.7411765, a: 1}
+    - id: 1
+      rank: 0
+      name: 
+      sprIcon: {fileID: 0}
+      sprBG: {fileID: 21300000, guid: 675a24831631bd646bc22150a24b1401, type: 3}
+      colorTitle: {r: 0.41960788, g: 0.41176474, b: 0.41960788, a: 1}
+      colorText: {r: 0.7411765, g: 0.7294118, b: 0.7411765, a: 1}
+    - id: 2
+      rank: 0
+      name: 
+      sprIcon: {fileID: 0}
+      sprBG: {fileID: 21300000, guid: 675a24831631bd646bc22150a24b1401, type: 3}
+      colorTitle: {r: 0.41960788, g: 0.41176474, b: 0.41960788, a: 1}
+      colorText: {r: 0.7411765, g: 0.7294118, b: 0.7411765, a: 1}
+    - id: 3
+      rank: 0
+      name: 
+      sprIcon: {fileID: 0}
+      sprBG: {fileID: 21300000, guid: 675a24831631bd646bc22150a24b1401, type: 3}
+      colorTitle: {r: 0.41960788, g: 0.41176474, b: 0.41960788, a: 1}
+      colorText: {r: 0.7411765, g: 0.7294118, b: 0.7411765, a: 1}
+    - id: 4
+      rank: 1
+      name: 
+      sprIcon: {fileID: 0}
+      sprBG: {fileID: 21300000, guid: 82e3a88f5a00d0540ac8ceacbb0239e0, type: 3}
+      colorTitle: {r: 0.19215688, g: 0.3647059, b: 0.5176471, a: 1}
+      colorText: {r: 0.2901961, g: 0.6666667, b: 0.9333334, a: 1}
+    - id: 5
+      rank: 1
+      name: 
+      sprIcon: {fileID: 0}
+      sprBG: {fileID: 21300000, guid: 82e3a88f5a00d0540ac8ceacbb0239e0, type: 3}
+      colorTitle: {r: 0.19215688, g: 0.3647059, b: 0.5176471, a: 1}
+      colorText: {r: 0.2901961, g: 0.6666667, b: 0.9333334, a: 1}
+    - id: 6
+      rank: 1
+      name: 
+      sprIcon: {fileID: 0}
+      sprBG: {fileID: 21300000, guid: 82e3a88f5a00d0540ac8ceacbb0239e0, type: 3}
+      colorTitle: {r: 0.19215688, g: 0.3647059, b: 0.5176471, a: 1}
+      colorText: {r: 0.2901961, g: 0.6666667, b: 0.9333334, a: 1}
+    - id: 7
+      rank: 1
+      name: 
+      sprIcon: {fileID: 0}
+      sprBG: {fileID: 21300000, guid: 82e3a88f5a00d0540ac8ceacbb0239e0, type: 3}
+      colorTitle: {r: 0.19215688, g: 0.3647059, b: 0.5176471, a: 1}
+      colorText: {r: 0.2901961, g: 0.6666667, b: 0.9333334, a: 1}
+    - id: 8
+      rank: 2
+      name: 
+      sprIcon: {fileID: 0}
+      sprBG: {fileID: 21300000, guid: c9bca9cf6827e8b4e8987ccbbd0e2037, type: 3}
+      colorTitle: {r: 0.41960788, g: 0.31764707, b: 0.5176471, a: 1}
+      colorText: {r: 0.76470596, g: 0.41176474, b: 0.98823535, a: 1}
+    - id: 9
+      rank: 2
+      name: 
+      sprIcon: {fileID: 0}
+      sprBG: {fileID: 21300000, guid: c9bca9cf6827e8b4e8987ccbbd0e2037, type: 3}
+      colorTitle: {r: 0.41960788, g: 0.31764707, b: 0.5176471, a: 1}
+      colorText: {r: 0.76470596, g: 0.41176474, b: 0.98823535, a: 1}
+    - id: 10
+      rank: 2
+      name: 
+      sprIcon: {fileID: 0}
+      sprBG: {fileID: 21300000, guid: c9bca9cf6827e8b4e8987ccbbd0e2037, type: 3}
+      colorTitle: {r: 0.41960788, g: 0.31764707, b: 0.5176471, a: 1}
+      colorText: {r: 0.76470596, g: 0.41176474, b: 0.98823535, a: 1}
+    - id: 11
+      rank: 2
+      name: 
+      sprIcon: {fileID: 0}
+      sprBG: {fileID: 21300000, guid: c9bca9cf6827e8b4e8987ccbbd0e2037, type: 3}
+      colorTitle: {r: 0.41960788, g: 0.31764707, b: 0.5176471, a: 1}
+      colorText: {r: 0.76470596, g: 0.41176474, b: 0.98823535, a: 1}
