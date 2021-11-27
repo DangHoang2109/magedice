@@ -514,6 +514,7 @@ public class SkillPerkAsset
     public int id;
     public int rank;
     public string name;
+    public string desciption;
     public Sprite sprIcon;
     public Sprite sprBG;
     public Color colorTitle;

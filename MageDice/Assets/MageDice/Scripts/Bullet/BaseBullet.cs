@@ -17,6 +17,7 @@ public class BaseBullet : MonoBehaviour
     [Header("Config")]
     [SerializeField] private float _speed;
     [SerializeField] private float _damage;
+    [SerializeField] private bool _isCritical;
 
     bool isFlying;
     public bool IsFlying => this.isFlying;
@@ -42,10 +43,12 @@ public class BaseBullet : MonoBehaviour
         enemy.RegisterHitting(this._damage);
         return this;
     }
-    public BaseBullet SetData(float speed, float damage)
+    public BaseBullet SetData(float speed, float damage, bool isCritical)
     {
         this._speed = speed;
         this._damage = damage;
+        this._isCritical = isCritical;
+
         return this;
     }
     public BaseBullet SetHitEffect(System.Action<BaseMonsterBehavior> enemy)

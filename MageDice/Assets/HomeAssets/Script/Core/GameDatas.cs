@@ -10,6 +10,7 @@ public class GameDatas
     public BagSlotDatas bagDatas;
     public StoreDatas storeDatas;
     public UserBehaviorDatas behaviorDatas;
+
     //public MissionDatas missionDatas;
     public StatDatas statDatas;
 

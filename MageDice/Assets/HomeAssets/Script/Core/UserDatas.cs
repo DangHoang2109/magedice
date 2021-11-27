@@ -11,6 +11,7 @@ public class UserDatas
     public UserCareers careers;
     public UserLanguageData languages;
     //public UserWheelData wheel;
+    public PerkDatas perkDatas;
 
     public static UserDatas Instance
    {
@@ -29,11 +30,14 @@ public class UserDatas
    public void CreateUser()
    {
         languages.NewUser();
+        perkDatas.CreateUser();
         //wheel.NewDay();
    }
 
     public void OpenGame()
     {
+        if(perkDatas == null || perkDatas.data == null || perkDatas.data.Count == 0)
+            perkDatas.CreateUser();
     }
 }
 
@@ -438,4 +442,136 @@ public class UserLanguageData
     {
         GameDataManager.Instance.SaveUserData();
     }
+}
+
+[System.Serializable]
+public class PerkDatas
+{
+    public List<PerkData> data;
+    public int totalUpgradeStep;
+
+    public static PerkDatas Instance
+    {
+        get
+        {
+            return UserDatas.Instance.perkDatas;
+        }
+    }
+
+    public int TotalUpgradeStep { get => totalUpgradeStep; set {
+            totalUpgradeStep = value;
+            _costUpgradeNext = SkillPerkConfigs.Instance.GetCostUpgrade(totalUpgradeStep);
+        } 
+    }
+
+    private BoosterCommodity _costUpgradeNext;
+    public BoosterCommodity CostUpgradeNext
+    {
+        get
+        {
+            if (_costUpgradeNext == null)
+                _costUpgradeNext = SkillPerkConfigs.Instance.GetCostUpgrade(totalUpgradeStep);
+
+            return _costUpgradeNext;
+        }
+    }
+
+    public PerkDatas()
+    {
+        data = new List<PerkData>();
+    }
+
+    public float GetCurrentStat(int id)
+    {
+        Debug.Log("get stat " + id);
+        return this.data.Find(x => x.id == id).CurrentStat;
+    }
+
+    public void CreateUser()
+    {
+        data = new List<PerkData>();
+        List<SkillPerkConfig> SkillConfigs = SkillPerkConfigs.Instance.SkillConfigs;
+
+        for (int i = 0; i < SkillConfigs.Count; i++)
+        {
+            data.Add(new PerkData(SkillConfigs[i])
+            {
+                currentUpgradeStep = -1,
+            });
+        }
+
+        TotalUpgradeStep = 0;
+    }
+
+    public void OnCompleteUpgrade(int id)
+    {
+        this.data.Find(x => x.id == id).currentUpgradeStep++;
+    }
+    public bool OnClickUpgrade()
+    {
+        if(UserProfile.Instance.UseBooster(this.CostUpgradeNext, "UpgradePerk", "UpgradePerk"))
+        {
+            TotalUpgradeStep++;
+            SaveData();
+            return true;
+        }
+
+        return false;
+    }
+    public int GetUpgradeResult()
+    {
+        return UnityEngine.Random.Range(0, data.Count);
+    }
+
+    private void SaveData()
+    {
+        GameDataManager.Instance.SaveUserData();
+    }
+}
+
+public class PerkData
+{
+    public int id;
+    public int currentUpgradeStep;
+
+    private SkillPerkAsset _asset;
+    public SkillPerkAsset Asset
+    {
+        get
+        {
+            if (_asset == null)
+                _asset = SkillPerkAssets.Instance.GetPerkAsset(this.id);
+
+            return _asset;
+        }
+    }
+
+    private SkillPerkConfig _config;
+    public SkillPerkConfig Config
+    {
+        get
+        {
+            if (_config == null)
+                _config = SkillPerkConfigs.Instance.GetConfig(this.id);
+
+            return _config;
+        }
+    }
+
+    public float CurrentStat => currentUpgradeStep >= 0 ? this.Config.upgradeSteps[currentUpgradeStep] : 0f;
+    public float PreviousStat => currentUpgradeStep - 1 >= 0 ? this.Config.upgradeSteps[currentUpgradeStep-1] : 0f;
+    public float MaxStat => this.Config.upgradeSteps[this.Config.upgradeSteps.Length - 1];
+
+    public bool IsMax => this.currentUpgradeStep >= this.Config.upgradeSteps.Length - 1;
+
+    public PerkData()
+    {
+
+    }
+    public PerkData(SkillPerkConfig c)
+    {
+        this._config = c;
+        this.id = c.id;
+    }
+
 }

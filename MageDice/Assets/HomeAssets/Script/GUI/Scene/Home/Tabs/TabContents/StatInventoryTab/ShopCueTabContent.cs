@@ -122,5 +122,11 @@ public class ShopCueTabContent : TabContent
         }
         StatManager.Instance.OnCueChanged -= lineUpManager.OnLineUpChange;
 
+
+    }
+
+    public void ClickShowPerk()
+    {
+        GameManager.Instance.OnShowDialogWithSorting<SkillPerkDialog>("Home/GUI/SkillPerkDialog/PerkUpgradeDialog", PopupSortingType.CenterBottomAndTopBar);
     }
 }

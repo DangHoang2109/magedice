@@ -55,6 +55,10 @@ public class GameBoardLine : MonoBehaviour
         else
             StartMove();
     }
+    public void AddSpeed(float assSpeed)
+    {
+        _speed += assSpeed;
+    }
     public void StartMove()
     {
         this.isMoving = true;

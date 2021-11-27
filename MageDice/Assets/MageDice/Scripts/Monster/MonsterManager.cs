@@ -96,6 +96,10 @@ public class MonsterManager : MonoSingleton<MonsterManager>
         }
     }
     private bool _isPause;
+
+    //user Perk
+    private float perkKillMonsBonus;
+
     private void OnValidate()
     {
     }
@@ -128,6 +132,10 @@ public class MonsterManager : MonoSingleton<MonsterManager>
         }
 
         StartWave();
+    }
+    public void SetPerk(float perkKillMonsBonus)
+    {
+        this.perkKillMonsBonus = perkKillMonsBonus;
     }
     public void OnPauseGame(bool isPause)
     {
@@ -292,7 +300,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
         //return to pool
         MonsterPoolManager.Instance.ReturnMonster(m);
         //add coin
-        MageGameManager.OnKillMonster(m.GiftedCoin);
+        MageGameManager.OnKillMonster(m.GiftedCoin + (long)this.perkKillMonsBonus);
     }
     /// <summary>
     /// get nearest monster

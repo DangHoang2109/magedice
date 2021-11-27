@@ -349,6 +349,8 @@ public class CueConfigsEditor : Editor
         EditorGUI.indentLevel++;
         config.id = (DiceID)EditorGUILayout.EnumPopup("id", config.id);
         config.statName = EditorGUILayout.TextField("statName", config.statName);
+        config.skillDescription = EditorGUILayout.TextField("skillDescription", config.skillDescription);
+
         config.sprStatItem = (Sprite)EditorGUILayout.ObjectField(
             obj: config.sprStatItem,
             objType: typeof(Sprite), allowSceneObjects: false);
@@ -519,6 +521,7 @@ public class CueConfigsEditor : Editor
         {
             id = (DiceID)child.FindPropertyRelative("id").intValue,
             statName = child.FindPropertyRelative("statName").stringValue,
+            skillDescription = child.FindPropertyRelative("skillDescription").stringValue,
             sprStatItem = child.FindPropertyRelative("sprStatItem").objectReferenceValue as Sprite,
             tier = (StatManager.Tier)child.FindPropertyRelative("tier").intValue,
             unlockType = (StatManager.UnlockType)child.FindPropertyRelative("unlockType").intValue,
@@ -659,6 +662,7 @@ public class CueConfigsEditor : Editor
     {
         child.FindPropertyRelative("id").intValue = (int)cf.id;
         child.FindPropertyRelative("statName").stringValue = cf.statName;
+        child.FindPropertyRelative("skillDescription").stringValue = cf.skillDescription;
         child.FindPropertyRelative("sprStatItem").objectReferenceValue = cf.sprStatItem;
         child.FindPropertyRelative("tier").intValue = (int)cf.tier;
         child.FindPropertyRelative("unlockType").intValue = (int)cf.unlockType;
@@ -837,6 +841,10 @@ public class CueConfigsEditor : Editor
 
             GUILayout.Label(string.Format("{0}", cf.statName),
                 this.styleTextBoldRed);
+
+            GUILayout.Label(string.Format("{0}", cf.skillDescription),
+                this.styleTextBoldRed);
+
             GUILayout.FlexibleSpace();
 
             if (GUILayout.Button("X", this.styleBtnSquareRed))

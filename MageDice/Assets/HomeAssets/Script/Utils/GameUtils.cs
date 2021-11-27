@@ -240,6 +240,33 @@ public static class GameUtils
         long unixTimeStampInTicks = (time.ToUniversalTime() - unixStart).Ticks;
         return (long)unixTimeStampInTicks / TimeSpan.TicksPerSecond;
     }
+
+    public static void ShowNeedMoreBooster(BoosterCommodity booster, System.Action callback = null)
+    {
+        if (booster != null)
+        {
+            switch (booster.type)
+            {
+                case BoosterType.COIN:
+                    NeedMoreCoinDialogs dialog =
+                        GameManager.Instance.OnShowDialogWithSorting<NeedMoreCoinDialogs>("Home/GUI/Dialogs/NeedMoreCoin/NeedMoreCoinDialog",
+                            PopupSortingType.CenterBottomAndTopBar);
+                    dialog.ParseData(booster.GetValue(), "Win_Steak", () =>
+                    {
+                        callback?.Invoke();
+                    });
+                    break;
+                case BoosterType.CASH:
+                    NeedMoreGemDialog dialog2 =
+                    GameManager.Instance.OnShowDialogWithSorting<NeedMoreGemDialog>("GUI/Dialogs/NeedMoreGem/NeedMoreGemDialog",
+                        PopupSortingType.CenterBottomAndTopBar);
+                    dialog2.ParseData(booster);
+                    dialog2.OnClosed += () => callback?.Invoke();
+                    break;
+            }
+        }
+    }
+
     public static long ConvertValue_Cash_To_Coin(long cash, float bonus = 1f)
     {
         return RoundUpValue((long)(bonus * (cash) * GameDefine.RATE_CASH_TO_COIN), (long)100);

@@ -417,6 +417,8 @@ public class ShopStatConfig
         {
             id = original.id,
             statName = original.statName,
+            skillDescription = original.skillDescription,
+
             sprStatItem = original.sprStatItem,
             tier = original.tier,
             unlockType = original.unlockType,

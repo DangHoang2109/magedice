@@ -113,7 +113,42 @@ public enum DiceID
     [Type(typeof(ElectricDiceEffect))]
     ELECTRIC,
     [Type(typeof(PoisionDiceEffect))]
-    POISION
+    POISION,
+
+    [Type(typeof(PoisionDiceEffect))]
+    IRON, 
+    [Type(typeof(PoisionDiceEffect))]
+    GALE,
+    [Type(typeof(PoisionDiceEffect))]
+    ARROW, 
+    [Type(typeof(PoisionDiceEffect))]
+    MINE, 
+    [Type(typeof(PoisionDiceEffect))]
+    CRITICAL,
+    [Type(typeof(PoisionDiceEffect))]
+    ENERGY, 
+    [Type(typeof(PoisionDiceEffect))]
+    GIFT,
+    [Type(typeof(PoisionDiceEffect))]
+    SLINGSHOT,
+    [Type(typeof(PoisionDiceEffect))]
+    LIGHT, 
+    [Type(typeof(PoisionDiceEffect))]
+    ABSORD, 
+    [Type(typeof(PoisionDiceEffect))]
+    MIMIC,
+    [Type(typeof(PoisionDiceEffect))]
+    CLONE,
+    [Type(typeof(PoisionDiceEffect))]
+    DEATH,
+    [Type(typeof(PoisionDiceEffect))]
+    FLAME,
+    [Type(typeof(PoisionDiceEffect))]
+    HEAL,
+    [Type(typeof(PoisionDiceEffect))]
+    WAVE,
+    [Type(typeof(PoisionDiceEffect))]
+    INFECT,
 }
 [System.Serializable]
 public class DiceConfig

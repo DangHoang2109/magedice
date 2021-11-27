@@ -41,6 +41,13 @@ public class GameBoardManager : MonoSingleton<GameBoardManager>
 
     public GameDiceItem prefabDice;
 
+    //user perk
+    private float perk2SpotChance;
+    private float perkBulletDamage;
+    private float perkBulletSpeed;
+    private float perkBulletCritical;
+    private float perkBarSpeed;
+
     public GameBoardCollumn GetCollumn(int index)
     {
         if (index >= 0 && index < this.collumns.Length)
@@ -80,8 +87,17 @@ public class GameBoardManager : MonoSingleton<GameBoardManager>
 
         this.boosterDeck.ParseData(userDicesList);
     }
+    public void SetPerkData(PerkDatas data)
+    {
+        this.perk2SpotChance = data.GetCurrentStat(PerkID.TWO_SPOT_DICE);
+        this.perkBulletCritical = data.GetCurrentStat(PerkID.CRITICAL_CHANCE);
+        this.perkBulletDamage = data.GetCurrentStat(PerkID.BULLET_SPEED);
+        this.perkBulletSpeed = data.GetCurrentStat(PerkID.BASE_ATTACK);
+        this.perkBarSpeed = data.GetCurrentStat(PerkID.BAR_SPEED);
+    }
     public void StartPlay()
     {
+        this.ActiveLine.AddSpeed(perkBarSpeed);
         this.ActiveLine.StartMove();
     }
     public void OnPauseGame(bool isPause)
@@ -124,15 +140,20 @@ public class GameBoardManager : MonoSingleton<GameBoardManager>
     public GameDiceData RandomDice(GameDiceData previous = null)
     {
         int nextDot = 1;
-        if(previous != null && previous.Dot < 6)
+
+        if (previous != null && previous.Dot < 6)
         {
             nextDot = previous.Dot + 1;
         }
+        else
+            nextDot = Random.value <= perk2SpotChance ? 2 : 1;
 
         DiceID id = userDicesList.GetRandomSafe();
 
         GameDiceData result = new GameDiceData();
-        result.SetData<GameDiceData>(id)
+        result
+            .SetData<GameDiceData>(id)
+            .SetPerk<GameDiceData>(perkBulletDamage: perkBulletDamage, perkBulletSpeed: perkBulletSpeed, perkBulletCritical: perkBulletCritical)
             .SetDot<GameDiceData>(nextDot)
             .SetEffect<GameDiceData>(dicUserDiceStartingStat[id], this.boosterDeck.dicBoosterDiceStat[id]._currentBoostPercent); //
 

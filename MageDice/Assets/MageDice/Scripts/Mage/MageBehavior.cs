@@ -15,11 +15,6 @@ public class MageGameData : PersonGameData
     private long addCoinKillMons;
     private long addCoinSkipWave;
     private float recoverHPEachWave;
-    private float chance2SpotDice;
-    private float chanceCriticalAtk;
-    private float timeChargeMana;
-    private float barSpeed;
-
     #region Callback
     public UnityAction<float> onChangeStamina;
     #endregion Callback
@@ -31,10 +26,6 @@ public class MageGameData : PersonGameData
     public long AddCoinKillMons { get => addCoinKillMons; set => addCoinKillMons = value; }
     public long AddCoinSkipWave { get => addCoinSkipWave; set => addCoinSkipWave = value; }
     public float RecoverHPEachWave { get => recoverHPEachWave; set => recoverHPEachWave = value; }
-    public float Chance2SpotDice { get => chance2SpotDice; set => chance2SpotDice = value; }
-    public float ChanceCriticalAtk { get => chanceCriticalAtk; set => chanceCriticalAtk = value; }
-    public float TimeChargeMana { get => timeChargeMana; set => timeChargeMana = value; }
-    public float BarSpeed { get => barSpeed; set => barSpeed = value; }
     #endregion Getter stter
 
     public MageGameData(MageConfig c) : base(c)
@@ -49,10 +40,11 @@ public class MageGameData : PersonGameData
         this.addCoinKillMons = c.addCoinKillMons;
         this.addCoinSkipWave = c.addCoinSkipWave;
         this.recoverHPEachWave = c.recoverHPEachWave;
-        this.chance2SpotDice = c.chance2SpotDice;
-        this.chanceCriticalAtk = c.chanceCriticalAtk;
-        this.timeChargeMana = c.timeChargeMana;
-        this.barSpeed = c.barSpeed;
+    }
+    public void SetPerk(float recoverHP, float addTotalHP)
+    {
+        this.recoverHPEachWave += recoverHP;
+        this.currentHP += addTotalHP;
     }
 }
 public class MageBehavior : BasePersonBehavior
@@ -61,24 +53,19 @@ public class MageBehavior : BasePersonBehavior
     private MageGameData Data;
 
     #region Getter stter
-    public float CurrentStamina { get => this.Data.CurrentStamina; set { this.Data.CurrentStamina = value;} }
-    public float MaxStamina { get => this.Data.MaxStamina; set => this.Data.MaxStamina = value; }
     public long InitCoin { get => this.Data.InitCoin; set => this.Data.InitCoin = value; }
     public long AddCoinKillMons { get => this.Data.AddCoinKillMons; set => this.Data.AddCoinKillMons = value; }
     public long AddCoinSkipWave { get => this.Data.AddCoinSkipWave; set => this.Data.AddCoinSkipWave = value; }
     public float RecoverHPEachWave { get => this.Data.RecoverHPEachWave; set => this.Data.RecoverHPEachWave = value; }
-    public float Chance2SpotDice { get => this.Data.Chance2SpotDice; set => this.Data.Chance2SpotDice = value; }
-    public float ChanceCriticalAtk { get => this.Data.ChanceCriticalAtk; set => this.Data.ChanceCriticalAtk = value; }
-    public float TimeChargeMana { get => this.Data.TimeChargeMana; set => this.Data.TimeChargeMana = value; }
-    public float BarSpeed { get => this.Data.BarSpeed; set => this.Data.BarSpeed = value; }
+
     #endregion Getter stter
 
 
     public override void Spawned(PersonGameData config)
     {
-        base.Spawned(config);
-
         this.Data = config as MageGameData;
+
+        base.Spawned(Data);
 
         //set stamina
         StaminaBar.ParseData(max: this.Data.MaxStamina, current: this.Data.CurrentStamina);

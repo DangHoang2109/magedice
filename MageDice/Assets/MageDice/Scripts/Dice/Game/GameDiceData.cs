@@ -39,6 +39,14 @@ public class GameDiceData : BaseDiceData
         this.diceEffect.diceBoosterDamage = diceBoosterPercent;
         return this as T;
     }
+
+    public virtual T SetPerk<T>(float perkBulletDamage, float perkBulletSpeed, float perkBulletCritical) where T : BaseDiceData
+    {
+        if(this.diceEffect == null)
+            this.diceEffect = Activator.CreateInstance(EnumUtility.GetStringType(this.id)) as BaseDiceEffect;
+
+        return this as T;
+    }
     public virtual void ActiveEffect()
     {
         this.diceEffect.ActiveEffect();

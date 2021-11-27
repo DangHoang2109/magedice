@@ -37,6 +37,11 @@ public class UpgradeCardLine : MonoBehaviour
         s.x = (before / maxStat) * maxWidth;
         this.rectFill.sizeDelta = s;
     }
+    public void ParseInfo(string name, Sprite icon)
+    {
+        this.txtName.SetText(name);
+        this.imgIcon.sprite = icon;
+    }
 
     public void StartAnimate(float delay)
     {

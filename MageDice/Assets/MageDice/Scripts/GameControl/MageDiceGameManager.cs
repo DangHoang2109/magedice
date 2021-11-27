@@ -58,23 +58,29 @@ public class MageDiceGameManager : MonoSingleton<MageDiceGameManager>
     }
     protected virtual void OnStartGame()
     {
+        PerkDatas PerkDatas = PerkDatas.Instance;
+
         this.WaveController = new GamWaveController();
         this.WaveController.StartGame(this._gameData.mapConfig);
         this.WaveController.OnWaveChange += OnWaveChange;
 
-        this.Mage.Spawned(new MageGameData(MageGameConfigs.Instance.Mage));
+        MageGameData mageData = new MageGameData(MageGameConfigs.Instance.Mage);
+        mageData.SetPerk(PerkDatas.GetCurrentStat(PerkID.RECOVER_HP), PerkDatas.GetCurrentStat(PerkID.TOTAL_HP));
+        this.Mage.Spawned(mageData);
 
         this.CoinController = new GameCoinController();
         this.CoinController.OnCostNextDiceChange += OnPriceSpawnDiceChange;
         this.CoinController.OnCurrentCoinChange += OnCurrentCoinChange;
         this.CoinController.StarGame(MageGameConfigs.Instance.CoinIncrement);
-        this.CoinController.SetWallet(this.Mage.InitCoin);
+        this.CoinController.SetWallet(this.Mage.InitCoin + (long)PerkDatas.GetCurrentStat(PerkID.STARTING_COIN));
 
         _GameBoardManager = GameBoardManager.Instance;
         _GameBoardManager.JoinGame(_gameData.userStatDeck);
+        _GameBoardManager.SetPerkData(PerkDatas);
         _GameBoardManager.StartPlay();
 
         MonsterManager.Instance.StartGame(this._gameData.mapConfig);
+        MonsterManager.Instance.SetPerk(PerkDatas.GetCurrentStat(PerkID.KILL_MONS_BONUS));
         this._state = GameState.PLAYING;
     }
 
@@ -132,7 +138,7 @@ public class MageDiceGameManager : MonoSingleton<MageDiceGameManager>
     }
     private BoosterCommodity GetCoinReward(int waveConplete)
     {
-        long prizePerWave = this._gameData.roomConfig.prizePerWave.GetValue();
+        long prizePerWave = this._gameData.roomConfig.prizePerWave.GetValue()+ (long)PerkDatas.Instance.GetCurrentStat(PerkID.WAVE_REWARD);
         long value = prizePerWave * waveConplete;
         for (int i = 1; i < waveConplete / 10; i++)
         {

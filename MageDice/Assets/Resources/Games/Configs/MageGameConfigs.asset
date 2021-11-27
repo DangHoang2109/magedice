@@ -29,7 +29,7 @@ MonoBehaviour:
     initCoin: 200
     addCoinKillMons: 2
     addCoinSkipWave: 0
-    recoverHPEachWave: 0
+    recoverHPEachWave: 20
     chance2SpotDice: 0
     chanceCriticalAtk: 0
     timeChargeMana: 0
