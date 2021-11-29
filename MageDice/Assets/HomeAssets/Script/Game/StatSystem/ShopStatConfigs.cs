@@ -150,7 +150,7 @@ public class ShopStatConfigs : ScriptableObject
 
         List<float> statToLisr = new List<float>() { stat.damageStrength, stat.rangeStrength, stat.speedStrength, stat.timeEffectStrength };
 
-        stat.damageStrength = Mathf.CeilToInt(statToLisr[0] * 1.05f);
+        stat.damageStrength = Mathf.CeilToInt(statToLisr[0] * 1.1f);
         stat.rangeStrength = statToLisr[1];
         stat.speedStrength = statToLisr[2];
         stat.timeEffectStrength = statToLisr[3];

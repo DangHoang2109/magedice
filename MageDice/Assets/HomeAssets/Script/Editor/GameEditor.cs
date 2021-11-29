@@ -55,7 +55,12 @@ public static class GameEditor
     {
         UserProfile.Instance.AddBooster(new BoosterCommodity(BoosterType.CASH, 100), "cheat","cheat 100 cashs");
     }
-    
+    [MenuItem("Cheats/Boosters/Add 1G cash")]
+    private static void CheatAdd1GCash()
+    {
+        UserProfile.Instance.AddBooster(new BoosterCommodity(BoosterType.CASH, 1000000000), "cheat", "cheat 1g cash");
+    }
+
     [MenuItem("Cheats/Boosters/Sub 100 coin")]
     private static void CheatSub100Coin()
     {

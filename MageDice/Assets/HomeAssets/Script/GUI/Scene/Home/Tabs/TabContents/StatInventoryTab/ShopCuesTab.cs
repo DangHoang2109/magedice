@@ -83,6 +83,7 @@ public class ShopCuesTab : TabContent
             for (int i = continueIndex; i < _datas.Count; i++)
             {
                 RectTransform r = TakeItemFromPool();
+                r.gameObject.SetActive(true);
                 r.SetParent(this.tfContent);
                 r.SetAsLastSibling();
                 this.ParseItem(r, i);

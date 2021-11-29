@@ -9,6 +9,8 @@ public class InventoryStatSlot : MonoBehaviour
     private StatData _data;
 
     public TextMeshProUGUI tmpLevel;
+
+    public InventoryDiceItem displayer;
     public Image imgDice;
 
     public void ParseData(StatData _data)
@@ -20,8 +22,23 @@ public class InventoryStatSlot : MonoBehaviour
     {
         if(this._data != null)
         {
-            this.imgDice.sprite = _data.config.sprStatItem;
+            if(this.imgDice != null)
+                this.imgDice.sprite = _data.config.sprStatItem;
+
             this.tmpLevel.SetText($"LV {_data.level}");
+
+            if(this.displayer != null)
+            {
+                BaseDiceData diceData = new BaseDiceData();
+                diceData.SetData<BaseDiceData>(this._data.id);
+
+                this.displayer.SetData(diceData);
+            }
         }
+    }
+    public void SetClick(System.Action<DiceID> onClick)
+    {
+        if (this.displayer != null)
+            this.displayer.SetCallback(onClick);
     }
 }

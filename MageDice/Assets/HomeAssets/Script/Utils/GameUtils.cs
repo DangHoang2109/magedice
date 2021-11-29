@@ -249,7 +249,7 @@ public static class GameUtils
             {
                 case BoosterType.COIN:
                     NeedMoreCoinDialogs dialog =
-                        GameManager.Instance.OnShowDialogWithSorting<NeedMoreCoinDialogs>("Home/GUI/Dialogs/NeedMoreCoin/NeedMoreCoinDialog",
+                        GameManager.Instance.OnShowDialogWithSorting<NeedMoreCoinDialogs>("Home/GUI/NeedMoreCoin/NeedMoreCoinDialog",
                             PopupSortingType.CenterBottomAndTopBar);
                     dialog.ParseData(booster.GetValue(), "Win_Steak", () =>
                     {
@@ -258,7 +258,7 @@ public static class GameUtils
                     break;
                 case BoosterType.CASH:
                     NeedMoreGemDialog dialog2 =
-                    GameManager.Instance.OnShowDialogWithSorting<NeedMoreGemDialog>("GUI/Dialogs/NeedMoreGem/NeedMoreGemDialog",
+                    GameManager.Instance.OnShowDialogWithSorting<NeedMoreGemDialog>("Home/GUI/NeedMoreGem/NeedMoreGemDialog",
                         PopupSortingType.CenterBottomAndTopBar);
                     dialog2.ParseData(booster);
                     dialog2.OnClosed += () => callback?.Invoke();

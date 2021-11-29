@@ -14,6 +14,8 @@ public class BaseMonsterBehavior : BasePersonBehavior
 
     public float FutureHP { get => _futureHP;}
     public float CurrentHP => this._currentHP;
+    public float HPRation => CurrentHP / _maxHP;
+
     public long GiftedCoin { get => _giftedCoin; set => _giftedCoin = value; }
 
     protected float _futureHP; //HP sau khi đòn tấn công sắp tới sẽ được hoàn thành
@@ -25,6 +27,7 @@ public class BaseMonsterBehavior : BasePersonBehavior
 
     protected bool _isPause;
     protected bool _isAttacking;
+    protected bool isBoss;
     protected Coroutine ieAttacking;
     protected MageBehavior _mage;
     protected MageBehavior Mage
@@ -36,6 +39,10 @@ public class BaseMonsterBehavior : BasePersonBehavior
             return _mage;
         }
     }
+
+    public bool IsBoss { get => isBoss;}
+
+    public float DistanceRation => Mathf.Abs(this.transform.position.y / TowerPoint.y);
     public override void Spawned(PersonGameData config)
     {
         _isPause = true;
@@ -52,6 +59,8 @@ public class BaseMonsterBehavior : BasePersonBehavior
         _speed = config.CurrentSpeed;
 
         MonsterGameData monsterConfig = config as MonsterGameData;
+        isBoss = monsterConfig.IsBoss;
+
         imgFront.sprite = monsterConfig.config.UI.spr;
         this.transform.localScale = new Vector3(monsterConfig.config.UI.scale, monsterConfig.config.UI.scale);
 
@@ -103,15 +112,17 @@ public class BaseMonsterBehavior : BasePersonBehavior
     {
         _futureHP -= damage;
     }
-    public override void Hitted(float damage)
+    public override bool Hitted(float damage)
     {
         if (IsDead())
-            return;
+            return true;
 
         base.Hitted(damage);
         this._futureHP = this._currentHP;
 
         ShowDamage(damage);
+
+        return IsDead();
     }
     protected override void Dead()
     {

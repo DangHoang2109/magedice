@@ -109,6 +109,15 @@ public class MageDiceGameManager : MonoSingleton<MageDiceGameManager>
     {
         return this.CoinController.BuyDice();
     }
+    public void OnAddHP(float hpAdd)
+    {
+        this.Mage.AddHP(hpAdd);
+    }
+    public void OnAddCoin(long coin)
+    {
+        this.CoinController.AddCoin(coin);
+    }
+
     public void OnKillMonster(long monsCoin)
     {
         this.CoinController.AddCoin(monsCoin + Mage.AddCoinKillMons);

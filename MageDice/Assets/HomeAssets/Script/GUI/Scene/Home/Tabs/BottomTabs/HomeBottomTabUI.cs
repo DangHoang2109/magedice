@@ -69,7 +69,7 @@ public class HomeBottomTabUI : MonoBehaviour
         Sequence seq = DOTween.Sequence();
         seq.Join(this.canvasGroup.DOFade(onShow ? 1 : 0.6f, 0.4f));
         seq.Join(this.icon.transform.DOLocalMoveY(onShow ? 16 : 6, 0.4f));
-        seq.Join(this.icon.DOColor(onShow ? Color.green : Color.white, 0.4f));
+        seq.Join(this.icon.DOColor(onShow ? Color.white : Color.grey, 0.4f));
         seq.Join(this.icon.transform.DOScale(onShow ? Vector3.one : new Vector3(0.95f, 0.95f), 0.4f));
         seq.Join(this.tmpName.DOColor(onShow ? Color.green : Color.white, 0.4f));
         seq.Join(this.tmpName.transform.DOScale(onShow ? Vector3.one : new Vector3(1, 0), 0.4f));

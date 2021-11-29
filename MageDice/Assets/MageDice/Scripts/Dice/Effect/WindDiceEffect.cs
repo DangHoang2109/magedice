@@ -11,10 +11,10 @@ public class WindDiceEffect : BaseDiceEffect
         this.ShootBullet(3);
     }
 
-    public override void BulletEffect(BaseMonsterBehavior enemy)
+    public override void BulletEffect(BaseMonsterBehavior enemy, float damage)
     {
-        base.BulletEffect(enemy);
+        base.BulletEffect(enemy, damage);
 
-        enemy.Hitted(this.Damage);
+        enemy.Hitted(damage);
     }
 }

@@ -124,20 +124,23 @@ public class StoreDealCardItem : StoreItem
                 }
                 else
                 {
-                    if (price.type == BoosterType.CASH)
-                    {
-                        NeedMoreGemDialog dialog =
-                        GameManager.Instance.OnShowDialogWithSorting<NeedMoreGemDialog>("Home/GUI/Dialogs/NeedMoreGem/NeedMoreGemDialog",
-                            PopupSortingType.CenterBottomAndTopBar);
-                        dialog?.ParseData(price);
-                    }
-                    else
-                    {
-                        NeedMoreCoinDialogs dialog =
-                        GameManager.Instance.OnShowDialogWithSorting<NeedMoreCoinDialogs>("Home/GUI/Dialogs/NeedMoreCoin/NeedMoreCoinDialog",
-                            PopupSortingType.CenterBottomAndTopBar);
-                        dialog?.ParseData(price.GetValue(), "DEAL_CARD");
-                    }
+                    GameUtils.ShowNeedMoreBooster(price);
+
+                    //if (price.type == BoosterType.CASH)
+                    //{
+
+                    //    NeedMoreGemDialog dialog =
+                    //    GameManager.Instance.OnShowDialogWithSorting<NeedMoreGemDialog>("Home/GUI/Dialogs/NeedMoreGem/NeedMoreGemDialog",
+                    //        PopupSortingType.CenterBottomAndTopBar);
+                    //    dialog?.ParseData(price);
+                    //}
+                    //else
+                    //{
+                    //    NeedMoreCoinDialogs dialog =
+                    //    GameManager.Instance.OnShowDialogWithSorting<NeedMoreCoinDialogs>("Home/GUI/Dialogs/NeedMoreCoin/NeedMoreCoinDialog",
+                    //        PopupSortingType.CenterBottomAndTopBar);
+                    //    dialog?.ParseData(price.GetValue(), "DEAL_CARD");
+                    //}
                 }
             }
             else

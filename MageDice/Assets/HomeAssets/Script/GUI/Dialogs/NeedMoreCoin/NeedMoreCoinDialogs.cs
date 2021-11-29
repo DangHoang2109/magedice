@@ -42,10 +42,12 @@ public class NeedMoreCoinDialogs : BaseSortingDialog
         }
         else
         {
-            NeedMoreGemDialog dialog =
-                GameManager.Instance.OnShowDialogWithSorting<NeedMoreGemDialog>("Home/GUI/Dialogs/NeedMoreGem/NeedMoreGemDialog",
-                    PopupSortingType.CenterBottomAndTopBar);
-            dialog?.ParseData(new BoosterCommodity(BoosterType.CASH, this.gem));
+            GameUtils.ShowNeedMoreBooster(new BoosterCommodity( BoosterType.CASH, this.gem));
+
+            //NeedMoreGemDialog dialog =
+            //    GameManager.Instance.OnShowDialogWithSorting<NeedMoreGemDialog>("Home/GUI/Dialogs/NeedMoreGem/NeedMoreGemDialog",
+            //        PopupSortingType.CenterBottomAndTopBar);
+            //dialog?.ParseData(new BoosterCommodity(BoosterType.CASH, this.gem));
         }
     }
 }

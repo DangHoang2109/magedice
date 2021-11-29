@@ -424,6 +424,18 @@ public class StatManager : MonoSingleton<StatManager>
             return results;
         }
     }
+
+    /// <summary>
+    /// take current cue's stats
+    /// </summary>
+    public List<StatData> CurrentCue
+    {
+        get
+        {
+            List<StatData> currentCue = StatDatas.Instance.GetCurrentCue();
+            return currentCue;
+        }
+    }
     //public StatItemStats CurrentCueStats
     //{
     //    get
@@ -698,25 +710,40 @@ public class StatManager : MonoSingleton<StatManager>
             {
                 case Constant.CUE_NOT_ENOUGH_MONEY:
                     needProcFail = false;
-                    NeedMoreCoinDialogs dM =
-                        GameManager.Instance.OnShowDialogWithSorting<NeedMoreCoinDialogs>(
-                            "Home/GUI/Dialogs/NeedMoreCoin/NeedMoreCoinDialog",
-                            PopupSortingType.CenterBottomAndTopBar);
-                    dM?.ParseData(cue.UpgradePrice
-                             - UserBoosters.Instance.GetBoosterCommodity(BoosterType.COIN).GetValue(),
-                        string.Format("BuyCue_{0}", cue.id),
+
+                    BoosterCommodity value = new BoosterCommodity(BoosterType.COIN, cue.UpgradePrice - UserBoosters.Instance.GetBoosterCommodity(BoosterType.COIN).GetValue());
+                    GameUtils.ShowNeedMoreBooster(value,
                         () =>
                         {
                             this.BuyCue(cue, onSuccess, onFail);
                         });
+
+                    //NeedMoreCoinDialogs dM =
+                    //    GameManager.Instance.OnShowDialogWithSorting<NeedMoreCoinDialogs>(
+                    //        "Home/GUI/Dialogs/NeedMoreCoin/NeedMoreCoinDialog",
+                    //        PopupSortingType.CenterBottomAndTopBar);
+                    //dM?.ParseData(cue.UpgradePrice
+                    //         - UserBoosters.Instance.GetBoosterCommodity(BoosterType.COIN).GetValue(),
+                    //    string.Format("BuyCue_{0}", cue.id),
+                    //    () =>
+                    //    {
+                    //        this.BuyCue(cue, onSuccess, onFail);
+                    //    });
                     break;
                 case Constant.CUE_NOT_ENOUGH_CASH:
-                    NeedMoreGemDialog dG =
-                        GameManager.Instance.OnShowDialogWithSorting<NeedMoreGemDialog>(
-                            "Home/GUI/Dialogs/NeedMoreGem/NeedMoreGemDialog",
-                            PopupSortingType.CenterBottomAndTopBar);
-                    dG?.ParseData(new BoosterCommodity(BoosterType.CASH, cue.UpgradePrice
-                            - UserBoosters.Instance.GetBoosterCommodity(BoosterType.CASH).GetValue()));
+                    BoosterCommodity gemNeed = new BoosterCommodity(BoosterType.CASH, cue.UpgradePrice - UserBoosters.Instance.GetBoosterCommodity(BoosterType.CASH).GetValue());
+                    GameUtils.ShowNeedMoreBooster(gemNeed,
+                    () =>
+                    {
+                        this.BuyCue(cue, onSuccess, onFail);
+                    });
+
+                    //NeedMoreGemDialog dG =
+                    //    GameManager.Instance.OnShowDialogWithSorting<NeedMoreGemDialog>(
+                    //        "Home/GUI/Dialogs/NeedMoreGem/NeedMoreGemDialog",
+                    //        PopupSortingType.CenterBottomAndTopBar);
+                    //dG?.ParseData(new BoosterCommodity(BoosterType.CASH, cue.UpgradePrice
+                    //        - UserBoosters.Instance.GetBoosterCommodity(BoosterType.CASH).GetValue()));
                     break;
             }
 
@@ -756,34 +783,58 @@ public class StatManager : MonoSingleton<StatManager>
             {
                 case Constant.CUE_NOT_ENOUGH_CARDS:
                     long cardLack = cue.RequirementCard - cue.cards;
-                    Notification.Instance.ShowNotification(string.Format(LanguageManager.GetString("CUE_NEEDMORECARD", LanguageCategory.Feature), cardLack));
-
-                    if (this.isHome)
+                    NeedMoreCardDialog dialog =
+                        GameManager.Instance.OnShowDialogWithSorting<NeedMoreCardDialog>("Home/GUI/NeedMoreCard/NeedMoreCardDialog",
+                            PopupSortingType.CenterBottomAndTopBar);
+                    dialog.ParseData((int)cardLack, cue, "Need_More", () =>
                     {
-                        HomeTabs.Instance.MoveToTab(HomeTabName.STORE);
-                    }
+                        UpgradeCue(cue, onSuccess, onFail);
+                    });
+
+                    //Notification.Instance.ShowNotification(string.Format(LanguageManager.GetString("CUE_NEEDMORECARD", LanguageCategory.Feature), cardLack));
+
+                    //if (this.isHome)
+                    //{
+                    //    HomeTabs.Instance.MoveToTab(HomeTabName.STORE);
+                    //}
                     break;
                 case Constant.CUE_NOT_ENOUGH_MONEY:
                     needProcFail = false;
-                    NeedMoreCoinDialogs dM =
-                        GameManager.Instance.OnShowDialogWithSorting<NeedMoreCoinDialogs>(
-                            "Home/GUI/Dialogs/NeedMoreCoin/NeedMoreCoinDialog",
-                            PopupSortingType.CenterBottomAndTopBar);
-                    dM?.ParseData(cue.UpgradePrice
-                        - UserBoosters.Instance.GetBoosterCommodity(BoosterType.COIN).GetValue(),
-                        string.Format("UpgradeCue_{0}", cue.id),
+
+                    BoosterCommodity value = new BoosterCommodity(BoosterType.COIN, cue.UpgradePrice - UserBoosters.Instance.GetBoosterCommodity(BoosterType.COIN).GetValue());
+                    GameUtils.ShowNeedMoreBooster(value,
                         () =>
                         {
                             this.UpgradeCue(cue, onSuccess, onFail);
                         });
+
+                    //NeedMoreCoinDialogs dM =
+                    //    GameManager.Instance.OnShowDialogWithSorting<NeedMoreCoinDialogs>(
+                    //        "Home/GUI/Dialogs/NeedMoreCoin/NeedMoreCoinDialog",
+                    //        PopupSortingType.CenterBottomAndTopBar);
+                    //dM?.ParseData(cue.UpgradePrice
+                    //    - UserBoosters.Instance.GetBoosterCommodity(BoosterType.COIN).GetValue(),
+                    //    string.Format("UpgradeCue_{0}", cue.id),
+                    //    () =>
+                    //    {
+                    //        this.UpgradeCue(cue, onSuccess, onFail);
+                    //    });
                     break;
                 case Constant.CUE_NOT_ENOUGH_CASH:
-                    NeedMoreGemDialog dG =
-                        GameManager.Instance.OnShowDialogWithSorting<NeedMoreGemDialog>(
-                            "Home/GUI/Dialogs/NeedMoreGem/NeedMoreGemDialog",
-                            PopupSortingType.CenterBottomAndTopBar);
-                    dG?.ParseData(new BoosterCommodity(BoosterType.CASH, cue.UpgradePrice
-                         - UserBoosters.Instance.GetBoosterCommodity(BoosterType.CASH).GetValue()));
+                    BoosterCommodity gemNeed = new BoosterCommodity(BoosterType.CASH, cue.UpgradePrice - UserBoosters.Instance.GetBoosterCommodity(BoosterType.CASH).GetValue());
+                    GameUtils.ShowNeedMoreBooster(gemNeed,
+                    () =>
+                    {
+                        this.UpgradeCue(cue, onSuccess, onFail);
+                    });
+
+
+                    //NeedMoreGemDialog dG =
+                    //    GameManager.Instance.OnShowDialogWithSorting<NeedMoreGemDialog>(
+                    //        "Home/GUI/Dialogs/NeedMoreGem/NeedMoreGemDialog",
+                    //        PopupSortingType.CenterBottomAndTopBar);
+                    //dG?.ParseData(new BoosterCommodity(BoosterType.CASH, cue.UpgradePrice
+                    //     - UserBoosters.Instance.GetBoosterCommodity(BoosterType.CASH).GetValue()));
                     break;
             }
 
@@ -826,6 +877,17 @@ public class StatManager : MonoSingleton<StatManager>
         GameDataManager.Instance.SaveUserData();
 
         this.OnCueChanged?.Invoke(cue);
+    }
+    /// <summary>
+    /// switch to use this cue
+    /// </summary>
+    public void ChangeCue(List<DiceID> ids, System.Action<string> onSuccess = null, System.Action<string> onFail = null)
+    {
+        StatDatas.Instance.ChangeCurrentStat(ids);
+        onSuccess?.Invoke(string.Empty);
+        GameDataManager.Instance.SaveUserData();
+
+        this.OnCueChanged?.Invoke(CurrentCue);
     }
 
     /// <summary>

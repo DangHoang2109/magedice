@@ -27,7 +27,13 @@ public class MonsterGameData : PersonGameData
 
     public MonsterConfig config;
 
-
+    public bool IsBoss
+    {
+        get
+        {
+            return (int)this.ID / 10 == 2;
+        }
+    }
 
     public MonsterGameData(MonsterConfig c) : base(c)
     {
@@ -43,6 +49,7 @@ public class MonsterGameData : PersonGameData
 
         Debug.Log($"Upgrade hp to {currentHP}");
     }
+
 }
 public class MonsterManager : MonoSingleton<MonsterManager>
 {

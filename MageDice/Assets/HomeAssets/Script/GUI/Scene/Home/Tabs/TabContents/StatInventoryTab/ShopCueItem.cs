@@ -98,8 +98,7 @@ public class ShopCueItem : MonoBehaviour, IIndexable
             this.txtCueName.text = data.config.statName;
 
         this.imgCue.sprite = data.config.sprStatItem;
-        //var tier = data.config.tier;
-        //this.imgBg.color = ShopCueRef.Instance.GetColorTier(tier).colorDark;
+        this.imgBg.sprite = GameAssetsConfigs.Instance.cardAsset.GetCardAsset(data.config.tier).sprCard;
 
         this.Refresh(StatManager.Instance.CurrentStatId);
         
@@ -132,6 +131,7 @@ public class ShopCueItem : MonoBehaviour, IIndexable
 #endif
     private void Refresh(List<DiceID> usingStat)
     {
+
         switch (this._data.kind)
         {
             case StatManager.Kind.NotUnlocked:

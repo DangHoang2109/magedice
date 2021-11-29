@@ -286,7 +286,8 @@ public class LogSinkWhere
     public const string SHOP_BUY_CARD = "Shop_Buy_Card";
     public const string SHOP_BUY_DEAL_CUE = "Shop_Buy_Deal_Cue";
     public const string NEED_MORE_COIN = "Need_More_Coin";
-
+    public const string NEED_MORE_CARD = "Need_More_Card";
+    
 
     public const string BUY_CHARACTER = "Buy_Character";
     public const string BUY_SKIN = "Buy_Skin";
@@ -302,4 +303,6 @@ public class LogSinkWhere
     public const string PLAY_WINSTEAK = "Play_WinSteak";
     public const string RESET_WINSTEAK = "Reset_WinSteak";
     public const string CONTINUE_WINSTEAK = "Continue_WinSteak";
+
+
 }

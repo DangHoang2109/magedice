@@ -22,7 +22,7 @@ public class BaseBullet : MonoBehaviour
     bool isFlying;
     public bool IsFlying => this.isFlying;
 
-    private System.Action<BaseMonsterBehavior> effectHitted;
+    private System.Action<BaseMonsterBehavior, float> effectHitted;
 
     public BaseBullet SetUI(DiceBulletStateConfig ui)
     {
@@ -51,7 +51,7 @@ public class BaseBullet : MonoBehaviour
 
         return this;
     }
-    public BaseBullet SetHitEffect(System.Action<BaseMonsterBehavior> enemy)
+    public BaseBullet SetHitEffect(System.Action<BaseMonsterBehavior, float> enemy)
     {
         this.effectHitted = enemy;
         return this;
@@ -91,7 +91,7 @@ public class BaseBullet : MonoBehaviour
         //show annimation
 
         //do effect
-        this.effectHitted?.Invoke(this.Enemy);
+        this.effectHitted?.Invoke(this.Enemy, _damage);
 
         BulletManager.Instance.UnregisterBullet(this);
     }

@@ -167,11 +167,13 @@ public class BagInfoDialog : BaseSortingDialog
         }
         else
         {
-            NeedMoreGemDialog dialog =
-                GameManager.Instance.OnShowDialogWithSorting<NeedMoreGemDialog>("Home/GUI/Dialogs/NeedMoreGem/NeedMoreGemDialog",
-                    PopupSortingType.CenterBottomAndTopBar);
-            dialog?.ParseData(this.bagSlotData.bstUnlock);
-            Debug.LogError("Not enought cash, go to shop");
+            GameUtils.ShowNeedMoreBooster(this.bagSlotData.bstUnlock);
+
+            //NeedMoreGemDialog dialog =
+            //    GameManager.Instance.OnShowDialogWithSorting<NeedMoreGemDialog>("Home/GUI/Dialogs/NeedMoreGem/NeedMoreGemDialog",
+            //        PopupSortingType.CenterBottomAndTopBar);
+            //dialog?.ParseData(this.bagSlotData.bstUnlock);
+            //Debug.LogError("Not enought cash, go to shop");
             
             this.OnButtonOpenNowClicked?.Invoke(false);
         }

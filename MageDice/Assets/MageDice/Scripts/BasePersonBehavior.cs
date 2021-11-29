@@ -22,7 +22,7 @@ public class BasePersonBehavior : MonoBehaviour
         HPBar.ParseData(max: _maxHP, current: _currentHP);
     }
 
-    public virtual void Hitted(float damage)
+    public virtual bool Hitted(float damage)
     {
         this._currentHP -= damage;
         
@@ -31,7 +31,11 @@ public class BasePersonBehavior : MonoBehaviour
         if (IsDead())
         {
             Dead();
+            return true;
         }
+
+
+        return false;
     }
     public virtual void AddHP(float hp)
     {

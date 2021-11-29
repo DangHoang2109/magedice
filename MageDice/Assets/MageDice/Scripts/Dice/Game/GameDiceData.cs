@@ -37,6 +37,7 @@ public class GameDiceData : BaseDiceData
         this.diceEffect.diceStat = userStat;
         this.diceEffect.UIConfig = this.Config.Game.bullet;
         this.diceEffect.diceBoosterDamage = diceBoosterPercent;
+        this.diceEffect.dot = this.Dot;
         return this as T;
     }
 
@@ -52,6 +53,14 @@ public class GameDiceData : BaseDiceData
         this.diceEffect.ActiveEffect();
     }
 
+    public virtual void OnMerged()
+    {
+        this.diceEffect.EffectWhenMerged();
+    }
+    public virtual void OnSpawned()
+    {
+        this.diceEffect.EffectWhenSpawned();
+    }
     public void onChangeDiceBoosterPercent(float newValue)
     {
         Debug.Log("CB change booster percent to  " + newValue);

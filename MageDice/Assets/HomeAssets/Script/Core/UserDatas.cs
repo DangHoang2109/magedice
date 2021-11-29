@@ -25,6 +25,8 @@ public class UserDatas
         this.info = new UserInfo();
         this.careers = new UserCareers();
         this.languages = new UserLanguageData();
+        this.perkDatas = new PerkDatas(); 
+            
         //this.wheel = new UserWheelData();
     }
    public void CreateUser()

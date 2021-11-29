@@ -11,11 +11,11 @@ public class ElectricDiceEffect : BaseDiceEffect
         this.ShootBullet(1);
     }
 
-    public override void BulletEffect(BaseMonsterBehavior enemy)
+    public override void BulletEffect(BaseMonsterBehavior enemy, float damage)
     {
-        base.BulletEffect(enemy);
+        base.BulletEffect(enemy, damage);
 
-        enemy.Hitted(this.Damage);
+        enemy.Hitted(damage);
 
         List<BaseMonsterBehavior> elecEfft = MonsterManager.Instance.GetNearestMonsters(2, enemy.transform, enemy.Id);
         if(elecEfft != null && elecEfft.Count > 0)

@@ -29,6 +29,13 @@ public class InventoryStatDeck : MonoBehaviour
         {
             slots[i].ParseData(stats[i]);
         }
+    }
 
+    public void SetClick(System.Action<DiceID> onClick)
+    {
+        for (int i = 0; i < slots.Count; i++)
+        {
+            slots[i].SetClick(onClick);
+        }
     }
 }

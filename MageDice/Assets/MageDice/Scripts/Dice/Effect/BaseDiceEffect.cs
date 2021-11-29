@@ -8,6 +8,8 @@ public class BaseDiceEffect
     public StatItemStats diceStat;
     public DiceBulletConfig UIConfig;
 
+    public int dot;
+
     public float diceBoosterDamage;
 
     protected float perkBulletDamage, perkBulletSpeed, perkBulletCritical;
@@ -17,14 +19,19 @@ public class BaseDiceEffect
 
     public float CriticalDamage => Damage * 3;
 
-    public bool RandomCritical => Random.value <= perkBulletCritical;
+    public virtual bool RandomCritical => Random.value <= perkBulletCritical;
+    public virtual bool IsCanMergeWithAny => false;
 
     public virtual DiceID ID => DiceID.NONE;
     public virtual void ActiveEffect()
     {
     }
 
-    public virtual void ShootBullet(int amount)
+    protected virtual float ActualDamage(bool isCritical) 
+    {
+        return isCritical ? CriticalDamage : Damage;
+    }
+    public virtual void ShootBullet(int amount = 1)
     {
         try
         {
@@ -34,23 +41,23 @@ public class BaseDiceEffect
 
             if(monsters != null && monsters.Count > 0)
             {
-                List<BaseBullet> bs = BulletPoolManager.Instance.GetBullets(monsters.Count);
+                List<BaseBullet> bullet = BulletPoolManager.Instance.GetBullets(monsters.Count);
 
-                if (bs != null && bs.Count > 0)
+                if (bullet != null && bullet.Count > 0)
                 {
-                    for (int i = 0; i < bs.Count; i++)
+                    for (int i = 0; i < bullet.Count; i++)
                     {
                         BaseMonsterBehavior m = i >= monsters.Count ? monsters[0] : monsters[i];
 
                         bool isCritical = RandomCritical;
-                        bs[i].SetData(Speed, isCritical ? CriticalDamage : Damage, isCritical)
+                        bullet[i].SetData(Speed, this.ActualDamage(isCritical), isCritical)
                             .SetUI(this.UIConfig.normalBullet)
                             .SetEnemy(i >= monsters.Count ? monsters[0] : monsters[i])
                             .SetHitEffect(this.BulletEffect);
                     }
                 }
 
-                BulletManager.Instance.RegisterBullets(bs, true);
+                BulletManager.Instance.RegisterBullets(bullet, true);
             }
         }
         catch(System.Exception e)
@@ -58,7 +65,16 @@ public class BaseDiceEffect
             Debug.LogError(e.StackTrace);
         }
     }
-    public virtual void BulletEffect(BaseMonsterBehavior enemy)
+    public virtual void BulletEffect(BaseMonsterBehavior enemy, float damage)
+    {
+
+    }
+
+    public virtual void EffectWhenMerged()
+    {
+
+    }
+    public virtual void EffectWhenSpawned()
     {
 
     }

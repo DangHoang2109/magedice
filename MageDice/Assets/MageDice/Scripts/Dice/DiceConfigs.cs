@@ -39,8 +39,45 @@ public class DiceConfigs : ScriptableObject
         //    }
         //}
     }
+    [ContextMenu("Load dice config")]
+    private void LoadDiceConfig()
+    {
+        string fontPath = string.Format("Assets/MageDice/Images/Dice/DiceFrontground/");
+        List<Sprite> fontSpr = GameUtils.LoadAllAssetsInFolder<Sprite>(fontPath, new List<string> { "*.png" });
 
-    [ContextMenu("Load Sprite")]
+        DiceConfig baseC = this.config[0];
+        for (int i = 6; i <= 22; i++)
+        {
+            DiceID id = (DiceID)i;
+            DiceConfig config = new DiceConfig()
+            {
+                id = id,
+                Game = new DiceGameConfig()
+                {
+                    id = id,
+                    levels = new List<DiceGameLevelConfig>(baseC.Game.levels).ToArray(),
+                    bullet = new DiceBulletConfig()
+                    {
+                        normalBullet = new DiceBulletStateConfig(),
+                        rageBullet = new DiceBulletStateConfig(),
+                    }
+                },
+                Info = new DiceInfoConfig()
+                {
+                    id = id,
+                    name = id.ToString(),
+                    front = fontSpr.Find(x => x.name.Equals($"Dice_{id}")),
+                    effectDescription = ShopStatConfigs.Instance.GetConfig(id).skillDescription,
+                    dotColor = baseC.Info.dotColor
+                }
+            };
+
+            this.config.Add(config);
+        }
+
+
+    }
+    [ContextMenu("Load bullet sprite")]
     private void LoadBulletSprite()
     {
         string fontPath = string.Format("Assets/MageDice/Images/Bullet/Font/");
@@ -115,23 +152,23 @@ public enum DiceID
     [Type(typeof(PoisionDiceEffect))]
     POISION,
 
-    [Type(typeof(PoisionDiceEffect))]
+    [Type(typeof(IronDiceEffect))]
     IRON, 
-    [Type(typeof(PoisionDiceEffect))]
+    [Type(typeof(GaleDiceEffect))]
     GALE,
-    [Type(typeof(PoisionDiceEffect))]
+    [Type(typeof(ArrowDiceEffect))]
     ARROW, 
-    [Type(typeof(PoisionDiceEffect))]
+    [Type(typeof(MineDiceEffect))]
     MINE, 
-    [Type(typeof(PoisionDiceEffect))]
+    [Type(typeof(CriticalDiceEffect))]
     CRITICAL,
-    [Type(typeof(PoisionDiceEffect))]
+    [Type(typeof(EnergyDiceEffect))]
     ENERGY, 
-    [Type(typeof(PoisionDiceEffect))]
+    [Type(typeof(GiftDiceEffect))]
     GIFT,
-    [Type(typeof(PoisionDiceEffect))]
+    [Type(typeof(SlingshotDiceEffect))]
     SLINGSHOT,
-    [Type(typeof(PoisionDiceEffect))]
+    [Type(typeof(Light))]
     LIGHT, 
     [Type(typeof(PoisionDiceEffect))]
     ABSORD, 
@@ -145,9 +182,9 @@ public enum DiceID
     FLAME,
     [Type(typeof(PoisionDiceEffect))]
     HEAL,
-    [Type(typeof(PoisionDiceEffect))]
+    [Type(typeof(WaveDiceEffect))]
     WAVE,
-    [Type(typeof(PoisionDiceEffect))]
+    [Type(typeof(InfectDiceEffect))]
     INFECT,
 }
 [System.Serializable]
@@ -186,6 +223,11 @@ public class DiceGameConfig
     public DiceID id;
     public DiceGameLevelConfig[] levels;
     public DiceBulletConfig bullet;
+
+    public DiceGameConfig()
+    {
+
+    }
 }
 [System.Serializable]
 public class DiceGameLevelConfig

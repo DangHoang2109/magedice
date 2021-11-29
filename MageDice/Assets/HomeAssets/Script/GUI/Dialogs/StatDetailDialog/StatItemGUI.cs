@@ -9,19 +9,27 @@ public class StatItemGUI : MonoBehaviour
     public Image imgRarity;
     public TextMeshProUGUI tmpRarity;
     public TextMeshProUGUI tmpStatName;
+    public TextMeshProUGUI tmpStatLevel;
 
+    public Image imgBg;
     
     public void ParseData(StatData c)
     {
-        //this.imgFrame.color = ShopCueRef.Instance.GetColorTier(c.config?.tier ?? CueManager.Tier.Standard)
-        //    ?.colorLight?? Color.white;
         if (tmpStatName != null)
             tmpStatName.SetText(c.config.statName);
 
+        if (tmpStatLevel != null)
+            tmpStatLevel.SetText(c.IsMaxLevel ? "MAX" : $"LV.{c.level}");
+
+        TierAssetConfig config = TierAssetConfigs.Instance.GetCardAsset(c.config.tier);
         if (imgRarity != null)
-            imgRarity.color = TierAssetConfigs.Instance.GetCardAsset(c.config.tier).color;
+            imgRarity.color = config.color;
+
         if (tmpRarity != null)
-            tmpRarity.SetText(TierAssetConfigs.Instance.GetCardAsset(c.config.tier).name) ;
+            tmpRarity.SetText(config.name) ;
+
+        if (imgBg != null)
+            imgBg.sprite = config.sprCard;
 
         this.imgStat.sprite = c.config?.sprStatItem;
     }

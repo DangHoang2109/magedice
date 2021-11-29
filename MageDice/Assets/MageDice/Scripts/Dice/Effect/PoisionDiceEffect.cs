@@ -11,11 +11,11 @@ public class PoisionDiceEffect : BaseDiceEffect
         this.ShootBullet(1);
     }
 
-    public override void BulletEffect(BaseMonsterBehavior enemy)
+    public override void BulletEffect(BaseMonsterBehavior enemy, float damage)
     {
-        base.BulletEffect(enemy);
+        base.BulletEffect(enemy, damage);
 
-        enemy.Hitted(this.Damage);
+        enemy.Hitted(damage);
         enemy.Poision(this.diceStat.timeEffectStrength, this.diceStat.timeEffectStrength / 5, Mathf.Floor(this.Damage / 10) <= 0 ? 1f : Mathf.Floor(this.Damage / 10));
     }
 }

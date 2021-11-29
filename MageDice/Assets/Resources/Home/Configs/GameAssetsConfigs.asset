@@ -33,50 +33,52 @@ MonoBehaviour:
   roomAssets:
     roomAssets:
     - id: 1
-      sprIcons: []
+      sprIcons:
+      - {fileID: 21300000, guid: 3b11cf7afedec1842b2b89bcadff279b, type: 3}
+      - {fileID: 21300000, guid: 70410802d1b04c34dbb094c8a0c43fab, type: 3}
       sprMask: {fileID: 21300000, guid: 910cd063dc62e864588445d112f0a6fc, type: 3}
       colorRoom: {r: 0.022427924, g: 0.6792453, b: 0.44822675, a: 1}
     - id: 2
       sprIcons:
-      - {fileID: 21300000, guid: 085103621025a83489a7300aca67ce49, type: 3}
-      - {fileID: 21300000, guid: 406139e93daca4145bd3b45b115af311, type: 3}
-      sprMask: {fileID: 21300000, guid: 454fb54ba0136b94f92b996be9a967f1, type: 3}
-      colorRoom: {r: 0.069686726, g: 0.46974015, b: 0.5471698, a: 1}
+      - {fileID: 21300000, guid: 1ed463bdf1e3c034cb93a05494e797e5, type: 3}
+      - {fileID: 21300000, guid: 3f8dd5262a3f6794d89d998c277d144a, type: 3}
+      sprMask: {fileID: 21300000, guid: 910cd063dc62e864588445d112f0a6fc, type: 3}
+      colorRoom: {r: 0.9568628, g: 0.69803923, b: 0.32156864, a: 1}
     - id: 3
       sprIcons:
-      - {fileID: 21300000, guid: c5ef9c691b87a1e43a4d103ca40881dd, type: 3}
-      - {fileID: 21300000, guid: 13454477cde10f74fb4f97bf96037799, type: 3}
-      sprMask: {fileID: 21300000, guid: 8092348b7633601429ebfdd49adfc0f9, type: 3}
+      - {fileID: 21300000, guid: 8a15b559bf03bdd4da7dbb71a31614f9, type: 3}
+      - {fileID: 21300000, guid: 151e29bf961899347ba107fc0aa75084, type: 3}
+      sprMask: {fileID: 21300000, guid: 910cd063dc62e864588445d112f0a6fc, type: 3}
       colorRoom: {r: 0.11360805, g: 0.38457197, b: 0.6509434, a: 1}
     - id: 4
       sprIcons:
-      - {fileID: 21300000, guid: 46d7eb0d414f8e44cab350714f298c7f, type: 3}
-      - {fileID: 21300000, guid: f077f8d0080c66f4187a101689243f6f, type: 3}
-      sprMask: {fileID: 21300000, guid: fc2a01a36775e50428dc2d1fe8e34482, type: 3}
+      - {fileID: 21300000, guid: 7cd075e253de81d48b0a956e0277af66, type: 3}
+      - {fileID: 21300000, guid: af91f9c7c805ff14facfa8a20cf25278, type: 3}
+      sprMask: {fileID: 21300000, guid: 910cd063dc62e864588445d112f0a6fc, type: 3}
       colorRoom: {r: 0.6886792, g: 0.35438535, b: 0.1786668, a: 1}
     - id: 5
       sprIcons:
-      - {fileID: 21300000, guid: e2890a7028d17024b903c22712a70836, type: 3}
-      - {fileID: 21300000, guid: 6b7b3830018b4b24cb236055b9c24a58, type: 3}
-      sprMask: {fileID: 21300000, guid: ae2363bf78360d44daa7597dedef24db, type: 3}
+      - {fileID: 21300000, guid: e46c9b6f2a175f84ea55e1de6e89fe9d, type: 3}
+      - {fileID: 21300000, guid: c3454cbfba5f204478171f7e03b81716, type: 3}
+      sprMask: {fileID: 21300000, guid: 910cd063dc62e864588445d112f0a6fc, type: 3}
       colorRoom: {r: 0.06087574, g: 0.5789692, b: 0.6792453, a: 1}
     - id: 6
       sprIcons:
-      - {fileID: 21300000, guid: 22b019fff934f4445b22a03ece1783f0, type: 3}
-      - {fileID: 21300000, guid: 66aaf1eb123195e479a132065b337e83, type: 3}
-      sprMask: {fileID: 21300000, guid: ebbde3ea089bf074fb273085090aeca2, type: 3}
+      - {fileID: 21300000, guid: 3f85ba1bf53b1e84fa4eec7afad74b51, type: 3}
+      - {fileID: 21300000, guid: 0029432cdd2fdfb4ba15b3e5deb8df9c, type: 3}
+      sprMask: {fileID: 21300000, guid: 910cd063dc62e864588445d112f0a6fc, type: 3}
       colorRoom: {r: 0.53160584, g: 0.33922213, b: 0.5943396, a: 1}
     - id: 7
       sprIcons:
-      - {fileID: 21300000, guid: 19848ded53de42641a8ceea3e9612031, type: 3}
-      - {fileID: 21300000, guid: 8ac7c402ca905ab41857afa24744f157, type: 3}
-      sprMask: {fileID: 21300000, guid: ece6f6f9a59e5a54294751c50746dbb0, type: 3}
+      - {fileID: 21300000, guid: c48f5b44afaf4bc4591d2d037f6ee3c0, type: 3}
+      - {fileID: 21300000, guid: 9fe6b8aa02b18054d9384f41f341a4d5, type: 3}
+      sprMask: {fileID: 21300000, guid: 910cd063dc62e864588445d112f0a6fc, type: 3}
       colorRoom: {r: 0.6792453, g: 0.16796584, b: 0.09291565, a: 1}
     - id: 8
       sprIcons:
-      - {fileID: 21300000, guid: 21ee9e4cf5309194d8999777157bad40, type: 3}
-      - {fileID: 21300000, guid: 1a2acb75d1fe6414bad02234d3324c62, type: 3}
-      sprMask: {fileID: 21300000, guid: 47e32cd70bac43745abff5a4d34f5ff4, type: 3}
+      - {fileID: 21300000, guid: 3e80bfaac1711ad4a86ff2c22904210e, type: 3}
+      - {fileID: 21300000, guid: 955da94dd064dc44c8d0215a08ee09fa, type: 3}
+      sprMask: {fileID: 21300000, guid: 910cd063dc62e864588445d112f0a6fc, type: 3}
       colorRoom: {r: 0.15686187, g: 0.23297304, b: 0.7075472, a: 1}
   bagAsset:
     bagAssets:
@@ -291,7 +293,7 @@ MonoBehaviour:
       content: Collect gloves in events
   cardBorderConfig:
     cardStats: {fileID: 21300000, guid: d6e3d32a6f0b91548848168582e7afd3, type: 3}
-    cardMaterial: {fileID: 21300000, guid: b2e21a39506e9e94795a422ccee8a4b0, type: 3}
+    cardMaterial: {fileID: 21300000, guid: 63ba57e86e6d9044d999d9b857b8d921, type: 3}
     portraitGeneric: {fileID: 21300000, guid: 84f99c0aa6f5a564a8cb5db6b305f945, type: 3}
   perkAsset:
     perks:
@@ -323,7 +325,7 @@ MonoBehaviour:
       rank: 0
       name: Bullet Speed
       desciption: Speed Flying of Bullet
-      sprIcon: {fileID: 21300000, guid: faccb38d7f0741c4590060b146d34f63, type: 3}
+      sprIcon: {fileID: 21300000, guid: 1637573480727e049b4157052cbf228d, type: 3}
       sprBG: {fileID: 21300000, guid: 675a24831631bd646bc22150a24b1401, type: 3}
       colorTitle: {r: 0.41960788, g: 0.41176474, b: 0.41960788, a: 1}
       colorText: {r: 0.7411765, g: 0.7294118, b: 0.7411765, a: 1}
@@ -347,7 +349,7 @@ MonoBehaviour:
       rank: 1
       name: Start Coin
       desciption: Starting Coin Increase
-      sprIcon: {fileID: 21300000, guid: c91d35e2c6f6dcb45a5ddd0a8cce838c, type: 3}
+      sprIcon: {fileID: 21300000, guid: 35ba69d89c89de048a82c77f5e2cae58, type: 3}
       sprBG: {fileID: 21300000, guid: 82e3a88f5a00d0540ac8ceacbb0239e0, type: 3}
       colorTitle: {r: 0.19215688, g: 0.3647059, b: 0.5176471, a: 1}
       colorText: {r: 0.2901961, g: 0.6666667, b: 0.9333334, a: 1}
@@ -371,7 +373,7 @@ MonoBehaviour:
       rank: 2
       name: Bar Speed
       desciption: Bar Moving Speed
-      sprIcon: {fileID: 21300000, guid: 90c91741c9c4989468a12f7990686d82, type: 3}
+      sprIcon: {fileID: 21300000, guid: ca72ff84804660c42a110b9f7d79bd85, type: 3}
       sprBG: {fileID: 21300000, guid: c9bca9cf6827e8b4e8987ccbbd0e2037, type: 3}
       colorTitle: {r: 0.41960788, g: 0.31764707, b: 0.5176471, a: 1}
       colorText: {r: 0.76470596, g: 0.41176474, b: 0.98823535, a: 1}

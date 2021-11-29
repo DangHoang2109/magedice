@@ -11,11 +11,11 @@ public class IceDiceEffect : BaseDiceEffect
         this.ShootBullet(1);
     }
 
-    public override void BulletEffect(BaseMonsterBehavior enemy)
+    public override void BulletEffect(BaseMonsterBehavior enemy, float damage)
     {
-        base.BulletEffect(enemy);
+        base.BulletEffect(enemy, damage);
 
-        enemy.Hitted(this.Damage);
+        enemy.Hitted(damage);
         enemy.Freeze(enemy.MonsterID == MonsterType.SKILL_BOSS ? 0.2f : this.diceStat.timeEffectStrength);
     }
 }

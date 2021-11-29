@@ -61,10 +61,12 @@ public class StoreBagItem : StoreItem
             }
             else
             {
-                NeedMoreGemDialog dialog =
-                    GameManager.Instance.OnShowDialogWithSorting<NeedMoreGemDialog>("Home/GUI/Dialogs/NeedMoreGem/NeedMoreGemDialog",
-                        PopupSortingType.CenterBottomAndTopBar);
-                dialog?.ParseData(this.Config.price);
+                GameUtils.ShowNeedMoreBooster(this.Config.price);
+
+                //NeedMoreGemDialog dialog =
+                //    GameManager.Instance.OnShowDialogWithSorting<NeedMoreGemDialog>("Home/GUI/Dialogs/NeedMoreGem/NeedMoreGemDialog",
+                //        PopupSortingType.CenterBottomAndTopBar);
+                //dialog?.ParseData(this.Config.price);
             }
 
             LogGameAnalytics.Instance.LogEvent(LogAnalyticsEvent.CLICK_SHOP_ITEM, LogParams.SHOP_ITEM_ID, Config.id);

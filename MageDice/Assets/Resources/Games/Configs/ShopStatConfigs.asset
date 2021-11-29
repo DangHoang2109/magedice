@@ -35,126 +35,126 @@ MonoBehaviour:
       id: 0
     - price: 1100
       cardsRequired: 2
-      damageStrength: 158
+      damageStrength: 165
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 2300
       cardsRequired: 4
-      damageStrength: 166
+      damageStrength: 182
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 3600
       cardsRequired: 10
-      damageStrength: 175
+      damageStrength: 201
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 5000
       cardsRequired: 20
-      damageStrength: 184
+      damageStrength: 222
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 6500
       cardsRequired: 40
-      damageStrength: 194
+      damageStrength: 245
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 8100
       cardsRequired: 60
-      damageStrength: 204
+      damageStrength: 270
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 9800
       cardsRequired: 100
-      damageStrength: 215
+      damageStrength: 297
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 11600
       cardsRequired: 150
-      damageStrength: 226
+      damageStrength: 327
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 13500
       cardsRequired: 230
-      damageStrength: 238
+      damageStrength: 360
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 15500
       cardsRequired: 350
-      damageStrength: 250
+      damageStrength: 396
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 17600
       cardsRequired: 500
-      damageStrength: 263
+      damageStrength: 436
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 19800
       cardsRequired: 700
-      damageStrength: 277
+      damageStrength: 480
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 22100
       cardsRequired: 900
-      damageStrength: 291
+      damageStrength: 528
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 24500
       cardsRequired: 1100
-      damageStrength: 306
+      damageStrength: 581
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 27000
       cardsRequired: 1300
-      damageStrength: 322
+      damageStrength: 640
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 29600
       cardsRequired: 1500
-      damageStrength: 339
+      damageStrength: 704
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 32300
       cardsRequired: 1750
-      damageStrength: 356
+      damageStrength: 775
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 35100
       cardsRequired: 2000
-      damageStrength: 374
+      damageStrength: 853
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
@@ -182,126 +182,126 @@ MonoBehaviour:
       id: 0
     - price: 1100
       cardsRequired: 2
-      damageStrength: 105
+      damageStrength: 110
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 3
       id: 0
     - price: 2300
       cardsRequired: 4
-      damageStrength: 111
+      damageStrength: 121
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 3
       id: 0
     - price: 3600
       cardsRequired: 10
-      damageStrength: 117
+      damageStrength: 134
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 3
       id: 0
     - price: 5000
       cardsRequired: 20
-      damageStrength: 123
+      damageStrength: 148
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 3
       id: 0
     - price: 6500
       cardsRequired: 40
-      damageStrength: 130
+      damageStrength: 163
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 3
       id: 0
     - price: 8100
       cardsRequired: 60
-      damageStrength: 137
+      damageStrength: 180
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 3
       id: 0
     - price: 9800
       cardsRequired: 100
-      damageStrength: 144
+      damageStrength: 198
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 3
       id: 0
     - price: 11600
       cardsRequired: 150
-      damageStrength: 152
+      damageStrength: 218
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 3
       id: 0
     - price: 13500
       cardsRequired: 230
-      damageStrength: 160
+      damageStrength: 240
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 3
       id: 0
     - price: 15500
       cardsRequired: 350
-      damageStrength: 168
+      damageStrength: 264
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 3
       id: 0
     - price: 17600
       cardsRequired: 500
-      damageStrength: 177
+      damageStrength: 291
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 3
       id: 0
     - price: 19800
       cardsRequired: 700
-      damageStrength: 186
+      damageStrength: 321
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 3
       id: 0
     - price: 22100
       cardsRequired: 900
-      damageStrength: 196
+      damageStrength: 354
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 3
       id: 0
     - price: 24500
       cardsRequired: 1100
-      damageStrength: 206
+      damageStrength: 390
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 3
       id: 0
     - price: 27000
       cardsRequired: 1300
-      damageStrength: 217
+      damageStrength: 429
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 3
       id: 0
     - price: 29600
       cardsRequired: 1500
-      damageStrength: 228
+      damageStrength: 472
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 3
       id: 0
     - price: 32300
       cardsRequired: 1750
-      damageStrength: 240
+      damageStrength: 520
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 3
       id: 0
     - price: 35100
       cardsRequired: 2000
-      damageStrength: 252
+      damageStrength: 572
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 3
@@ -329,126 +329,126 @@ MonoBehaviour:
       id: 0
     - price: 1100
       cardsRequired: 2
-      damageStrength: 105
+      damageStrength: 110
       speedStrength: 24
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 2300
       cardsRequired: 4
-      damageStrength: 111
+      damageStrength: 121
       speedStrength: 24
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 3600
       cardsRequired: 10
-      damageStrength: 117
+      damageStrength: 134
       speedStrength: 24
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 5000
       cardsRequired: 20
-      damageStrength: 123
+      damageStrength: 148
       speedStrength: 24
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 6500
       cardsRequired: 40
-      damageStrength: 130
+      damageStrength: 163
       speedStrength: 24
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 8100
       cardsRequired: 60
-      damageStrength: 137
+      damageStrength: 180
       speedStrength: 24
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 9800
       cardsRequired: 100
-      damageStrength: 144
+      damageStrength: 198
       speedStrength: 24
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 11600
       cardsRequired: 150
-      damageStrength: 152
+      damageStrength: 218
       speedStrength: 24
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 13500
       cardsRequired: 230
-      damageStrength: 160
+      damageStrength: 240
       speedStrength: 24
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 15500
       cardsRequired: 350
-      damageStrength: 168
+      damageStrength: 264
       speedStrength: 24
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 17600
       cardsRequired: 500
-      damageStrength: 177
+      damageStrength: 291
       speedStrength: 24
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 19800
       cardsRequired: 700
-      damageStrength: 186
+      damageStrength: 321
       speedStrength: 24
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 22100
       cardsRequired: 900
-      damageStrength: 196
+      damageStrength: 354
       speedStrength: 24
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 24500
       cardsRequired: 1100
-      damageStrength: 206
+      damageStrength: 390
       speedStrength: 24
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 27000
       cardsRequired: 1300
-      damageStrength: 217
+      damageStrength: 429
       speedStrength: 24
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 29600
       cardsRequired: 1500
-      damageStrength: 228
+      damageStrength: 472
       speedStrength: 24
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 32300
       cardsRequired: 1750
-      damageStrength: 240
+      damageStrength: 520
       speedStrength: 24
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 35100
       cardsRequired: 2000
-      damageStrength: 252
+      damageStrength: 572
       speedStrength: 24
       rangeStrength: 0
       timeEffectStrength: 0
@@ -476,126 +476,126 @@ MonoBehaviour:
       id: 0
     - price: 1100
       cardsRequired: 2
-      damageStrength: 105
+      damageStrength: 110
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 2300
       cardsRequired: 4
-      damageStrength: 111
+      damageStrength: 121
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 3600
       cardsRequired: 10
-      damageStrength: 117
+      damageStrength: 134
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 5000
       cardsRequired: 20
-      damageStrength: 123
+      damageStrength: 148
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 6500
       cardsRequired: 40
-      damageStrength: 130
+      damageStrength: 163
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 8100
       cardsRequired: 60
-      damageStrength: 137
+      damageStrength: 180
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 9800
       cardsRequired: 100
-      damageStrength: 144
+      damageStrength: 198
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 11600
       cardsRequired: 150
-      damageStrength: 152
+      damageStrength: 218
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 13500
       cardsRequired: 230
-      damageStrength: 160
+      damageStrength: 240
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 15500
       cardsRequired: 350
-      damageStrength: 168
+      damageStrength: 264
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 17600
       cardsRequired: 500
-      damageStrength: 177
+      damageStrength: 291
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 19800
       cardsRequired: 700
-      damageStrength: 186
+      damageStrength: 321
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 22100
       cardsRequired: 900
-      damageStrength: 196
+      damageStrength: 354
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 24500
       cardsRequired: 1100
-      damageStrength: 206
+      damageStrength: 390
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 27000
       cardsRequired: 1300
-      damageStrength: 217
+      damageStrength: 429
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 29600
       cardsRequired: 1500
-      damageStrength: 228
+      damageStrength: 472
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 32300
       cardsRequired: 1750
-      damageStrength: 240
+      damageStrength: 520
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
       id: 0
     - price: 35100
       cardsRequired: 2000
-      damageStrength: 252
+      damageStrength: 572
       speedStrength: 12
       rangeStrength: 0
       timeEffectStrength: 0
@@ -623,126 +623,126 @@ MonoBehaviour:
       id: 0
     - price: 1100
       cardsRequired: 2
-      damageStrength: 105
+      damageStrength: 110
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 2300
       cardsRequired: 4
-      damageStrength: 111
+      damageStrength: 121
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 3600
       cardsRequired: 10
-      damageStrength: 117
+      damageStrength: 134
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 5000
       cardsRequired: 20
-      damageStrength: 123
+      damageStrength: 148
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 6500
       cardsRequired: 40
-      damageStrength: 130
+      damageStrength: 163
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 8100
       cardsRequired: 60
-      damageStrength: 137
+      damageStrength: 180
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 9800
       cardsRequired: 100
-      damageStrength: 144
+      damageStrength: 198
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 11600
       cardsRequired: 150
-      damageStrength: 152
+      damageStrength: 218
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 13500
       cardsRequired: 230
-      damageStrength: 160
+      damageStrength: 240
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 15500
       cardsRequired: 350
-      damageStrength: 168
+      damageStrength: 264
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 17600
       cardsRequired: 500
-      damageStrength: 177
+      damageStrength: 291
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 19800
       cardsRequired: 700
-      damageStrength: 186
+      damageStrength: 321
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 22100
       cardsRequired: 900
-      damageStrength: 196
+      damageStrength: 354
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 24500
       cardsRequired: 1100
-      damageStrength: 206
+      damageStrength: 390
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 27000
       cardsRequired: 1300
-      damageStrength: 217
+      damageStrength: 429
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 29600
       cardsRequired: 1500
-      damageStrength: 228
+      damageStrength: 472
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 32300
       cardsRequired: 1750
-      damageStrength: 240
+      damageStrength: 520
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 35100
       cardsRequired: 2000
-      damageStrength: 252
+      damageStrength: 572
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
@@ -770,126 +770,126 @@ MonoBehaviour:
       id: 0
     - price: 1100
       cardsRequired: 2
-      damageStrength: 105
+      damageStrength: 110
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 2300
       cardsRequired: 4
-      damageStrength: 111
+      damageStrength: 121
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 3600
       cardsRequired: 10
-      damageStrength: 117
+      damageStrength: 134
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 5000
       cardsRequired: 20
-      damageStrength: 123
+      damageStrength: 148
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 6500
       cardsRequired: 40
-      damageStrength: 130
+      damageStrength: 163
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 8100
       cardsRequired: 60
-      damageStrength: 137
+      damageStrength: 180
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 9800
       cardsRequired: 100
-      damageStrength: 144
+      damageStrength: 198
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 11600
       cardsRequired: 150
-      damageStrength: 152
+      damageStrength: 218
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 13500
       cardsRequired: 230
-      damageStrength: 160
+      damageStrength: 240
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 15500
       cardsRequired: 350
-      damageStrength: 168
+      damageStrength: 264
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 17600
       cardsRequired: 500
-      damageStrength: 177
+      damageStrength: 291
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 19800
       cardsRequired: 700
-      damageStrength: 186
+      damageStrength: 321
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 22100
       cardsRequired: 900
-      damageStrength: 196
+      damageStrength: 354
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 24500
       cardsRequired: 1100
-      damageStrength: 206
+      damageStrength: 390
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 27000
       cardsRequired: 1300
-      damageStrength: 217
+      damageStrength: 429
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 29600
       cardsRequired: 1500
-      damageStrength: 228
+      damageStrength: 472
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 32300
       cardsRequired: 1750
-      damageStrength: 240
+      damageStrength: 520
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 35100
       cardsRequired: 2000
-      damageStrength: 252
+      damageStrength: 572
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
@@ -917,126 +917,217 @@ MonoBehaviour:
       id: 0
     - price: 1100
       cardsRequired: 2
-      damageStrength: 105
+      damageStrength: 110
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 2300
       cardsRequired: 4
-      damageStrength: 111
+      damageStrength: 121
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 3600
       cardsRequired: 10
-      damageStrength: 117
+      damageStrength: 134
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 5000
       cardsRequired: 20
-      damageStrength: 123
+      damageStrength: 148
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 6500
       cardsRequired: 40
-      damageStrength: 130
+      damageStrength: 163
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 8100
       cardsRequired: 60
-      damageStrength: 137
+      damageStrength: 180
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 9800
       cardsRequired: 100
-      damageStrength: 144
+      damageStrength: 198
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 11600
       cardsRequired: 150
-      damageStrength: 152
+      damageStrength: 218
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 13500
       cardsRequired: 230
-      damageStrength: 160
+      damageStrength: 240
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 15500
       cardsRequired: 350
-      damageStrength: 168
+      damageStrength: 264
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 17600
       cardsRequired: 500
-      damageStrength: 177
+      damageStrength: 291
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 19800
       cardsRequired: 700
-      damageStrength: 186
+      damageStrength: 321
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 22100
       cardsRequired: 900
-      damageStrength: 196
+      damageStrength: 354
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 24500
       cardsRequired: 1100
-      damageStrength: 206
+      damageStrength: 390
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 27000
       cardsRequired: 1300
-      damageStrength: 217
+      damageStrength: 429
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 29600
       cardsRequired: 1500
-      damageStrength: 228
+      damageStrength: 472
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 32300
       cardsRequired: 1750
-      damageStrength: 240
+      damageStrength: 520
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     - price: 35100
       cardsRequired: 2000
-      damageStrength: 252
+      damageStrength: 572
+      speedStrength: 10
+      rangeStrength: 0
+      timeEffectStrength: 10
+      id: 0
+    rateRandomUnlock: 0
+  - id: 10
+    statName: Critical
+    skillDescription: Increase critical chance to 4 neighbor dice
+    sprCard: {fileID: 0}
+    sprStatItem: {fileID: 21300000, guid: 553b570ea300ebc47a5d9b667d38e6c1, type: 3}
+    appearTier: 0
+    isHide: 0
+    tier: 1
+    unlockType: 2
+    upgradeType: 1
+    unlockLinkedId: 0
+    unlockText: 
+    statsPerLevels:
+    - price: 10000
+      cardsRequired: 10
+      damageStrength: 100
+      speedStrength: 10
+      rangeStrength: 0
+      timeEffectStrength: 10
+      id: 0
+    - price: 9000
+      cardsRequired: 2
+      damageStrength: 110
+      speedStrength: 10
+      rangeStrength: 0
+      timeEffectStrength: 10
+      id: 0
+    - price: 19500
+      cardsRequired: 4
+      damageStrength: 121
+      speedStrength: 10
+      rangeStrength: 0
+      timeEffectStrength: 10
+      id: 0
+    - price: 31500
+      cardsRequired: 10
+      damageStrength: 134
+      speedStrength: 10
+      rangeStrength: 0
+      timeEffectStrength: 10
+      id: 0
+    - price: 45000
+      cardsRequired: 20
+      damageStrength: 148
+      speedStrength: 10
+      rangeStrength: 0
+      timeEffectStrength: 10
+      id: 0
+    - price: 60000
+      cardsRequired: 40
+      damageStrength: 163
+      speedStrength: 10
+      rangeStrength: 0
+      timeEffectStrength: 10
+      id: 0
+    - price: 76500
+      cardsRequired: 60
+      damageStrength: 180
+      speedStrength: 10
+      rangeStrength: 0
+      timeEffectStrength: 10
+      id: 0
+    - price: 94500
+      cardsRequired: 100
+      damageStrength: 198
+      speedStrength: 10
+      rangeStrength: 0
+      timeEffectStrength: 10
+      id: 0
+    - price: 114000
+      cardsRequired: 150
+      damageStrength: 218
+      speedStrength: 10
+      rangeStrength: 0
+      timeEffectStrength: 10
+      id: 0
+    - price: 135000
+      cardsRequired: 230
+      damageStrength: 240
+      speedStrength: 10
+      rangeStrength: 0
+      timeEffectStrength: 10
+      id: 0
+    - price: 157500
+      cardsRequired: 350
+      damageStrength: 264
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
@@ -1062,128 +1153,72 @@ MonoBehaviour:
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 1100
+    - price: 9000
       cardsRequired: 2
-      damageStrength: 105
+      damageStrength: 110
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 2300
+    - price: 19500
       cardsRequired: 4
-      damageStrength: 111
+      damageStrength: 121
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 3600
+    - price: 31500
       cardsRequired: 10
-      damageStrength: 117
+      damageStrength: 134
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 5000
+    - price: 45000
       cardsRequired: 20
-      damageStrength: 123
+      damageStrength: 148
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 6500
+    - price: 60000
       cardsRequired: 40
-      damageStrength: 130
+      damageStrength: 163
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 8100
+    - price: 76500
       cardsRequired: 60
-      damageStrength: 137
+      damageStrength: 180
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 9800
+    - price: 94500
       cardsRequired: 100
-      damageStrength: 144
+      damageStrength: 198
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 11600
+    - price: 114000
       cardsRequired: 150
-      damageStrength: 152
+      damageStrength: 218
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 13500
+    - price: 135000
       cardsRequired: 230
-      damageStrength: 160
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 15500
-      cardsRequired: 350
-      damageStrength: 168
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 17600
-      cardsRequired: 500
-      damageStrength: 177
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 19800
-      cardsRequired: 700
-      damageStrength: 186
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 22100
-      cardsRequired: 900
-      damageStrength: 196
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 24500
-      cardsRequired: 1100
-      damageStrength: 206
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 27000
-      cardsRequired: 1300
-      damageStrength: 217
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 29600
-      cardsRequired: 1500
-      damageStrength: 228
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 32300
-      cardsRequired: 1750
       damageStrength: 240
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 35100
-      cardsRequired: 2000
-      damageStrength: 252
+    - price: 157500
+      cardsRequired: 350
+      damageStrength: 264
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
@@ -1210,128 +1245,72 @@ MonoBehaviour:
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 1100
+    - price: 9000
       cardsRequired: 2
-      damageStrength: 105
+      damageStrength: 110
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 2300
+    - price: 19500
       cardsRequired: 4
-      damageStrength: 111
+      damageStrength: 121
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 3600
+    - price: 31500
       cardsRequired: 10
-      damageStrength: 117
+      damageStrength: 134
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 5000
+    - price: 45000
       cardsRequired: 20
-      damageStrength: 123
+      damageStrength: 148
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 6500
+    - price: 60000
       cardsRequired: 40
-      damageStrength: 130
+      damageStrength: 163
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 8100
+    - price: 76500
       cardsRequired: 60
-      damageStrength: 137
+      damageStrength: 180
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 9800
+    - price: 94500
       cardsRequired: 100
-      damageStrength: 144
+      damageStrength: 198
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 11600
+    - price: 114000
       cardsRequired: 150
-      damageStrength: 152
+      damageStrength: 218
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 13500
+    - price: 135000
       cardsRequired: 230
-      damageStrength: 160
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 15500
-      cardsRequired: 350
-      damageStrength: 168
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 17600
-      cardsRequired: 500
-      damageStrength: 177
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 19800
-      cardsRequired: 700
-      damageStrength: 186
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 22100
-      cardsRequired: 900
-      damageStrength: 196
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 24500
-      cardsRequired: 1100
-      damageStrength: 206
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 27000
-      cardsRequired: 1300
-      damageStrength: 217
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 29600
-      cardsRequired: 1500
-      damageStrength: 228
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 32300
-      cardsRequired: 1750
       damageStrength: 240
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 35100
-      cardsRequired: 2000
-      damageStrength: 252
+    - price: 157500
+      cardsRequired: 350
+      damageStrength: 264
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
@@ -1357,275 +1336,72 @@ MonoBehaviour:
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 1100
+    - price: 9000
       cardsRequired: 2
-      damageStrength: 105
+      damageStrength: 110
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 2300
+    - price: 19500
       cardsRequired: 4
-      damageStrength: 111
+      damageStrength: 121
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 3600
+    - price: 31500
       cardsRequired: 10
-      damageStrength: 117
+      damageStrength: 134
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 5000
+    - price: 45000
       cardsRequired: 20
-      damageStrength: 123
+      damageStrength: 148
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 6500
+    - price: 60000
       cardsRequired: 40
-      damageStrength: 130
+      damageStrength: 163
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 8100
+    - price: 76500
       cardsRequired: 60
-      damageStrength: 137
+      damageStrength: 180
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 9800
+    - price: 94500
       cardsRequired: 100
-      damageStrength: 144
+      damageStrength: 198
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 11600
+    - price: 114000
       cardsRequired: 150
-      damageStrength: 152
+      damageStrength: 218
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 13500
+    - price: 135000
       cardsRequired: 230
-      damageStrength: 160
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 15500
-      cardsRequired: 350
-      damageStrength: 168
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 17600
-      cardsRequired: 500
-      damageStrength: 177
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 19800
-      cardsRequired: 700
-      damageStrength: 186
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 22100
-      cardsRequired: 900
-      damageStrength: 196
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 24500
-      cardsRequired: 1100
-      damageStrength: 206
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 27000
-      cardsRequired: 1300
-      damageStrength: 217
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 29600
-      cardsRequired: 1500
-      damageStrength: 228
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 32300
-      cardsRequired: 1750
       damageStrength: 240
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 35100
-      cardsRequired: 2000
-      damageStrength: 252
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    rateRandomUnlock: 0
-  - id: 10
-    statName: Critical
-    skillDescription: Increase critical chance to 4 neighbor dice
-    sprCard: {fileID: 0}
-    sprStatItem: {fileID: 21300000, guid: 553b570ea300ebc47a5d9b667d38e6c1, type: 3}
-    appearTier: 0
-    isHide: 0
-    tier: 2
-    unlockType: 2
-    upgradeType: 1
-    unlockLinkedId: 0
-    unlockText: 
-    statsPerLevels:
-    - price: 10000
-      cardsRequired: 10
-      damageStrength: 100
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 1100
-      cardsRequired: 2
-      damageStrength: 105
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 2300
-      cardsRequired: 4
-      damageStrength: 111
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 3600
-      cardsRequired: 10
-      damageStrength: 117
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 5000
-      cardsRequired: 20
-      damageStrength: 123
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 6500
-      cardsRequired: 40
-      damageStrength: 130
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 8100
-      cardsRequired: 60
-      damageStrength: 137
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 9800
-      cardsRequired: 100
-      damageStrength: 144
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 11600
-      cardsRequired: 150
-      damageStrength: 152
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 13500
-      cardsRequired: 230
-      damageStrength: 160
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 15500
+    - price: 157500
       cardsRequired: 350
-      damageStrength: 168
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 17600
-      cardsRequired: 500
-      damageStrength: 177
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 19800
-      cardsRequired: 700
-      damageStrength: 186
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 22100
-      cardsRequired: 900
-      damageStrength: 196
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 24500
-      cardsRequired: 1100
-      damageStrength: 206
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 27000
-      cardsRequired: 1300
-      damageStrength: 217
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 29600
-      cardsRequired: 1500
-      damageStrength: 228
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 32300
-      cardsRequired: 1750
-      damageStrength: 240
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 35100
-      cardsRequired: 2000
-      damageStrength: 252
+      damageStrength: 264
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
@@ -1651,128 +1427,72 @@ MonoBehaviour:
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 1100
+    - price: 9000
       cardsRequired: 2
-      damageStrength: 105
+      damageStrength: 110
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 2300
+    - price: 19500
       cardsRequired: 4
-      damageStrength: 111
+      damageStrength: 121
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 3600
+    - price: 31500
       cardsRequired: 10
-      damageStrength: 117
+      damageStrength: 134
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 5000
+    - price: 45000
       cardsRequired: 20
-      damageStrength: 123
+      damageStrength: 148
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 6500
+    - price: 60000
       cardsRequired: 40
-      damageStrength: 130
+      damageStrength: 163
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 8100
+    - price: 76500
       cardsRequired: 60
-      damageStrength: 137
+      damageStrength: 180
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 9800
+    - price: 94500
       cardsRequired: 100
-      damageStrength: 144
+      damageStrength: 198
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 11600
+    - price: 114000
       cardsRequired: 150
-      damageStrength: 152
+      damageStrength: 218
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 13500
+    - price: 135000
       cardsRequired: 230
-      damageStrength: 160
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 15500
-      cardsRequired: 350
-      damageStrength: 168
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 17600
-      cardsRequired: 500
-      damageStrength: 177
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 19800
-      cardsRequired: 700
-      damageStrength: 186
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 22100
-      cardsRequired: 900
-      damageStrength: 196
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 24500
-      cardsRequired: 1100
-      damageStrength: 206
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 27000
-      cardsRequired: 1300
-      damageStrength: 217
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 29600
-      cardsRequired: 1500
-      damageStrength: 228
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 32300
-      cardsRequired: 1750
       damageStrength: 240
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 35100
-      cardsRequired: 2000
-      damageStrength: 252
+    - price: 157500
+      cardsRequired: 350
+      damageStrength: 264
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
@@ -1798,128 +1518,72 @@ MonoBehaviour:
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 1100
+    - price: 9000
       cardsRequired: 2
-      damageStrength: 105
+      damageStrength: 110
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 2300
+    - price: 19500
       cardsRequired: 4
-      damageStrength: 111
+      damageStrength: 121
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 3600
+    - price: 31500
       cardsRequired: 10
-      damageStrength: 117
+      damageStrength: 134
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 5000
+    - price: 45000
       cardsRequired: 20
-      damageStrength: 123
+      damageStrength: 148
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 6500
+    - price: 60000
       cardsRequired: 40
-      damageStrength: 130
+      damageStrength: 163
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 8100
+    - price: 76500
       cardsRequired: 60
-      damageStrength: 137
+      damageStrength: 180
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 9800
+    - price: 94500
       cardsRequired: 100
-      damageStrength: 144
+      damageStrength: 198
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 11600
+    - price: 114000
       cardsRequired: 150
-      damageStrength: 152
+      damageStrength: 218
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 13500
+    - price: 135000
       cardsRequired: 230
-      damageStrength: 160
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 15500
-      cardsRequired: 350
-      damageStrength: 168
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 17600
-      cardsRequired: 500
-      damageStrength: 177
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 19800
-      cardsRequired: 700
-      damageStrength: 186
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 22100
-      cardsRequired: 900
-      damageStrength: 196
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 24500
-      cardsRequired: 1100
-      damageStrength: 206
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 27000
-      cardsRequired: 1300
-      damageStrength: 217
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 29600
-      cardsRequired: 1500
-      damageStrength: 228
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 32300
-      cardsRequired: 1750
       damageStrength: 240
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 35100
-      cardsRequired: 2000
-      damageStrength: 252
+    - price: 157500
+      cardsRequired: 350
+      damageStrength: 264
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
@@ -1945,128 +1609,72 @@ MonoBehaviour:
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 1100
+    - price: 9000
       cardsRequired: 2
-      damageStrength: 105
+      damageStrength: 110
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 2300
+    - price: 19500
       cardsRequired: 4
-      damageStrength: 111
+      damageStrength: 121
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 3600
+    - price: 31500
       cardsRequired: 10
-      damageStrength: 117
+      damageStrength: 134
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 5000
+    - price: 45000
       cardsRequired: 20
-      damageStrength: 123
+      damageStrength: 148
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 6500
+    - price: 60000
       cardsRequired: 40
-      damageStrength: 130
+      damageStrength: 163
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 8100
+    - price: 76500
       cardsRequired: 60
-      damageStrength: 137
+      damageStrength: 180
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 9800
+    - price: 94500
       cardsRequired: 100
-      damageStrength: 144
+      damageStrength: 198
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 11600
+    - price: 114000
       cardsRequired: 150
-      damageStrength: 152
+      damageStrength: 218
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 13500
+    - price: 135000
       cardsRequired: 230
-      damageStrength: 160
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 15500
-      cardsRequired: 350
-      damageStrength: 168
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 17600
-      cardsRequired: 500
-      damageStrength: 177
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 19800
-      cardsRequired: 700
-      damageStrength: 186
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 22100
-      cardsRequired: 900
-      damageStrength: 196
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 24500
-      cardsRequired: 1100
-      damageStrength: 206
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 27000
-      cardsRequired: 1300
-      damageStrength: 217
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 29600
-      cardsRequired: 1500
-      damageStrength: 228
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 32300
-      cardsRequired: 1750
       damageStrength: 240
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 35100
-      cardsRequired: 2000
-      damageStrength: 252
+    - price: 157500
+      cardsRequired: 350
+      damageStrength: 264
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
@@ -2092,128 +1700,72 @@ MonoBehaviour:
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 1100
+    - price: 9000
       cardsRequired: 2
-      damageStrength: 105
+      damageStrength: 110
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 2300
+    - price: 19500
       cardsRequired: 4
-      damageStrength: 111
+      damageStrength: 121
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 3600
+    - price: 31500
       cardsRequired: 10
-      damageStrength: 117
+      damageStrength: 134
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 5000
+    - price: 45000
       cardsRequired: 20
-      damageStrength: 123
+      damageStrength: 148
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 6500
+    - price: 60000
       cardsRequired: 40
-      damageStrength: 130
+      damageStrength: 163
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 8100
+    - price: 76500
       cardsRequired: 60
-      damageStrength: 137
+      damageStrength: 180
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 9800
+    - price: 94500
       cardsRequired: 100
-      damageStrength: 144
+      damageStrength: 198
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 11600
+    - price: 114000
       cardsRequired: 150
-      damageStrength: 152
+      damageStrength: 218
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 13500
+    - price: 135000
       cardsRequired: 230
-      damageStrength: 160
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 15500
-      cardsRequired: 350
-      damageStrength: 168
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 17600
-      cardsRequired: 500
-      damageStrength: 177
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 19800
-      cardsRequired: 700
-      damageStrength: 186
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 22100
-      cardsRequired: 900
-      damageStrength: 196
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 24500
-      cardsRequired: 1100
-      damageStrength: 206
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 27000
-      cardsRequired: 1300
-      damageStrength: 217
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 29600
-      cardsRequired: 1500
-      damageStrength: 228
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 32300
-      cardsRequired: 1750
       damageStrength: 240
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 35100
-      cardsRequired: 2000
-      damageStrength: 252
+    - price: 157500
+      cardsRequired: 350
+      damageStrength: 264
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
@@ -2239,134 +1791,78 @@ MonoBehaviour:
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 1100
+    - price: 9000
       cardsRequired: 2
-      damageStrength: 105
+      damageStrength: 110
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 2300
+    - price: 19500
       cardsRequired: 4
-      damageStrength: 111
+      damageStrength: 121
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 3600
+    - price: 31500
       cardsRequired: 10
-      damageStrength: 117
+      damageStrength: 134
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 5000
+    - price: 45000
       cardsRequired: 20
-      damageStrength: 123
+      damageStrength: 148
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 6500
+    - price: 60000
       cardsRequired: 40
-      damageStrength: 130
+      damageStrength: 163
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 8100
+    - price: 76500
       cardsRequired: 60
-      damageStrength: 137
+      damageStrength: 180
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 9800
+    - price: 94500
       cardsRequired: 100
-      damageStrength: 144
+      damageStrength: 198
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 11600
+    - price: 114000
       cardsRequired: 150
-      damageStrength: 152
+      damageStrength: 218
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 13500
+    - price: 135000
       cardsRequired: 230
-      damageStrength: 160
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 15500
-      cardsRequired: 350
-      damageStrength: 168
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 17600
-      cardsRequired: 500
-      damageStrength: 177
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 19800
-      cardsRequired: 700
-      damageStrength: 186
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 22100
-      cardsRequired: 900
-      damageStrength: 196
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 24500
-      cardsRequired: 1100
-      damageStrength: 206
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 27000
-      cardsRequired: 1300
-      damageStrength: 217
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 29600
-      cardsRequired: 1500
-      damageStrength: 228
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 32300
-      cardsRequired: 1750
       damageStrength: 240
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 35100
-      cardsRequired: 2000
-      damageStrength: 252
+    - price: 157500
+      cardsRequired: 350
+      damageStrength: 264
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     rateRandomUnlock: 0
-  - id: 5
+  - id: 15
     statName: Absord
     skillDescription: Absord HP when hit enemy
     sprCard: {fileID: 0}
@@ -2386,134 +1882,43 @@ MonoBehaviour:
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 1100
+    - price: 62500
       cardsRequired: 2
-      damageStrength: 105
+      damageStrength: 110
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 2300
+    - price: 137500
       cardsRequired: 4
-      damageStrength: 111
+      damageStrength: 121
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 3600
+    - price: 225000
       cardsRequired: 10
-      damageStrength: 117
+      damageStrength: 134
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 5000
+    - price: 325000
       cardsRequired: 20
-      damageStrength: 123
+      damageStrength: 148
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 6500
+    - price: 437500
       cardsRequired: 40
-      damageStrength: 130
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 8100
-      cardsRequired: 60
-      damageStrength: 137
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 9800
-      cardsRequired: 100
-      damageStrength: 144
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 11600
-      cardsRequired: 150
-      damageStrength: 152
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 13500
-      cardsRequired: 230
-      damageStrength: 160
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 15500
-      cardsRequired: 350
-      damageStrength: 168
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 17600
-      cardsRequired: 500
-      damageStrength: 177
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 19800
-      cardsRequired: 700
-      damageStrength: 186
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 22100
-      cardsRequired: 900
-      damageStrength: 196
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 24500
-      cardsRequired: 1100
-      damageStrength: 206
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 27000
-      cardsRequired: 1300
-      damageStrength: 217
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 29600
-      cardsRequired: 1500
-      damageStrength: 228
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 32300
-      cardsRequired: 1750
-      damageStrength: 240
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 35100
-      cardsRequired: 2000
-      damageStrength: 252
+      damageStrength: 163
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     rateRandomUnlock: 0
-  - id: 5
+  - id: 16
     statName: Mimic
     skillDescription: Can merge with any dice with same dot count
     sprCard: {fileID: 0}
@@ -2533,134 +1938,43 @@ MonoBehaviour:
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 1100
+    - price: 62500
       cardsRequired: 2
-      damageStrength: 105
+      damageStrength: 110
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 2300
+    - price: 137500
       cardsRequired: 4
-      damageStrength: 111
+      damageStrength: 121
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 3600
+    - price: 225000
       cardsRequired: 10
-      damageStrength: 117
+      damageStrength: 134
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 5000
+    - price: 325000
       cardsRequired: 20
-      damageStrength: 123
+      damageStrength: 148
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 6500
+    - price: 437500
       cardsRequired: 40
-      damageStrength: 130
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 8100
-      cardsRequired: 60
-      damageStrength: 137
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 9800
-      cardsRequired: 100
-      damageStrength: 144
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 11600
-      cardsRequired: 150
-      damageStrength: 152
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 13500
-      cardsRequired: 230
-      damageStrength: 160
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 15500
-      cardsRequired: 350
-      damageStrength: 168
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 17600
-      cardsRequired: 500
-      damageStrength: 177
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 19800
-      cardsRequired: 700
-      damageStrength: 186
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 22100
-      cardsRequired: 900
-      damageStrength: 196
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 24500
-      cardsRequired: 1100
-      damageStrength: 206
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 27000
-      cardsRequired: 1300
-      damageStrength: 217
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 29600
-      cardsRequired: 1500
-      damageStrength: 228
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 32300
-      cardsRequired: 1750
-      damageStrength: 240
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 35100
-      cardsRequired: 2000
-      damageStrength: 252
+      damageStrength: 163
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     rateRandomUnlock: 0
-  - id: 5
+  - id: 17
     statName: Clone
     skillDescription: Summon a clone dice in 5 seconds in adjacent slot
     sprCard: {fileID: 0}
@@ -2680,134 +1994,43 @@ MonoBehaviour:
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 1100
+    - price: 62500
       cardsRequired: 2
-      damageStrength: 105
+      damageStrength: 110
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 2300
+    - price: 137500
       cardsRequired: 4
-      damageStrength: 111
+      damageStrength: 121
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 3600
+    - price: 225000
       cardsRequired: 10
-      damageStrength: 117
+      damageStrength: 134
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 5000
+    - price: 325000
       cardsRequired: 20
-      damageStrength: 123
+      damageStrength: 148
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 6500
+    - price: 437500
       cardsRequired: 40
-      damageStrength: 130
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 8100
-      cardsRequired: 60
-      damageStrength: 137
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 9800
-      cardsRequired: 100
-      damageStrength: 144
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 11600
-      cardsRequired: 150
-      damageStrength: 152
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 13500
-      cardsRequired: 230
-      damageStrength: 160
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 15500
-      cardsRequired: 350
-      damageStrength: 168
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 17600
-      cardsRequired: 500
-      damageStrength: 177
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 19800
-      cardsRequired: 700
-      damageStrength: 186
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 22100
-      cardsRequired: 900
-      damageStrength: 196
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 24500
-      cardsRequired: 1100
-      damageStrength: 206
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 27000
-      cardsRequired: 1300
-      damageStrength: 217
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 29600
-      cardsRequired: 1500
-      damageStrength: 228
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 32300
-      cardsRequired: 1750
-      damageStrength: 240
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 35100
-      cardsRequired: 2000
-      damageStrength: 252
+      damageStrength: 163
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     rateRandomUnlock: 0
-  - id: 5
+  - id: 18
     statName: Death
     skillDescription: Have chance to instant kill the target, except boss
     sprCard: {fileID: 0}
@@ -2827,134 +2050,43 @@ MonoBehaviour:
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 1100
+    - price: 62500
       cardsRequired: 2
-      damageStrength: 105
+      damageStrength: 110
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 2300
+    - price: 137500
       cardsRequired: 4
-      damageStrength: 111
+      damageStrength: 121
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 3600
+    - price: 225000
       cardsRequired: 10
-      damageStrength: 117
+      damageStrength: 134
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 5000
+    - price: 325000
       cardsRequired: 20
-      damageStrength: 123
+      damageStrength: 148
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 6500
+    - price: 437500
       cardsRequired: 40
-      damageStrength: 130
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 8100
-      cardsRequired: 60
-      damageStrength: 137
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 9800
-      cardsRequired: 100
-      damageStrength: 144
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 11600
-      cardsRequired: 150
-      damageStrength: 152
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 13500
-      cardsRequired: 230
-      damageStrength: 160
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 15500
-      cardsRequired: 350
-      damageStrength: 168
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 17600
-      cardsRequired: 500
-      damageStrength: 177
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 19800
-      cardsRequired: 700
-      damageStrength: 186
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 22100
-      cardsRequired: 900
-      damageStrength: 196
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 24500
-      cardsRequired: 1100
-      damageStrength: 206
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 27000
-      cardsRequired: 1300
-      damageStrength: 217
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 29600
-      cardsRequired: 1500
-      damageStrength: 228
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 32300
-      cardsRequired: 1750
-      damageStrength: 240
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 35100
-      cardsRequired: 2000
-      damageStrength: 252
+      damageStrength: 163
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     rateRandomUnlock: 0
-  - id: 5
+  - id: 19
     statName: Flamce
     skillDescription: Cause flame effect and deal damage per second to enemy
     sprCard: {fileID: 0}
@@ -2974,136 +2106,45 @@ MonoBehaviour:
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 1100
+    - price: 62500
       cardsRequired: 2
-      damageStrength: 105
+      damageStrength: 110
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 2300
+    - price: 137500
       cardsRequired: 4
-      damageStrength: 111
+      damageStrength: 121
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 3600
+    - price: 225000
       cardsRequired: 10
-      damageStrength: 117
+      damageStrength: 134
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 5000
+    - price: 325000
       cardsRequired: 20
-      damageStrength: 123
+      damageStrength: 148
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 6500
+    - price: 437500
       cardsRequired: 40
-      damageStrength: 130
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 8100
-      cardsRequired: 60
-      damageStrength: 137
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 9800
-      cardsRequired: 100
-      damageStrength: 144
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 11600
-      cardsRequired: 150
-      damageStrength: 152
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 13500
-      cardsRequired: 230
-      damageStrength: 160
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 15500
-      cardsRequired: 350
-      damageStrength: 168
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 17600
-      cardsRequired: 500
-      damageStrength: 177
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 19800
-      cardsRequired: 700
-      damageStrength: 186
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 22100
-      cardsRequired: 900
-      damageStrength: 196
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 24500
-      cardsRequired: 1100
-      damageStrength: 206
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 27000
-      cardsRequired: 1300
-      damageStrength: 217
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 29600
-      cardsRequired: 1500
-      damageStrength: 228
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 32300
-      cardsRequired: 1750
-      damageStrength: 240
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 35100
-      cardsRequired: 2000
-      damageStrength: 252
+      damageStrength: 163
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
     rateRandomUnlock: 0
-  - id: 5
+  - id: 20
     statName: Heal
-    skillDescription: Heal HP to you when merged
+    skillDescription: Heal HP to you when merged or spawned
     sprCard: {fileID: 0}
     sprStatItem: {fileID: 21300000, guid: 57e61fce261284540935335215c366f6, type: 3}
     appearTier: 0
@@ -3121,128 +2162,37 @@ MonoBehaviour:
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 1100
+    - price: 62500
       cardsRequired: 2
-      damageStrength: 105
+      damageStrength: 110
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 2300
+    - price: 137500
       cardsRequired: 4
-      damageStrength: 111
+      damageStrength: 121
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 3600
+    - price: 225000
       cardsRequired: 10
-      damageStrength: 117
+      damageStrength: 134
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 5000
+    - price: 325000
       cardsRequired: 20
-      damageStrength: 123
+      damageStrength: 148
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10
       id: 0
-    - price: 6500
+    - price: 437500
       cardsRequired: 40
-      damageStrength: 130
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 8100
-      cardsRequired: 60
-      damageStrength: 137
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 9800
-      cardsRequired: 100
-      damageStrength: 144
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 11600
-      cardsRequired: 150
-      damageStrength: 152
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 13500
-      cardsRequired: 230
-      damageStrength: 160
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 15500
-      cardsRequired: 350
-      damageStrength: 168
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 17600
-      cardsRequired: 500
-      damageStrength: 177
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 19800
-      cardsRequired: 700
-      damageStrength: 186
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 22100
-      cardsRequired: 900
-      damageStrength: 196
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 24500
-      cardsRequired: 1100
-      damageStrength: 206
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 27000
-      cardsRequired: 1300
-      damageStrength: 217
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 29600
-      cardsRequired: 1500
-      damageStrength: 228
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 32300
-      cardsRequired: 1750
-      damageStrength: 240
-      speedStrength: 10
-      rangeStrength: 0
-      timeEffectStrength: 10
-      id: 0
-    - price: 35100
-      cardsRequired: 2000
-      damageStrength: 252
+      damageStrength: 163
       speedStrength: 10
       rangeStrength: 0
       timeEffectStrength: 10

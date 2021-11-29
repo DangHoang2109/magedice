@@ -186,6 +186,500 @@ MonoBehaviour:
         rageBullet:
           sprBullet: {fileID: 0}
           sprLight: {fileID: 0}
+  - id: 6
+    Info:
+      id: 6
+      front: {fileID: 21300000, guid: 8bf579f43c7d88b4cba04e8923c2b25f, type: 3}
+      name: IRON
+      effectDescription: Deal double damage to boss
+      dotColor: {r: 0.4784314, g: 0.4784314, b: 0.4784314, a: 1}
+    Game:
+      id: 6
+      levels:
+      - dot: 1
+        damageMultiplier: 1
+      - dot: 2
+        damageMultiplier: 2
+      - dot: 3
+        damageMultiplier: 3
+      - dot: 4
+        damageMultiplier: 4
+      - dot: 5
+        damageMultiplier: 5
+      - dot: 6
+        damageMultiplier: 6
+      bullet:
+        normalBullet:
+          sprBullet: {fileID: 21300000, guid: abc9d7455d38d004bac94a38e496fbed, type: 3}
+          sprLight: {fileID: 21300000, guid: 3b809ce6dcc594b4a8d6be3120abd4f8, type: 3}
+        rageBullet:
+          sprBullet: {fileID: 0}
+          sprLight: {fileID: 0}
+  - id: 7
+    Info:
+      id: 7
+      front: {fileID: 21300000, guid: 5e9ca20ec9a19f4489367d601873da82, type: 3}
+      name: GALE
+      effectDescription: Shoot 5 bullet attack enemy at super speed
+      dotColor: {r: 0.007843138, g: 0.8313726, b: 0.82745105, a: 1}
+    Game:
+      id: 7
+      levels:
+      - dot: 1
+        damageMultiplier: 1
+      - dot: 2
+        damageMultiplier: 2
+      - dot: 3
+        damageMultiplier: 3
+      - dot: 4
+        damageMultiplier: 4
+      - dot: 5
+        damageMultiplier: 5
+      - dot: 6
+        damageMultiplier: 6
+      bullet:
+        normalBullet:
+          sprBullet: {fileID: 21300000, guid: 3debc2637df57bd4dac3247d720e1b31, type: 3}
+          sprLight: {fileID: 21300000, guid: bfa55f02b37d6a04c819c74a63686e00, type: 3}
+        rageBullet:
+          sprBullet: {fileID: 0}
+          sprLight: {fileID: 0}
+  - id: 8
+    Info:
+      id: 8
+      front: {fileID: 21300000, guid: f1cad5879187d4f47bdf42524a37a469, type: 3}
+      name: ARROW
+      effectDescription: Every 5 attacks, shoot a powerful bullet to deal additional
+        damage
+      dotColor: {r: 0.91372555, g: 0.45882356, b: 0.08627451, a: 1}
+    Game:
+      id: 8
+      levels:
+      - dot: 1
+        damageMultiplier: 1
+      - dot: 2
+        damageMultiplier: 2
+      - dot: 3
+        damageMultiplier: 3
+      - dot: 4
+        damageMultiplier: 4
+      - dot: 5
+        damageMultiplier: 5
+      - dot: 6
+        damageMultiplier: 6
+      bullet:
+        normalBullet:
+          sprBullet: {fileID: 21300000, guid: 1c29cba7ec6522d4caea5e8b833ce79d, type: 3}
+          sprLight: {fileID: 21300000, guid: 7f634cd2e9727bc498ad2e7f43f13264, type: 3}
+        rageBullet:
+          sprBullet: {fileID: 0}
+          sprLight: {fileID: 0}
+  - id: 9
+    Info:
+      id: 9
+      front: {fileID: 21300000, guid: 76001500a0f2ab54ab86abee92291d33, type: 3}
+      name: MINE
+      effectDescription: Produce coin instead of shooting bullet
+      dotColor: {r: 0, g: 0.80392164, b: 0.8745099, a: 1}
+    Game:
+      id: 9
+      levels:
+      - dot: 1
+        damageMultiplier: 1
+      - dot: 2
+        damageMultiplier: 2
+      - dot: 3
+        damageMultiplier: 3
+      - dot: 4
+        damageMultiplier: 4
+      - dot: 5
+        damageMultiplier: 5
+      - dot: 6
+        damageMultiplier: 6
+      bullet:
+        normalBullet:
+          sprBullet: {fileID: 21300000, guid: 67c270106a85f5241a448fd42b168201, type: 3}
+          sprLight: {fileID: 21300000, guid: 3f4dc16c2cdcbdd469e27bd85be57b61, type: 3}
+        rageBullet:
+          sprBullet: {fileID: 0}
+          sprLight: {fileID: 0}
+  - id: 10
+    Info:
+      id: 10
+      front: {fileID: 21300000, guid: 553b570ea300ebc47a5d9b667d38e6c1, type: 3}
+      name: CRITICAL
+      effectDescription: Increase critical chance to 4 neighbor dice
+      dotColor: {r: 0.8941177, g: 0.16078432, b: 0.054901965, a: 1}
+    Game:
+      id: 10
+      levels:
+      - dot: 1
+        damageMultiplier: 1
+      - dot: 2
+        damageMultiplier: 2
+      - dot: 3
+        damageMultiplier: 3
+      - dot: 4
+        damageMultiplier: 4
+      - dot: 5
+        damageMultiplier: 5
+      - dot: 6
+        damageMultiplier: 6
+      bullet:
+        normalBullet:
+          sprBullet: {fileID: 21300000, guid: b1bb3f04fd4027c419a080f6b5988bfa, type: 3}
+          sprLight: {fileID: 21300000, guid: a3dbdfbbad064924ab3539b8a2a0f42e, type: 3}
+        rageBullet:
+          sprBullet: {fileID: 0}
+          sprLight: {fileID: 0}
+  - id: 11
+    Info:
+      id: 11
+      front: {fileID: 21300000, guid: 387319c6194c8354fa0f8353a8fedeee, type: 3}
+      name: ENERGY
+      effectDescription: Deals additional damage proportional to current coin
+      dotColor: {r: 0, g: 0.7490196, b: 0.6039216, a: 1}
+    Game:
+      id: 11
+      levels:
+      - dot: 1
+        damageMultiplier: 1
+      - dot: 2
+        damageMultiplier: 2
+      - dot: 3
+        damageMultiplier: 3
+      - dot: 4
+        damageMultiplier: 4
+      - dot: 5
+        damageMultiplier: 5
+      - dot: 6
+        damageMultiplier: 6
+      bullet:
+        normalBullet:
+          sprBullet: {fileID: 21300000, guid: 521a93e00355eae408d834117b506d86, type: 3}
+          sprLight: {fileID: 21300000, guid: 0deaf9cbea5f39e448d808d8ea57d420, type: 3}
+        rageBullet:
+          sprBullet: {fileID: 0}
+          sprLight: {fileID: 0}
+  - id: 12
+    Info:
+      id: 12
+      front: {fileID: 21300000, guid: 33eab08155b0b7046b02e1eaac53d1e1, type: 3}
+      name: GIFT
+      effectDescription: Provide bonus coin when this is merged
+      dotColor: {r: 0.078431375, g: 0.627451, b: 0.7490196, a: 1}
+    Game:
+      id: 12
+      levels:
+      - dot: 1
+        damageMultiplier: 1
+      - dot: 2
+        damageMultiplier: 2
+      - dot: 3
+        damageMultiplier: 3
+      - dot: 4
+        damageMultiplier: 4
+      - dot: 5
+        damageMultiplier: 5
+      - dot: 6
+        damageMultiplier: 6
+      bullet:
+        normalBullet:
+          sprBullet: {fileID: 21300000, guid: a28a9874a842c904e8f50ef7126b39ca, type: 3}
+          sprLight: {fileID: 21300000, guid: 0f565f5820e2adc4598aabd2de203007, type: 3}
+        rageBullet:
+          sprBullet: {fileID: 0}
+          sprLight: {fileID: 0}
+  - id: 13
+    Info:
+      id: 13
+      front: {fileID: 21300000, guid: 590448f572be45940a2dbbb8e20d5dd8, type: 3}
+      name: SLINGSHOT
+      effectDescription: Deals bonus damage to enemy with less than 50% HP
+      dotColor: {r: 0.86274517, g: 0.5411765, b: 0, a: 1}
+    Game:
+      id: 13
+      levels:
+      - dot: 1
+        damageMultiplier: 1
+      - dot: 2
+        damageMultiplier: 2
+      - dot: 3
+        damageMultiplier: 3
+      - dot: 4
+        damageMultiplier: 4
+      - dot: 5
+        damageMultiplier: 5
+      - dot: 6
+        damageMultiplier: 6
+      bullet:
+        normalBullet:
+          sprBullet: {fileID: 21300000, guid: 0b3bfc44b6f72b04d91490162e3f1994, type: 3}
+          sprLight: {fileID: 21300000, guid: 3fc174d2ffd94e049b970e972609c5b8, type: 3}
+        rageBullet:
+          sprBullet: {fileID: 0}
+          sprLight: {fileID: 0}
+  - id: 14
+    Info:
+      id: 14
+      front: {fileID: 21300000, guid: 3ca10bbfa9c9efe479668eb89849adc5, type: 3}
+      name: LIGHT
+      effectDescription: Increase bullet speed of adjacent dices
+      dotColor: {r: 0.9058824, g: 0.8117648, b: 0, a: 1}
+    Game:
+      id: 14
+      levels:
+      - dot: 1
+        damageMultiplier: 1
+      - dot: 2
+        damageMultiplier: 2
+      - dot: 3
+        damageMultiplier: 3
+      - dot: 4
+        damageMultiplier: 4
+      - dot: 5
+        damageMultiplier: 5
+      - dot: 6
+        damageMultiplier: 6
+      bullet:
+        normalBullet:
+          sprBullet: {fileID: 21300000, guid: aff3b96c9b163be4d93466751e9ba625, type: 3}
+          sprLight: {fileID: 21300000, guid: 560606f2ad27270448f18f8d33328057, type: 3}
+        rageBullet:
+          sprBullet: {fileID: 0}
+          sprLight: {fileID: 0}
+  - id: 15
+    Info:
+      id: 15
+      front: {fileID: 21300000, guid: 26c4a31acebde0b449cafe5bfc5bed34, type: 3}
+      name: ABSORD
+      effectDescription: Absord HP when hit enemy
+      dotColor: {r: 0.854902, g: 0, b: 0, a: 1}
+    Game:
+      id: 15
+      levels:
+      - dot: 1
+        damageMultiplier: 1
+      - dot: 2
+        damageMultiplier: 2
+      - dot: 3
+        damageMultiplier: 3
+      - dot: 4
+        damageMultiplier: 4
+      - dot: 5
+        damageMultiplier: 5
+      - dot: 6
+        damageMultiplier: 6
+      bullet:
+        normalBullet:
+          sprBullet: {fileID: 21300000, guid: 72587a26e563dd9479a94d746d901fb7, type: 3}
+          sprLight: {fileID: 21300000, guid: abc07e338482f054f991a8b7370cf172, type: 3}
+        rageBullet:
+          sprBullet: {fileID: 0}
+          sprLight: {fileID: 0}
+  - id: 16
+    Info:
+      id: 16
+      front: {fileID: 21300000, guid: 348f40546869da74c8cae28f1756b436, type: 3}
+      name: MIMIC
+      effectDescription: Can merge with any dice with same dot count
+      dotColor: {r: 0.627451, g: 0.30588236, b: 0.7960785, a: 1}
+    Game:
+      id: 16
+      levels:
+      - dot: 1
+        damageMultiplier: 1
+      - dot: 2
+        damageMultiplier: 2
+      - dot: 3
+        damageMultiplier: 3
+      - dot: 4
+        damageMultiplier: 4
+      - dot: 5
+        damageMultiplier: 5
+      - dot: 6
+        damageMultiplier: 6
+      bullet:
+        normalBullet:
+          sprBullet: {fileID: 21300000, guid: a9f89c9fa39288742a26efe72843c9bd, type: 3}
+          sprLight: {fileID: 21300000, guid: a8a2714a92610a54996d617f116e5a37, type: 3}
+        rageBullet:
+          sprBullet: {fileID: 0}
+          sprLight: {fileID: 0}
+  - id: 17
+    Info:
+      id: 17
+      front: {fileID: 21300000, guid: 2eea9bfb6515af14b8857cbff9e00f5b, type: 3}
+      name: CLONE
+      effectDescription: Summon a clone dice in 5 seconds in adjacent slot
+      dotColor: {r: 0.73333335, g: 0, b: 0.121568635, a: 1}
+    Game:
+      id: 17
+      levels:
+      - dot: 1
+        damageMultiplier: 1
+      - dot: 2
+        damageMultiplier: 2
+      - dot: 3
+        damageMultiplier: 3
+      - dot: 4
+        damageMultiplier: 4
+      - dot: 5
+        damageMultiplier: 5
+      - dot: 6
+        damageMultiplier: 6
+      bullet:
+        normalBullet:
+          sprBullet: {fileID: 21300000, guid: a7bc90e30ec11954faa83d9040d03af6, type: 3}
+          sprLight: {fileID: 21300000, guid: dde3a5e96bf438a4dbdfcf57c7305a4c, type: 3}
+        rageBullet:
+          sprBullet: {fileID: 0}
+          sprLight: {fileID: 0}
+  - id: 18
+    Info:
+      id: 18
+      front: {fileID: 21300000, guid: 1785bdbd6b9efe245a3352aefbb0f18e, type: 3}
+      name: DEATH
+      effectDescription: Have chance to instant kill the target, except boss
+      dotColor: {r: 0.20000002, g: 0.16862746, b: 0.20000002, a: 1}
+    Game:
+      id: 18
+      levels:
+      - dot: 1
+        damageMultiplier: 1
+      - dot: 2
+        damageMultiplier: 2
+      - dot: 3
+        damageMultiplier: 3
+      - dot: 4
+        damageMultiplier: 4
+      - dot: 5
+        damageMultiplier: 5
+      - dot: 6
+        damageMultiplier: 6
+      bullet:
+        normalBullet:
+          sprBullet: {fileID: 21300000, guid: cab1c473284819a4d9f8ad58ae3734ff, type: 3}
+          sprLight: {fileID: 21300000, guid: d92e6eefc7798034e8fdf98b278eec6f, type: 3}
+        rageBullet:
+          sprBullet: {fileID: 0}
+          sprLight: {fileID: 0}
+  - id: 19
+    Info:
+      id: 19
+      front: {fileID: 21300000, guid: 895968d14a3a41641bc02180952beb69, type: 3}
+      name: FLAME
+      effectDescription: Cause flame effect and deal damage per second to enemy
+      dotColor: {r: 0.74509805, g: 0.16470589, b: 0.21176472, a: 1}
+    Game:
+      id: 19
+      levels:
+      - dot: 1
+        damageMultiplier: 1
+      - dot: 2
+        damageMultiplier: 2
+      - dot: 3
+        damageMultiplier: 3
+      - dot: 4
+        damageMultiplier: 4
+      - dot: 5
+        damageMultiplier: 5
+      - dot: 6
+        damageMultiplier: 6
+      bullet:
+        normalBullet:
+          sprBullet: {fileID: 21300000, guid: d38675db33988f24eb1b2ab6b0be7325, type: 3}
+          sprLight: {fileID: 21300000, guid: 7436187d98bb85041a9d2b19dfc36a6c, type: 3}
+        rageBullet:
+          sprBullet: {fileID: 0}
+          sprLight: {fileID: 0}
+  - id: 20
+    Info:
+      id: 20
+      front: {fileID: 21300000, guid: 57e61fce261284540935335215c366f6, type: 3}
+      name: HEAL
+      effectDescription: Heal HP to you when merged or spawned
+      dotColor: {r: 0.003921569, g: 0.7490196, b: 0.6039216, a: 1}
+    Game:
+      id: 20
+      levels:
+      - dot: 1
+        damageMultiplier: 1
+      - dot: 2
+        damageMultiplier: 2
+      - dot: 3
+        damageMultiplier: 3
+      - dot: 4
+        damageMultiplier: 4
+      - dot: 5
+        damageMultiplier: 5
+      - dot: 6
+        damageMultiplier: 6
+      bullet:
+        normalBullet:
+          sprBullet: {fileID: 21300000, guid: 51d1fe38c1001124990ce19f8d01a24a, type: 3}
+          sprLight: {fileID: 21300000, guid: af62b1c98d6d5584aac23723fc1298b2, type: 3}
+        rageBullet:
+          sprBullet: {fileID: 0}
+          sprLight: {fileID: 0}
+  - id: 21
+    Info:
+      id: 21
+      front: {fileID: 21300000, guid: 53ab8ba01915f2946becb7e5bf23b162, type: 3}
+      name: WAVE
+      effectDescription: The further the enemy is, the higher the damage is
+      dotColor: {r: 0.07058824, g: 0.227451, b: 0.89019614, a: 1}
+    Game:
+      id: 21
+      levels:
+      - dot: 1
+        damageMultiplier: 1
+      - dot: 2
+        damageMultiplier: 2
+      - dot: 3
+        damageMultiplier: 3
+      - dot: 4
+        damageMultiplier: 4
+      - dot: 5
+        damageMultiplier: 5
+      - dot: 6
+        damageMultiplier: 6
+      bullet:
+        normalBullet:
+          sprBullet: {fileID: 21300000, guid: 757116bd6e522f644afef76cc8a6c052, type: 3}
+          sprLight: {fileID: 21300000, guid: 9963adcd11b250b46b4032e008249d5a, type: 3}
+        rageBullet:
+          sprBullet: {fileID: 0}
+          sprLight: {fileID: 0}
+  - id: 22
+    Info:
+      id: 22
+      front: {fileID: 21300000, guid: 461ea5d937cb1a949b77aa65f5edd631, type: 3}
+      name: INFECT
+      effectDescription: When this kill an enemy, deal damage to all nearest enemy
+      dotColor: {r: 0, g: 0.6862745, b: 0, a: 1}
+    Game:
+      id: 22
+      levels:
+      - dot: 1
+        damageMultiplier: 1
+      - dot: 2
+        damageMultiplier: 2
+      - dot: 3
+        damageMultiplier: 3
+      - dot: 4
+        damageMultiplier: 4
+      - dot: 5
+        damageMultiplier: 5
+      - dot: 6
+        damageMultiplier: 6
+      bullet:
+        normalBullet:
+          sprBullet: {fileID: 21300000, guid: f86e51f00d4e9fc49b52cd4b6bebe4d2, type: 3}
+          sprLight: {fileID: 21300000, guid: 67bfc51debcc99147963405adc4249c3, type: 3}
+        rageBullet:
+          sprBullet: {fileID: 0}
+          sprLight: {fileID: 0}
   boosterConfigs:
     level:
     - costUpgradeNext: 400

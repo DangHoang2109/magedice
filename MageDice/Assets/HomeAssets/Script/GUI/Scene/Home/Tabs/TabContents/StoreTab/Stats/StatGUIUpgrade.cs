@@ -37,8 +37,9 @@ public class StatGUIUpgrade : MonoBehaviour
             this.txtLevel.text = string.Empty;
         
         
-        this.imgProgress.gameObject.SetActive(false);
-        
+        this.imgProgress.gameObject.SetActive(true);
+        imgEnough.gameObject.SetActive(false);
+
         tot = (int)c.RequirementCard;
         this.cur = (int)c.cards;
 

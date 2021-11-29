@@ -168,7 +168,10 @@ public class StatGUIDetailDialog : BaseSortingDialog
 
     private void OnBuyCueSuccess(string _)
     {
-        CanvasBlocker.Instance.SetActive(true);
+        this.ParseData();
+        SoundManager.Instance.Play("sfx_glare_mid");
+
+        //CanvasBlocker.Instance.SetActive(true);
     }
 
     private void OnHighLightCue()
@@ -199,16 +202,14 @@ public class StatGUIDetailDialog : BaseSortingDialog
         }
         else
         {
-            Debug.Log("edit using");
-            //StatManager.Instance.ChangeCue(this._data, OnUseCueSuccess);    
+            GameManager.Instance.OnShowDialogWithSorting<ReplaceDiceDialog>("Home/GUI/ReplaceDiceDialog/ReplaceUsingDiceDialog", PopupSortingType.CenterBottomAndTopBar, this._data)
+                .SetCallback(OnUseCueSuccess);
         }
     }
 
     private void OnUseCueSuccess(string _)
     {
-        SoundManager.Instance.PlayButtonClick();
-        this.partBuyOrUse.ParseCueBought(StatManager.Instance.IsUsing(this._data.id));
-       
+        this.ClickCloseDialog();
     }
     
 }

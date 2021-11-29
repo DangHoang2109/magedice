@@ -157,6 +157,8 @@ public class GameBoardManager : MonoSingleton<GameBoardManager>
             .SetDot<GameDiceData>(nextDot)
             .SetEffect<GameDiceData>(dicUserDiceStartingStat[id], this.boosterDeck.dicBoosterDiceStat[id]._currentBoostPercent); //
 
+        result.OnSpawned();
+
         this.dicCallbackBoosterUpdate[id].AddListener(result.onChangeDiceBoosterPercent);
 
 
@@ -188,6 +190,9 @@ public class GameBoardManager : MonoSingleton<GameBoardManager>
 
         this.dicCallbackBoosterUpdate[id].AddListener(diceReplace.Data.onChangeDiceBoosterPercent);
         this.dicCallbackBoosterUpdate[id].AddListener(diceReturn.Data.onChangeDiceBoosterPercent);
+
+        diceReplace.Data.OnMerged();
+        diceReturn.Data.OnMerged();
 
         GameDiceData newData = RandomDice(diceReplace.Data);
         diceReplace.SetData(newData);

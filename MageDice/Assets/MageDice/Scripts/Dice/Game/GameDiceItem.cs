@@ -107,13 +107,18 @@ public class GameDiceItem : BaseDiceItem
             if (nearestSlot.IsPlacing && nearestSlot != this.currentSlot)
             {
                 GameDiceItem dice = nearestSlot.item;
-                if( dice.interactState != STATE.BLOCKING &&
-                    this.interactState != STATE.BLOCKING &&
-                    dice.Data.id == this.Data.id && dice.Data.Dot == this.Data.Dot)
+                if (dice.interactState != STATE.BLOCKING &&
+                    this.interactState != STATE.BLOCKING) 
                 {
-                    //merge if true
-                    BoardManager.MergeDice(dice, this);
-                    return;
+                    if(dice.Data.id == this.Data.id || dice.Data.diceEffect.IsCanMergeWithAny || this.Data.diceEffect.IsCanMergeWithAny)
+                    {
+                        if(dice.Data.Dot == this.Data.Dot)
+                        {
+                            //merge if true
+                            BoardManager.MergeDice(dice, this);
+                            return;
+                        }
+                    }
                 }
             }
         }
