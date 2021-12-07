@@ -9,7 +9,6 @@ public class UserProfileTabContent : TabContent
     public ProfileBasicInfo info;
     //public ProfileCardView lineUp; //(OLD)
     public UserCareerOverview career;
-    private bool isShow = false;
     
     public override void OnShow(int index, object data = null, UnityAction callback = null)
     {

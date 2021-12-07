@@ -1,0 +1,297 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e87d8d6ac1a9f48b5e19d48100e938, type: 3}
+  m_Name: BonusConfigs
+  m_EditorClassIdentifier: 
+  dailyReward:
+    config:
+    - day: 0
+      reward:
+        booster:
+          type: 0
+          value: 0
+        bag:
+          bagType: 0
+          tour: 0
+          amount: 0
+        boostRate: 2
+    - day: 1
+      reward:
+        booster:
+          type: 100
+          value: 0
+        bag:
+          bagType: 3
+          tour: 1
+          amount: 1
+        boostRate: 1
+    - day: 2
+      reward:
+        booster:
+          type: 1
+          value: 0
+        bag:
+          bagType: 0
+          tour: 0
+          amount: 0
+        boostRate: 1
+    - day: 3
+      reward:
+        booster:
+          type: 0
+          value: 0
+        bag:
+          bagType: 0
+          tour: 0
+          amount: 0
+        boostRate: 2
+    - day: 4
+      reward:
+        booster:
+          type: 0
+          value: 0
+        bag:
+          bagType: 0
+          tour: 0
+          amount: 0
+        boostRate: 2
+    - day: 5
+      reward:
+        booster:
+          type: 1
+          value: 0
+        bag:
+          bagType: 0
+          tour: 0
+          amount: 0
+        boostRate: 1
+    - day: 6
+      reward:
+        booster:
+          type: 100
+          value: 0
+        bag:
+          bagType: 3
+          tour: 1
+          amount: 1
+        boostRate: 1
+    - day: 7
+      reward:
+        booster:
+          type: 0
+          value: 0
+        bag:
+          bagType: 0
+          tour: 0
+          amount: 0
+        boostRate: 3
+    - day: 8
+      reward:
+        booster:
+          type: 1
+          value: 0
+        bag:
+          bagType: 0
+          tour: 0
+          amount: 0
+        boostRate: 2
+    - day: 9
+      reward:
+        booster:
+          type: 0
+          value: 0
+        bag:
+          bagType: 0
+          tour: 0
+          amount: 0
+        boostRate: 3
+    - day: 10
+      reward:
+        booster:
+          type: 0
+          value: 0
+        bag:
+          bagType: 0
+          tour: 0
+          amount: 0
+        boostRate: 3
+    - day: 11
+      reward:
+        booster:
+          type: 1
+          value: 0
+        bag:
+          bagType: 0
+          tour: 0
+          amount: 0
+        boostRate: 2
+    - day: 12
+      reward:
+        booster:
+          type: 0
+          value: 0
+        bag:
+          bagType: 0
+          tour: 0
+          amount: 0
+        boostRate: 3
+    - day: 13
+      reward:
+        booster:
+          type: 100
+          value: 0
+        bag:
+          bagType: 3
+          tour: 1
+          amount: 1
+        boostRate: 1
+    - day: 14
+      reward:
+        booster:
+          type: 1
+          value: 0
+        bag:
+          bagType: 0
+          tour: 0
+          amount: 0
+        boostRate: 3
+    - day: 15
+      reward:
+        booster:
+          type: 0
+          value: 0
+        bag:
+          bagType: 0
+          tour: 0
+          amount: 0
+        boostRate: 4
+    - day: 16
+      reward:
+        booster:
+          type: 0
+          value: 0
+        bag:
+          bagType: 0
+          tour: 0
+          amount: 0
+        boostRate: 4
+    - day: 17
+      reward:
+        booster:
+          type: 1
+          value: 0
+        bag:
+          bagType: 0
+          tour: 0
+          amount: 0
+        boostRate: 3
+    - day: 18
+      reward:
+        booster:
+          type: 0
+          value: 0
+        bag:
+          bagType: 0
+          tour: 0
+          amount: 0
+        boostRate: 4
+    - day: 19
+      reward:
+        booster:
+          type: 0
+          value: 0
+        bag:
+          bagType: 0
+          tour: 0
+          amount: 0
+        boostRate: 4
+    - day: 20
+      reward:
+        booster:
+          type: 100
+          value: 0
+        bag:
+          bagType: 3
+          tour: 1
+          amount: 1
+        boostRate: 1
+    - day: 21
+      reward:
+        booster:
+          type: 0
+          value: 0
+        bag:
+          bagType: 0
+          tour: 0
+          amount: 0
+        boostRate: 5
+    - day: 22
+      reward:
+        booster:
+          type: 0
+          value: 0
+        bag:
+          bagType: 0
+          tour: 0
+          amount: 0
+        boostRate: 5
+    - day: 23
+      reward:
+        booster:
+          type: 1
+          value: 0
+        bag:
+          bagType: 0
+          tour: 0
+          amount: 0
+        boostRate: 4
+    - day: 24
+      reward:
+        booster:
+          type: 0
+          value: 0
+        bag:
+          bagType: 0
+          tour: 0
+          amount: 0
+        boostRate: 5
+    - day: 25
+      reward:
+        booster:
+          type: 0
+          value: 0
+        bag:
+          bagType: 0
+          tour: 0
+          amount: 0
+        boostRate: 5
+    - day: 26
+      reward:
+        booster:
+          type: 1
+          value: 0
+        bag:
+          bagType: 0
+          tour: 0
+          amount: 0
+        boostRate: 4
+    - day: 27
+      reward:
+        booster:
+          type: 100
+          value: 0
+        bag:
+          bagType: 3
+          tour: 1
+          amount: 1
+        boostRate: 1
+    boostRatePerMonth: 1

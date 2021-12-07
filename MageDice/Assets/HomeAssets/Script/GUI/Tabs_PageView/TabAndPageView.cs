@@ -18,7 +18,10 @@ public class TabAndPageView : MonoBehaviour
         this.pageView.changePageEvent.AddListener(OnChangePage);
         this.tabBase.changeTabEvent.AddListener(OnChangeTab);
     }
-
+    private void Start()
+    {
+        this.tabBase.Init();
+    }
     public void Init(UnityAction<int> callback = null)
     {
         this.callbackChangeTab = callback;

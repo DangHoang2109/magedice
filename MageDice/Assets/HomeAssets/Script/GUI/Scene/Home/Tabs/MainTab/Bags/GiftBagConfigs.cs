@@ -235,7 +235,7 @@ public class GiftBagConfigs : ScriptableObject
                 if (cardAmount.tier == StatManager.Tier.Standard)
                     bagCardModel = GetStartingCard();
                 else
-                    bagCardModel = RandomCueCard(cardAmount.tier, 1, 1, showedItem);
+                    bagCardModel = RandomCueCard(cardAmount.tier, 1, showedItem);
 
                 if (bagCardModel != null && bagCardModel.equipmentConfig != null)
                 {
@@ -305,7 +305,7 @@ public class GiftBagConfigs : ScriptableObject
                 StatManager.Tier rariry = cardAmount.tier;//ConvertCardTypeToCueTier(cardAmount.cardType);
 
                 //Lấy ra type có rarity để tặng
-                OpenBagDialog.BagCardModel bagCardModel = RandomCueCard(rariry, 1, tour, showedItem);
+                OpenBagDialog.BagCardModel bagCardModel = RandomCueCard(rariry, 1, showedItem);
 
                 if (bagCardModel != null && bagCardModel.equipmentConfig != null)
                 {
@@ -382,7 +382,7 @@ public class GiftBagConfigs : ScriptableObject
                 StatManager.Tier rariry = cardAmount.tier;//ConvertCardTypeToCueTier(cardAmount.cardType);
 
                 //Lấy ra type có rarity để tặng
-                OpenBagDialog.BagCardModel bagCardModel = RandomCueCard(rariry, 1, tour, showedItem);
+                OpenBagDialog.BagCardModel bagCardModel = RandomCueCard(rariry, 1, showedItem);
 
                 if (bagCardModel != null && bagCardModel.equipmentConfig != null)
                 {
@@ -400,6 +400,46 @@ public class GiftBagConfigs : ScriptableObject
         }
         return null;
     }
+
+    /// <summary>
+    /// Open bag with the ui of bag free or card pack, but the content card list configed before
+    /// There is no Coin, Cash, Rate for the bonus in this
+    /// <returns></returns>
+    public OpenBagDialog.BagModel OpenCardsList(List<CardAmount> card ,string source, float rateRandomNew = -1)
+    {
+        if (card != null && card.Count > 0)
+        {
+            OpenBagDialog.BagModel giftBagModel = new OpenBagDialog.BagModel();
+            giftBagModel.typeBag = BagType.FREE_BAG;
+
+            //get value card
+            List<DiceID> showedItem = new List<DiceID>();
+
+            if(rateRandomNew < 0)
+                rateRandomNew = Mathf.Clamp(min_rateAppearOwned + UserDatas.Instance.careers.totalMatch * 0.02f, min_rateAppearOwned, max_rateAppearOwned);
+
+            foreach (CardAmount cardAmount in card)
+            {
+                long valueCard = cardAmount.amount;
+                StatManager.Tier rariry = cardAmount.tier;
+
+                //Lấy ra type có rarity để tặng
+                OpenBagDialog.BagCardModel bagCardModel = RandomCueCard(rariry, rateRandomNew, showedItem);
+
+                if (bagCardModel != null && bagCardModel.equipmentConfig != null)
+                {
+                    showedItem.Add(bagCardModel.equipmentConfig.id);
+                    bagCardModel.value = valueCard;
+                    giftBagModel.items.Add(bagCardModel);
+                }
+            }
+
+            return giftBagModel;
+        }
+        return null;
+    }
+
+
     public OpenBagDialog.BagModel GetGiftBagModel(BagType type, int tour, string source)
     {
         //if (!TutorialDatas.IsTutorialCompleted())
@@ -449,7 +489,7 @@ public class GiftBagConfigs : ScriptableObject
                 StatManager.Tier rariry = cardAmount.tier;//ConvertCardTypeToCueTier(cardAmount.cardType);
 
                 //Lấy ra type có rarity để tặng
-                OpenBagDialog.BagCardModel bagCardModel = RandomCueCard(rariry, 1, tour, showedItem);
+                OpenBagDialog.BagCardModel bagCardModel = RandomCueCard(rariry, 1, showedItem);
 
                 if(bagCardModel != null && bagCardModel.equipmentConfig != null)
                 {
@@ -513,7 +553,7 @@ public class GiftBagConfigs : ScriptableObject
                 StatManager.Tier rariry = cardAmount.tier;//ConvertCardTypeToCueTier(cardAmount.cardType);
 
                 //Lấy ra type có rarity để tặng
-                OpenBagDialog.BagCardModel bagCardModel = RandomCueCard(rariry, 1, tour, showedItem);
+                OpenBagDialog.BagCardModel bagCardModel = RandomCueCard(rariry, 1, showedItem);
 
                 if (bagCardModel != null && bagCardModel.equipmentConfig != null)
                 {
@@ -586,7 +626,7 @@ public class GiftBagConfigs : ScriptableObject
         CardAmount bonusCard = bagConfig.GetRandomBonusCard();
         if(bonusCard != null)
         {
-            OpenBagDialog.BagCardModel bagCardModel = RandomCueCard(bonusCard.tier, appearRate, tour, showedItem);
+            OpenBagDialog.BagCardModel bagCardModel = RandomCueCard(bonusCard.tier, appearRate, showedItem);
 
             if(bagCardModel == null)
             {
@@ -595,7 +635,7 @@ public class GiftBagConfigs : ScriptableObject
                 while (bagCardModel == null && index < bagConfig.cardBonuss.Count)
                 {
                     bonusCard = bagConfig.cardBonuss[index];
-                    bagCardModel = RandomCueCard(bagConfig.cardBonuss[index].tier, appearRate, tour, showedItem);
+                    bagCardModel = RandomCueCard(bagConfig.cardBonuss[index].tier, appearRate, showedItem);
                 }
             }
 
@@ -668,7 +708,7 @@ public class GiftBagConfigs : ScriptableObject
     /// <param name="rarity">độ hiếm của card</param>
     /// <param name="rateOwn">tỷ lệ lấy card đã sở hữu, nếu không lấy được card đã sở hữu thì random card mới</param>
     /// <returns></returns>
-    private OpenBagDialog.BagCardModel RandomCueCard(StatManager.Tier rarity, float rateOwn, int tourID, List<DiceID> showedID)
+    private OpenBagDialog.BagCardModel RandomCueCard(StatManager.Tier rarity, float rateOwn, List<DiceID> showedID)
     {
         OpenBagDialog.BagCardModel bagCardModel = new OpenBagDialog.BagCardModel();
 
@@ -677,7 +717,22 @@ public class GiftBagConfigs : ScriptableObject
 
         float randOwn = Random.value;
         //kiểm tra get card đã có hay tạo mới
-        if (randOwn < rateOwn && StatManager.Instance.GetCountKind_Simple(StatManager.Kind.UnlockedNonMaxed) > 0)
+
+        if(randOwn >= rateOwn && StatManager.Instance.GetCountKind_Simple(StatManager.Kind.NotUnlocked) > 0)
+        {
+            //random new equipment
+            List<StatData> l = StatManager.Instance.GetDatasByTierKind_Simple(rarity, StatManager.Kind.NotUnlocked, StatManager.FilterHaveRequireCards);
+
+            if(l.Count == 0)
+                l = StatManager.Instance.GetDatasByTierKind_Simple(rarity, StatManager.Kind.UnlockedNonMaxed, StatManager.FilterHaveRequireCards);
+
+            bagCardModel.equipmentConfig = l
+                    .Where(x => !showedID.Contains(x.id) && !x.config.isHide)
+                    .ToList()
+                    .Shuffle()
+                    .FirstOrDefault().config;
+        }
+        else
         {
             List<StatData> StatDatas = StatManager.Instance.GetDatasByTierKind_Simple(
                                                         rarity,
@@ -698,20 +753,12 @@ public class GiftBagConfigs : ScriptableObject
                 {
                     Debug.Log(string.Format("Get random {0} as there is no same rarity in data ", rarity));
                     //random in equipment
-                    bagCardModel.equipmentConfig = StatManager.Instance.GetDatasByKind_Complex( StatManager.Kind.Unlocked, StatManager.FilterHaveRequireCards)
+                    bagCardModel.equipmentConfig = StatManager.Instance.GetDatasByKind_Complex(StatManager.Kind.Unlocked, StatManager.FilterHaveRequireCards)
                             .Where(x => !showedID.Contains(x.id))
                             .ToList().Shuffle()
                             .FirstOrDefault().config;
                 }
             }
-        }
-        else
-        {
-            //random new equipment
-            bagCardModel.equipmentConfig = StatManager.Instance.GetDatasByTierKind_Simple(rarity, StatManager.Kind.NotUnlocked, StatManager.FilterHaveRequireCards)
-                    .Where(x => !showedID.Contains(x.id) && !x.config.isHide)
-                    .ToList().Shuffle()
-                    .FirstOrDefault().config;
         }
 
         return bagCardModel;

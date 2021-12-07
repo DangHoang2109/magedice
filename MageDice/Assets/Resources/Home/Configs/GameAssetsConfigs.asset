@@ -131,16 +131,19 @@ MonoBehaviour:
       sprCard: {fileID: 21300000, guid: 58673e9db7b0e0448861a164fa6510d2, type: 3}
       color: {r: 0.5254902, g: 0.8078432, b: 0.36078432, a: 1}
       sprRarityCircle: {fileID: 0}
+      sprBackIcon: {fileID: 21300000, guid: 314559360da7a084fa6a7e878535e934, type: 3}
     - tier: 2
       name: 
       sprCard: {fileID: 21300000, guid: 9e7fffe16879a854ca2500ab943a6520, type: 3}
       color: {r: 0.29411766, g: 0.8000001, b: 0.96470594, a: 1}
       sprRarityCircle: {fileID: 0}
+      sprBackIcon: {fileID: 21300000, guid: 2f3c8038313f0a146b26ac4297f4a2c8, type: 3}
     - tier: 3
       name: 
       sprCard: {fileID: 21300000, guid: 19ad4b62e117d5149a4d5f1a36b8aed0, type: 3}
       color: {r: 0.74509805, g: 0.42352945, b: 1, a: 1}
       sprRarityCircle: {fileID: 0}
+      sprBackIcon: {fileID: 21300000, guid: fa715e8aaaba09e4092a1759808e171a, type: 3}
   valueIconAsset:
     coinIcons:
     - value: 1
@@ -393,3 +396,4 @@ MonoBehaviour:
       sprBG: {fileID: 21300000, guid: c9bca9cf6827e8b4e8987ccbbd0e2037, type: 3}
       colorTitle: {r: 0.41960788, g: 0.31764707, b: 0.5176471, a: 1}
       colorText: {r: 0.76470596, g: 0.41176474, b: 0.98823535, a: 1}
+  sprBonusRewardItemBGs: []

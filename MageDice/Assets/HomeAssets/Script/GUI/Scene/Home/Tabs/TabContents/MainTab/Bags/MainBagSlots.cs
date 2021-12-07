@@ -94,6 +94,57 @@ public class MainBagSlots : MonoSingleton<MainBagSlots>
                     listBags);
         }      
     }
+
+    /// <summary>
+    /// Mở luôn khi nhận cards
+    /// </summary>
+    /// <param name="cards"></param>
+    public static void OpenCardsNow(List<CardAmount> cards, string source)
+    {
+        List<OpenBagDialog.BagModel> listBags = new List<OpenBagDialog.BagModel>();
+
+        foreach (CardAmount bag in cards)
+        {
+            for (int i = 0; i < bag.amount; i++)
+            {
+                listBags.Add(GiftBagConfigs.Instance.OpenCardsList(cards, source));
+            }
+        }
+
+        if (listBags != null)
+        {
+            OpenBagDialog openBag = GameManager.Instance.OnShowDialogWithSorting<OpenBagDialog>(
+                    "Home/GUI/OpenBag/OpenBag",
+                    PopupSortingType.OnTopBar,
+                    listBags);
+        }
+    }
+    /// <summary>
+    /// Mở luôn khi nhận cards và bags
+    /// </summary>
+    /// <param name="cards"></param>
+    public static void OpenCardsAndBagNow(List<CardAmount> cards, List<BagAmount> bags, string source)
+    {
+        List<OpenBagDialog.BagModel> listBags = new List<OpenBagDialog.BagModel>();
+
+        listBags.Add(GiftBagConfigs.Instance.OpenCardsList(cards, source));
+
+        foreach (BagAmount bag in bags)
+        {
+            for (int i = 0; i < bag.amount; i++)
+            {
+                listBags.Add(GiftBagConfigs.Instance.GetGiftBagModel(bag.bagType, bag.tour, source));
+            }
+        }
+        if (listBags != null)
+        {
+            OpenBagDialog openBag = GameManager.Instance.OnShowDialogWithSorting<OpenBagDialog>(
+                    "Home/GUI/OpenBag/OpenBag",
+                    PopupSortingType.OnTopBar,
+                    listBags);
+        }
+    }
+
     public static void OpenBagNow(BagAmount bag, string source)
     {
         List<OpenBagDialog.BagModel> listBags = new List<OpenBagDialog.BagModel>();

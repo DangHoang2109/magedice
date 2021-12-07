@@ -10,6 +10,8 @@ public class TabContent : MonoBehaviour
     public Transform panel;
     protected object data;
     public int TabIndex => this.tabIndex;
+    protected bool isShow = false;
+
     protected virtual void Start()
     {
         this.OnInit();

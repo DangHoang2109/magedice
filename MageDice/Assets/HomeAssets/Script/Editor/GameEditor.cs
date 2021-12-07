@@ -202,6 +202,10 @@ public static class GameEditor
 
     }
 
-    
+    [MenuItem("Test/Bonus/ClearOfflineEarning")]
+    static void ClearOfflineEarning()
+    {
+        UserOfflineBonusData.Instance.ClearOfflineEarning();
+    }
 
 }

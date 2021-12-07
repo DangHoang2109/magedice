@@ -245,6 +245,7 @@ public class StatManager : MonoSingleton<StatManager>
         List<StatData> l = StatDatas.Instance.GetListSimple(kind);
         if (l == null)
             return null;
+
         return l.Where(x => (x.config.tier == tier && filter(x))).ToList();
     }
 

@@ -18,9 +18,13 @@ public class TabBase : MonoBehaviour
 
     public CallbackEventInt changeTabEvent = new CallbackEventInt();
 
+    [SerializeField]
+    private bool isCallInitAtStart = false;
+
     protected virtual void Start()
     {
-        this.Init();
+        if(isCallInitAtStart)
+            this.Init();
     }
     public virtual void Init()
     {

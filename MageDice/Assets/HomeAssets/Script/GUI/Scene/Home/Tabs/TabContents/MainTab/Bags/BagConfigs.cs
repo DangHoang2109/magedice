@@ -96,6 +96,17 @@ public class CardAmount
     public StatManager.Tier tier;
     public CardType cardType; 
     public int amount;
+
+    public CardAmount()
+    {
+
+    }
+
+    public CardAmount(StatManager.Tier t, int a)
+    {
+        tier = t;
+        amount = a;
+    }
 }
 
 public enum CardType

@@ -1,0 +1,199 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b48be1f2bdcd5854a860bd4f7ae3010d, type: 3}
+  m_Name: OnlineRewardConfigs
+  m_EditorClassIdentifier: 
+  configs:
+  - id: 1
+    config:
+    - dayStart: 0
+      dayEnd: 3
+      config:
+      - rewardConfig:
+          booster:
+            type: 100
+            value: 
+          bag:
+            bagType: 3
+            tour: 1
+            amount: 1
+          boostRate: 1
+      - rewardConfig:
+          booster:
+            type: 1
+            value: 20
+          bag:
+            bagType: 0
+            tour: 0
+            amount: 0
+          boostRate: 1
+      - rewardConfig:
+          booster:
+            type: 0
+            value: 1
+          bag:
+            bagType: 0
+            tour: 0
+            amount: 0
+          boostRate: 4
+    - dayStart: 4
+      dayEnd: 7
+      config:
+      - rewardConfig:
+          booster:
+            type: 100
+            value: 
+          bag:
+            bagType: 10
+            tour: 0
+            amount: 1
+          boostRate: 1
+      - rewardConfig:
+          booster:
+            type: 1
+            value: 10
+          bag:
+            bagType: 0
+            tour: 0
+            amount: 0
+          boostRate: 1
+      - rewardConfig:
+          booster:
+            type: 0
+            value: 0
+          bag:
+            bagType: 0
+            tour: 0
+            amount: 0
+          boostRate: 2
+    - dayStart: 8
+      dayEnd: 10000
+      config:
+      - rewardConfig:
+          booster:
+            type: 0
+            value: 
+          bag:
+            bagType: 2
+            tour: 0
+            amount: 1
+          boostRate: 1
+      - rewardConfig:
+          booster:
+            type: 1
+            value: 5
+          bag:
+            bagType: 0
+            tour: 0
+            amount: 0
+          boostRate: 1
+      - rewardConfig:
+          booster:
+            type: 0
+            value: 
+          bag:
+            bagType: 0
+            tour: 0
+            amount: 0
+          boostRate: 1
+  - id: 2
+    config:
+    - dayStart: 0
+      dayEnd: 3
+      config:
+      - rewardConfig:
+          booster:
+            type: 100
+            value: 
+          bag:
+            bagType: 12
+            tour: 0
+            amount: 1
+          boostRate: 1
+      - rewardConfig:
+          booster:
+            type: 1
+            value: 50
+          bag:
+            bagType: 0
+            tour: 0
+            amount: 0
+          boostRate: 1
+      - rewardConfig:
+          booster:
+            type: 0
+            value: 
+          bag:
+            bagType: 0
+            tour: 0
+            amount: 0
+          boostRate: 5
+    - dayStart: 4
+      dayEnd: 7
+      config:
+      - rewardConfig:
+          booster:
+            type: 100
+            value: 
+          bag:
+            bagType: 11
+            tour: 0
+            amount: 0
+          boostRate: 1
+      - rewardConfig:
+          booster:
+            type: 1
+            value: 20
+          bag:
+            bagType: 0
+            tour: 0
+            amount: 0
+          boostRate: 1
+      - rewardConfig:
+          booster:
+            type: 0
+            value: 
+          bag:
+            bagType: 0
+            tour: 0
+            amount: 0
+          boostRate: 3
+    - dayStart: 8
+      dayEnd: 10000
+      config:
+      - rewardConfig:
+          booster:
+            type: 100
+            value: 
+          bag:
+            bagType: 10
+            tour: 0
+            amount: 0
+          boostRate: 1
+      - rewardConfig:
+          booster:
+            type: 1
+            value: 10
+          bag:
+            bagType: 0
+            tour: 0
+            amount: 0
+          boostRate: 1
+      - rewardConfig:
+          booster:
+            type: 0
+            value: 
+          bag:
+            bagType: 0
+            tour: 0
+            amount: 0
+          boostRate: 2

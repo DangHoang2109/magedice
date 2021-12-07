@@ -28,4 +28,21 @@ public class BoosterUIItem : MonoBehaviour
         Sprite sprIcon = SpriteIconValueConfigs.Instance.GetSprite(type, value);
         if (sprIcon != null) this.imgIcon.sprite = sprIcon;
     }
+    public virtual void ShowBooster(BoosterCommodity booster, bool dynamicIcon)
+    {
+        this.booster.ParseBooster(booster);
+
+        long value = 0;
+
+        if (dynamicIcon)
+        {
+            if (booster.type == BoosterType.COIN && booster.GetValue() < 1000)
+            {
+                value = 1000;
+            }
+        }
+
+        Sprite sprIcon = SpriteIconValueConfigs.Instance.GetSprite(booster.type, value);
+        if (sprIcon != null) this.imgIcon.sprite = sprIcon;
+    }
 }

@@ -126,9 +126,8 @@ public enum BoosterType
     CASH = 1,
     CUP = 2,
 
-
-
     BAG = 100,
+    CARDS = 101,
 
     GLOVE = 200
 }
@@ -144,6 +143,11 @@ public class BoosterCommodity
     {
         this.type = BoosterType.NONE;
         this.value = "0";// why not set constant? cuz constant can be decoded easily
+    }
+    public BoosterCommodity(BoosterCommodity b)
+    {
+        this.type = b.type;
+        this.value = b.value;
     }
     public BoosterCommodity(BoosterType key, long value)
     {

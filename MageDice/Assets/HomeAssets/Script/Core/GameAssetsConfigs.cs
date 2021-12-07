@@ -39,6 +39,8 @@ public class GameAssetsConfigs : ScriptableObject
     [Header("Perk Asset")]
     public SkillPerkAssets perkAsset;
 
+    [Header("Bonus Rward Backgrounds")]
+    public List<Sprite> sprBonusRewardItemBGs;
     public static GameAssetsConfigs Instance
     {
         get
@@ -182,6 +184,7 @@ public class TierAssetConfig
     public Sprite sprCard;
     public Color color;
     public Sprite sprRarityCircle;
+    public Sprite sprBackIcon;
 
 }
 

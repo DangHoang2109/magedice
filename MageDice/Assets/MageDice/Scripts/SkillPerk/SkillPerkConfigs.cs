@@ -94,10 +94,10 @@ public class PerkID
     public const int BASE_ATTACK = 5;
     public const int STARTING_COIN = 6;
     public const int KILL_MONS_BONUS = 7;
-    public const int OFFLINE_EARNING = 8;
+    public const int COIN_OFFLINE_EARNING = 8;
     public const int BAR_SPEED = 9;
     public const int WAVE_REWARD = 10;
-    public const int ONLINE_EARNING = 11;
+    public const int CARD_OFFLINE_EARNING = 11;
 }
 
 [System.Serializable]

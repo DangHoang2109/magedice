@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cosina.Components;
 using System.Linq;
+using UnityEngine.Events;
+
 [System.Serializable]
 public class UserDatas
 {
@@ -12,7 +14,7 @@ public class UserDatas
     public UserLanguageData languages;
     //public UserWheelData wheel;
     public PerkDatas perkDatas;
-
+    public UserBonusData bonusDatas;
     public static UserDatas Instance
    {
       get
@@ -25,14 +27,15 @@ public class UserDatas
         this.info = new UserInfo();
         this.careers = new UserCareers();
         this.languages = new UserLanguageData();
-        this.perkDatas = new PerkDatas(); 
-            
+        this.perkDatas = new PerkDatas();
+        bonusDatas = new UserBonusData();
         //this.wheel = new UserWheelData();
     }
    public void CreateUser()
    {
         languages.NewUser();
         perkDatas.CreateUser();
+        bonusDatas.CreateUser();
         //wheel.NewDay();
    }
 
@@ -40,6 +43,8 @@ public class UserDatas
     {
         if(perkDatas == null || perkDatas.data == null || perkDatas.data.Count == 0)
             perkDatas.CreateUser();
+
+        bonusDatas.OnOpenApp();
     }
 }
 
@@ -446,6 +451,7 @@ public class UserLanguageData
     }
 }
 
+#region PerkData
 [System.Serializable]
 public class PerkDatas
 {
@@ -530,7 +536,7 @@ public class PerkDatas
         GameDataManager.Instance.SaveUserData();
     }
 }
-
+[System.Serializable]
 public class PerkData
 {
     public int id;
@@ -577,3 +583,686 @@ public class PerkData
     }
 
 }
+#endregion
+
+#region Bonus Data
+[System.Serializable]
+public class UserBonusData
+{
+    public static UserBonusData Instance
+    {
+        get
+        {
+            return UserDatas.Instance.bonusDatas;
+        }
+    }
+
+    public enum BonusType
+    {
+        NONE = -1,
+        DAILY_REWARD = 0,
+        ONLINE_REWARD = 1,
+        OFFLINE_REWARD = 2,
+    }
+    public UserDailyRewardData dailyReward;
+    public UserOnlineBonusData onlineBonus;
+    public UserOfflineBonusData offlineBonus;
+
+    public UnityAction<BonusType> eventCanReward;
+
+    public UserBonusData()
+    {
+        this.dailyReward = new UserDailyRewardData();
+        this.onlineBonus = new UserOnlineBonusData();
+        this.offlineBonus = new UserOfflineBonusData();
+    }
+
+    public void CreateUser()
+    {
+        this.timeOld = DateTime.Now.ToFileTime();
+
+        dailyReward = new UserDailyRewardData();
+        dailyReward.CreateUser();
+
+        onlineBonus = new UserOnlineBonusData();
+        onlineBonus.CreateUser();
+
+        offlineBonus = new  UserOfflineBonusData();
+        offlineBonus.CreateUser();
+    }
+    public void StartNewDay(int dayPassedSinceLastLogin)
+    {
+        if(dayPassedSinceLastLogin >= 0)
+        {
+            dailyReward.NewDay(dayPassedSinceLastLogin);
+        }
+        onlineBonus.StartNewDay();
+        offlineBonus.NewDay(dayPassedSinceLastLogin);
+    }
+    public void OnOpenApp()
+    {
+        dailyReward.OnOpenApp();
+        onlineBonus.OnOpenApp();
+        offlineBonus.OnOpenApp();
+
+        IsNewDay();
+    }
+    public BonusType IsAnyBonusActive()
+    {
+        if (dailyReward.IsCanReward)
+        {
+            eventCanReward?.Invoke(BonusType.DAILY_REWARD);
+            return BonusType.DAILY_REWARD;
+        }
+        if (onlineBonus.IsCanReward)
+        {
+            eventCanReward?.Invoke(BonusType.ONLINE_REWARD);
+            return BonusType.ONLINE_REWARD;
+        }
+        if (offlineBonus.IsCanReward)
+        {
+            eventCanReward?.Invoke(BonusType.OFFLINE_REWARD);
+            return BonusType.OFFLINE_REWARD;
+        }
+        //Không có loại bonus nào active
+        return BonusType.NONE; 
+    }
+
+    public void RegisterEventCanReward(UnityAction<BonusType> callback)
+    {
+        eventCanReward += callback;
+    }
+    public void UnRegisterEventCanReward(UnityAction<BonusType> callback)
+    {
+        eventCanReward -= callback;
+    }
+
+    private void SaveData()
+    {
+        GameDataManager.Instance.SaveUserData();
+    }
+
+
+    #region Check day
+    public long timeOld;
+
+    /// <summary>
+    /// kiểm tra qua ngày mới chưa để reset deal
+    /// </summary>
+    /// <param name="totalRemain"></param>
+    /// <returns></returns>
+    public bool IsNewDay()
+    {
+        if (timeOld <= 0)
+            return false;
+
+        DateTime timeOldFT = DateTime.FromFileTime(this.timeOld);
+
+        if (timeOldFT == null)
+        {
+            this.StartNewDay(1);
+            this.timeOld = DateTime.Now.ToFileTime();
+
+            return true;
+        }
+
+        bool isDiffDate = timeOldFT.Date != DateTime.Now.Date;
+
+        if (isDiffDate)
+        {
+            this.StartNewDay(DateTime.Now.Date.Subtract(timeOldFT.Date).Days);
+
+            this.timeOld = DateTime.Now.ToFileTime();
+
+            this.SaveData();
+
+            return true;
+        }
+        return false;
+    }
+    #endregion
+}
+
+#region Daily
+public enum DailyDayClaimState
+{
+    NONE = -1,
+    CLAIMED = 0,
+    RECLAIM = 1,
+    READYCLAIM = 2,
+    UNREACHED = 3
+}
+[System.Serializable]
+public class UserDailyRewardData
+{
+    public static UserDailyRewardData Instance
+    {
+        get
+        {
+            return UserBonusData.Instance.dailyReward;
+        }
+    }
+
+    public List<DailyRewardDayData> dataPass;
+    public int currentDay;
+
+    private DailyRewardConfigs dailyRewardConfigs;
+    public DailyRewardConfigs DailyRewardConfigs
+    {
+        get
+        {
+            if(dailyRewardConfigs == null)
+                dailyRewardConfigs = DailyRewardConfigs.Instance;
+            return dailyRewardConfigs;
+        }
+    }
+
+    public DailyRewardDayData StickData => dataPass[dataPass.Count - 1];
+    public void CreateUser()
+    {
+        currentDay = 0;
+
+        dataPass = new List<DailyRewardDayData>();
+        AddNewWeek();
+
+        dataPass[currentDay].state = DailyDayClaimState.READYCLAIM;
+    }
+    public void NewDay(int dayPassedSinceLastLogin)
+    {
+        if (currentDay + dayPassedSinceLastLogin >= DailyRewardConfigs.MonthAmountDay)
+        {
+            dayPassedSinceLastLogin = dataPass.Count - 1 - currentDay;
+        }
+        else
+        {
+            if (currentDay + dayPassedSinceLastLogin >= dataPass.Count)
+                AddNewWeek();
+        }
+
+        for (int i = currentDay; i < currentDay + dayPassedSinceLastLogin; i++)
+        {
+            switch (dataPass[i].state)
+            {
+                case DailyDayClaimState.READYCLAIM:
+                    dataPass[i].state = DailyDayClaimState.RECLAIM;
+                    break;
+                case DailyDayClaimState.UNREACHED:
+                    dataPass[i].state = DailyDayClaimState.RECLAIM;
+                    break;
+            }
+        }
+
+        currentDay += dayPassedSinceLastLogin;
+        dataPass[currentDay].state = DailyDayClaimState.READYCLAIM;
+    }
+    public void OnOpenApp()
+    {
+    }
+
+    public void AddNewWeek()
+    {
+        if (dataPass.Count >= DailyRewardConfigs.MonthAmountDay || dataPass.Count + 7 >= DailyRewardConfigs.MonthAmountDay)
+        {
+            ResetMonth();
+            return;
+        }
+
+        List<DailyRewardDayData> week = new List<DailyRewardDayData>();
+        DailyRewardDayData d;
+        for (int i = dataPass.Count; i < dataPass.Count + 7; i++)
+        {
+            d = new DailyRewardDayData(DailyRewardConfigs.GetDay(i));
+            d.state = DailyDayClaimState.UNREACHED;
+            week.Add(d);
+        }
+
+        this.dataPass.AddRange(week);
+        SaveData();
+    }
+    public void ResetMonth()
+    {
+        currentDay = 0;
+        dataPass.Clear();
+        AddNewWeek();
+
+        SaveData();
+    }
+
+    public bool IsCanReward
+    {
+        get
+        {
+            return dataPass.Find(x => x.state == DailyDayClaimState.READYCLAIM || x.state == DailyDayClaimState.RECLAIM) != null;
+        }
+    }
+
+    public void SetDayState(int day, DailyDayClaimState state)
+    {
+        this.dataPass[day].state = state;
+        SaveData();
+    }
+    private void SaveData()
+    {
+        GameDataManager.Instance.SaveUserData();
+    }
+}
+
+[System.Serializable]
+public class DailyRewardDayData
+{
+    public BoosterCommodity booster;
+    public BagAmount bag;
+    public DailyDayClaimState state;
+
+    public bool IsRewardBag;
+    public DailyRewardDayData()
+    {
+
+    }
+    public DailyRewardDayData(DailyRewardConfig config)
+    {
+        IsRewardBag = config.IsRewardBag;
+        if (config.IsRewardBag)
+        {
+            this.bag = new BagAmount(config.Bag);
+            this.booster = null;
+        }
+        else
+        {
+            this.booster = new BoosterCommodity(config.Booster);
+            this.bag = null;
+        }
+    }
+}
+#endregion Daily
+
+#region  Online Bonus
+[System.Serializable]
+public class UserOnlineBonusData
+{
+    public OnlineRewardConfigs.OnlineRewardUserMode urrentModeID;
+
+    public const double TIME_WAIT_ONLINE = 60; //1200; //20m online
+    public long timeStartOnlineLatest;
+    public double timeWaitRemain;
+
+    public int currnentDay;
+    public int _nextRewardIndex;
+    public bool isOutOfReward;
+    public bool IsClaimAllReward => this._nextRewardIndex >= this.CurrentModeConfig.RewardAmount;
+    public bool IsCanReward
+    {
+        get
+        {
+            double v = 0;
+            return IsWaitEnough(ref v);
+        }
+    }
+
+    private OnlineRewardDayConfig currentModeConfig;
+    public OnlineRewardDayConfig CurrentModeConfig
+    {
+        get
+        {
+            if (this.currentModeConfig == null)
+                currentModeConfig = OnlineRewardConfigs.Instance.GetDayConfig(this.urrentModeID, currnentDay);
+
+            return this.currentModeConfig;
+        }
+    }
+
+    private OnlineRewardConfigItem _currentRewardConfig;
+    public OnlineRewardConfigItem CurrentRewardConfig
+    {
+        get
+        {
+            if (IsClaimAllReward)
+            {
+                isOutOfReward = true;
+                SaveData();
+            }
+
+            if (_currentRewardConfig == null)
+                _currentRewardConfig = CurrentModeConfig.config[_nextRewardIndex];
+
+            return _currentRewardConfig;
+        }
+    }
+    public int TotalReward
+    {
+        get
+        {
+            return CurrentModeConfig.RewardAmount;
+        }
+    }
+    public static UserOnlineBonusData Instance
+    {
+        get
+        {
+            return UserBonusData.Instance.onlineBonus;
+        }
+    }
+
+    public UserOnlineBonusData()
+    {
+        _nextRewardIndex = 0;
+        this.urrentModeID = OnlineRewardConfigs.OnlineRewardUserMode.FREE;
+    }
+
+    [System.NonSerialized]
+    public System.Action callbackChangeUserMode;
+
+    public void OnUserPurchase()
+    {
+        this.urrentModeID = OnlineRewardConfigs.OnlineRewardUserMode.PAID;
+        currentModeConfig = OnlineRewardConfigs.Instance.GetDayConfig(this.urrentModeID, currnentDay);
+        _currentRewardConfig = CurrentModeConfig.config[_nextRewardIndex];
+
+        callbackChangeUserMode?.Invoke();
+        SaveData();
+    }
+
+
+    /// <summary>
+    /// kiểm tra user đã online đủ chưa
+    /// </summary>
+    /// <param name="totalRemain">Thời gian còn lại của pass để show lên UI, in TotalSecond</param>
+    /// <param name="saveData">Chỉ cho bằng true 1 lần khi mở dialog để save lại data, trong vòng update bình thường không cần</param>
+    /// <returns></returns>
+    public bool IsWaitEnough(ref double totalRemain)
+    {
+        double timePassed = DateTime.Now.Subtract(DateTime.FromFileTime(timeStartOnlineLatest)).TotalSeconds;
+
+        totalRemain = this.timeWaitRemain - timePassed;
+
+
+        if (totalRemain <= 0)
+        {
+            timeWaitRemain = 0;
+            SaveData();
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public void OnClaimReward()
+    {
+        //domission
+        //MissionDatas.Instance.DoStep(MissionID.PLAY_WHEEL);
+        //if (urrentModeID == OnlineRewardConfigs.OnlineRewardUserMode.PAID)
+        //    LogGameAnalytics.Instance.LogEvent(string.Format(LogAnalyticsEvent.CLAIM_ONLINE_FREEREWARD, this._nextRewardIndex), LogParams.USER_SESSION_DAY, currnentDay);
+        //else
+        //    LogGameAnalytics.Instance.LogEvent(string.Format(LogAnalyticsEvent.CLAIM_ONLINE_PAIDREWARD, this._nextRewardIndex), LogParams.USER_SESSION_DAY, currnentDay);
+
+        this._nextRewardIndex++;
+        this.timeStartOnlineLatest = System.DateTime.Now.ToFileTime();
+        this.timeWaitRemain = TIME_WAIT_ONLINE;
+
+        //check next reward or out reward
+        if (IsClaimAllReward)
+        {
+            isOutOfReward = true;
+        }
+        else
+        {
+            _currentRewardConfig = CurrentModeConfig.config[_nextRewardIndex];
+        }
+
+
+        this.SaveData();
+    }
+
+    public void StartNewDay()
+    {
+        this.currnentDay++;
+        this._nextRewardIndex = 0;
+        this.timeStartOnlineLatest = DateTime.Now.ToFileTime();
+        timeWaitRemain = TIME_WAIT_ONLINE;
+        isOutOfReward = false;
+
+        Debug.Log($"StartNewDay {currnentDay}");
+        SaveData();
+    }
+
+    //Call this on AppQuit or OnAppFocus
+    public void OnQuitApp()
+    {
+        this.timeWaitRemain = timeWaitRemain - DateTime.Now.Subtract(DateTime.FromFileTime(timeStartOnlineLatest)).TotalSeconds;
+        this.timeStartOnlineLatest = DateTime.Now.ToFileTime();
+
+
+        Debug.Log($"Time online remain {timeWaitRemain}");
+        SaveData();
+    }
+
+    public void OnOpenApp()
+    {
+        IsNewDay();
+
+        this.timeStartOnlineLatest = DateTime.Now.ToFileTime();
+
+        SaveData();
+    }
+    public void CreateUser()
+    {
+        currnentDay = -1;
+    }
+    private void SaveData()
+    {
+        GameDataManager.Instance.SaveUserData();
+    }
+
+
+    #region Check day
+    public long timeOld;
+
+    /// <summary>
+    /// kiểm tra qua ngày mới chưa để reset deal
+    /// </summary>
+    /// <param name="totalRemain"></param>
+    /// <returns></returns>
+    public bool IsNewDay()
+    {
+        DateTime timeOldFT = DateTime.FromFileTime(this.timeOld);
+
+        if (timeOldFT == null)
+        {
+            this.StartNewDay();
+            this.timeOld = DateTime.Now.ToFileTime();
+
+            return true;
+        }
+
+        bool isDiffDate = timeOldFT.Date != DateTime.Now.Date;
+
+        if (isDiffDate)
+        {
+            this.StartNewDay();
+
+            this.timeOld = DateTime.Now.ToFileTime();
+
+            this.SaveData();
+
+            return true;
+        }
+        return false;
+    }
+    #endregion
+}
+
+#endregion Online Bonus
+
+#region Offline Bonus
+[System.Serializable]
+public class UserOfflineBonusData
+{
+    public const double TIME_COLLECT_MAX = 259200; //72h
+    public const double TIME_MIN_ALLOW_COLLECT = 3600; //1h
+
+    public long timeCollectLatest;
+
+    public float coinPerMinus;
+    public float cardPerMinus;
+
+    public bool isClaimSkip;
+
+    private DateTime dtTimeCollectLatest;
+
+    public static UserOfflineBonusData Instance
+    {
+        get
+        {
+            return UserBonusData.Instance.offlineBonus;
+        }
+    }
+
+    public DateTime DTTimeCollectLatest
+    {
+        get
+        {
+            if (dtTimeCollectLatest == null)
+                dtTimeCollectLatest = DateTime.FromFileTime(timeCollectLatest);
+            return dtTimeCollectLatest;
+        }
+    }
+    public double TimeOfflinePassed
+    {
+        get
+        {
+            double timePassed = DateTime.Now.Subtract(DTTimeCollectLatest).TotalSeconds;
+
+            return timePassed >= TIME_COLLECT_MAX ? TIME_COLLECT_MAX : timePassed;
+        }
+    }
+    public int TimeOfflineToMinus => (int)(TimeOfflinePassed / 60);
+    
+    public void CreateUser()
+    {
+        timeCollectLatest = DateTime.Now.ToFileTime();
+        dtTimeCollectLatest = DateTime.FromFileTime(timeCollectLatest);
+
+        coinPerMinus = 10f;
+        cardPerMinus = 0.02f;
+        SaveData();
+    }
+    public void NewDay(int dayPassedSinceLastLogin)
+    {
+        isClaimSkip = false;
+    }
+    public void OnOpenApp()
+    {
+        dtTimeCollectLatest = DateTime.FromFileTime(timeCollectLatest);
+
+        float v = PerkDatas.Instance.GetCurrentStat(PerkID.COIN_OFFLINE_EARNING);
+        if (v > 0)
+            coinPerMinus = v;
+
+        v = PerkDatas.Instance.GetCurrentStat(PerkID.CARD_OFFLINE_EARNING);
+        if (v > 0)
+            cardPerMinus = v;
+    }
+
+    public bool IsCanReward
+    {
+        get
+        {
+            double v = 0;
+            return IsCanCollect(ref v);
+        }
+    }
+
+    /// <summary>
+    /// kiểm tra user đã offline đủ để claim chưa
+    /// </summary>
+    /// <param name="timePassed">Thời gian còn lại của pass để show lên UI, in TotalSecond</param>
+    /// <returns></returns>
+    public bool IsCanCollect(ref double timePassed)
+    {
+        timePassed = this.TimeOfflinePassed;
+        return timePassed >= TIME_MIN_ALLOW_COLLECT;
+    }
+
+    public void ClaimReward()
+    {
+        timeCollectLatest = DateTime.Now.ToFileTime();
+        dtTimeCollectLatest = DateTime.FromFileTime(timeCollectLatest);
+
+        SaveData();
+    }
+    public void ClaimRewardSkip()
+    {
+        isClaimSkip = true;
+        SaveData();
+    }
+    public void ClearOfflineEarning()
+    {
+        isClaimSkip = false;
+
+        SaveData();
+    }
+    private void SaveData()
+    {
+        GameDataManager.Instance.SaveUserData();
+    }
+
+    public List<object> GetPrizesByTime(double time, ref List<object> prizes)
+    {
+        if (prizes == null)
+            prizes = new List<object>();
+
+        long value = (long)(time * coinPerMinus);
+        Debug.Log($"value coin {value} {time} {coinPerMinus}");
+        object b = prizes.Find(x => x is BoosterCommodity && (x as BoosterCommodity).type == BoosterType.COIN);
+        if (b != null && b != default)
+            (b as BoosterCommodity).Set(value);
+        else
+            prizes.Add(new BoosterCommodity(BoosterType.COIN, value));
+
+
+        value = (long)(time * cardPerMinus); //totalCard
+
+        if (value <= 0)
+        {
+            prizes.RemoveRange(1, prizes.Count - 1);
+            return prizes;
+        }
+
+        int totalLootCard = Mathf.FloorToInt(value / 1.22f); //1 for loot, 0.2 for rare, 0.02 for epic
+        int totalRareCard = Mathf.FloorToInt(totalLootCard * 0.2f);
+        int totalEpicCard = Mathf.FloorToInt(totalLootCard * 0.02f);
+
+        List<KeyValuePair<StatManager.Tier, int>> lst = new List<KeyValuePair<StatManager.Tier, int>>();
+        lst.Add(new KeyValuePair<StatManager.Tier, int>(StatManager.Tier.Standard, totalLootCard));
+        lst.Add(new KeyValuePair<StatManager.Tier, int>(StatManager.Tier.Rare, totalRareCard));
+        lst.Add(new KeyValuePair<StatManager.Tier, int>(StatManager.Tier.Legendary, totalEpicCard));
+
+        for (int i = 0; i < lst.Count; i++)
+        {
+            b = prizes.Find(x => x is CardAmount && (x as CardAmount).tier == lst[i].Key);
+
+            if (lst[i].Value > 0)
+            {
+                if (b != null)
+                    (b as CardAmount).amount = lst[i].Value;
+                else
+                    prizes.Add(new CardAmount(lst[i].Key, lst[i].Value));
+            }
+            else
+            {
+                if (b != null)
+                    prizes.Remove(b);
+            }
+        }
+
+        return prizes;
+    }
+    public void UpdateListPrize(ref List<object> prizes)
+    {
+        prizes = GetPrizesByTime(TimeOfflineToMinus, ref prizes);
+    }
+}
+#endregion Offline Bonus
+
+#endregion Bonus Data

@@ -1,0 +1,198 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9f38edb4e680ae44b46ff4fa45107c0, type: 3}
+  m_Name: MissionConfigs
+  m_EditorClassIdentifier: 
+  configs:
+  - id: 1001
+    type: 2
+    sprIcon: {fileID: 0}
+    name: Play game
+    description: Play game
+    startLevel: 0
+    endLevel: 1000
+    step: 6
+    baseReward:
+      type: 0
+      value: 1000
+    stepAddPass: 40
+    userLevelProgress: 0
+    minClamp_Step: 0
+    maxClamp_Step: 0
+  - id: 1002
+    type: 3
+    sprIcon: {fileID: 0}
+    name: Win game
+    description: Win game
+    startLevel: 0
+    endLevel: 1000
+    step: 6
+    baseReward:
+      type: 0
+      value: 1000
+    stepAddPass: 40
+    userLevelProgress: 0
+    minClamp_Step: 0
+    maxClamp_Step: 0
+  - id: 1003
+    type: 10
+    sprIcon: {fileID: 0}
+    name: Upgrade card
+    description: Upgrade card
+    startLevel: 0
+    endLevel: 1000
+    step: 2
+    baseReward:
+      type: 0
+      value: 1000
+    stepAddPass: 40
+    userLevelProgress: 0
+    minClamp_Step: 0
+    maxClamp_Step: 0
+  - id: 2001
+    type: 9
+    sprIcon: {fileID: 0}
+    name: Collect card
+    description: Collect card
+    startLevel: 0
+    endLevel: 1000
+    step: 40
+    baseReward:
+      type: 0
+      value: 1000
+    stepAddPass: 40
+    userLevelProgress: 0
+    minClamp_Step: 0
+    maxClamp_Step: 0
+  - id: 3001
+    type: 4
+    sprIcon: {fileID: 0}
+    name: Earn Coin
+    description: Earn Coin
+    startLevel: 0
+    endLevel: 1000
+    step: 2000
+    baseReward:
+      type: 0
+      value: 1000
+    stepAddPass: 40
+    userLevelProgress: 0
+    minClamp_Step: 0
+    maxClamp_Step: 0
+  - id: 3002
+    type: 7
+    sprIcon: {fileID: 0}
+    name: Use Coin
+    description: Use Coin
+    startLevel: 0
+    endLevel: 1000
+    step: 2000
+    baseReward:
+      type: 0
+      value: 1000
+    stepAddPass: 40
+    userLevelProgress: 0
+    minClamp_Step: 0
+    maxClamp_Step: 0
+  - id: 4001
+    type: 5
+    sprIcon: {fileID: 0}
+    name: Claim Daily
+    description: Claim Daily
+    startLevel: 1000
+    endLevel: 1000
+    step: 1
+    baseReward:
+      type: 0
+      value: 1000
+    stepAddPass: 40
+    userLevelProgress: 0
+    minClamp_Step: 0
+    maxClamp_Step: 0
+  - id: 4002
+    type: 6
+    sprIcon: {fileID: 0}
+    name: Buy card from shop
+    description: Buy card from shop
+    startLevel: 0
+    endLevel: 1000
+    step: 2
+    baseReward:
+      type: 0
+      value: 1000
+    stepAddPass: 40
+    userLevelProgress: 0
+    minClamp_Step: 0
+    maxClamp_Step: 0
+  - id: 5001
+    type: 8
+    sprIcon: {fileID: 0}
+    name: Open bag
+    description: Open bag
+    startLevel: 0
+    endLevel: 1000
+    step: 3
+    baseReward:
+      type: 0
+      value: 1000
+    stepAddPass: 40
+    userLevelProgress: 0
+    minClamp_Step: 0
+    maxClamp_Step: 0
+  - id: 7001
+    type: 12
+    sprIcon: {fileID: 0}
+    name: Play Bulleye Event
+    description: Play Bulleye mode
+    startLevel: 0
+    endLevel: 1000
+    step: 2
+    baseReward:
+      type: 0
+      value: 1000
+    stepAddPass: 40
+    userLevelProgress: 0
+    minClamp_Step: 0
+    maxClamp_Step: 0
+  - id: 7002
+    type: 13
+    sprIcon: {fileID: 0}
+    name: Spin Lucky Wheel
+    description: Spin Lucky Wheel
+    startLevel: 0
+    endLevel: 1000
+    step: 2
+    baseReward:
+      type: 0
+      value: 1000
+    stepAddPass: 40
+    userLevelProgress: 0
+    minClamp_Step: 0
+    maxClamp_Step: 0
+  pointBagConfig:
+    id: 6001
+    type: 11
+    sprIcon: {fileID: 0}
+    name: Point Bag
+    description: Point Bag
+    startLevel: 0
+    endLevel: 1000
+    step: 40
+    baseReward:
+      type: -1
+      value: 0
+    stepAddPass: 40
+    userLevelProgress: 0
+    minClamp_Step: 0
+    maxClamp_Step: 0
+  NUM_MISSION_IN_DAY: 5
+  MAX_POINT_BAGS_AVAILABLE: 2

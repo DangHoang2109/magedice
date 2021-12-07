@@ -20,7 +20,9 @@ public class BagUIItem : MonoBehaviour
         if (bagAsset != null)
         {
             this.imgBag.sprite = bagAsset.sprBag;
-            this.tmpName.SetText(string.Format(("{0} - {1}"),bagAsset.name, bagName));
+
+            if(tmpName != null)
+                this.tmpName.SetText(string.Format(("{0} - {1}"),bagAsset.name, bagName));
         }
         this.tmpAmount.SetText(string.Format("x{0}", bagAmount.amount));
     }

@@ -11,7 +11,7 @@ public class GameDatas
     public StoreDatas storeDatas;
     public UserBehaviorDatas behaviorDatas;
 
-    //public MissionDatas missionDatas;
+    public MissionDatas missionDatas;
     public StatDatas statDatas;
 
     public GameDatas()
@@ -22,7 +22,7 @@ public class GameDatas
         this.storeDatas = new StoreDatas();
         this.behaviorDatas = new UserBehaviorDatas();
         this.statDatas = new StatDatas();
-        //this.missionDatas = new MissionDatas();
+        this.missionDatas = new MissionDatas();
 
         //this.eventDatas = new UserTournamentDatas();
 
@@ -39,7 +39,7 @@ public class GameDatas
         this.storeDatas.CreateUser();
         this.behaviorDatas.CreateUser();
 
-        //this.missionDatas.CreateUser();
+        this.missionDatas.CreateUser();
     }
 
     public void ParseDataFirstTime()
@@ -57,7 +57,7 @@ public class GameDatas
     /// </summary>
     public void OpenGame()
     {
-        //this.missionDatas.OpenGame();
+        this.missionDatas.OpenGame();
         this.userDatas.OpenGame();
         this.storeDatas.OpenGame();
     }
