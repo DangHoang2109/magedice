@@ -24,6 +24,11 @@ public class GamWaveController
 
     public List<WaveConfig> gameWaves;
 
+    public WaveConfig GetWave(int waveIndex)
+    {
+        return gameWaves[waveIndex];
+
+    }
     public void StartGame(MapConfig map)
     {
         _currentWave = 0;

@@ -76,7 +76,7 @@ public class GameBoardLine : MonoBehaviour
 
             if (GameUtils.IsNear(transform.position.x, NextCollumn.gEntryLine.transform.position.x, 2.5f)) //pixel
             {
-                ActiveLine();
+                ActiveLine(restrictActiveLineIndexOnly);
                 return;
             }
 
@@ -85,6 +85,21 @@ public class GameBoardLine : MonoBehaviour
                 ResetData();
             }
         }
+    }
+    private int restrictActiveLineIndexOnly = -1;
+    public void OnRestrictOneLineOnly(int indexActive, float time)
+    {
+        restrictActiveLineIndexOnly = indexActive;
+        StartCoroutine(ieWait(time, () =>
+        {
+            restrictActiveLineIndexOnly = -1;
+        }));
+    }
+
+    private IEnumerator ieWait(float time, System.Action cb)
+    {
+        yield return new WaitForSeconds(time);
+        cb?.Invoke();
     }
 
     public void ResetData()
@@ -95,9 +110,9 @@ public class GameBoardLine : MonoBehaviour
         BoardManager.ResetData();
     }
 
-    public void ActiveLine()
+    public void ActiveLine(int restrictActiveLineIndexOnly = -1)
     {
-        NextCollumn.Active();
+        NextCollumn.Active(restrictActiveLineIndexOnly);
 
         indexCollumnNext++;
         if (indexCollumnNext >= this.collumn.Length)

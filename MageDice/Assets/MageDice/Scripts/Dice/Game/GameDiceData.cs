@@ -63,7 +63,6 @@ public class GameDiceData : BaseDiceData
     }
     public void onChangeDiceBoosterPercent(float newValue)
     {
-        Debug.Log("CB change booster percent to  " + newValue);
         this.diceEffect.diceBoosterDamage = newValue;
     }
 }

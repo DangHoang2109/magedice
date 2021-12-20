@@ -79,8 +79,25 @@ public class BulletManager : MonoSingleton<BulletManager>
 
             for (int i = 0; i < this.flyingBullets.Count; i++)
             {
-                this.flyingBullets[i].CustomUpdate();
+                this.flyingBullets[i].OnFlying(SpeedBulletPercentCurrent);
             }
         }
+    }
+
+    private float SpeedBulletPercentCurrent = 1f;
+    public void OnSlowDownBulletSpeed(float SpeedPercentCurrent, float time)
+    {
+        SpeedBulletPercentCurrent = SpeedPercentCurrent;
+        StartCoroutine(ieWait(time, () =>
+        {
+
+            SpeedBulletPercentCurrent = 1f;
+        }));
+    }
+
+    private IEnumerator ieWait(float time, System.Action cb)
+    {
+        yield return new WaitForSeconds(time);
+        cb?.Invoke();
     }
 }

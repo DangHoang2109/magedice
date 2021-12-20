@@ -37,7 +37,7 @@ MonoBehaviour:
     multiplierBossWave: 5
     bagReward:
       sequenceBagReward: 010000000100000002000000
-  - name: Sydney
+  - name: Storm Desert
     id: 2
     prizePerWave:
       type: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
     multiplierBossWave: 5
     bagReward:
       sequenceBagReward: 010000000100000002000000
-  - name: Rio
+  - name: Frozen Pinnacle
     id: 3
     prizePerWave:
       type: 0
@@ -53,7 +53,7 @@ MonoBehaviour:
     multiplierBossWave: 5
     bagReward:
       sequenceBagReward: 010000000100000002000000
-  - name: Tokyo
+  - name: Crystal Mine
     id: 4
     prizePerWave:
       type: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
     multiplierBossWave: 5
     bagReward:
       sequenceBagReward: 010000000100000002000000
-  - name: Moscow
+  - name: Cave Bones
     id: 5
     prizePerWave:
       type: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
     multiplierBossWave: 5
     bagReward:
       sequenceBagReward: 010000000100000002000000
-  - name: Rome
+  - name: Silent Expanse
     id: 6
     prizePerWave:
       type: 0
@@ -77,7 +77,7 @@ MonoBehaviour:
     multiplierBossWave: 5
     bagReward:
       sequenceBagReward: 010000000100000002000000
-  - name: Shanghai
+  - name: Evil Doom
     id: 7
     prizePerWave:
       type: 0
@@ -85,7 +85,7 @@ MonoBehaviour:
     multiplierBossWave: 5
     bagReward:
       sequenceBagReward: 010000000100000002000000
-  - name: Paris
+  - name: Death Capital
     id: 8
     prizePerWave:
       type: 0

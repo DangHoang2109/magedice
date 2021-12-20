@@ -141,6 +141,8 @@ public class MageDiceGameManager : MonoSingleton<MageDiceGameManager>
         {
             GetCoinReward(WaveController.CompletedtWave)
         }, WaveController.CompletedtWave);
+
+        JoinGameHelper.Instance.EndGameAI(isWIn);
         //show dialog end game
         EndGameStandardDialog d = GameManager.Instance.OnShowDialog<EndGameStandardDialog>("Games/GUI/EndGame/EndStandardGameDialog");
             d.ParseData(this._gameData, isWIn, WaveController.CompletedtWave);

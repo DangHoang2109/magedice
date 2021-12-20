@@ -528,6 +528,23 @@ public class PerkDatas
     }
     public int GetUpgradeResult()
     {
+        float rand = UnityEngine.Random.Range(0f, 1f);
+        int reward = 0;
+
+        float totalValue = data[reward].Config.rareRation;
+        float rateValue = rand - totalValue;
+        while (rateValue > 0)
+        {
+            reward += 1;
+            totalValue += data[reward].Config.rareRation;
+            rateValue = rand - totalValue;
+        }
+
+        if (reward >= 0 && reward < data.Count)
+        {
+            return reward;
+        }
+
         return UnityEngine.Random.Range(0, data.Count);
     }
 
@@ -1213,7 +1230,6 @@ public class UserOfflineBonusData
             prizes = new List<object>();
 
         long value = (long)(time * coinPerMinus);
-        Debug.Log($"value coin {value} {time} {coinPerMinus}");
         object b = prizes.Find(x => x is BoosterCommodity && (x as BoosterCommodity).type == BoosterType.COIN);
         if (b != null && b != default)
             (b as BoosterCommodity).Set(value);
@@ -1229,9 +1245,11 @@ public class UserOfflineBonusData
             return prizes;
         }
 
-        int totalLootCard = Mathf.FloorToInt(value / 1.22f); //1 for loot, 0.2 for rare, 0.02 for epic
-        int totalRareCard = Mathf.FloorToInt(totalLootCard * 0.2f);
-        int totalEpicCard = Mathf.FloorToInt(totalLootCard * 0.02f);
+
+        float rawCard = value / 1.22f;
+        int totalLootCard = Mathf.FloorToInt(rawCard * 0.94f); //1 for loot, 0.2 for rare, 0.02 for epic   0.94
+        int totalRareCard = Mathf.FloorToInt(rawCard * 0.2f);
+        int totalEpicCard = Mathf.FloorToInt(rawCard * 0.06f); //0.06
 
         List<KeyValuePair<StatManager.Tier, int>> lst = new List<KeyValuePair<StatManager.Tier, int>>();
         lst.Add(new KeyValuePair<StatManager.Tier, int>(StatManager.Tier.Standard, totalLootCard));

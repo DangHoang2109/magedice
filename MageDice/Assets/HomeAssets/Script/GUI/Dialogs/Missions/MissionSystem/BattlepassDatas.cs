@@ -337,61 +337,6 @@ public class BattlepassDatas
         //this.Save(); //không dùng resetData thì mở ra (ở reset data đã có lưu)
     }
 
-#if DATE_PRO_PASS
-    /// <summary>
-    /// Kích hoạt pro pass trong bao nhiêu ngày
-    /// </summary>
-    /// <param name="day">số lượng ngày</param>
-    public void PurchaseProPass(int day)
-    {
-        //return;
-
-        if (!this.isBuyProPass)
-        {
-            this.timeStartProPass = DateTime.Now.ToFileTime();
-        }
-
-        this.countDayProPass += day; //thêm số ngày pro pass
-        this.isBuyProPass = true;
-
-        this.activePass.PurchaseProPass();
-        callbackBuyBattlePass?.Invoke(this.isBuyProPass);
-        callbackReward?.Invoke(this.activePass.CurrentStep);
-        this.Save();
-    }
-
-    /// <summary>
-    /// Hết thời gian được pro pass
-    /// </summary>
-    public void OutOfDayProPass()
-    {
-        this.isBuyProPass = false;
-        this.countDayProPass = 0;
-        callbackBuyBattlePass?.Invoke(this.isBuyProPass); //callback
-    }
-
-    public DateTime GetDayEndPropass()
-    {
-        DateTime startDate = DateTime.FromFileTime(this.timeStartProPass);
-        DateTime endDate = startDate.AddDays(this.countDayProPass);
-        return endDate;
-    }
-
-    public bool IsProPass()
-    {
-        //TODO check time
-        if (this.isBuyProPass)
-        {
-            DateTime startTime = DateTime.FromFileTime(this.timeStartProPass);
-            if (DateTime.Now.Subtract(startTime).Days > this.countDayProPass)
-            {
-                OutOfDayProPass();
-            }
-        }
-        
-        return this.isBuyProPass;
-    }
-#else
     public bool IsProPass()
     {
         return this.vipType == VipType.Vip || this.vipType == VipType.VipFull;
@@ -440,7 +385,6 @@ public class BattlepassDatas
         callbackBuyBattlePass?.Invoke(this.IsProPass());
         Save();
     }
-#endif
 
     public BattlepassData DoStep(long step = 1)
     {

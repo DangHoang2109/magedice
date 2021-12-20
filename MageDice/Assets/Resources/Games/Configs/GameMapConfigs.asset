@@ -311,7 +311,7 @@ MonoBehaviour:
       ID: 10
       UI:
         spr: {fileID: 21300000, guid: 260dc1bec3473f040b14244a036075ec, type: 3}
-        name: Normal Creep
+        name: Poision Snake
         description: 
         scale: 1
       coinGifted: 10
@@ -327,7 +327,7 @@ MonoBehaviour:
       ID: 13
       UI:
         spr: {fileID: 21300000, guid: 85166ce4f77f75244858a975c152a0d2, type: 3}
-        name: Speeder
+        name: Bloody Bat
         description: 
         scale: 1.2
       coinGifted: 13
@@ -342,8 +342,8 @@ MonoBehaviour:
         percentUpEachWave: 0.1
       ID: 11
       UI:
-        spr: {fileID: 21300000, guid: 012d01c0d9d2ca64f9726ba7968c0026, type: 3}
-        name: Elite Creep
+        spr: {fileID: 21300000, guid: 9d7f4fd7db84a484d9e93b890e97479b, type: 3}
+        name: Evil Beetle
         description: 
         scale: 1.2
       coinGifted: 11
@@ -359,7 +359,7 @@ MonoBehaviour:
       ID: 12
       UI:
         spr: {fileID: 21300000, guid: 661d123e7c5c3b84b9416c82cf655d76, type: 3}
-        name: Super Creep
+        name: Wolf
         description: 
         scale: 1.5
       coinGifted: 12
@@ -375,7 +375,7 @@ MonoBehaviour:
       ID: 20
       UI:
         spr: {fileID: 21300000, guid: 40a67ac09607f2c4ca4939a2e010d716, type: 3}
-        name: Mini Boss
+        name: Forest Soul
         description: 
         scale: 2
       coinGifted: 20
@@ -390,9 +390,2690 @@ MonoBehaviour:
         percentUpEachWave: 0.1
       ID: 23
       UI:
-        spr: {fileID: 21300000, guid: 7edf16f3df047584f9d49487f6b3de40, type: 3}
-        name: Skill Boss
+        spr: {fileID: 21300000, guid: 20299c0224c1650408287d4f63083f17, type: 3}
+        name: Dragun
         description: 
         scale: 1
       coinGifted: 23
     FinalBossID: 10
+  - ID: 2
+    mapName: Storm Desert
+    waves:
+    - monsterRate:
+      - monsterID: 10
+        rate: 1
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.5
+      - monsterID: 11
+        rate: 0.5
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 20
+        rate: 1
+      length: 20
+      lengthSpawn: 0.5
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 20
+        rate: 1
+      length: 20
+      lengthSpawn: 0.5
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 23
+        rate: 1
+      length: 20
+      lengthSpawn: 0.5
+      intervalSpawn: 0.6
+    monsterConfig:
+    - speed:
+        init_stat: 11.25
+        percentUpEachWave: 0
+      damage:
+        init_stat: 10
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 312.5
+        percentUpEachWave: 0.5
+      ID: 10
+      UI:
+        spr: {fileID: 21300000, guid: 260dc1bec3473f040b14244a036075ec, type: 3}
+        name: Poision Snake
+        description: 
+        scale: 1
+      coinGifted: 10
+    - speed:
+        init_stat: 22.5
+        percentUpEachWave: 0
+      damage:
+        init_stat: 6
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 187.5
+        percentUpEachWave: 0.1
+      ID: 13
+      UI:
+        spr: {fileID: 21300000, guid: bc3a403bda6e1a14db6e10e2fb16155a, type: 3}
+        name: Bloody Bat
+        description: 
+        scale: 1.2
+      coinGifted: 13
+    - speed:
+        init_stat: 11.25
+        percentUpEachWave: 0
+      damage:
+        init_stat: 20
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 375
+        percentUpEachWave: 0.1
+      ID: 11
+      UI:
+        spr: {fileID: 21300000, guid: e44ef8df2129d0340a3f4fe01176e1cb, type: 3}
+        name: Wolf
+        description: 
+        scale: 1.2
+      coinGifted: 11
+    - speed:
+        init_stat: 6.75
+        percentUpEachWave: 0
+      damage:
+        init_stat: 30
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 500
+        percentUpEachWave: 0.1
+      ID: 12
+      UI:
+        spr: {fileID: 21300000, guid: 44876654eb7291e4183956e323468efd, type: 3}
+        name: Evil Scopion
+        description: 
+        scale: 1.5
+      coinGifted: 12
+    - speed:
+        init_stat: 8.4375
+        percentUpEachWave: 0
+      damage:
+        init_stat: 50
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 8000
+        percentUpEachWave: 0.1
+      ID: 20
+      UI:
+        spr: {fileID: 21300000, guid: f2814d94d147c3a42adebc162b181357, type: 3}
+        name: Skeleton
+        description: 
+        scale: 2
+      coinGifted: 20
+    - speed:
+        init_stat: 8.4375
+        percentUpEachWave: 0
+      damage:
+        init_stat: 100
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 30000
+        percentUpEachWave: 0.1
+      ID: 23
+      UI:
+        spr: {fileID: 21300000, guid: d85a1ffa27b82d2458e336f289b99a56, type: 3}
+        name: Orge
+        description: 
+        scale: 1
+      coinGifted: 23
+    FinalBossID: 11
+  - ID: 3
+    mapName: Frozen Pinnacle
+    waves:
+    - monsterRate:
+      - monsterID: 10
+        rate: 1
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.5
+      - monsterID: 11
+        rate: 0.5
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 20
+        rate: 1
+      length: 20
+      lengthSpawn: 0.5
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 20
+        rate: 1
+      length: 20
+      lengthSpawn: 0.5
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 23
+        rate: 1
+      length: 20
+      lengthSpawn: 0.5
+      intervalSpawn: 0.6
+    monsterConfig:
+    - speed:
+        init_stat: 11.25
+        percentUpEachWave: 0
+      damage:
+        init_stat: 20
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 625
+        percentUpEachWave: 0.5
+      ID: 10
+      UI:
+        spr: {fileID: 21300000, guid: 6f8ebed5fadb37f4cb42db0e51f01fcc, type: 3}
+        name: Blob
+        description: 
+        scale: 1
+      coinGifted: 10
+    - speed:
+        init_stat: 22.5
+        percentUpEachWave: 0
+      damage:
+        init_stat: 12
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 375
+        percentUpEachWave: 0.1
+      ID: 13
+      UI:
+        spr: {fileID: 21300000, guid: 07cd4d6b9c8e1a34d80b99e274602989, type: 3}
+        name: Wisps
+        description: 
+        scale: 1.2
+      coinGifted: 13
+    - speed:
+        init_stat: 11.25
+        percentUpEachWave: 0
+      damage:
+        init_stat: 40
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 750
+        percentUpEachWave: 0.1
+      ID: 11
+      UI:
+        spr: {fileID: 21300000, guid: 47c998deb26dc494d9ca9ba4e3413ad7, type: 3}
+        name: Fly Ghost
+        description: 
+        scale: 1.2
+      coinGifted: 11
+    - speed:
+        init_stat: 6.75
+        percentUpEachWave: 0
+      damage:
+        init_stat: 60
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 1000
+        percentUpEachWave: 0.1
+      ID: 12
+      UI:
+        spr: {fileID: 21300000, guid: bba5f39b71feec54f94c4e31acfb5e65, type: 3}
+        name: Salamander
+        description: 
+        scale: 1.5
+      coinGifted: 12
+    - speed:
+        init_stat: 8.4375
+        percentUpEachWave: 0
+      damage:
+        init_stat: 100
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 16000
+        percentUpEachWave: 0.1
+      ID: 20
+      UI:
+        spr: {fileID: 21300000, guid: d6af26e860131da47afd638f99cbaedb, type: 3}
+        name: Polar Bear
+        description: 
+        scale: 2
+      coinGifted: 20
+    - speed:
+        init_stat: 8.4375
+        percentUpEachWave: 0
+      damage:
+        init_stat: 200
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 60000
+        percentUpEachWave: 0.1
+      ID: 23
+      UI:
+        spr: {fileID: 21300000, guid: 72d9437d1b53f60438de8880533c6242, type: 3}
+        name: Dragun
+        description: 
+        scale: 1
+      coinGifted: 23
+    FinalBossID: 10
+  - ID: 4
+    mapName: Crystal Mine
+    waves:
+    - monsterRate:
+      - monsterID: 10
+        rate: 1
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.5
+      - monsterID: 11
+        rate: 0.5
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 20
+        rate: 1
+      length: 20
+      lengthSpawn: 0.5
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 20
+        rate: 1
+      length: 20
+      lengthSpawn: 0.5
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 23
+        rate: 1
+      length: 20
+      lengthSpawn: 0.5
+      intervalSpawn: 0.6
+    monsterConfig:
+    - speed:
+        init_stat: 11.25
+        percentUpEachWave: 0
+      damage:
+        init_stat: 40
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 1250
+        percentUpEachWave: 0.5
+      ID: 10
+      UI:
+        spr: {fileID: 21300000, guid: 4548910c87687d641a81a4b2580c1732, type: 3}
+        name: Mine
+        description: 
+        scale: 1
+      coinGifted: 10
+    - speed:
+        init_stat: 22.5
+        percentUpEachWave: 0
+      damage:
+        init_stat: 24
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 750
+        percentUpEachWave: 0.1
+      ID: 13
+      UI:
+        spr: {fileID: 21300000, guid: 042696bb3ee90c64db7e11dcad4750c5, type: 3}
+        name: Bloody Bat
+        description: 
+        scale: 1.2
+      coinGifted: 13
+    - speed:
+        init_stat: 11.25
+        percentUpEachWave: 0
+      damage:
+        init_stat: 80
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 1500
+        percentUpEachWave: 0.1
+      ID: 11
+      UI:
+        spr: {fileID: 21300000, guid: 1fca3e76d02151a4e8a96069730aae2b, type: 3}
+        name: Trap Chest
+        description: 
+        scale: 1.2
+      coinGifted: 11
+    - speed:
+        init_stat: 6.75
+        percentUpEachWave: 0
+      damage:
+        init_stat: 120
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 2000
+        percentUpEachWave: 0.1
+      ID: 12
+      UI:
+        spr: {fileID: 21300000, guid: b5262333a03087e4da0a0ccec07e04c8, type: 3}
+        name: Evil Scopion
+        description: 
+        scale: 1.5
+      coinGifted: 12
+    - speed:
+        init_stat: 8.4375
+        percentUpEachWave: 0
+      damage:
+        init_stat: 200
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 32000
+        percentUpEachWave: 0.1
+      ID: 20
+      UI:
+        spr: {fileID: 21300000, guid: 5f26d575aa9900a4fa7c089458f412af, type: 3}
+        name: Skeleton
+        description: 
+        scale: 2
+      coinGifted: 20
+    - speed:
+        init_stat: 8.4375
+        percentUpEachWave: 0
+      damage:
+        init_stat: 400
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 120000
+        percentUpEachWave: 0.1
+      ID: 23
+      UI:
+        spr: {fileID: 21300000, guid: 2e972054353f6f444a36567b0265d6c3, type: 3}
+        name: Cerberus
+        description: 
+        scale: 1
+      coinGifted: 23
+    FinalBossID: 12
+  - ID: 5
+    mapName: Cave Bones
+    waves:
+    - monsterRate:
+      - monsterID: 10
+        rate: 1
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.5
+      - monsterID: 11
+        rate: 0.5
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 20
+        rate: 1
+      length: 20
+      lengthSpawn: 0.5
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 20
+        rate: 1
+      length: 20
+      lengthSpawn: 0.5
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 23
+        rate: 1
+      length: 20
+      lengthSpawn: 0.5
+      intervalSpawn: 0.6
+    monsterConfig:
+    - speed:
+        init_stat: 11.25
+        percentUpEachWave: 0
+      damage:
+        init_stat: 80
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 2500
+        percentUpEachWave: 0.5
+      ID: 10
+      UI:
+        spr: {fileID: 21300000, guid: 57595593f7e633f45898e7245d191b9d, type: 3}
+        name: Poision Snake
+        description: 
+        scale: 1
+      coinGifted: 10
+    - speed:
+        init_stat: 22.5
+        percentUpEachWave: 0
+      damage:
+        init_stat: 48
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 1500
+        percentUpEachWave: 0.1
+      ID: 13
+      UI:
+        spr: {fileID: 21300000, guid: 235041ee676a0b542a144d53b3258742, type: 3}
+        name: Wolf
+        description: 
+        scale: 1.2
+      coinGifted: 13
+    - speed:
+        init_stat: 11.25
+        percentUpEachWave: 0
+      damage:
+        init_stat: 160
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 3000
+        percentUpEachWave: 0.1
+      ID: 11
+      UI:
+        spr: {fileID: 21300000, guid: 2da89c8f10ac6014aa665272456257b1, type: 3}
+        name: Bloody Bat
+        description: 
+        scale: 1.2
+      coinGifted: 11
+    - speed:
+        init_stat: 6.75
+        percentUpEachWave: 0
+      damage:
+        init_stat: 240
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 4000
+        percentUpEachWave: 0.1
+      ID: 12
+      UI:
+        spr: {fileID: 21300000, guid: 2030d35f256464c4b9ada876cb45fa67, type: 3}
+        name: Evil Scopion
+        description: 
+        scale: 1.5
+      coinGifted: 12
+    - speed:
+        init_stat: 8.4375
+        percentUpEachWave: 0
+      damage:
+        init_stat: 400
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 64000
+        percentUpEachWave: 0.1
+      ID: 20
+      UI:
+        spr: {fileID: 21300000, guid: 93295295a5ab2914686b5f6e56a75347, type: 3}
+        name: Skeleton
+        description: 
+        scale: 2
+      coinGifted: 20
+    - speed:
+        init_stat: 8.4375
+        percentUpEachWave: 0
+      damage:
+        init_stat: 800
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 240000
+        percentUpEachWave: 0.1
+      ID: 23
+      UI:
+        spr: {fileID: 21300000, guid: 10f6877a066d84f44ad07624e4b57951, type: 3}
+        name: Orge
+        description: 
+        scale: 1
+      coinGifted: 23
+    FinalBossID: 13
+  - ID: 6
+    mapName: Silent Expanse
+    waves:
+    - monsterRate:
+      - monsterID: 10
+        rate: 1
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.5
+      - monsterID: 11
+        rate: 0.5
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 20
+        rate: 1
+      length: 20
+      lengthSpawn: 0.5
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 20
+        rate: 1
+      length: 20
+      lengthSpawn: 0.5
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 23
+        rate: 1
+      length: 20
+      lengthSpawn: 0.5
+      intervalSpawn: 0.6
+    monsterConfig:
+    - speed:
+        init_stat: 11.25
+        percentUpEachWave: 0
+      damage:
+        init_stat: 160
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 5000
+        percentUpEachWave: 0.5
+      ID: 10
+      UI:
+        spr: {fileID: 21300000, guid: 6c8fd96ff0c91584596c9cc8141186ee, type: 3}
+        name: Poision Snake
+        description: 
+        scale: 1
+      coinGifted: 10
+    - speed:
+        init_stat: 22.5
+        percentUpEachWave: 0
+      damage:
+        init_stat: 96
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 3000
+        percentUpEachWave: 0.1
+      ID: 13
+      UI:
+        spr: {fileID: 21300000, guid: 41009c96b7ecc5145a5ef3bfb68c1d04, type: 3}
+        name: Dark Beetle
+        description: 
+        scale: 1.2
+      coinGifted: 13
+    - speed:
+        init_stat: 11.25
+        percentUpEachWave: 0
+      damage:
+        init_stat: 320
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 6000
+        percentUpEachWave: 0.1
+      ID: 11
+      UI:
+        spr: {fileID: 21300000, guid: 5f142e5971a1e1a47ab40307e1efe011, type: 3}
+        name: Evil Egg
+        description: 
+        scale: 1.2
+      coinGifted: 11
+    - speed:
+        init_stat: 6.75
+        percentUpEachWave: 0
+      damage:
+        init_stat: 480
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 8000
+        percentUpEachWave: 0.1
+      ID: 12
+      UI:
+        spr: {fileID: 21300000, guid: 3d447fe9a855cc74e9caa35eb2aa1a95, type: 3}
+        name: ManEater
+        description: 
+        scale: 1.5
+      coinGifted: 12
+    - speed:
+        init_stat: 8.4375
+        percentUpEachWave: 0
+      damage:
+        init_stat: 800
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 128000
+        percentUpEachWave: 0.1
+      ID: 20
+      UI:
+        spr: {fileID: 21300000, guid: f581c0dbea51f02448691caaceb0ca96, type: 3}
+        name: Forest Soul
+        description: 
+        scale: 2
+      coinGifted: 20
+    - speed:
+        init_stat: 8.4375
+        percentUpEachWave: 0
+      damage:
+        init_stat: 1600
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 480000
+        percentUpEachWave: 0.1
+      ID: 23
+      UI:
+        spr: {fileID: 21300000, guid: e233aa874c445a34aaeabbddf883daeb, type: 3}
+        name: The Dark Knight
+        description: 
+        scale: 1
+      coinGifted: 23
+    FinalBossID: 14
+  - ID: 7
+    mapName: Evil Doom
+    waves:
+    - monsterRate:
+      - monsterID: 10
+        rate: 1
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.5
+      - monsterID: 11
+        rate: 0.5
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 20
+        rate: 1
+      length: 20
+      lengthSpawn: 0.5
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 20
+        rate: 1
+      length: 20
+      lengthSpawn: 0.5
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 23
+        rate: 1
+      length: 20
+      lengthSpawn: 0.5
+      intervalSpawn: 0.6
+    monsterConfig:
+    - speed:
+        init_stat: 11.25
+        percentUpEachWave: 0
+      damage:
+        init_stat: 320
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 10000
+        percentUpEachWave: 0.5
+      ID: 10
+      UI:
+        spr: {fileID: 21300000, guid: c8b83fcbb425c82429e9189226386aa8, type: 3}
+        name: Trap Chest
+        description: 
+        scale: 1
+      coinGifted: 10
+    - speed:
+        init_stat: 22.5
+        percentUpEachWave: 0
+      damage:
+        init_stat: 192
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 6000
+        percentUpEachWave: 0.1
+      ID: 13
+      UI:
+        spr: {fileID: 21300000, guid: 15ca78ca3d690f746ae614c0e3ba4420, type: 3}
+        name: Vampire
+        description: 
+        scale: 1.2
+      coinGifted: 13
+    - speed:
+        init_stat: 11.25
+        percentUpEachWave: 0
+      damage:
+        init_stat: 640
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 12000
+        percentUpEachWave: 0.1
+      ID: 11
+      UI:
+        spr: {fileID: 21300000, guid: 6c5c8b84e97cfb548b4889e2f3406b1e, type: 3}
+        name: Skeleton
+        description: 
+        scale: 1.2
+      coinGifted: 11
+    - speed:
+        init_stat: 6.75
+        percentUpEachWave: 0
+      damage:
+        init_stat: 960
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 16000
+        percentUpEachWave: 0.1
+      ID: 12
+      UI:
+        spr: {fileID: 21300000, guid: ac562444a7da549459d900a45a1288d1, type: 3}
+        name: Jack-o-Lantern
+        description: 
+        scale: 1.5
+      coinGifted: 12
+    - speed:
+        init_stat: 8.4375
+        percentUpEachWave: 0
+      damage:
+        init_stat: 1600
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 256000
+        percentUpEachWave: 0.1
+      ID: 20
+      UI:
+        spr: {fileID: 21300000, guid: 2184ea7299d391a4ca46e7fe50e250ef, type: 3}
+        name: Org
+        description: 
+        scale: 2
+      coinGifted: 20
+    - speed:
+        init_stat: 8.4375
+        percentUpEachWave: 0
+      damage:
+        init_stat: 3200
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 960000
+        percentUpEachWave: 0.1
+      ID: 23
+      UI:
+        spr: {fileID: 21300000, guid: 6fa81ac300cbd164f8317e858d7801ed, type: 3}
+        name: Orge
+        description: 
+        scale: 1
+      coinGifted: 23
+    FinalBossID: 13
+  - ID: 8
+    mapName: Death Capital
+    waves:
+    - monsterRate:
+      - monsterID: 10
+        rate: 1
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.5
+      - monsterID: 11
+        rate: 0.5
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1.2
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 1
+    - monsterRate:
+      - monsterID: 20
+        rate: 1
+      length: 20
+      lengthSpawn: 0.5
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.8
+    - monsterRate:
+      - monsterID: 20
+        rate: 1
+      length: 20
+      lengthSpawn: 0.5
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 10
+        rate: 0.33333334
+      - monsterID: 11
+        rate: 0.33333334
+      - monsterID: 12
+        rate: 0.33333334
+      length: 20
+      lengthSpawn: 15
+      intervalSpawn: 0.6
+    - monsterRate:
+      - monsterID: 23
+        rate: 1
+      length: 20
+      lengthSpawn: 0.5
+      intervalSpawn: 0.6
+    monsterConfig:
+    - speed:
+        init_stat: 11.25
+        percentUpEachWave: 0
+      damage:
+        init_stat: 640
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 20000
+        percentUpEachWave: 0.5
+      ID: 10
+      UI:
+        spr: {fileID: 21300000, guid: 37bab7a0480b7dd4ca11a34f7832fd33, type: 3}
+        name: Evil Knight
+        description: 
+        scale: 1
+      coinGifted: 10
+    - speed:
+        init_stat: 22.5
+        percentUpEachWave: 0
+      damage:
+        init_stat: 384
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 12000
+        percentUpEachWave: 0.1
+      ID: 13
+      UI:
+        spr: {fileID: 21300000, guid: 7fe6b75f3c2161f4184cee6bc74ca512, type: 3}
+        name: Chase Ghost
+        description: 
+        scale: 1.2
+      coinGifted: 13
+    - speed:
+        init_stat: 11.25
+        percentUpEachWave: 0
+      damage:
+        init_stat: 1280
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 24000
+        percentUpEachWave: 0.1
+      ID: 11
+      UI:
+        spr: {fileID: 21300000, guid: 0abe117f2a646a048bbc9cb8c83159df, type: 3}
+        name: Ghoul
+        description: 
+        scale: 1.2
+      coinGifted: 11
+    - speed:
+        init_stat: 6.75
+        percentUpEachWave: 0
+      damage:
+        init_stat: 1920
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 32000
+        percentUpEachWave: 0.1
+      ID: 12
+      UI:
+        spr: {fileID: 21300000, guid: cb9d6f9f081d21c4b9e0d2753d2e6259, type: 3}
+        name: Demon
+        description: 
+        scale: 1.5
+      coinGifted: 12
+    - speed:
+        init_stat: 8.4375
+        percentUpEachWave: 0
+      damage:
+        init_stat: 3200
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 512000
+        percentUpEachWave: 0.1
+      ID: 20
+      UI:
+        spr: {fileID: 21300000, guid: 73c10ee246ac65b43af3fb321a5b13f7, type: 3}
+        name: Shaman
+        description: 
+        scale: 2
+      coinGifted: 20
+    - speed:
+        init_stat: 8.4375
+        percentUpEachWave: 0
+      damage:
+        init_stat: 6400
+        percentUpEachWave: 0.025
+      hp:
+        init_stat: 1920000
+        percentUpEachWave: 0.1
+      ID: 23
+      UI:
+        spr: {fileID: 21300000, guid: 942fc76b63b2b994b90c9adf286482dd, type: 3}
+        name: The Dark Knight
+        description: 
+        scale: 1
+      coinGifted: 23
+    FinalBossID: 14

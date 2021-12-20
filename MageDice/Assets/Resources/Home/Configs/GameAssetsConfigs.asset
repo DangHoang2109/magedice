@@ -73,7 +73,7 @@ MonoBehaviour:
       - {fileID: 21300000, guid: c48f5b44afaf4bc4591d2d037f6ee3c0, type: 3}
       - {fileID: 21300000, guid: 9fe6b8aa02b18054d9384f41f341a4d5, type: 3}
       sprMask: {fileID: 21300000, guid: 910cd063dc62e864588445d112f0a6fc, type: 3}
-      colorRoom: {r: 0.6792453, g: 0.16796584, b: 0.09291565, a: 1}
+      colorRoom: {r: 0.5162882, g: 0.11448912, b: 0.9056604, a: 1}
     - id: 8
       sprIcons:
       - {fileID: 21300000, guid: 3e80bfaac1711ad4a86ff2c22904210e, type: 3}
@@ -366,8 +366,8 @@ MonoBehaviour:
       colorText: {r: 0.2901961, g: 0.6666667, b: 0.9333334, a: 1}
     - id: 8
       rank: 2
-      name: Offline Earning
-      desciption: Offline Earning Increase
+      name: Coin Adventure Earning
+      desciption: Coin Adventure Increase
       sprIcon: {fileID: 21300000, guid: b25d61202c56bd946b45f7184aa98e9e, type: 3}
       sprBG: {fileID: 21300000, guid: c9bca9cf6827e8b4e8987ccbbd0e2037, type: 3}
       colorTitle: {r: 0.41960788, g: 0.31764707, b: 0.5176471, a: 1}
@@ -390,8 +390,8 @@ MonoBehaviour:
       colorText: {r: 0.76470596, g: 0.41176474, b: 0.98823535, a: 1}
     - id: 11
       rank: 2
-      name: Online Earning
-      desciption: Online Earning Increase
+      name: Cards Adventure Earning
+      desciption: Cards Adventure Earning Increase
       sprIcon: {fileID: 21300000, guid: 99caacaec8eebee448f000bf99f4acaf, type: 3}
       sprBG: {fileID: 21300000, guid: c9bca9cf6827e8b4e8987ccbbd0e2037, type: 3}
       colorTitle: {r: 0.41960788, g: 0.31764707, b: 0.5176471, a: 1}

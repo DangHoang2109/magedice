@@ -37,8 +37,6 @@ public class BaseDiceEffect
         {
             List<BaseMonsterBehavior> monsters = MonsterManager.Instance.GetNearestMonsters(amount);
 
-            Debug.Log($"{ID} Damage factor diceStat {diceStat.damageStrength} gamedot {GameConfig.damageMultiplier} booster {diceBoosterDamage}");
-
             if(monsters != null && monsters.Count > 0)
             {
                 List<BaseBullet> bullet = BulletPoolManager.Instance.GetBullets(monsters.Count);

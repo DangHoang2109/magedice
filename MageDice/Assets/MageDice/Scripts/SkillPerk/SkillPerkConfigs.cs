@@ -103,6 +103,7 @@ public class PerkID
 [System.Serializable]
 public class SkillPerkConfig
 {
+    public float rareRation;
     public int id;
     public float[] upgradeSteps;
 }

@@ -159,7 +159,7 @@ public class MonsterManager : MonoSingleton<MonsterManager>
         }
     }
 
-    
+
     public void StartWave()
     {
         WaveConfig wave = GamWaveController.Instance.GoNextWave();
@@ -170,7 +170,6 @@ public class MonsterManager : MonoSingleton<MonsterManager>
                 wave = wave,
                 startTime = Time.timeSinceLevelLoad
             };
-            //activeWave.Enqueue(waveUnit);
             if (GamWaveController.Instance.IsOutOfWave)
             {
                 this.SpawnABoss(GameWaveUnit);
@@ -272,7 +271,13 @@ public class MonsterManager : MonoSingleton<MonsterManager>
 
         monsterObj.Run();
     }
-
+    public void BossCallSpawnMonster(int amount)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            SpawnAMonster(GamWaveController.Instance.GetWave(GamWaveController.Instance.CurrentWave - 1).monsterRate);
+        }
+    }
     private void SetUpMonsterObject(WaveMonsterRateConfig pick, MonsterGameData config, BaseMonsterBehavior monsterObj)
     {
         (monsterObj.transform as RectTransform).pivot = new Vector2(0.5f, 0);
@@ -296,7 +301,9 @@ public class MonsterManager : MonoSingleton<MonsterManager>
 
             SetUpMonsterObject(boss, bossConfig, monsterObj);
 
-            monsterObj.SetSkill(System.Activator.CreateInstance(EnumUtility.GetStringType(this._map.FinalBossID)) as BossMonsterSkillHandler);
+            BossMonsterSkillHandler skillhandler = System.Activator.CreateInstance(EnumUtility.GetStringType(this._map.FinalBossID)) as BossMonsterSkillHandler;
+            skillhandler.Object = monsterObj;
+            monsterObj.SetSkill(skillhandler);
 
             monsterObj.Run();
         }

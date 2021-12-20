@@ -275,6 +275,25 @@ public class GameMapConfigs : ScriptableObject
 
     }
 
+    [ContextMenu("Config/SimulateOtherRoom")]
+    private void EditSimulateOtherRoom()
+    {
+        MapConfig green = maps.Find(x => x.ID == MapName.GREENLAND);
+
+        for (int i = 1; i < this.maps.Count; i++)
+        {
+            MapConfig map = maps[i];
+            MapConfig preMap = maps[i-1];
+
+            for (int j = 0; j < map.monsterConfig.Count; j++)
+            {
+                MonsterConfig m = map.monsterConfig[j];
+                m.damage.init_stat =  preMap.monsterConfig[j].damage.init_stat * 2;
+                m.hp.init_stat = preMap.monsterConfig[j].hp.init_stat * 2;
+            }
+
+        }
+    }
 #endif
 
     public List<MapConfig> maps;
@@ -290,8 +309,13 @@ public enum MapName
     CHEST = 0,
 
     GREENLAND = 1,
-    ICELAND = 2,
-    VOLCANO,
+    STORMDESERT = 2,
+    FORZENPINNACLE = 3,
+    CRYSTALMINE = 4,
+    CAVEBONE = 5,
+    SILENTEXPANSE = 6,
+    EVILDOOM = 7,
+    DEATHCAPITAL = 8,
 }
 [System.Serializable]
 public class MapUIConfig
@@ -376,6 +400,15 @@ public enum BossSkillHandler
 
     [Type(typeof(DragonBossSkillHandler))]
     DRAGON = 10,
+    [Type(typeof(SandManBossSkillHandler))]
+    SANDMAN = 11,
+    [Type(typeof(CerberusSBossSkillHandler))]
+    CERBERUS = 12,
+    [Type(typeof(OrgeBossSkillHandler))]
+    ORGE = 13,
+    [Type(typeof(DarkKnightBossSkillHandler))]
+    DARKKNIGHT = 14,
+
 }
 [System.Serializable]
 public class MonsterConfig : PersonConfig

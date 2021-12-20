@@ -87,7 +87,9 @@ public class EndGameStandardDialog : EndGameDialog
     protected override void OnAdsSuccess()
     {
         base.OnAdsSuccess();
+
         this.canvasRewardButton.alpha = 0;
+
         UserProfile.Instance.AddBooster(BoosterType.COIN, this._gameData.GetPrizes().Find(x => x.type == BoosterType.COIN).GetValue(), "Win_Game", LogSourceWhere.COIN_DOUBLE_WIN_GAME);
         this.bstCoinWin.ParseBooster(new BoosterCommodity(BoosterType.COIN, this._gameData.GetPrizes().Find(x => x.type == BoosterType.COIN).GetValue() * 2));
         FxHelper.Instance.ShowFxCollectBooster(BoosterType.COIN, this.gButtonX2Reward.transform, this.rewardPanel);

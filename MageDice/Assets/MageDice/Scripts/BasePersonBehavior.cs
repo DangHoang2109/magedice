@@ -42,7 +42,11 @@ public class BasePersonBehavior : MonoBehaviour
         this._currentHP += hp;
         this.HPBar.CurrentValue = _currentHP;
     }
-
+    public virtual void AddHPByPercent(float percentHP)
+    {
+        this._currentHP *= (1f + percentHP);
+        this.HPBar.CurrentValue = _currentHP;
+    }
     public virtual bool IsDead()
     {
         return _currentHP <= 0;

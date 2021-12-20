@@ -22,12 +22,13 @@ public class GameBoardCollumn : MonoBehaviour
         }
     }
 
-    public void Active()
+    public void Active(int restrictActiveLineIndexOnly = -1)
     {
         this._isActivated = true;
         for (int i = 0; i < this.slots.Length; i++)
         {
-            this.slots[i].Active();
+            if(restrictActiveLineIndexOnly == -1 || i == restrictActiveLineIndexOnly)
+                this.slots[i].Active();
         }
     }
     private IEnumerator ieActiveCollumn()

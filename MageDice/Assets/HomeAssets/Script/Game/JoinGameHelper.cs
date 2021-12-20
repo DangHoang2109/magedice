@@ -130,8 +130,13 @@ public class JoinGameHelper : MonoSingleton<JoinGameHelper>
 
             UserProfile.Instance.AddBoosters(joinGame.GetPrizes(), string.Format("Tour_{0}", joinGame.roomConfig.id),
                 LogSourceWhere.COIN_WIN_GAME);
-            BagSlotDatas.Instance.CollectBag(joinGame.bagReward, $"Tour {joinGame.roomConfig.id}", "Win_Game",
-                string.Format("Tour_{0}", joinGame.roomConfig.id));
+
+            if(joinGame.bagReward != null)
+                BagSlotDatas.Instance.CollectBag(joinGame.bagReward, $"Tour {joinGame.roomConfig.id}", "Win_Game",
+                    string.Format("Tour_{0}", joinGame.roomConfig.id));
+
+            BattlepassDatas.Instance.DoStepWinGame(joinGame.waveCompleted);
+            HomeTabs.isShowPass = joinGame.waveCompleted > 0;
         }
     }
     public void BackHomeScene()
@@ -270,6 +275,7 @@ public class JoinGameStandardDatas : JoinGameDatas
     public bool IsNewUser;
 
     public List<BoosterCommodity> prizes;
+    public int waveCompleted;
 
     /// <summary>
     /// only use this for join pratice
@@ -309,6 +315,8 @@ public class JoinGameStandardDatas : JoinGameDatas
         }
         else
             this.bagReward = null;
+
+        this.waveCompleted = waveComplete;
     }
     public List<BoosterCommodity> GetPrizes()
     {

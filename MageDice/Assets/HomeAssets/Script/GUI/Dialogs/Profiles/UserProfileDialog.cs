@@ -11,5 +11,14 @@ public class UserProfileDialog : BaseSortingDialog
         base.OnShow(data, callback);
         this.tabBase.Init();
     }
-    
+    protected override void OnCompleteShow()
+    {
+        base.OnCompleteShow();
+
+        if (data != null)
+        {
+            int indexShow = (int)data;
+            this.tabBase.ChangeTab(indexShow);
+        }
+    }
 }

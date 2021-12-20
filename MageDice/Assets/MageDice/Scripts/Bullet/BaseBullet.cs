@@ -64,7 +64,7 @@ public class BaseBullet : MonoBehaviour
     /// <summary>
     /// Will be called by bullet manager
     /// </summary>
-    public void CustomUpdate()
+    public void OnFlying(float speedPercent = 1f)
     {
         if (isFlying && this.Enemy != null)
         {
@@ -77,7 +77,7 @@ public class BaseBullet : MonoBehaviour
 //                UnityEditor.EditorApplication.isPaused = true;
 //#endif      
             }
-                transform.position = Vector3.MoveTowards(transform.position, Enemy.transform.position, _speed * 40 * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, Enemy.transform.position, _speed * 40 * Time.deltaTime * speedPercent);
             if (GameUtils.IsNear(transform.position, Enemy.transform.position, 20)) //pixel
             {
                 Hitted();

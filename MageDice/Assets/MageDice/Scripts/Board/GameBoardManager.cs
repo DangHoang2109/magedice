@@ -188,8 +188,8 @@ public class GameBoardManager : MonoSingleton<GameBoardManager>
     {
         DiceID id = diceReplace.Data.id;
 
-        this.dicCallbackBoosterUpdate[id].AddListener(diceReplace.Data.onChangeDiceBoosterPercent);
-        this.dicCallbackBoosterUpdate[id].AddListener(diceReturn.Data.onChangeDiceBoosterPercent);
+        this.dicCallbackBoosterUpdate[id].RemoveListener(diceReplace.Data.onChangeDiceBoosterPercent);
+        this.dicCallbackBoosterUpdate[id].RemoveListener(diceReturn.Data.onChangeDiceBoosterPercent);
 
         diceReplace.Data.OnMerged();
         diceReturn.Data.OnMerged();
@@ -225,6 +225,32 @@ public class GameBoardManager : MonoSingleton<GameBoardManager>
             }
         }));
     }
+
+    public void OnRestrictOneLineOnly(int indexActive, float time)
+    {
+        this.ActiveLine.OnRestrictOneLineOnly(indexActive, time);
+    }
+
+    public void DestroyDice(int amount)
+    {
+        if(amount > 0)
+        {
+            List<GameBoardSlot> slots = this.Slots.Where(x => x.IsPlacing).QueryRandom(amount).ToList();
+            for (int i = 0; i < slots.Count; i++)
+            {
+                GameDiceItem diceDestroy = slots[i].item;
+                DiceID id = diceDestroy.Data.id;
+
+                this.dicCallbackBoosterUpdate[id].RemoveListener(diceDestroy.Data.onChangeDiceBoosterPercent);
+                diceDestroy.UnPlace();
+                Destroy(diceDestroy.gameObject);
+
+                boosterDeck.OnDotChange(id, TotalDotOfID(id));
+            }
+        }
+    }
+
+
     private IEnumerator ieWait(float time, System.Action callback)
     {
         if (time <= 0)

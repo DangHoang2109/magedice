@@ -23,7 +23,7 @@ public class AvatarIcon : BaseIcon
     public override void OnClickIcon()
     {
         Debug.LogError("Click avatar");
-        UserProfileDialog userPorfile = GameManager.Instance.OnShowDialogWithSorting<UserProfileDialog>("Home/GUI/Dialogs/Profiles/UserProfileDialog", PopupSortingType.OnTopBar);
+        UserProfileDialog userPorfile = GameManager.Instance.OnShowDialogWithSorting<UserProfileDialog>("Home/GUI/UserProfile/UserProfileDialog", PopupSortingType.OnTopBar);
         userPorfile.OnClosed += LoadUserAvatar;
         base.OnClickIcon();
     }
