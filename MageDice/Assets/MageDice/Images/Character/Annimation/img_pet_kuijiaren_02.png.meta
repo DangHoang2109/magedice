@@ -47,6 +47,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -78,9 +80,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -300,6 +305,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      img_pet_kuijiaren_02_2: -6849911203934683649
+      img_pet_kuijiaren_02_5: 1396643442112755641
+      img_pet_kuijiaren_02_1: -6525199560980529281
+      img_pet_kuijiaren_02_0: -3075094207224527616
+      img_pet_kuijiaren_02_7: 6196777631589826394
+      img_pet_kuijiaren_02_4: 6666437235225894555
+      img_pet_kuijiaren_02_6: -5461753493980442359
+      img_pet_kuijiaren_02_3: -6117391686244871183
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
